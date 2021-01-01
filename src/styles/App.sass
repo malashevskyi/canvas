@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+@import '_var.sass'
+@import '_base.sass'
+@import '_media.sass'
+
+$topBarH: 50px
+$navBarWidth: 250px
+$border: 3px solid rgba(0, 0, 0, 0.2)
+$grey: #e9ecef
+$grey2: #ced4da
+$blue: #23a6d5
+
+@keyframes gradient 
+  0% 
+    background-position: 0% 50%
+  50% 
+    background-position: 100% 50%
+  100% 
+    background-position: 0% 50%
+
+canvas
+  display: block
+  margin: auto
+
+.container
+  display: flex
+  overflow: hidden
+  position: relative
+  flex-direction: column
+  height: 100vh
+
+.navbar
+  border-right: $border
+  position: absolute
+  top: 50px
+  left: 0
+  z-index: 1
+  transform: translate3d(-100%, 0)
+  transform: translate(-100%, 0)
+  transition-duration: .4s
+  height: calc(100vh - 50px)
+  background-color: #fff
+  width: 100%
+  max-width: 250px
+  overflow: hidden
+  will-change: transform
+  &.open
+    transform: translate3d(0, 0)
+    transform: translate(0, 0)
+  &--inner
+    padding: 0 5px
+    background-color: #fff
+    height: calc(100vh - 50px)
+    display: flex
+    flex-direction: column
+    position: relative
+
+.navbar-search
+  position: relative
+  margin: 5px 0 10px
+  min-height: 40px
+  input
+    width: 100%
+    padding: 0 10px
+    height: 100%
+    border: 1px solid $grey2
+    outline: none
+    position: relative
+    z-index: 2
+    border-radius: 2px
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    &:focus
+      border-color: $blue
+      box-shadow: 0 0 0 3px rgba(0,123,255,.25)
+
+.navbar-menu
+  height: 100%
+  &--list
+    overflow-y: auto
+    overflow-x: hidden
+    height: calc(100% - 60px)
+    position: relative
+  time
+    position: absolute
+    bottom: 0
+    right: 0
+    background-color: $grey
+    z-index: 1
+    height: 20px
+    padding: 0 5px
+    font-size: 14px
+    display: block
+    transform: translate(0, 0)
+    transition: transform .2s ease
+    will-change: transform
+    display: flex
+    align-items: center
+
+  &--title
+    position: absolute
+    left: 0
+    top: 0
+    padding: 7px
+    background-color: $grey
+    z-index: 2
+    box-sizing: border-box
+    &::before 
+      content: ''
+      position: absolute
+      top: 0
+      left: -25px
+      width: 100%
+      height: 100%
+      z-index: -1
+      background: $blue
+    &::after 
+      content: ''
+      position: absolute
+      top: 0
+      left: 0px
+      width: 100%
+      z-index: -1
+      height: 100%
+      background-color: #fff
+      border: 1px solid $blue
+  &--item
+    margin-bottom: 5px
+    position: relative
+    border-radius: 5px
+    background-color: #fff
+    transform: translate(0, 0)
+    transition: transform .2s ease
+    will-change: transform
+    &.active
+      transform: translate(25px, 0)
+      transition: transform .3s ease
+      time
+        transform: translate(-25px, 0)
+        transition: transform .3s ease
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 15px
+  height: 50px
+  max-height: 50px
+  min-height: 50px
+  border-bottom: $border
+  z-index: 1
+  position: relative
+  flex-basis: 50px
+  width: 100vw
+
+.title a
+  font-size: 18px
+  padding: 10px 10px 10px 0
+
+.hamb
+  cursor: pointer
+  position: relative
+  top: 0px
+  right: 0px
+  &--bar
+    width: 35px
+    height: 5px
+    background-color: $base_color
+    margin: 6px 0
+    transition: 0.4s
+    border-radius: 3px
+  &.open
+    .hamb--bar
+      &:nth-child(1)
+        transform: rotate(-45deg) translate(-8px, 7px)
+      &:nth-child(2)
+        opacity: 0
+      &:nth-child(3)
+        transform: rotate(45deg) translate(-8px, -8px)
+
+.image
+  width: 100%
+  height: 120px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.4)
+    z-index: 1
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+
++minW(768)
+  .hamb
+    display: none
+  .title a
+    font-size: 25px
+  .container
+    flex-direction: row
+  .header
+    width: 250px
+    max-width: 250px
+    flex-grow: 1
+    border-bottom: 0
+    border-right: $border
+  .navbar-menu--title
+    font-size: 22px
+  canvas
+    max-width: calc(100% - 250px)
+    max-height: 100vh !important
+  .navbar
+    transform: translate(0, 0)
+    transition-duration: 0s
++minW(1500)
+  .header
+    width: 300px
+    max-width: 300px
+  canvas
+    max-width: calc(100% - 300px)
+  .navbar
+    max-width: 300px

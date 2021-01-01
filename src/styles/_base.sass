@@ -1,0 +1,192 @@
+@-ms-viewport 
+  width: device-width
+pre
+  font-family: monospace, monospace
+a
+  background-color: transparent
+  -webkit-text-decoration-skip: objects
+b,
+strong
+  font-weight: inherit
+  font-weight: bold
+mark
+  background-color: #ff0
+  color: #000
+small
+  font-size: 80%
+audio, video, canvas
+  display: inline-block
+audio:not([controls])
+  display: none
+  height: 0
+img
+  border-style: none
+svg:not(:root)
+  overflow: hidden
+button, html [type="button"], [type="reset"], [type="submit"]
+  -webkit-appearance: button
+  cursor: pointer
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner
+  border-style: none
+  padding: 0
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring
+  outline: 1px dotted ButtonText
+button::-moz-focus-inner
+  border: 0
+  padding: 0
+button[disabled], html input[disabled]
+  cursor: default
+button
+  text-transform: none
+textarea
+  overflow: auto
+button, input, textarea
+  margin: 0
+input
+  line-height: normal
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+[type="checkbox"], [type="radio"]
+  box-sizing: border-box
+  padding: 0
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button
+  height: auto
+[type="search"]
+  -webkit-appearance: textfield
+  outline-offset: -2px
+  box-sizing: content-box
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration
+  -webkit-appearance: none
+[hidden]
+  display: none
+::-webkit-file-upload-button
+  -webkit-appearance: button
+  font: inherit
+input, textarea
+  // border-radius: 0 !important
+  // border-top-left-radius: 0 !important
+  // border-top-right-radius: 0 !important
+  // border-bottom-right-radius: 0 !important
+  // border-bottom-left-radius: 0 !important
+input, button, select, textarea
+  font-family: inherit
+  font-size: inherit
+  line-height: inherit
+  overflow: auto
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, img, strong, ol, ul, li, form, label, article, aside, canvas, footer, header, nav, section, time, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  vertical-align: baseline
+article, aside, footer, header, nav, section
+  display: block
+html
+  line-height: 1.15
+  font-size: 10px
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+  font-family: sans-serif
+  box-sizing: border-box
+  -ms-overflow-style: scrollbar
+hr
+  box-sizing: content-box
+  height: 0
+  overflow: visible
+ol, ul
+  list-style: none
+blockquote, q
+  quotes: none
+blockquote:before, blockquote:after,
+q::before, q::after
+  content: ''
+  content: none
+*,
+*::before,
+*::after
+  box-sizing: border-box
+select
+  text-transform: none
+body
+  font-family: $base_font_family, Helvetica, Tahoma, Arial, sans-serif
+  font-size: $base_font_size
+  line-height: $base_line_height
+  color: $base_color
+  background-color: $bodyBgColor
+  margin: 0
+  min-width: 320px
+  opacity: 1
+  font-weight: 400
+  position: relative
+.page-wrap
+  overflow-x: hidden
+  width: 100%
+a
+  text-decoration: none
+  background-color: transparent
+  cursor: pointer
+  color: $linkColor
+  &:active, &:hover
+    outline: 0
+strong
+  font-weight: bold
+img
+  border: 0
+// hr
+//   box-sizing: content-box
+//   height: 0
+//   border: 0
+//   border-top: 1px solid #eee
+*::-webkit-input-placeholder,
+  color: #aaa9a9
+  line-height: 38px
+  font-size: 16px
+  font-family: $placeholderFontFamily
+  font-weight: $placeholderFontWeight
+  text-transform: $placeholderTextTransform
+*:-ms-input-placeholder,
+  color: #aaa9a9
+  line-height: 38px
+  font-size: 16px
+  font-family: $placeholderFontFamily
+  font-weight: $placeholderFontWeight
+  text-transform: $placeholderTextTransform
+*::-moz-placeholder
+  color: #aaa9a9
+  line-height: 38px
+  font-size: 16px
+  font-family: $placeholderFontFamily
+  font-weight: $placeholderFontWeight
+  text-transform: $placeholderTextTransform
+*:-moz-placeholder
+  color: #aaa9a9
+  line-height: 38px
+  font-size: 16px
+  font-family: $placeholderFontFamily
+  font-weight: $placeholderFontWeight
+  text-transform: $placeholderTextTransform
+// .ios-browser,
+// .macos
+//   *::-webkit-input-placeholder,
+//     line-height: 20px
+//   *:-ms-input-placeholder,
+//     line-height: 20px
+//   *::-moz-placeholder
+//     line-height: 20px
+//   *:-moz-placeholder
+//     line-height: 20px
+.before
+  position: absolute
+  content: ''
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+ul
+  padding: 0
+  margin: 0
+  list-style: none
+// p
+//   margin: 0
+//   line-height: 1.55
