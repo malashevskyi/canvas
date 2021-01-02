@@ -1,5 +1,6 @@
 import './styles/App.sass';
 import React, { useCallback, useState } from 'react';
+import ReactNotification from 'react-notifications-component'
 
 import * as canvas from './canvas';
 import Header from './components/header';
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="container">
+      <ReactNotification />
       <MenuIsOpenProvider>
         <Header />
         <Navbar

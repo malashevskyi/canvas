@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Preview = ({ name }) => {
-  const logoSrc = `https://fir-images-fad02.web.app/${name.toLowerCase()}.jpeg`;
+  const logoSrc = `https://fir-images-fad02.web.app/${name}.png`;
   return (
     <div className="image">
       <img src={logoSrc} alt={name} />

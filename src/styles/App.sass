@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+@import 'react-notifications-component/dist/theme.css'
 @import '_var.sass'
 @import '_base.sass'
 @import '_media.sass'
@@ -10,24 +11,42 @@ $grey: #e9ecef
 $grey2: #ced4da
 $blue: #23a6d5
 
-@keyframes gradient 
-  0% 
-    background-position: 0% 50%
-  50% 
-    background-position: 100% 50%
-  100% 
-    background-position: 0% 50%
+@keyframes flipInY
+  0%
+    transform: perspective(400px) rotateY(90deg)
+    animation-timing-function: ease-in
+    opacity: 0
+  40%
+    transform: perspective(400px) rotateY(-20deg)
+    animation-timing-function: ease-in
+  60%
+    transform: perspective(400px) rotateY(10deg)
+    opacity: 1
+  80%
+    transform: perspective(400px) rotateY(-5deg)
+  to
+    transform: perspective(400px)
 
-canvas
+.flipInY
+  backface-visibility: visible !important
+  animation-name: flipInY
+.animated
+  animation-duration: 1s
+  animation-fill-mode: both
+
+
+.dg.ac
+  z-index: 99 !important
+
+.container canvas,
+body > canvas
   display: block
   margin: auto
-
-.container
-  display: flex
-  overflow: hidden
-  position: relative
-  flex-direction: column
+  position: absolute
+  width: 100vw
   height: 100vh
+  left: 0
+  top: 0
 
 .navbar
   border-right: $border
@@ -83,7 +102,7 @@ canvas
   time
     position: absolute
     bottom: 0
-    right: 0
+    right: -1px
     background-color: $grey
     z-index: 1
     height: 20px
@@ -104,7 +123,7 @@ canvas
     background-color: $grey
     z-index: 2
     box-sizing: border-box
-    &::before 
+    &::before
       content: ''
       position: absolute
       top: 0
@@ -113,7 +132,7 @@ canvas
       height: 100%
       z-index: -1
       background: $blue
-    &::after 
+    &::after
       content: ''
       position: absolute
       top: 0
@@ -131,30 +150,44 @@ canvas
     transform: translate(0, 0)
     transition: transform .2s ease
     will-change: transform
+    &::before
+      content: ''
+      width: calc(100% + 30px)
+      height: 100%
+      position: absolute
+      left: -30px
+      top: 0
+      background-color: #000
+      z-index: 3
+      display: none
+      opacity: 0
     &.active
       transform: translate(25px, 0)
       transition: transform .3s ease
+      &::before
+        display: block
       time
         transform: translate(-25px, 0)
         transition: transform .3s ease
 
 .header
   display: flex
-  justify-content: space-between
   align-items: center
+  background: #fff
   padding: 0 15px
   height: 50px
   max-height: 50px
   min-height: 50px
   border-bottom: $border
   z-index: 1
-  position: relative
-  flex-basis: 50px
+  position: absolute
+  top: 0
+  left: 0
   width: 100vw
 
 .title a
   font-size: 18px
-  padding: 10px 10px 10px 0
+  padding: 10px 10px 10px 20px
 
 .hamb
   cursor: pointer
@@ -163,7 +196,7 @@ canvas
   right: 0px
   &--bar
     width: 35px
-    height: 5px
+    height: 4px
     background-color: $base_color
     margin: 6px 0
     transition: 0.4s
@@ -171,11 +204,11 @@ canvas
   &.open
     .hamb--bar
       &:nth-child(1)
-        transform: rotate(-45deg) translate(-8px, 7px)
+        transform: rotate(-45deg) translate(-7px, 6px)
       &:nth-child(2)
         opacity: 0
       &:nth-child(3)
-        transform: rotate(45deg) translate(-8px, -8px)
+        transform: rotate(45deg) translate(-8px, -7px)
 
 .image
   width: 100%
@@ -195,33 +228,11 @@ canvas
     height: 100%
     object-fit: cover
 
-
 +minW(768)
-  .hamb
-    display: none
   .title a
     font-size: 25px
-  .container
-    flex-direction: row
-  .header
-    width: 250px
-    max-width: 250px
-    flex-grow: 1
-    border-bottom: 0
-    border-right: $border
   .navbar-menu--title
     font-size: 22px
-  canvas
-    max-width: calc(100% - 250px)
-    max-height: 100vh !important
-  .navbar
-    transform: translate(0, 0)
-    transition-duration: 0s
 +minW(1500)
-  .header
-    width: 300px
-    max-width: 300px
-  canvas
-    max-width: calc(100% - 300px)
   .navbar
     max-width: 300px

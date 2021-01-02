@@ -1,9 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 const Routes = ({ allCanvasNames, canvas }) => {
-  const canvasRef = useRef();
-  
   return (
     <Switch>
       {allCanvasNames.map((name) => {
@@ -11,8 +9,7 @@ const Routes = ({ allCanvasNames, canvas }) => {
 
         return (
           <Route key={name} path={`/${name}`} exact>
-            <Canvas ref={canvasRef} />
-            <canvas ref={canvasRef}></canvas>
+            <Canvas />
           </Route>
         );
       })}

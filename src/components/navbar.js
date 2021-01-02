@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -7,16 +7,13 @@ import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 
 const postDates = {
-  Test: '2021-01-01'
+  Test: '2021-01-01',
 };
 
 const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useContext(MenuIsOpenContext);
+  const [isOpen] = useContext(MenuIsOpenContext);
 
-  useEffect(() => {
-    console.log('Navbar is Open', isOpen);
-  });
   return (
     <div
       className={classNames({
@@ -28,7 +25,7 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
         <Search onEnteredFilter={onEnteredFilter} />
         <nav className="navbar-menu">
           <ul className="navbar-menu--list">
-            {filteredCanvasNames.map(name => {
+            {filteredCanvasNames.map((name) => {
               return (
                 <li
                   className={classNames({
@@ -36,7 +33,7 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
                     active: location.pathname === `/${name}`,
                   })}
                   key={name}
-                  onClick={() => setIsOpen(false)}
+                  // onClick={() => setIsOpen(false)}
                 >
                   <Link to={name}>
                     <h2 className="navbar-menu--title">{name}</h2>
