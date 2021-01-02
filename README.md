@@ -7,7 +7,7 @@ But if you want to try it:
 ```
 - clone
 - npm install
-- canvas-sketch animation-name
+- npm start
 ```
 Here I put some resource links.
 
