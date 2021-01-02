@@ -7,7 +7,7 @@ import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 
 const postDates = {
-  Test: '2021-01-01',
+  Firework: '2021-01-02',
 };
 
 const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {

@@ -1,1 +1,1 @@
-// export { default as Firework } from './test';
+export { default as Firework } from './firework';
