@@ -37,6 +37,8 @@ $blue: #23a6d5
 
 .dg.ac
   z-index: 99 !important
+.dg
+  position: relative !important
 
 .container canvas,
 body > canvas
@@ -123,6 +125,7 @@ body > canvas
     background-color: $grey
     z-index: 2
     box-sizing: border-box
+    font-weight: normal
     &::before
       content: ''
       position: absolute
@@ -231,8 +234,6 @@ body > canvas
 +minW(768)
   .title a
     font-size: 25px
-  .navbar-menu--title
-    font-size: 22px
 +minW(1500)
   .navbar
     max-width: 300px

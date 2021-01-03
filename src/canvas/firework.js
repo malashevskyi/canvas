@@ -3,10 +3,10 @@ import setSketch from '../utils/setSketch';
 import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
-import * as dat from 'dat.gui';
 
 import { debounceNotification } from '../utils/debounce'  
 import { debounceInterval } from '../utils/debounce'
+import getGui from '../utils/getGui';
 
 const sketch = () => {
   debounceNotification()
@@ -82,18 +82,16 @@ const sketch = () => {
     }
   }
 
-  function loadGui() {
-    window.gui?.destroy()
-    window.gui = new dat.GUI();
-    window.gui.width = 320
+  const gui = (gui) => {
+    gui.width = 320
     let opt = {
       clear: () => {
         clearInterval(window.interval)
       },
       thickness: 43
     }
-    window.gui.add(opt, 'clear').name('Click to clear interval')
-  }
+    gui.add(opt, 'clear').name('Click to clear interval')
+  };
   
   return (props) => {
     ({ width, height } = props);
@@ -101,7 +99,7 @@ const sketch = () => {
     if (!context) {
       ({ context, context: { canvas } } = props);
 
-      loadGui();
+      getGui(gui);
 
       context.clearRect(0, 0, canvas.width, canvas.height);
 
