@@ -43,6 +43,10 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`https://www.kirupa.com/canvas/index.htm`](https://www.kirupa.com/canvas/index.htm)
 - [`WebGL, GLSL guide + examples`](https://webglsamples.org/google-io/2011/index.html)
 
+## Images, textures
+- [`https://freepbr.com/`](https://freepbr.com/)
+- [`google equirectangular images`](https://www.google.com/search?q=equirectangular+images&tbm=isch&ved=2ahUKEwialqrCyIDuAhUI_hoKHRZvC2gQ2-cCegQIABAA&oq=equirectangular+images&gs_lcp=CgNpbWcQA1CsbFjsbWC9b2gAcAB4AIAB9QKIAfUCkgEDMy0xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=KSTyX9rdH4j8a5bercAG&bih=1276&biw=2560#imgrc=Nlw8VvEHmTpjNM)
+
 ## History of animation (with related links):
 - ParticlesMoveInACircle - 21-01-03 - [`malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
 - Firework - 21-01-02 - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework) </br> [`https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s`](https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s)
