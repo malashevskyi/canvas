@@ -5,7 +5,7 @@ function debounce({message, title, type}) {
   return () => {
     clearTimeout(timeout);
 
-    window.notificationIds.map((id) => {
+    window.notificationIds.forEach((id) => {
       store.removeNotification(id);
     });
 
@@ -27,7 +27,7 @@ function debounce({message, title, type}) {
   }
 }
 
-export function debounce2() {
+function debounce2() {
   function clear() {
     clearInterval(window.interval)
   }
@@ -39,7 +39,6 @@ export function debounce2() {
   return (func, delay) => {
     // Clear previous intervals before creating the new one;
     clear();
-    console.log('func', func);
     window.interval = setInterval(func, delay);
   }
 }

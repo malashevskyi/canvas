@@ -1,6 +1,5 @@
 import canvasSketch from 'canvas-sketch';
 import { useEffect } from 'react';
-import { store } from 'react-notifications-component';
 
 export default function setSketch(sketch, settings) {
   return () => {    
