@@ -1,0 +1,57 @@
+# canvas-every-day (2d, WebGL, Three.js, GLSL)
+I challenge myself to make canvas animations every day, at least 100 days.
+
+[DEMO](https://fir-images-fad02.web.app/) — There you find any animation in a quick way without launching it.
+
+But if you want to try it:
+```
+- clone
+- npm install
+- npm start
+```
+Here I put some resource links.
+
+## Animations names:
+Sorry about animations names, maybe some names not related, not correct enough, </br> my English is not good enough for creating related names for all these animations, that is why some names maybe weird.
+If you can give a more correct name for some animation, you can contribute, I will really appreciate it.
+
+## Inside:
+- [`create-react-app`](https://github.com/facebook/create-react-app)
+- [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)
+- [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)
+- [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)
+- [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)
+- [`classnames`](https://github.com/JedWatson/classnames)
+- [`dat.gui`](https://github.com/dataarts/dat.gui)
+
+## Useful YouTube channels:
+- [`Yuri Artyukh`](https://www.youtube.com/user/flintyara/videos)
+- [`Chris Courses`](https://www.youtube.com/c/ChrisCourses/videos)
+
+## Courses:
+- [`https://frontendmasters.com/courses/canvas-webgl/`](https://frontendmasters.com/courses/canvas-webgl/)
+- [`https://frontendmasters.com/courses/webgl-shaders/`](https://frontendmasters.com/courses/webgl-shaders/)
+
+## Documentations, websites, guides:
+- [`Three.js Doc`](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
+- [`Three.js Fundamentals`](https://threejsfundamentals.org/)
+- [`WebGL Fundamentals`](https://webglfundamentals.org/)
+- [`Canvas Technical Guide`](https://docs.unrealengine.com/udk/Three/CanvasTechnicalGuide.html)
+- [`https://www.khronos.org/opengl/wiki`](https://www.khronos.org/opengl/wiki)
+- [`https://www.shaderific.com/glsl`](https://www.shaderific.com/glsl)
+- [`The Book of Shaders`](https://thebookofshaders.com/)
+- [`https://www.kirupa.com/canvas/index.htm`](https://www.kirupa.com/canvas/index.htm)
+- [`WebGL, GLSL guide + examples`](https://webglsamples.org/google-io/2011/index.html)
+
+## History of animation (with related links):
+- Firework - 21-01-02 - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework) </br> [`https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s`](https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s)
+
+
+
+
+
+
+
+
+
+
