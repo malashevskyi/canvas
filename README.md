@@ -44,6 +44,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`WebGL, GLSL guide + examples`](https://webglsamples.org/google-io/2011/index.html)
 
 ## History of animation (with related links):
+- ParticlesMoveInACircle - 21-01-03 - [`malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
 - Firework - 21-01-02 - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework) </br> [`https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s`](https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s)
 
 
