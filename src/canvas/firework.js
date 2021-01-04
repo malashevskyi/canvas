@@ -74,7 +74,7 @@ const sketch = () => {
     const palette = random.pick(palettes).slice(0, 3);
     for (let i = 0; i < count; i++) {
       particles.push(
-        new Particle(mouse.x, mouse.y, 3, random.pick(palette), {
+        new Particle(mouse.x, mouse.y, 1, random.pick(palette), {
           x: Math.cos(angleIncrement * i) * Math.random() * power,
           y: Math.sin(angleIncrement * i) * Math.random() * power,
         })

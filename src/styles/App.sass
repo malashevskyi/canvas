@@ -38,15 +38,17 @@ $blue: #23a6d5
 .dg.ac
   z-index: 99 !important
 .dg
-  position: relative !important
+  position: absolute !important
+  right: 0
 
+// body > canvas
+.container
+  height: 100vh
+  display: flex
+  align-items: center
 .container canvas,
-body > canvas
   display: block
   margin: auto
-  position: absolute
-  width: 100vw
-  height: 100vh
   left: 0
   top: 0
 

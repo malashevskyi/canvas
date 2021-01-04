@@ -1,17 +1,32 @@
+import React from 'react'
 import canvasSketch from 'canvas-sketch';
 import { useEffect } from 'react';
 import { store } from 'react-notifications-component';
 
 export default function setSketch(sketch, settings) {
-  return () => {    
+  return React.forwardRef((props, ref) => {    
+
     useEffect(() => {
-      
-      let previousCanvas = document.querySelector('body > canvas');
-      previousCanvas?.remove();
-      
-      canvasSketch(sketch, settings);
-      
+      // if (window.countRoute) {
+      //   window.countRoute++
+      // } else {
+      //   window.countRoute = 1
+      // }
+      // console.log(window.countRoute);
+      let manager;
+
+      async function start() {
+        manager = await canvasSketch(sketch, {
+          canvas: ref.current,
+          ...settings
+        });
+      };
+      start()
+        
       return () => {
+        // Unload previous canvas sketch
+        manager.unload()
+
         // Clear interval from another route if exists,
         // otherwise intervals will multiply
         clearInterval(window.interval);
@@ -19,14 +34,13 @@ export default function setSketch(sketch, settings) {
         window.notificationIds?.forEach((id) => {
           store.removeNotification(id);
         });
-
+        
         if (window.gui) {
           window.gui.domElement.style.display = 'none';
         }
-
       };
-    }, []);
+    }, [ref]);
 
     return '';
-  };
+  })
 }

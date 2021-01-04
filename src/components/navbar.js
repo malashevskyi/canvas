@@ -5,8 +5,10 @@ import { useLocation, Link } from 'react-router-dom';
 import Preview from './preview';
 import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
+import * as previews from '../images/loadImages';
 
 const postDates = {
+  Balls: '2021-01-04',
   ParticlesMoveInACircle: '2021-01-03',
   Firework: '2021-01-02',
 };
@@ -38,7 +40,7 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
                 >
                   <Link to={name}>
                     <h2 className="navbar-menu--title">{name}</h2>
-                    <Preview name={name} />
+                    <Preview name={name} preview={previews[name]} />
                     <time dateTime={postDates[name]}>
                       <span>{postDates[name]}</span>
                     </time>
