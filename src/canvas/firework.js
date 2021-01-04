@@ -8,7 +8,7 @@ import { debounceNotification } from '../utils/debounce'
 import { debounceInterval } from '../utils/debounce'
 import getGui from '../utils/getGui';
 
-const sketch = () => {
+const sketch = ({ width, height, context: { canvas } }) => {
   debounceNotification()
 
   const particles = [];
@@ -17,7 +17,7 @@ const sketch = () => {
   const gravity = 0.05;
   let canvasRectAlpha = 1;
   let intervalAlpha;
-  let context, canvas, width, height;
+  let context;
 
   class Particle {
     constructor(x, y, radius, color, velocity) {
@@ -94,10 +94,9 @@ const sketch = () => {
   };
   
   return (props) => {
-    ({ width, height } = props);
     
     if (!context) {
-      ({ context, context: { canvas } } = props);
+      ({ context } = props);
 
       getGui(gui);
 

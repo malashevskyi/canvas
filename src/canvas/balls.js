@@ -9,14 +9,13 @@ import getGui from '../utils/getGui';
 random.setSeed(random.pick(['513468']))
 const palette = random.pick(palettes);
 
-const sketch = () => {
+const sketch = ({ width, height }) => {
   const balls = [];
   const opt = {
     radiusInc: 1.1,
     ballsCount: 700
   }
-  
-  let context, width, height;
+  let context;
 
   function inRange(axis, start, end) {
     return axis > start && axis < end;
@@ -75,10 +74,9 @@ const sketch = () => {
   };
 
   return (props) => {
-    ({ width, height } = props);
   
     if (!context) {
-      ({ context, width, height } = props);
+      ({ context } = props);
 
       getGui(gui);
   

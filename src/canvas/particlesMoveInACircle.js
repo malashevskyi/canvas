@@ -9,11 +9,11 @@ import getGui from '../utils/getGui'
 
 
 
-const sketch = () => {
+const sketch = ({ width, height }) => {
   
   const particles = [];
   let alpha = 1;
-  let context, width, height;
+  let context;
   let speedUp = true;
   let opt = {
     palettes: [
@@ -96,7 +96,7 @@ const sketch = () => {
   };
   
   return (props) => {
-    ({ width, height } = props);
+    
     if (!context) {
       ({ context } = props);
 
