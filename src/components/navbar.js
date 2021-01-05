@@ -8,6 +8,7 @@ import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import * as previews from '../images/loadImages';
 
 const postDates = {
+  StarrySky: '2021-01-05',
   Balls: '2021-01-04',
   ParticlesMoveInACircle: '2021-01-03',
   Firework: '2021-01-02',

@@ -23,7 +23,7 @@ function debounce({message, title, type}) {
         container: "top-center",
         animationIn: ["animate__animated animated flipInY"],
       });
-    }, 1000)
+    }, 100)
   }
 }
 
