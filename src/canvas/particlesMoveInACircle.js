@@ -96,7 +96,9 @@ const sketch = ({ width, height }) => {
   };
   
   return (props) => {
-    
+
+    ({height, width} = props)
+
     if (!context) {
       ({ context } = props);
 

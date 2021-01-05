@@ -94,6 +94,8 @@ const sketch = ({ width, height, context: { canvas } }) => {
   };
   
   return (props) => {
+
+    ({height, width} = props)
     
     if (!context) {
       ({ context } = props);
