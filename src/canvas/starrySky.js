@@ -57,7 +57,6 @@ const sketch = ({ width, height }) => {
       this.fallDelay = opt.fallDelay * this.random;
 
       if (this.fall) {
-        console.log(this.random);
         this.dy = this.dy + 0.01
         this.y = this.y + this.dy
         this.x = this.x + this.dx / 2
