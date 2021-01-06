@@ -52,10 +52,11 @@ If you can give a more correct name for some animation, you can contribute, I wi
 ## Tools
 - [Gifmaker](https://gifmaker.me/)
 
-## History of animation (with related links):
+## History
+- 21-01-05 - StarrySky              - [`malashevskyi.pp.ua/canvas-every-day/StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
 - 21-01-04 - Balls                  - [`malashevskyi.pp.ua/canvas-every-day/Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
 - 21-01-03 - ParticlesMoveInACircle - [`malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
-- 21-01-02 - Firework               - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework) </br> [`https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s`](https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1182s)
+- 21-01-02 - Firework               - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
 
 
 
