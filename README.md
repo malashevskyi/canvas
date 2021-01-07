@@ -53,6 +53,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
+- 21-01-07 - Necklace               - [`malashevskyi.pp.ua/canvas-every-day/Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
 - 21-01-06 - StainedGlass           - [`malashevskyi.pp.ua/canvas-every-day/StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
 - 21-01-05 - StarrySky              - [`malashevskyi.pp.ua/canvas-every-day/StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
 - 21-01-04 - Balls                  - [`malashevskyi.pp.ua/canvas-every-day/Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
