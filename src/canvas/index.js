@@ -1,3 +1,4 @@
+export { default as Necklace } from './necklace';
 export { default as StainedGlass } from './stainedGlass';
 export { default as StarrySky } from './starrySky';
 export { default as Balls } from './balls';
