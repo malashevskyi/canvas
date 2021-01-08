@@ -9,11 +9,10 @@ import getGui from '../utils/getGui'
 
 
 
-const sketch = ({ width, height }) => {
+const sketch = ({ context, width, height }) => {
   
   const particles = [];
   let alpha = 1;
-  let context;
   let speedUp = true;
   let opt = {
     palettes: [
@@ -95,20 +94,16 @@ const sketch = ({ width, height }) => {
     })
   };
   
+  getGui(gui);
+
+  getParticles(120);
+  debounceInterval(() => {
+    speedUp = !speedUp;
+  }, 3000);
+
   return (props) => {
 
     ({height, width} = props)
-
-    if (!context) {
-      ({ context } = props);
-
-      getGui(gui);
-
-      getParticles(120);
-      debounceInterval(() => {
-        speedUp = !speedUp;
-      }, 3000);
-    }
 
     context.fillStyle = `rgba(10, 10, 10, ${alpha})`;
     context.fillRect(0, 0, width, height);
