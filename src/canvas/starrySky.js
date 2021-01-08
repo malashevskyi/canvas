@@ -23,15 +23,13 @@ function getAlphaMarker(count, delay) {
   }
 }
 
-const sketch = ({ width, height }) => {
+const sketch = ({ context, width, height }) => {
   const particles = [];
   const opt = {
     fallDelay: 20000
   }
   let reduceAlpha = false;
   let alpha = 1;
-  let context;
-  
   class Particle {
     constructor(x, y, radius, delay) {
       this.x = x;
@@ -138,13 +136,10 @@ const sketch = ({ width, height }) => {
     }
   }
 
+  getParticles(150);
+
   return (props) => {
     ({ width, height } = props);
-    
-    if (!context) {
-      ({ context } = props);
-      getParticles(150);
-    }
 
     setTimeout(() => {
       reduceAlpha = !reduceAlpha;
