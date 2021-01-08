@@ -1,3 +1,4 @@
+export { default as Jelly } from './jelly';
 export { default as Necklace } from './necklace';
 export { default as StainedGlass } from './stainedGlass';
 export { default as StarrySky } from './starrySky';

@@ -85,7 +85,6 @@ const sketch = ({ height, width }) => {
       getParticles(100);
       context.fillStyle = '#000'
       context.fillRect(0, 0, width, height);
-      console.log('here', particles);
     }
 
     context.fillStyle = `rgba(10, 10, 10, ${alpha})`;
