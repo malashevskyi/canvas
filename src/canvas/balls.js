@@ -9,18 +9,17 @@ import getGui from '../utils/getGui';
 random.setSeed(random.pick(['513468']))
 const palette = random.pick(palettes);
 
-const sketch = ({ width, height }) => {
+const sketch = ({ context, width, height }) => {
   const balls = [];
   const opt = {
     radiusInc: 1.1,
     ballsCount: 700
   }
-  let context;
 
   function inRange(axis, start, end) {
     return axis > start && axis < end;
   }
-
+ 
   function Ball(x, y, dx, dy, radius) {
     this.x = lerp(radius, width - radius, x);
     this.y = lerp(radius, height - radius, y);
@@ -73,17 +72,13 @@ const sketch = ({ width, height }) => {
     })
   };
 
+  getGui(gui);
+
+  createBalls();
+
   return (props) => {
 
     ({height, width} = props)
-  
-    if (!context) {
-      ({ context } = props);
-
-      getGui(gui);
-  
-      createBalls();
-    }
   
     context.fillStyle = '#000'
     context.clearRect(0, 0, width, height);
