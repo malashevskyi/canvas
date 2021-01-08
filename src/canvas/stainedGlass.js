@@ -11,7 +11,7 @@ import setSketch from '../utils/setSketch';
 random.setSeed('749302')
 const palette = random.pick(palettes);
 
-const sketch = ({ width, height }) => {
+const sketch = ({ context, width, height }) => {
 
   function throttleTimeout(count, delay) {
     let isThrottled = false;
@@ -33,7 +33,6 @@ const sketch = ({ width, height }) => {
   }
 
   const rects = [];
-  let context;
   let countX;
   let countY;
   
@@ -85,17 +84,11 @@ const sketch = ({ width, height }) => {
     }
   };
   
+  createGrid();
+
   return {
     render(props) {
       ({ width, height } = props);
-  
-      if (!context) {
-        ({ context } = props);
-
-        rects.length = 0;
-        console.log('here');
-        createGrid();
-      }
       
       context.fillRect(0, 0, width, height);
       
