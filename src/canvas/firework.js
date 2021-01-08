@@ -8,7 +8,7 @@ import { debounceNotification } from '../utils/debounce'
 import { debounceInterval } from '../utils/debounce'
 import getGui from '../utils/getGui';
 
-const sketch = ({ width, height, context: { canvas } }) => {
+const sketch = ({ width, height, context: { canvas }, context }) => {
   debounceNotification()
 
   const particles = [];
@@ -17,8 +17,6 @@ const sketch = ({ width, height, context: { canvas } }) => {
   const gravity = 0.05;
   let canvasRectAlpha = 1;
   let intervalAlpha;
-  let context;
-
   class Particle {
     constructor(x, y, radius, color, velocity) {
       this.x = x;
@@ -93,37 +91,33 @@ const sketch = ({ width, height, context: { canvas } }) => {
     gui.add(opt, 'clear').name('Click to clear interval')
   };
   
+  getGui(gui);
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  function getRandomClientXY() {
+    let clientX = lerp(200, width - 200, Math.random());
+    let clientY = lerp(200, height - 200, Math.random());
+    return { clientX, clientY };
+  }
+
+  debounceInterval(() => addParticles(getRandomClientXY()), 700)
+
+  document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === 'visible') {
+      debounceInterval(() => addParticles(getRandomClientXY()), 700)
+    }
+  });
+
+  canvas.addEventListener('click', addParticles);
+
   return (props) => {
 
     ({height, width} = props)
-    
-    if (!context) {
-      ({ context } = props);
 
-      getGui(gui);
-
-      context.clearRect(0, 0, canvas.width, canvas.height);
-
-      function getRandomClientXY() {
-        let clientX = lerp(200, width - 200, Math.random());
-        let clientY = lerp(200, height - 200, Math.random());
-        return { clientX, clientY };
-      }
-
-      debounceInterval(() => addParticles(getRandomClientXY()), 700)
-      
-      document.addEventListener("visibilitychange", function() {
-        if (document.visibilityState === 'visible') {
-          debounceInterval(() => addParticles(getRandomClientXY()), 700)
-        }
-      });
-
-      canvas.addEventListener('click', addParticles);
-    }
-
-    
     context.fillStyle = `rgba(10, 10, 10, ${canvasRectAlpha})`;
     context.fillRect(0, 0, width, height);
+    
     particles.forEach((particle, i) => {
       if (particle.alpha > 0) {
         particle.render();
