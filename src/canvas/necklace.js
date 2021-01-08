@@ -7,11 +7,10 @@ import setSketch from '../utils/setSketch';
 random.setSeed(14)
 const palette = random.pick(palettes);
 
-const sketch = ({ height, width }) => {
+const sketch = ({ context, height, width }) => {
   const particles = [];
   let alpha = .3;
-  let context, angle;
-
+  let angle = 0;
   class Particle {
     constructor(x, y, radius, color) {
       this.x = x;
@@ -77,15 +76,13 @@ const sketch = ({ height, width }) => {
     }
   }
 
+  getParticles(100);
+   
+  context.fillStyle = '#000'
+  context.fillRect(0, 0, width, height);
   
   return (props) => {
     ({ width, height } = props);
-    if (!context) {
-      ({ context } = props);
-      getParticles(100);
-      context.fillStyle = '#000'
-      context.fillRect(0, 0, width, height);
-    }
 
     context.fillStyle = `rgba(10, 10, 10, ${alpha})`;
     context.fillRect(0, 0, width, height);
