@@ -3,12 +3,6 @@ I challenge myself to make canvas animations every day, at least 100 days.
 
 [DEMO](https://fir-images-fad02.web.app/) — There you find any animation in a quick way without launching it.
 
-But if you want to try it:
-```
-- clone
-- npm install
-- npm start
-```
 Here I put some resource links.
 
 ## Animations names:
@@ -16,15 +10,17 @@ Sorry about animations names, maybe some names not related, not correct enough, 
 If you can give a more correct name for some animation, you can contribute, I will really appreciate it.
 
 ## Inside:
-- [`create-react-app`](https://github.com/facebook/create-react-app)
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)
+- [`react`](https://github.com/facebook/react)
+- [`create-react-app`](https://github.com/facebook/create-react-app)
 - [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)
 - [`classnames`](https://github.com/JedWatson/classnames)
 - [`dat.gui`](https://github.com/dataarts/dat.gui)
 
 ## Useful YouTube channels:
+- [`Coding Math`](https://www.youtube.com/user/codingmath/videos)
 - [`Yuri Artyukh`](https://www.youtube.com/user/flintyara/videos)
 - [`Chris Courses`](https://www.youtube.com/c/ChrisCourses/videos)
 
@@ -53,12 +49,14 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
-- 21-01-07 - Necklace               - [`malashevskyi.pp.ua/canvas-every-day/Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
-- 21-01-06 - StainedGlass           - [`malashevskyi.pp.ua/canvas-every-day/StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
-- 21-01-05 - StarrySky              - [`malashevskyi.pp.ua/canvas-every-day/StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
-- 21-01-04 - Balls                  - [`malashevskyi.pp.ua/canvas-every-day/Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
-- 21-01-03 - ParticlesMoveInACircle - [`malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
-- 21-01-02 - Firework               - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
+- 21-01-07 - ParticlesInMouseDirection - [`malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
+- 21-01-07 - Jelly                     - [`malashevskyi.pp.ua/canvas-every-day/Jelly`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
+- 21-01-07 - Necklace                  - [`malashevskyi.pp.ua/canvas-every-day/Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
+- 21-01-06 - StainedGlass              - [`malashevskyi.pp.ua/canvas-every-day/StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
+- 21-01-05 - StarrySky                 - [`malashevskyi.pp.ua/canvas-every-day/StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
+- 21-01-04 - Balls                     - [`malashevskyi.pp.ua/canvas-every-day/Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
+- 21-01-03 - ParticlesMoveInACircle    - [`malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
+- 21-01-02 - Firework                  - [`malashevskyi.pp.ua/canvas-every-day/Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
 
 
 
