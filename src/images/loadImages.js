@@ -1,3 +1,4 @@
+import ParticlesInMouseDirection from './ParticlesInMouseDirection.png';
 import Jelly from './Jelly.png';
 import Necklace from './Necklace.png';
 import StainedGlass from './StainedGlass.png';
@@ -6,7 +7,8 @@ import Balls from './Balls.png';
 import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
-export { 
+export {
+  ParticlesInMouseDirection,
   Jelly,
   Necklace,
   StainedGlass,
