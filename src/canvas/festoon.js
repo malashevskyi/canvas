@@ -104,40 +104,6 @@ const sketch = ({ context, width, height }) => {
         }
       context.restore();
     }
-
-    // context.save();
-    //   context.translate(
-    //     // center of the small circle (moving)
-    //     c[tick % c.length].x / 1.5,
-    //     c[tick % c.length].y / 1.5
-    //   );
-    //   for (let i = 0; i <= 5; i++) {
-    //     context.save();
-    //     context.rotate(
-    //       (TWO_PI / opt.rotateAngle) * (tick % opt.rotateAngle) +
-    //         (TWO_PI / countCircles) * i
-    //     );
-    //     balls[i].render(); // center of the first small circle, moves along the big circle
-    //     context.restore();
-    //   }
-    // context.restore();
-
-    // context.save();
-    //   context.translate(
-    //     // center of the small circle (moving)
-    //     c[tick % c.length].x * 1.1,
-    //     c[tick % c.length].y * 1.1
-    //   );
-    //   for (let i = 0; i <= 5; i++) {
-    //     context.save();
-    //     context.rotate(
-    //       (TWO_PI / opt.rotateAngle) * (tick % opt.rotateAngle) +
-    //         (TWO_PI / countCircles) * i
-    //     );
-    //     balls[i].render(); // center of the first small circle, moves along the big circle
-    //     context.restore();
-    //   }
-    // context.restore();
   };
 };
 
