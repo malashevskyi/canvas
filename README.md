@@ -32,6 +32,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`Three.js Doc`](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
 - [`Three.js Fundamentals`](https://threejsfundamentals.org/)
 - [`WebGL Fundamentals`](https://webglfundamentals.org/)
+- [`WebGL guide`](https://xem.github.io/articles/webgl-guide.html)
 - [`http://three-demos.glitch.me/`](http://three-demos.glitch.me/)
 - [`Canvas Technical Guide`](https://docs.unrealengine.com/udk/Three/CanvasTechnicalGuide.html)
 - [`https://www.khronos.org/opengl/wiki`](https://www.khronos.org/opengl/wiki)
@@ -40,6 +41,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`https://www.kirupa.com/canvas/index.htm`](https://www.kirupa.com/canvas/index.htm)
 - [`WebGL, GLSL guide + examples`](https://webglsamples.org/google-io/2011/index.html)
 - [`https://www.shadertoy.com/`](https://www.shadertoy.com/)
+- [`Math geometry`](https://mathsisfun.com/geometry/unit-circle.html)
 
 ## Images, textures
 - [`https://freepbr.com/`](https://freepbr.com/)
@@ -49,8 +51,10 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
-- 21-01-07 - ParticlesInMouseDirection - [`malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
-- 21-01-07 - Jelly                     - [`malashevskyi.pp.ua/canvas-every-day/Jelly`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
+- 21-01-10 - Festoon_2                 - [`malashevskyi.pp.ua/canvas-every-day/Festoon_2`](https://malashevskyi.pp.ua/canvas-every-day/Festoon_2)
+- 21-01-10 - Festoon                   - [`malashevskyi.pp.ua/canvas-every-day/Festoon`](https://malashevskyi.pp.ua/canvas-every-day/Festoon)
+- 21-01-09 - ParticlesInMouseDirection - [`malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
+- 21-01-08 - Jelly                     - [`malashevskyi.pp.ua/canvas-every-day/Jelly`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
 - 21-01-07 - Necklace                  - [`malashevskyi.pp.ua/canvas-every-day/Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
 - 21-01-06 - StainedGlass              - [`malashevskyi.pp.ua/canvas-every-day/StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
 - 21-01-05 - StarrySky                 - [`malashevskyi.pp.ua/canvas-every-day/StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
