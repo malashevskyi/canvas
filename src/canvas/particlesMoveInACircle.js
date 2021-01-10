@@ -56,15 +56,16 @@ const sketch = ({ context, width, height }) => {
       this.y = radius * Math.cos((angle + angleInc).toFixed(3))
     }
   }
-
+ 
   function getParticles(amount) {
-    const angle = Math.PI * 2 / amount;
+    // const angle = Math.PI * 2 / amount;
 
     for (let i = 0; i < amount; i++) {
+      const [cx, cy] = random.insideCircle(400)
       particles.push(
         new Particle(
-          lerp(0, 400 * Math.sin(angle * i), Math.random()),
-          lerp(0, 400 * Math.cos(angle * i), Math.random()),
+          cx, // lerp(0, 400 * Math.sin(angle * i), Math.random()),
+          cy, // lerp(0, 400 * Math.cos(angle * i), Math.random()),
           Math.random() + 0.5,
           random.pick(palette)
         )
