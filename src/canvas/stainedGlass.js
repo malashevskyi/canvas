@@ -1,4 +1,5 @@
 import random from 'canvas-sketch-util/random'
+import { linspace } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
 import setSketch from '../utils/setSketch';
@@ -70,15 +71,18 @@ const sketch = ({ context, width, height }) => {
   }
 
   const createGrid = () => {
-    countX = width / 40;
-    countY = height / 40;
+    countX = Math.floor(width / 40);
+    countY = Math.floor(height / 40);
+
+    const u = linspace(countX);
+    const v = linspace(countY);
 
     for (let x = 0; x < countX; x++) {
       for (let y = 0; y < countY; y++) {
-        const u = countX <= 1 ? 0.5 : x / (countX);
-        const v = countY <= 1 ? 0.5 : y / (countY);
+        // const u = countX <= 1 ? 0.5 : x / (countX);
+        // const v = countY <= 1 ? 0.5 : y / (countY);
         rects.push(
-          new Particle({ x: width * u, y: height * v})
+          new Particle({ x: width * u[x], y: height * v[y]})
         )
       }
     }
