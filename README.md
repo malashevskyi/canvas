@@ -51,6 +51,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
+- 21-01-11 - Jelly_2                     - [`malashevskyi.pp.ua/canvas-every-day/Jelly_2`](https://malashevskyi.pp.ua/canvas-every-day/Jelly_2)
 - 21-01-10 - Festoon_2                 - [`malashevskyi.pp.ua/canvas-every-day/Festoon_2`](https://malashevskyi.pp.ua/canvas-every-day/Festoon_2)
 - 21-01-10 - Festoon                   - [`malashevskyi.pp.ua/canvas-every-day/Festoon`](https://malashevskyi.pp.ua/canvas-every-day/Festoon)
 - 21-01-09 - ParticlesInMouseDirection - [`malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
