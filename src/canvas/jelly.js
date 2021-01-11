@@ -60,7 +60,7 @@ const sketch = ({ width, height, context: { canvas } }) => {
       dy = this.y - mouse.y
       dist = Math.sqrt(dx * dx + dy * dy);
       
-      if (dist < 150) {
+      if (dist < 70) {
         const angle = Math.atan2(dy, dx);
 
         let tx = mouse.x + Math.cos(angle) * 50
@@ -144,8 +144,8 @@ const sketch = ({ width, height, context: { canvas } }) => {
     for (let i = 0; i < count; i++) {
       dots.push(
         new DrawCircle(
-          widthHalf + 300 * Math.cos(i * Math.PI * 2 / count),
-          heightHalf + 300 * Math.sin(i * Math.PI * 2 / count)
+          widthHalf + 250 * Math.cos(i * Math.PI * 2 / count),
+          heightHalf + 250 * Math.sin(i * Math.PI * 2 / count)
         )
       );
     }
@@ -206,7 +206,7 @@ const sketch = ({ width, height, context: { canvas } }) => {
         canvas.addEventListener('mousemove', mouseMoveHandler)
         canvas.addEventListener('touchmove', touchMoveHandler)
         
-        getGui(gui);
+        // getGui(gui);
       }
       
       clearCanvas();
@@ -217,7 +217,7 @@ const sketch = ({ width, height, context: { canvas } }) => {
         circle.update()
         // circle.render() // dots
       });
-      new DrawCircle(mouse.x, mouse.y, 200, 'rgba(255, 0, 0, .05').render();
+      new DrawCircle(mouse.x, mouse.y, 90, 'rgba(255, 0, 0, .05').render();
     },
     resize(props) {
       getM(props);
