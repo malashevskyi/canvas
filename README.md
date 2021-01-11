@@ -32,6 +32,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`Three.js Doc`](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
 - [`Three.js Fundamentals`](https://threejsfundamentals.org/)
 - [`WebGL Fundamentals`](https://webglfundamentals.org/)
+- [`WebGL2 Fundamentals`](https://webgl2fundamentals.org/)
 - [`WebGL guide`](https://xem.github.io/articles/webgl-guide.html)
 - [`http://three-demos.glitch.me/`](http://three-demos.glitch.me/)
 - [`Canvas Technical Guide`](https://docs.unrealengine.com/udk/Three/CanvasTechnicalGuide.html)
