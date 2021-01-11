@@ -1,3 +1,4 @@
+export { default as Jelly_2 } from './jelly_2';
 export { default as Festoon_2 } from './festoon_2';
 export { default as Festoon } from './festoon';
 export { default as ParticlesInMouseDirection } from './particlesInMouseDirection';

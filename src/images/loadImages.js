@@ -1,3 +1,4 @@
+import Jelly_2 from './Jelly_2.png';
 import Festoon_2 from './Festoon_2.png';
 import Festoon from './Festoon.png';
 import ParticlesInMouseDirection from './ParticlesInMouseDirection.png';
@@ -10,6 +11,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Jelly_2,
   Festoon_2,
   Festoon,
   ParticlesInMouseDirection,
