@@ -1,5 +1,5 @@
 import random from 'canvas-sketch-util/random'
-import getGui from '../utils/getGui';
+// import getGui from '../utils/getGui';
 
 import setSketch from '../utils/setSketch';
 
@@ -167,25 +167,25 @@ const sketch = ({ width, height, context: { canvas } }) => {
     mouse.y = e.changedTouches[0].clientY;
   }
 
-  const gui = (gui) => {
-    gui.width = 300
-    gui.add( {palettes: ''}, 'palettes', [
-      ['#230f2b', '#f21d41', 'default'],
-      ['#b9d7d9', '#668284'],
-      ['#382f32', '#ffeaf2'],
-      ['#000000', '#9f111b'],
-      ['#556270', '#4ecdc4'],
-      ['#1b325f', '#9cc4e4'],
-      ['#fc354c', '#29221f'],
-    ]).name('Change palette').onChange((e) => {
-      console.log(e);
-      palette = [
-        e.split(',')[0],
-        e.split(',')[1],
-      ]
-      renderConnectedDots()
-    })
-  }
+  // const gui = (gui) => {
+  //   gui.width = 300
+  //   gui.add( {palettes: ''}, 'palettes', [
+  //     ['#230f2b', '#f21d41', 'default'],
+  //     ['#b9d7d9', '#668284'],
+  //     ['#382f32', '#ffeaf2'],
+  //     ['#000000', '#9f111b'],
+  //     ['#556270', '#4ecdc4'],
+  //     ['#1b325f', '#9cc4e4'],
+  //     ['#fc354c', '#29221f'],
+  //   ]).name('Change palette').onChange((e) => {
+  //     console.log(e);
+  //     palette = [
+  //       e.split(',')[0],
+  //       e.split(',')[1],
+  //     ]
+  //     renderConnectedDots()
+  //   })
+  // }
 
   function getM(props) {
     ({ height, width } = props);

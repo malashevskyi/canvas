@@ -51,9 +51,9 @@ const sketch = ({ context, width, height, canvas }) => {
         this.vy += (ty - this.y) / 8
       }
 
-      if (this.waveCount == -130) this.waveChange = 1; 
+      if (this.waveCount === -130) this.waveChange = 1; 
       this.waveCount += this.waveChange
-      if (this.waveCount == 130) this.waveChange = -1; 
+      if (this.waveCount === 130) this.waveChange = -1; 
 
       this.x += random.gaussian(-1, 1) / 2 + random.gaussian(-1, 1) * this.waveCount / 250
       this.y += random.gaussian(-1, 1) / 2 + random.gaussian(-1, 1) * this.waveCount / 250
@@ -81,7 +81,7 @@ const sketch = ({ context, width, height, canvas }) => {
     let pathBig = new Path2D()
     
     for (let i = 0, l = dots.length; i <= l; i++) {
-      let p0 = dots[i == l ? 0 : i];
+      let p0 = dots[i === l ? 0 : i];
       let p1 = dots[i + 1 >= l ? i + 1 - l : i + 1];
 
       pathSmall.quadraticCurveTo(p0.x, p0.y, (p0.x + p1.x) * 0.5, (p0.y + p1.y) * 0.5);
@@ -155,6 +155,7 @@ const sketch = ({ context, width, height, canvas }) => {
         circle.update()
         circle.render() // dots
       });
+      new DrawCircle(mouse.x, mouse.y, 150, 'rgba(255, 0, 0, .05').render();
     },
     resize(props) {
       getM(props);
@@ -165,22 +166,6 @@ const sketch = ({ context, width, height, canvas }) => {
     }
 
   };
-  // return (props) => {
-  //   ({ height, width } = props);
-  //   widthHalf = width / 2;
-  //   heightHalf = height / 2;
-
-  //   clearCanvas();
-
-  //   connectDots(dots)
-    
-  //   dots.forEach((circle) => {
-  //     circle.animate()
-  //     circle.render()
-  //   });
-  //   new DrawCircle(mouse.x, mouse.y, 200, 'rgba(255, 0, 0, .05').render();
-
-  // };
 };
 
 export default setSketch(
