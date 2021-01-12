@@ -1,7 +1,7 @@
 import setSketch from '../utils/setSketch';
 
 import random from 'canvas-sketch-util/random'
-import { lerp } from 'canvas-sketch-util/math'
+// import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
 import { debounceInterval } from '../utils/debounce'
