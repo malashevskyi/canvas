@@ -1,3 +1,4 @@
+import CircleOrnament from './CircleOrnament.png';
 import Bouquet from './Bouquet.png';
 import Jelly_2 from './Jelly_2.png';
 import Festoon_2 from './Festoon_2.png';
@@ -12,6 +13,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  CircleOrnament,
   Bouquet,
   Jelly_2,
   Festoon_2,
