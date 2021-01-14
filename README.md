@@ -53,6 +53,8 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
+- 21-01-14 - Orbit_2                   - [`malashevskyi.pp.ua/canvas-every-day/Orbit_2`](https://malashevskyi.pp.ua/canvas-every-day/Orbit_2)
+- 21-01-14 - Orbit                     - [`malashevskyi.pp.ua/canvas-every-day/Orbit`](https://malashevskyi.pp.ua/canvas-every-day/Orbit)
 - 21-01-13 - CircleOrnament            - [`malashevskyi.pp.ua/canvas-every-day/CircleOrnament`](https://malashevskyi.pp.ua/canvas-every-day/CircleOrnament)
 - 21-01-12 - Bouquet                   - [`malashevskyi.pp.ua/canvas-every-day/Bouquet`](https://malashevskyi.pp.ua/canvas-every-day/Bouquet)
 - 21-01-11 - Jelly_2                   - [`malashevskyi.pp.ua/canvas-every-day/Jelly_2`](https://malashevskyi.pp.ua/canvas-every-day/Jelly_2)
