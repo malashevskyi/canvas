@@ -1,3 +1,5 @@
+export { default as Orbit_2 } from './orbit_2';
+export { default as Orbit } from './orbit';
 export { default as CircleOrnament } from './circleOrnament';
 export { default as Bouquet } from './bouquet';
 export { default as Jelly_2 } from './jelly_2';

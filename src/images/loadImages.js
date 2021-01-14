@@ -1,3 +1,5 @@
+import Orbit_2 from './Orbit_2.png';
+import Orbit from './Orbit.png';
 import CircleOrnament from './CircleOrnament.png';
 import Bouquet from './Bouquet.png';
 import Jelly_2 from './Jelly_2.png';
@@ -13,6 +15,8 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Orbit_2,
+  Orbit,
   CircleOrnament,
   Bouquet,
   Jelly_2,
