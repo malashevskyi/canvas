@@ -1,3 +1,4 @@
+import SwirlOfSquares from './SwirlOfSquares.png';
 import Orbit_2 from './Orbit_2.png';
 import Orbit from './Orbit.png';
 import CircleOrnament from './CircleOrnament.png';
@@ -15,6 +16,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  SwirlOfSquares,
   Orbit_2,
   Orbit,
   CircleOrnament,
