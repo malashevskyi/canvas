@@ -46,7 +46,8 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`Math geometry`](https://mathsisfun.com/geometry/unit-circle.html)
 
 ## Images, textures
-- [`https://freepbr.com/`](https://freepbr.com/)
+- [`Solar textures`](https://www.solarsystemscope.com/textures/)
+- [`Free PBR`](https://freepbr.com/)
 - [`google equirectangular images`](https://www.google.com/search?q=equirectangular+images&tbm=isch&ved=2ahUKEwialqrCyIDuAhUI_hoKHRZvC2gQ2-cCegQIABAA&oq=equirectangular+images&gs_lcp=CgNpbWcQA1CsbFjsbWC9b2gAcAB4AIAB9QKIAfUCkgEDMy0xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=KSTyX9rdH4j8a5bercAG&bih=1276&biw=2560#imgrc=Nlw8VvEHmTpjNM)
 
 ## Tools
