@@ -3,6 +3,8 @@ I challenge myself to make canvas animations every day, at least 100 days.
 
 [DEMO](https://fir-images-fad02.web.app/) — There you find any animation in a quick way without launching it.
 
+![Screenshot](screenshot.png)
+
 Here I put some resource links.
 
 ## Animations names:
