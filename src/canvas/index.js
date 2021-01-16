@@ -1,3 +1,4 @@
+export { default as ParticlesSun } from './particlesSun';
 export { default as SwirlOfSquares } from './swirlOfSquares';
 export { default as Orbit_2 } from './orbit_2';
 export { default as Orbit } from './orbit';
