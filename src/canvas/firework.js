@@ -9,7 +9,7 @@ import { debounceInterval } from '../utils/debounce'
 import getGui from '../utils/getGui';
 
 const sketch = ({ width, height, context: { canvas }, context }) => {
-  debounceNotification()
+  debounceNotification('You can also click to see an animation');
 
   const particles = [];
   const mouse = { x: null, y: null };

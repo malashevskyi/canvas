@@ -1,3 +1,4 @@
+import BurstOfParticles from './burstOfParticles.png';
 import ParticlesSun from './ParticlesSun.png';
 import SwirlOfSquares from './SwirlOfSquares.png';
 import Orbit_2 from './Orbit_2.png';
@@ -17,6 +18,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  BurstOfParticles,
   ParticlesSun,
   SwirlOfSquares,
   Orbit_2,
