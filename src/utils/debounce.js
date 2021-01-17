@@ -1,8 +1,8 @@
 import { store } from 'react-notifications-component';
 
-function debounce({message, title, type}) {
+function debounce({ title, type }) {
   let timeout;
-  return () => {
+  return (message) => {
     clearTimeout(timeout);
 
     window.notificationIds.forEach((id) => {
@@ -46,7 +46,6 @@ function debounce2() {
 export const debounceInterval = debounce2();
 
 export const debounceNotification = debounce({
-  message: 'You can also click to see an animation',
   title: 'Info',
   type: 'info'
 })
