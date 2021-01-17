@@ -1,4 +1,5 @@
 const postDates = {
+  BurstOfParticles_2: '2021-01-17',
   BurstOfParticles: '2021-01-17',
   ParticlesSun: '2021-01-16',
   SwirlOfSquares: '2021-01-15',
