@@ -56,6 +56,8 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
+- 21-01-17 - BurstOfParticles_2        - [`malashevskyi.pp.ua/canvas-every-day/BurstOfParticles_2`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles_2)
+- 21-01-17 - BurstOfParticles          - [`malashevskyi.pp.ua/canvas-every-day/BurstOfParticles`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles)
 - 21-01-16 - ParticlesSun              - [`malashevskyi.pp.ua/canvas-every-day/ParticlesSun`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesSun)
 - 21-01-15 - SwirlOfSquares            - [`malashevskyi.pp.ua/canvas-every-day/SwirlOfSquares`](https://malashevskyi.pp.ua/canvas-every-day/SwirlOfSquares)
 - 21-01-14 - Orbit_2                   - [`malashevskyi.pp.ua/canvas-every-day/Orbit_2`](https://malashevskyi.pp.ua/canvas-every-day/Orbit_2)
