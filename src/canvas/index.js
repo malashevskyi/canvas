@@ -1,3 +1,4 @@
+export { default as BigCirclesJelly } from './bigCirclesJelly';
 export { default as TunnelOfParticles } from './tunnelOfParticles';
 export { default as BurstOfParticles_2 } from './burstOfParticles_2';
 export { default as BurstOfParticles } from './burstOfParticles';

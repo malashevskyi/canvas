@@ -1,3 +1,4 @@
+import BigCirclesJelly from './BigCirclesJelly.png';
 import TunnelOfParticles from './TunnelOfParticles.png';
 import BurstOfParticles_2 from './BurstOfParticles_2.png';
 import BurstOfParticles from './BurstOfParticles.png';
@@ -20,6 +21,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  BigCirclesJelly,
   TunnelOfParticles,
   BurstOfParticles_2,
   BurstOfParticles,
