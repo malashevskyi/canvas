@@ -11,6 +11,10 @@ $grey: #e9ecef
 $grey2: #ced4da
 $blue: #23a6d5
 
+body
+  height: 100vh
+  overflow: hidden
+
 @keyframes flipInY
   0%
     transform: perspective(400px) rotateY(90deg)
@@ -51,7 +55,9 @@ $blue: #23a6d5
   margin: auto
   left: 0
   top: 0
-
+.ReactVirtualized__Grid.ReactVirtualized__List
+  max-width: 250px
+  // overflow-y: scroll !important
 .navbar
   border-right: $border
   position: absolute
@@ -64,7 +70,7 @@ $blue: #23a6d5
   height: calc(100vh - 50px)
   background-color: #fff
   width: 100%
-  max-width: 250px
+  max-width: 253px
   overflow: hidden
   will-change: transform
   &.open
@@ -98,10 +104,14 @@ $blue: #23a6d5
 
 .navbar-menu
   height: 100%
+  a
+    display: block
+    position: relative
   &--list
     overflow-y: auto
     overflow-x: hidden
-    height: calc(100% - 50px)
+    // height: calc(100% - 50px)
+    height: 100%
     position: relative
   time
     position: absolute
@@ -156,6 +166,8 @@ $blue: #23a6d5
     transform: translate(0, 0)
     transition: transform .2s ease
     will-change: transform
+    height: 125px
+    min-height: 125px
     &::before
       content: ''
       width: calc(100% + 30px)
@@ -239,5 +251,5 @@ $blue: #23a6d5
   .title a
     font-size: 25px
 +minW(1500)
-  .navbar
-    max-width: 300px
+  .navbar, .ReactVirtualized__Grid.ReactVirtualized__List
+    max-width: 303px
