@@ -1,7 +1,7 @@
 # canvas-every-day (2d, WebGL, Three.js, GLSL)
 I challenge myself to make canvas animations every day, at least 100 days.
 
-[DEMO](https://fir-images-fad02.web.app/) — There you find any animation in a quick way without launching it.
+[DEMO](https://canvas-every-day.web.app/) — There you find any animation in a quick way without launching it.
 
 ![Screenshot](screenshot.png)
 
@@ -52,28 +52,28 @@ Here I put some resource links.
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
-- 21-01-20 - [`HeartPulse`](https://malashevskyi.pp.ua/canvas-every-day/BigCirclesJelly)
-- 21-01-19 - [`BigCirclesJelly`](https://malashevskyi.pp.ua/canvas-every-day/BigCirclesJelly)
-- 21-01-18 - [`TunnelOfParticles`](https://malashevskyi.pp.ua/canvas-every-day/TunnelOfParticles)
-- 21-01-17 - [`BurstOfParticles_2`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles_2)
-- 21-01-17 - [`BurstOfParticles`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles)
-- 21-01-16 - [`ParticlesSun`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesSun)
-- 21-01-15 - [`SwirlOfSquares`](https://malashevskyi.pp.ua/canvas-every-day/SwirlOfSquares)
-- 21-01-14 - [`Orbit_2`](https://malashevskyi.pp.ua/canvas-every-day/Orbit_2)
-- 21-01-14 - [`Orbit`](https://malashevskyi.pp.ua/canvas-every-day/Orbit)
-- 21-01-13 - [`CircleOrnament`](https://malashevskyi.pp.ua/canvas-every-day/CircleOrnament)
-- 21-01-12 - [`Bouquet`](https://malashevskyi.pp.ua/canvas-every-day/Bouquet)
-- 21-01-11 - [`Jelly_2`](https://malashevskyi.pp.ua/canvas-every-day/Jelly_2)
-- 21-01-10 - [`Festoon_2`](https://malashevskyi.pp.ua/canvas-every-day/Festoon_2)
-- 21-01-10 - [`Festoon`](https://malashevskyi.pp.ua/canvas-every-day/Festoon)
-- 21-01-09 - [`ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
-- 21-01-08 - [`Jelly`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
-- 21-01-07 - [`Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
-- 21-01-06 - [`StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
-- 21-01-05 - [`StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
-- 21-01-04 - [`Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
-- 21-01-03 - [`ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
-- 21-01-02 - [`Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
+- 21-01-20 - [`HeartPulse`](https://canvas-every-day.web.app/HeartPulse)
+- 21-01-19 - [`BigCirclesJelly`](https://canvas-every-day.web.app/BigCirclesJelly)
+- 21-01-18 - [`TunnelOfParticles`](https://canvas-every-day.web.app/TunnelOfParticles)
+- 21-01-17 - [`BurstOfParticles_2`](https://canvas-every-day.web.app/BurstOfParticles_2)
+- 21-01-17 - [`BurstOfParticles`](https://canvas-every-day.web.app/BurstOfParticles)
+- 21-01-16 - [`ParticlesSun`](https://canvas-every-day.web.app/ParticlesSun)
+- 21-01-15 - [`SwirlOfSquares`](https://canvas-every-day.web.app/SwirlOfSquares)
+- 21-01-14 - [`Orbit_2`](https://canvas-every-day.web.app/Orbit_2)
+- 21-01-14 - [`Orbit`](https://canvas-every-day.web.app/Orbit)
+- 21-01-13 - [`CircleOrnament`](https://canvas-every-day.web.app/CircleOrnament)
+- 21-01-12 - [`Bouquet`](https://canvas-every-day.web.app/Bouquet)
+- 21-01-11 - [`Jelly_2`](https://canvas-every-day.web.app/Jelly_2)
+- 21-01-10 - [`Festoon_2`](https://canvas-every-day.web.app/Festoon_2)
+- 21-01-10 - [`Festoon`](https://canvas-every-day.web.app/Festoon)
+- 21-01-09 - [`ParticlesInMouseDirection`](https://canvas-every-day.web.app/ParticlesInMouseDirection)
+- 21-01-08 - [`Jelly`](https://canvas-every-day.web.app/Jelly)
+- 21-01-07 - [`Necklace`](https://canvas-every-day.web.app/Necklace)
+- 21-01-06 - [`StainedGlass`](https://canvas-every-day.web.app/StainedGlass)
+- 21-01-05 - [`StarrySky`](https://canvas-every-day.web.app/StarrySky)
+- 21-01-04 - [`Balls`](https://canvas-every-day.web.app/Balls)
+- 21-01-03 - [`ParticlesMoveInACircle`](https://canvas-every-day.web.app/ParticlesMoveInACircle) 
+- 21-01-02 - [`Firework`](https://canvas-every-day.web.app/Firework)
 
 
 
