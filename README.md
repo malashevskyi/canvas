@@ -6,11 +6,6 @@ I challenge myself to make canvas animations every day, at least 100 days.
 ![Screenshot](screenshot.png)
 
 Here I put some resource links.
-
-## Animations names:
-Sorry about animations names, maybe some names not related, not correct enough, </br> my English is not good enough for creating related names for all these animations, that is why some names maybe weird.
-If you can give a more correct name for some animation, you can contribute, I will really appreciate it.
-
 ## Inside:
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)
@@ -20,6 +15,7 @@ If you can give a more correct name for some animation, you can contribute, I wi
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)
 - [`classnames`](https://github.com/JedWatson/classnames)
 - [`dat.gui`](https://github.com/dataarts/dat.gui)
+- [`react-virtualized`](https://github.com/bvaughn/react-virtualized)
 
 ## Useful YouTube channels:
 - [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)
