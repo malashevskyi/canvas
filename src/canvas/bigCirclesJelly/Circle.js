@@ -1,5 +1,3 @@
-import { onCircle } from 'canvas-sketch-util/random';
-
 class Circle {
   constructor(context, x, y, radius) {
     this.context = context;
