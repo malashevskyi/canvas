@@ -2,7 +2,7 @@ import './styles/App.sass';
 import React, { useCallback, useState } from 'react';
 import ReactNotification from 'react-notifications-component'
 
-import * as canvas from './canvas';
+import * as canvas from './canvas/_index';
 import Header from './components/header';
 import Navbar from './components/navbar';
 import Routes from './routes';
