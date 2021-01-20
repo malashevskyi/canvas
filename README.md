@@ -6,7 +6,7 @@ I challenge myself to make canvas animations every day, at least 100 days.
 ![Screenshot](screenshot.png)
 
 Here I put some resource links.
-## Inside:
+## Dependencies:
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)
 - [`react`](https://github.com/facebook/react)
@@ -52,27 +52,28 @@ Here I put some resource links.
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
-- 21-01-19 - BigCirclesJelly           - [`link`](https://malashevskyi.pp.ua/canvas-every-day/BigCirclesJelly)
-- 21-01-18 - TunnelOfParticles         - [`link`](https://malashevskyi.pp.ua/canvas-every-day/TunnelOfParticles)
-- 21-01-17 - BurstOfParticles_2        - [`link`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles_2)
-- 21-01-17 - BurstOfParticles          - [`link`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles)
-- 21-01-16 - ParticlesSun              - [`link`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesSun)
-- 21-01-15 - SwirlOfSquares            - [`link`](https://malashevskyi.pp.ua/canvas-every-day/SwirlOfSquares)
-- 21-01-14 - Orbit_2                   - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Orbit_2)
-- 21-01-14 - Orbit                     - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Orbit)
-- 21-01-13 - CircleOrnament            - [`link`](https://malashevskyi.pp.ua/canvas-every-day/CircleOrnament)
-- 21-01-12 - Bouquet                   - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Bouquet)
-- 21-01-11 - Jelly_2                   - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Jelly_2)
-- 21-01-10 - Festoon_2                 - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Festoon_2)
-- 21-01-10 - Festoon                   - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Festoon)
-- 21-01-09 - ParticlesInMouseDirection - [`link`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
-- 21-01-08 - Jelly                     - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
-- 21-01-07 - Necklace                  - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
-- 21-01-06 - StainedGlass              - [`link`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
-- 21-01-05 - StarrySky                 - [`link`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
-- 21-01-04 - Balls                     - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
-- 21-01-03 - ParticlesMoveInACircle    - [`link`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
-- 21-01-02 - Firework                  - [`link`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
+- 21-01-20 - [`HeartPulse`](https://malashevskyi.pp.ua/canvas-every-day/BigCirclesJelly)
+- 21-01-19 - [`BigCirclesJelly`](https://malashevskyi.pp.ua/canvas-every-day/BigCirclesJelly)
+- 21-01-18 - [`TunnelOfParticles`](https://malashevskyi.pp.ua/canvas-every-day/TunnelOfParticles)
+- 21-01-17 - [`BurstOfParticles_2`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles_2)
+- 21-01-17 - [`BurstOfParticles`](https://malashevskyi.pp.ua/canvas-every-day/BurstOfParticles)
+- 21-01-16 - [`ParticlesSun`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesSun)
+- 21-01-15 - [`SwirlOfSquares`](https://malashevskyi.pp.ua/canvas-every-day/SwirlOfSquares)
+- 21-01-14 - [`Orbit_2`](https://malashevskyi.pp.ua/canvas-every-day/Orbit_2)
+- 21-01-14 - [`Orbit`](https://malashevskyi.pp.ua/canvas-every-day/Orbit)
+- 21-01-13 - [`CircleOrnament`](https://malashevskyi.pp.ua/canvas-every-day/CircleOrnament)
+- 21-01-12 - [`Bouquet`](https://malashevskyi.pp.ua/canvas-every-day/Bouquet)
+- 21-01-11 - [`Jelly_2`](https://malashevskyi.pp.ua/canvas-every-day/Jelly_2)
+- 21-01-10 - [`Festoon_2`](https://malashevskyi.pp.ua/canvas-every-day/Festoon_2)
+- 21-01-10 - [`Festoon`](https://malashevskyi.pp.ua/canvas-every-day/Festoon)
+- 21-01-09 - [`ParticlesInMouseDirection`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesInMouseDirection)
+- 21-01-08 - [`Jelly`](https://malashevskyi.pp.ua/canvas-every-day/Jelly)
+- 21-01-07 - [`Necklace`](https://malashevskyi.pp.ua/canvas-every-day/Necklace)
+- 21-01-06 - [`StainedGlass`](https://malashevskyi.pp.ua/canvas-every-day/StainedGlass)
+- 21-01-05 - [`StarrySky`](https://malashevskyi.pp.ua/canvas-every-day/StarrySky)
+- 21-01-04 - [`Balls`](https://malashevskyi.pp.ua/canvas-every-day/Balls)
+- 21-01-03 - [`ParticlesMoveInACircle`](https://malashevskyi.pp.ua/canvas-every-day/ParticlesMoveInACircle) 
+- 21-01-02 - [`Firework`](https://malashevskyi.pp.ua/canvas-every-day/Firework)
 
 
 
