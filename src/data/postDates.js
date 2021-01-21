@@ -1,4 +1,5 @@
 const postDates = {
+  HeartTriangulation: '2021-01-21',
   HeartPulse: '2021-01-20',
   BigCirclesJelly: '2021-01-19',
   TunnelOfParticles: '2021-01-18',

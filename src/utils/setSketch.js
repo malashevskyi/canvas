@@ -2,6 +2,7 @@ import React from 'react'
 import canvasSketch from 'canvas-sketch';
 import { useEffect } from 'react';
 import { store } from 'react-notifications-component';
+// import gsap from 'gsap';
 
 export default function setSketch(sketch, settings) {
   return React.forwardRef((props, ref) => {    
@@ -24,6 +25,8 @@ export default function setSketch(sketch, settings) {
       start()
         
       return () => {
+        // gsap.globalTimeline.pause();
+        
         // Unload previous canvas sketch
         manager.unload()
 

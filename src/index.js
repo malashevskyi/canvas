@@ -5,7 +5,6 @@ import {BrowserRouter as Router} from 'react-router-dom'
 
  // Will store all notification ids.
  window.notificationIds = [];
- window.manager = []
 
 ReactDOM.render(
   <React.StrictMode>
