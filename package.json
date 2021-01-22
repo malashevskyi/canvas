@@ -30,7 +30,13 @@
   },
   "keywords": [
     "canvas",
-    "animations"
+    "animations",
+    "gsap",
+    "webgl",
+    "three.js",
+    "glsl",
+    "d3",
+    "svg"
   ],
   "scripts": {
     "start": "PORT=9966 react-scripts start",
