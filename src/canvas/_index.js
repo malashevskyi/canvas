@@ -1,3 +1,4 @@
+export { default as Main } from './main';
 export { default as HeartTriangulation } from './heartTriangulation';
 export { default as HeartPulse } from './hearPulse';
 export { default as BigCirclesJelly } from './bigCirclesJelly';

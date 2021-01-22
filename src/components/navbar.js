@@ -17,8 +17,11 @@ const Navbar = ({
   const [isOpen] = useContext(MenuIsOpenContext);
 
   function rowRenderer({ key, index, style }) {
+    const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
+    if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
     const name = filteredCanvasNames[index];
-    return (
+
+    return name === 'Main' ? null : (
       <div
         style={style}
         key={key}
@@ -56,7 +59,7 @@ const Navbar = ({
                   <List
                     width={300}
                     height={height}
-                    rowCount={filteredCanvasNames.length}
+                    rowCount={filteredCanvasNames.length - 1}
                     rowHeight={125}
                     rowRenderer={rowRenderer}
                     overscanRowCount={3}

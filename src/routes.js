@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 const Routes = ({ allCanvasNames, canvas }) => {
   const canvasRef = useRef();
-  const MainCanvas = canvas['Jelly'];
+  const MainCanvas = canvas['Main'];
   
   return (
     <Fragment>
