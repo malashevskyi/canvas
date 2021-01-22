@@ -1,3 +1,4 @@
+import DrawWaves from './DrawWaves.png';
 import HeartTriangulation from './HeartTriangulation.png';
 import HeartPulse from './HeartPulse.png';
 import BigCirclesJelly from './BigCirclesJelly.png';
@@ -23,6 +24,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  DrawWaves,
   HeartTriangulation,
   HeartPulse,
   BigCirclesJelly,

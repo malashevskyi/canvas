@@ -1,4 +1,5 @@
 const postDates = {
+  DrawWaves: '2021-01-22',
   Main: '2021-01-22',
   HeartTriangulation: '2021-01-21',
   HeartPulse: '2021-01-20',
