@@ -52,6 +52,8 @@ Here I put some resource links.
 - [Gifmaker](https://gifmaker.me/)
 
 ## History
+- 21-01-22 - [`Main Canvas`](https://canvas-every-day.web.app)
+- 21-01-21 - [`HeartTriangulation`](https://canvas-every-day.web.app/HeartTriangulation)
 - 21-01-20 - [`HeartPulse`](https://canvas-every-day.web.app/HeartPulse)
 - 21-01-19 - [`BigCirclesJelly`](https://canvas-every-day.web.app/BigCirclesJelly)
 - 21-01-18 - [`TunnelOfParticles`](https://canvas-every-day.web.app/TunnelOfParticles)
