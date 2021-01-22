@@ -1,5 +1,6 @@
-# canvas-every-day (2d, WebGL, Three.js, GLSL)
-I challenge myself to make canvas animations every day, at least 100 days.
+# canvas-every-day
+I challenge myself to make canvas animations every day, at least 100 days. <br>
+**Plans:** some animation with WebGL, Three.js, GLSL, SVG, D3, GSAP
 
 [DEMO](https://canvas-every-day.web.app/) — There you find any animation in a quick way without launching it.
 
@@ -16,6 +17,7 @@ Here I put some resource links.
 - [`classnames`](https://github.com/JedWatson/classnames)
 - [`dat.gui`](https://github.com/dataarts/dat.gui)
 - [`react-virtualized`](https://github.com/bvaughn/react-virtualized)
+- [`gsap`](https://github.com/greensock/GSAP)
 
 ## Useful YouTube channels:
 - [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)
@@ -23,7 +25,7 @@ Here I put some resource links.
 - [`Yuri Artyukh`](https://www.youtube.com/user/flintyara/videos)
 - [`Chris Courses`](https://www.youtube.com/c/ChrisCourses/videos)
 
-## Courses:
+## Useful courses:
 - [`https://frontendmasters.com/courses/canvas-webgl/`](https://frontendmasters.com/courses/canvas-webgl/)
 - [`https://frontendmasters.com/courses/webgl-shaders/`](https://frontendmasters.com/courses/webgl-shaders/)
 
