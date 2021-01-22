@@ -59,7 +59,7 @@ const Navbar = ({
                   <List
                     width={300}
                     height={height}
-                    rowCount={filteredCanvasNames.length - 1}
+                    rowCount={filteredCanvasNames.length}
                     rowHeight={125}
                     rowRenderer={rowRenderer}
                     overscanRowCount={3}
