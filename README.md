@@ -51,7 +51,11 @@ Here I put some resource links.
 - [`google equirectangular images`](https://www.google.com/search?q=equirectangular+images&tbm=isch&ved=2ahUKEwialqrCyIDuAhUI_hoKHRZvC2gQ2-cCegQIABAA&oq=equirectangular+images&gs_lcp=CgNpbWcQA1CsbFjsbWC9b2gAcAB4AIAB9QKIAfUCkgEDMy0xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=KSTyX9rdH4j8a5bercAG&bih=1276&biw=2560#imgrc=Nlw8VvEHmTpjNM)
 
 ## Tools
-- [Gifmaker](https://gifmaker.me/)
+- [`Gifmaker`](https://gifmaker.me/)
+
+## Extensions
+- [`FPS extension | Chrome`](https://chrome.google.com/webstore/detail/fps-extension/gdkkmimldhefhmmmlalioafomdlahcog)
+- [`FPS | Firefox`](https://addons.mozilla.org/en-US/firefox/addon/archi-fps-meter/?src=recommended)
 
 ## History
 - 21-01-22 - [`DrawWaves`](https://canvas-every-day.web.app/DrawWaves)
