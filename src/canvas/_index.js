@@ -1,3 +1,4 @@
+export { default as MoveCircleTrail } from './moveCircleTrail';
 export { default as DrawWaves } from './drawWaves';
 export { default as Main } from './main';
 export { default as HeartTriangulation } from './heartTriangulation';
