@@ -1,16 +1,11 @@
-import setSketch from '../utils/setSketch';
-
 import random from 'canvas-sketch-util/random'
-// import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
+import setSketch from '../utils/setSketch';
 import { debounceInterval } from '../utils/debounce'
 import getGui from '../utils/getGui'
 
-
-
 const sketch = ({ context, width, height }) => {
-  
   const particles = [];
   let alpha = 1;
   let speedUp = true;
@@ -75,12 +70,7 @@ const sketch = ({ context, width, height }) => {
 
 
   const gui = (gui) => {
-    gui.add( {palettes: '1'}, 'palettes', [
-      ['1'],
-      ['2'],
-      ['3'],
-      ['4']
-    ]).name('Change palette')
+    gui.add( {palettes: '1'}, 'palettes', [ ['1'], ['2'], ['3'], ['4'] ]).name('Change palette')
     .onChange((e) => {
       palette = [
         opt.palettes[e - 1][0],
@@ -101,11 +91,18 @@ const sketch = ({ context, width, height }) => {
   debounceInterval(() => {
     speedUp = !speedUp;
   }, 3000);
+  
+  document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === 'visible') {
+      debounceInterval(() => {
+        speedUp = !speedUp;
+      }, 3000);
+    }
+  });
 
   return (props) => {
-
     ({height, width} = props)
-
+    
     context.fillStyle = `rgba(10, 10, 10, ${alpha})`;
     context.fillRect(0, 0, width, height);
 
