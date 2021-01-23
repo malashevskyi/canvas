@@ -2,7 +2,7 @@ import random from 'canvas-sketch-util/random'
 import { linspace } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 // random.setSeed('816577')
 // random.setSeed(16)

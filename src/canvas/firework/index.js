@@ -1,12 +1,12 @@
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
-import { debounceNotification } from '../utils/debounce'  
-import { debounceInterval } from '../utils/debounce'
-import getGui from '../utils/getGui';
+import { debounceNotification } from '../../utils/debounce'  
+import { debounceInterval } from '../../utils/debounce'
+import getGui from '../../utils/getGui';
 
 const sketch = ({ width, height, context: { canvas }, context }) => {
   debounceNotification('You can also click to see an animation');

@@ -1,5 +1,5 @@
-import setSketch from '../utils/setSketch';
-import { debounceNotification } from '../utils/debounce';
+import setSketch from '../../utils/setSketch';
+import { debounceNotification } from '../../utils/debounce';
 
 const sketch = ({ width, height, context, canvas }) => {
   debounceNotification('Move mouse to change position.');

@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
 
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 const sketch = ({ context, width, height }) => {
   random.setSeed(24)

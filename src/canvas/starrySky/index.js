@@ -1,7 +1,7 @@
 import { lerp } from 'canvas-sketch-util/math'
 import random from 'canvas-sketch-util/random'
 
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 function getAlphaMarker(count, delay) {
   let isThrottled = false;

@@ -1,8 +1,8 @@
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
-import setSketch from '../utils/setSketch';
-import getGui from '../utils/getGui';
+import setSketch from '../../utils/setSketch';
+import getGui from '../../utils/getGui';
 
 const sketch = ({ context, width, height }) => {
   random.setSeed(24);
@@ -21,6 +21,8 @@ const sketch = ({ context, width, height }) => {
 
   class Ball {
     constructor(x, y) {
+      this.anchorX = x;
+      this.anchorY = y;
       this.x = x;
       this.y = y;
       this.color = random.pick(palette);
@@ -49,7 +51,7 @@ const sketch = ({ context, width, height }) => {
     }
   }
 
-  for (let i = 0; i <= 15; i++) {
+  for (let i = 0; i <= 25; i++) {
     balls.push(new Ball(0, 0));
   }
 
@@ -85,7 +87,7 @@ const sketch = ({ context, width, height }) => {
 
     context.translate(width / 2, height / 2);
 
-    let d = [4.5, 1.5, 0.9];
+    let d = [4.5, 1.7, 1.1]
     for (let j = 0; j < 3; j++) {
       context.save();
         context.translate(
@@ -93,13 +95,13 @@ const sketch = ({ context, width, height }) => {
           c[tick % c.length].x / d[j],
           c[tick % c.length].y / d[j]
         );
-        for (let i = 1; i <= 5; i++) {
+        for (let i = j * 5; i <= 5 + j * 5; i++) {
           context.save();
           context.rotate(
             (TWO_PI / opt.rotateAngle) * (tick % opt.rotateAngle) +
               (TWO_PI / countCircles) * i
           );
-          balls[i].render();
+          balls[i + j * 5].render();
           context.restore();
         }
       context.restore();

@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 // import getGui from '../utils/getGui';
 
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 const sketch = ({ width, height, context: { canvas } }) => {
   const mouse = {

@@ -1,4 +1,4 @@
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';

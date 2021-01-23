@@ -47,5 +47,6 @@ export const TunnelOfParticles = () => video("https://www.youtube.com/watch?v=5M
 export const BigCirclesJelly = () => '';
 export const HeartPulse = () => '';
 export const HeartTriangulation = () => video("https://www.youtube.com/watch?v=LNSvO-jJhKg");
+export const Main = () => video("https://www.youtube.com/watch?v=LNSvO-jJhKg");
 export const DrawWaves = () => '';
 export const MoveCircleTrail = () => article("https://www.kirupa.com/canvas/creating_motion_trails.htm");

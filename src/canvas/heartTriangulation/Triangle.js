@@ -15,9 +15,9 @@ class Triangle {
       this.tlSet = true;
 
       this.tl = new TimelineMax({
-        delay: random.range(1, 3),
+        delay: random.range(0, 2),
         repeat: -1,
-        repeatDelay: 4,
+        repeatDelay: 2.5,
         yoyo: true,
         ease: random.pick([
           Power4.easeIn,

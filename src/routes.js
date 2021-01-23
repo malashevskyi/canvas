@@ -7,7 +7,7 @@ const Routes = ({ allCanvasNames, canvas }) => {
   const canvasRef = useRef();
   const location = useLocation();
   const MainCanvas = canvas['Main'];
-  const Credits = credits[location.pathname.slice(1)];
+  const Credits = credits[location.pathname === '/' ? 'Main' : location.pathname.slice(1)];
 
   return (
     <Fragment>

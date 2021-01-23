@@ -2,7 +2,7 @@ import palettes from 'nice-color-palettes'
 import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 
-import setSketch from '../utils/setSketch';
+import setSketch from '../../utils/setSketch';
 
 random.setSeed(14)
 const palette = random.pick(palettes);

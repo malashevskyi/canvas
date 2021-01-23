@@ -2,8 +2,8 @@ import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
-import setSketch from '../utils/setSketch';
-import getGui from '../utils/getGui';
+import setSketch from '../../utils/setSketch';
+import getGui from '../../utils/getGui';
 
 // random.setSeed(random.pick(['964335', '372336', '513468', '414867']))
 random.setSeed(random.pick(['513468']))

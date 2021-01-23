@@ -1,8 +1,8 @@
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
-import setSketch from '../utils/setSketch';
-import getGui from '../utils/getGui';
+import setSketch from '../../utils/setSketch';
+import getGui from '../../utils/getGui';
 
 const sketch = ({ context, width, height }) => {
   random.setSeed(2);
