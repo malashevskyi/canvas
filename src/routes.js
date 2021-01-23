@@ -1,13 +1,20 @@
 import React, {Fragment, useRef} from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
+
+import * as credits from './credits.js'
 
 const Routes = ({ allCanvasNames, canvas }) => {
   const canvasRef = useRef();
+  const location = useLocation();
   const MainCanvas = canvas['Main'];
-  
+  const Credits = credits[location.pathname.slice(1)];
+
   return (
     <Fragment>
       <canvas ref={canvasRef}></canvas>
+      <div className="credits">
+        <Credits />
+      </div>
       <Switch>
         <Route path="/" exact>
           <MainCanvas ref={canvasRef} />
