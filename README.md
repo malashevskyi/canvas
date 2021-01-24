@@ -59,6 +59,7 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 
 <!---
 ### History
+[`21-01-23 - ScatterBalls`](https://canvas-every-day.web.app/ScatterBalls)<br>
 [`21-01-23 - MoveCircleTrail`](https://canvas-every-day.web.app/MoveCircleTrail)<br>
 [`21-01-22 - DrawWaves`](https://canvas-every-day.web.app/DrawWaves)<br>
 [`21-01-22 - Main Canvas`](https://canvas-every-day.web.app)<br>
