@@ -1,3 +1,4 @@
+import ScatterBalls from './ScatterBalls.png';
 import MoveCircleTrail from './MoveCircleTrail.png';
 import DrawWaves from './DrawWaves.png';
 import HeartTriangulation from './HeartTriangulation.png';
@@ -25,6 +26,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  ScatterBalls,
   MoveCircleTrail,
   DrawWaves,
   HeartTriangulation,
