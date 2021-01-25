@@ -6,10 +6,8 @@ import setSketch from '../../utils/setSketch';
 const sketch = ({ context, width, height }) => {
   random.setSeed(6)
   const palette = random.pick(palettes);
-  let angle = 0;
   let tick = 0;
   const balls = [];
-
   class Ball {
     constructor(angle) {
       this.x = 0;
@@ -57,8 +55,6 @@ const sketch = ({ context, width, height }) => {
  
   return (props) => {
     ({height, width} = props)
-
-    angle += 0.01;
     tick++;
 
     if (balls.length < 300 && tick % 3 === 0) {
