@@ -1,3 +1,4 @@
+import Numbers from './Numbers.png';
 import ScatterBalls from './ScatterBalls.png';
 import MoveCircleTrail from './MoveCircleTrail.png';
 import DrawWaves from './DrawWaves.png';
@@ -26,6 +27,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Numbers,
   ScatterBalls,
   MoveCircleTrail,
   DrawWaves,
