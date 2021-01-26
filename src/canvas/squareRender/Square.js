@@ -9,7 +9,7 @@ class Square {
     this.context.beginPath();
     this.context.fillStyle = 'orange';
     if (clear) {
-      this.context.clearRect(this.x - 1, this.y, 7, 6);
+      this.context.clearRect(this.x - 0.5, this.y - 0.5, 7, 7);
     } else {
       this.context.fillRect(this.x, this.y, 6, 6);
     }
