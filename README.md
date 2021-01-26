@@ -18,6 +18,7 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 - [`dat.gui`](https://github.com/dataarts/dat.gui)<br>
 - [`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
 - [`gsap`](https://github.com/greensock/GSAP)<br>
+- [`d3`](https://github.com/d3/d3)<br>
 
 ### Useful YouTube channels:
 - [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)<br>
