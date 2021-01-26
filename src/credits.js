@@ -41,6 +41,7 @@ export const Orbit = () => '';
 export const Orbit_2 = () => '';
 export const ScatterBalls = () => '';
 export const Numbers = () => '';
+export const SquareRender = () => '';
 export const SwirlOfSquares = () => '';
 export const ParticlesSun = () => '';
 export const BurstOfParticles = () => video("https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1290s");

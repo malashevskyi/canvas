@@ -1,3 +1,4 @@
+export { default as SquareRender } from './squareRender';
 export { default as Numbers } from './numbers';
 export { default as ScatterBalls } from './scatterBalls';
 export { default as MoveCircleTrail } from './moveCircleTrail';

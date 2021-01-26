@@ -1,3 +1,4 @@
+import SquareRender from './SquareRender.png';
 import Numbers from './Numbers.png';
 import ScatterBalls from './ScatterBalls.png';
 import MoveCircleTrail from './MoveCircleTrail.png';
@@ -27,6 +28,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  SquareRender,
   Numbers,
   ScatterBalls,
   MoveCircleTrail,
