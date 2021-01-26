@@ -60,7 +60,6 @@ const sketch = ({ context, width, height }) => {
     if (balls.length < 300 && tick % 3 === 0) {
       balls.push(new Ball(random.pick(angles)));
     }
-    console.log('balls', balls.length);
 
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
