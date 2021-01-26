@@ -8,16 +8,16 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 
 <!-- Here I put some resource links. -->
 ### Dependencies:
-[`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)<br>
-[`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
-[`react`](https://github.com/facebook/react)<br>
-[`create-react-app`](https://github.com/facebook/create-react-app)<br>
-[`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
-[`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
-[`classnames`](https://github.com/JedWatson/classnames)<br>
-[`dat.gui`](https://github.com/dataarts/dat.gui)<br>
-[`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
-[`gsap`](https://github.com/greensock/GSAP)<br>
+- [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)<br>
+- [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
+- [`react`](https://github.com/facebook/react)<br>
+- [`create-react-app`](https://github.com/facebook/create-react-app)<br>
+- [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
+- [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
+- [`classnames`](https://github.com/JedWatson/classnames)<br>
+- [`dat.gui`](https://github.com/dataarts/dat.gui)<br>
+- [`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
+- [`gsap`](https://github.com/greensock/GSAP)<br>
 
 ### Useful YouTube channels:
 [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)<br>
@@ -59,6 +59,8 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 
 <!---
 ### History
+[`21-01-26 - SquareRender`](https://canvas-every-day.web.app/SquareRender)<br>
+[`21-01-24 - Numbers`](https://canvas-every-day.web.app/Numbers)<br>
 [`21-01-23 - ScatterBalls`](https://canvas-every-day.web.app/ScatterBalls)<br>
 [`21-01-23 - MoveCircleTrail`](https://canvas-every-day.web.app/MoveCircleTrail)<br>
 [`21-01-22 - DrawWaves`](https://canvas-every-day.web.app/DrawWaves)<br>
