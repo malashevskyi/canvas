@@ -1,3 +1,4 @@
+import SquareDestruction from './SquareDestruction.png';
 import SquareRender from './SquareRender.png';
 import Numbers from './Numbers.png';
 import ScatterBalls from './ScatterBalls.png';
@@ -28,6 +29,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  SquareDestruction,
   SquareRender,
   Numbers,
   ScatterBalls,

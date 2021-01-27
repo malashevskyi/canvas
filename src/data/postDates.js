@@ -1,4 +1,5 @@
 const postDates = {
+  SquareDestruction: '2021-01-27',
   SquareRender: '2021-01-26',
   Numbers: '2021-01-25',
   ScatterBalls: '2021-01-24',

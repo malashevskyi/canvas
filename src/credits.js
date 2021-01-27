@@ -40,6 +40,7 @@ export const CircleOrnament = () => '';
 export const Orbit = () => '';
 export const Orbit_2 = () => '';
 export const ScatterBalls = () => '';
+export const SquareDestruction = () => '';
 export const Numbers = () => '';
 export const SquareRender = () => '';
 export const SwirlOfSquares = () => '';
