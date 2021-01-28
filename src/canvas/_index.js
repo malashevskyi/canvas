@@ -1,3 +1,4 @@
+export { default as SquareDestructionToRect } from './squareDestructionToRect';
 export { default as SquareDestruction } from './squareDestruction';
 export { default as SquareRender } from './squareRender';
 export { default as Numbers } from './numbers';
