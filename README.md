@@ -60,6 +60,8 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 
 <!---
 ### History
+[`21-01-28 - SquareDestructionToRect`](https://canvas-every-day.web.app/SquareDestructionToRect)<br>
+[`21-01-27 - SquareDestruction`](https://canvas-every-day.web.app/SquareDestruction)<br>
 [`21-01-26 - SquareRender`](https://canvas-every-day.web.app/SquareRender)<br>
 [`21-01-24 - Numbers`](https://canvas-every-day.web.app/Numbers)<br>
 [`21-01-23 - ScatterBalls`](https://canvas-every-day.web.app/ScatterBalls)<br>
