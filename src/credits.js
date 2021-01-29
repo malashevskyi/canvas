@@ -39,6 +39,7 @@ export const Bouquet = () => '';
 export const CircleOrnament = () => '';
 export const Orbit = () => '';
 export const Orbit_2 = () => '';
+export const DotsPyramid = () => '';
 export const ScatterBalls = () => '';
 export const SquareDestruction = () => '';
 export const SquareDestructionToRect = () => '';
