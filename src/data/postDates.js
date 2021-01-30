@@ -1,4 +1,5 @@
 const postDates = {
+  Waves: '2021-01-30',
   DotsPyramid: '2021-01-29',
   SquareDestructionToRect: '2021-01-28',
   SquareDestruction: '2021-01-27',

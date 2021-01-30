@@ -1,3 +1,4 @@
+import Waves from './Waves.png';
 import DotsPyramid from './DotsPyramid.png';
 import SquareDestructionToRect from './SquareDestructionToRect.png';
 import SquareDestruction from './SquareDestruction.png';
@@ -31,6 +32,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Waves,
   DotsPyramid,
   SquareDestructionToRect,
   SquareDestruction,
