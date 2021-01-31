@@ -1,3 +1,4 @@
+import Neons from './Neons.png';
 import Waves from './Waves.png';
 import DotsPyramid from './DotsPyramid.png';
 import SquareDestructionToRect from './SquareDestructionToRect.png';
@@ -32,6 +33,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Neons,
   Waves,
   DotsPyramid,
   SquareDestructionToRect,

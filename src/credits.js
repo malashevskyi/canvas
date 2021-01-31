@@ -16,6 +16,14 @@ function video(link) {
     </div>
   </Fragment>
 }
+function codesandbox(link) {
+  return  <Fragment>
+    <div className="title">Credits:</div>
+    <div className="inner">
+      Inspired by the &nbsp;<a target="_blank" rel="noreferrer" href={link} >codesandbox</a> .
+    </div>
+  </Fragment>
+}
 function description(desc) {
   return  <Fragment>
     <div className="inner">
@@ -46,6 +54,7 @@ export const SquareDestructionToRect = () => '';
 export const Numbers = () => '';
 export const SquareRender = () => '';
 export const Waves = () => '';
+export const Neons = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
 export const SwirlOfSquares = () => '';
 export const ParticlesSun = () => '';
 export const BurstOfParticles = () => video("https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1290s");

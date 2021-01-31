@@ -1,3 +1,4 @@
+export { default as Neons } from './neons';
 export { default as Waves } from './waves';
 export { default as DotsPyramid } from './dotsPyramid';
 export { default as SquareDestructionToRect } from './squareDestructionToRect';
