@@ -54,7 +54,6 @@ export const SquareDestructionToRect = () => '';
 export const Numbers = () => '';
 export const SquareRender = () => '';
 export const Waves = () => '';
-export const Neons = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
 export const SwirlOfSquares = () => '';
 export const ParticlesSun = () => '';
 export const BurstOfParticles = () => video("https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1290s");
@@ -66,3 +65,5 @@ export const HeartTriangulation = () => video("https://www.youtube.com/watch?v=L
 export const Main = () => video("https://www.youtube.com/watch?v=LNSvO-jJhKg");
 export const DrawWaves = () => '';
 export const MoveCircleTrail = () => article("https://www.kirupa.com/canvas/creating_motion_trails.htm");
+export const Neons = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
+export const Neons_2 = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
