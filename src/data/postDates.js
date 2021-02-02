@@ -1,4 +1,5 @@
 const postDates = {
+  GradientWaves: '2021-02-02',
   Neons_2: '2021-02-01',
   Neons: '2021-01-31',
   Waves: '2021-01-30',
