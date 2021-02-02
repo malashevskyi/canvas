@@ -30,6 +30,8 @@ const sketch = ({ context, width, height, time }) => {
     gui.add(opt, 'frequency').min(0).max(100).step(5).name('Frequency');
   })
   
+  context.clearRect(0, 0, width, height);
+
   return (props) => {
     ({ width, height, time } = props);
     
