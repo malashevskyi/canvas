@@ -68,3 +68,4 @@ export const MoveCircleTrail = () => article("https://www.kirupa.com/canvas/crea
 export const Neons = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
 export const Neons_2 = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
 export const GradientWaves = () => '';
+export const GradientWaves_2 = () => '';

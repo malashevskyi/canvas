@@ -1,3 +1,4 @@
+export { default as GradientWaves_2 } from './gradientWaves_2';
 export { default as GradientWaves } from './gradientWaves';
 export { default as Neons_2 } from './neons_2';
 export { default as Neons } from './neons';
