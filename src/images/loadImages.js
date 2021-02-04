@@ -1,3 +1,4 @@
+import Dots from './Dots.png';
 import GradientWaves_2 from './GradientWaves_2.png';
 import GradientWaves from './GradientWaves.png';
 import Neons_2 from './Neons_2.png';
@@ -36,6 +37,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  Dots,
   GradientWaves_2,
   GradientWaves,
   Neons_2,

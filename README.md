@@ -60,6 +60,7 @@ I challenge myself to make canvas animations every day, at least 100 days. <br>
 
 <!---
 ### History
+[`21-02-04 - Dots`](https://canvas-every-day.web.app/Dots)<br>
 [`21-02-03 - GradientWaves_2`](https://canvas-every-day.web.app/GradientWaves_2)<br>
 [`21-02-02 - GradientWaves`](https://canvas-every-day.web.app/GradientWaves)<br>
 [`21-02-01 - Neons_2`](https://canvas-every-day.web.app/Neons_2)<br>

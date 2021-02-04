@@ -69,3 +69,4 @@ export const Neons = () => codesandbox("https://codesandbox.io/s/proton-emitter-
 export const Neons_2 = () => codesandbox("https://codesandbox.io/s/proton-emitter-h2y9z?from-embed=&file=/package.json:222-235");
 export const GradientWaves = () => '';
 export const GradientWaves_2 = () => '';
+export const Dots = () => '';
