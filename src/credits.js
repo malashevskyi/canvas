@@ -70,3 +70,4 @@ export const Neons_2 = () => codesandbox("https://codesandbox.io/s/proton-emitte
 export const GradientWaves = () => '';
 export const GradientWaves_2 = () => '';
 export const Dots = () => '';
+export const LineWaves = () => '';
