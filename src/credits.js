@@ -71,3 +71,4 @@ export const GradientWaves = () => '';
 export const GradientWaves_2 = () => '';
 export const Dots = () => '';
 export const LineWaves = () => '';
+export const CollectParticlesDiagonal = () => '';
