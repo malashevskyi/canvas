@@ -60,6 +60,8 @@ I try to add one animation every day. <br>
 
 <!---
 ### History
+[`21-02-08 - ColorsFight`](https://canvas-every-day.web.app/ColorsFight)<br>
+[`21-02-07 - CollectParticlesDiagonal`](https://canvas-every-day.web.app/CollectParticlesDiagonal)<br>
 [`21-02-05 - LineWaves`](https://canvas-every-day.web.app/LineWaves)<br>
 [`21-02-04 - Dots`](https://canvas-every-day.web.app/Dots)<br>
 [`21-02-03 - GradientWaves_2`](https://canvas-every-day.web.app/GradientWaves_2)<br>

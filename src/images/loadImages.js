@@ -1,4 +1,5 @@
-import CollectParticlesDiagonal from './collectParticlesDiagonal.png';
+import ColorsFight from './ColorsFight.png';
+import CollectParticlesDiagonal from './CollectParticlesDiagonal.png';
 import LineWaves from './LineWaves.png';
 import Dots from './Dots.png';
 import GradientWaves_2 from './GradientWaves_2.png';
@@ -39,6 +40,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  ColorsFight,
   CollectParticlesDiagonal,
   LineWaves,
   Dots,

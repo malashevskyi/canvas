@@ -1,4 +1,5 @@
 const postDates = {
+  ColorsFight: '2021-02-08',
   CollectParticlesDiagonal: '2021-02-06',
   LineWaves: '2021-02-05',
   Dots: '2021-02-04',
