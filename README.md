@@ -1,5 +1,5 @@
-## canvas-every-day
-I challenge myself to make canvas animations every day, at least 100 days. <br>
+## canvas
+I try to add one animation every day. <br>
 **Plans:** some animation with WebGL, Three.js, GLSL, SVG, D3, GSAP
 
 [**DEMO**](https://canvas-every-day.web.app/) — checked in latest chrome version.
