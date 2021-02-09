@@ -1,3 +1,4 @@
+import CollectDotsToCenter from './CollectDotsToCenter.png';
 import ColorsFight from './ColorsFight.png';
 import CollectParticlesDiagonal from './CollectParticlesDiagonal.png';
 import LineWaves from './LineWaves.png';
@@ -40,6 +41,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  CollectDotsToCenter,
   ColorsFight,
   CollectParticlesDiagonal,
   LineWaves,

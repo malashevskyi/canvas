@@ -1,3 +1,4 @@
+export { default as CollectDotsToCenter } from './collectDotsToCenter';
 export { default as ColorsFight } from './colorsFight';
 export { default as CollectParticlesDiagonal } from './collectParticlesDiagonal';
 export { default as LineWaves } from './lineWaves';
