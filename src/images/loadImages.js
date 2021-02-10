@@ -1,3 +1,4 @@
+import DotsScale from './DotsScale.png';
 import CollectDotsToCenter from './CollectDotsToCenter.png';
 import ColorsFight from './ColorsFight.png';
 import CollectParticlesDiagonal from './CollectParticlesDiagonal.png';
@@ -41,6 +42,7 @@ import ParticlesMoveInACircle from './ParticlesMoveInACircle.png';
 import Firework from './Firework.png';
 
 export {
+  DotsScale,
   CollectDotsToCenter,
   ColorsFight,
   CollectParticlesDiagonal,

@@ -74,3 +74,4 @@ export const LineWaves = () => '';
 export const CollectParticlesDiagonal = () => '';
 export const ColorsFight = () => video("https://www.youtube.com/watch?v=FOPw03-jNrs&t=24s");
 export const CollectDotsToCenter = () => '';
+export const DotsScale = () => '';

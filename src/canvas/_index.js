@@ -1,3 +1,4 @@
+export { default as DotsScale } from './dotsScale';
 export { default as CollectDotsToCenter } from './collectDotsToCenter';
 export { default as ColorsFight } from './colorsFight';
 export { default as CollectParticlesDiagonal } from './collectParticlesDiagonal';
