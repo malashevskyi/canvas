@@ -7,6 +7,7 @@ import Header from './components/header';
 import Navbar from './components/navbar';
 import Routes from './routes';
 import MenuIsOpenProvider from './context/menuIsOpenContext';
+import postsData from './data/postsData';
 
 function getCanvasNames() {
   return Object.keys(canvas);
@@ -24,8 +25,19 @@ function App() {
 
     const newFilteredCanvas = [];
     Object.keys(canvas).forEach((name) => {
-      if (name.toLowerCase().includes(filter)) {
-        newFilteredCanvas.push(name);
+      
+      // delete postsData.Main;
+
+      if (name !== 'Main') {
+        const postsTags = postsData[name.slice(1)].tags;
+  
+        for (let i = 0; i <  postsTags.length; i++) {
+          const tag = postsTags[i];
+          if (tag.toLowerCase().includes(filter)) {
+            newFilteredCanvas.push(name);
+            continue;
+          }
+        }
       }
     });
     setFilteredCanvasNames(newFilteredCanvas);

@@ -6,7 +6,6 @@ I try to add one animation every day. <br>
 
 ![Screenshot](screenshot.png)
 
-<!-- Here I put some resource links. -->
 ### Dependencies:
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)<br>
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
@@ -57,51 +56,6 @@ I try to add one animation every day. <br>
 ### Extensions
 - [`FPS extension | Chrome`](https://chrome.google.com/webstore/detail/fps-extension/gdkkmimldhefhmmmlalioafomdlahcog)<br>
 - [`FPS | Firefox`](https://addons.mozilla.org/en-US/firefox/addon/archi-fps-meter/?src=recommended)<br>
-
-<!---
-### History
-[`21-02-08 - ColorsFight`](https://canvas-every-day.web.app/ColorsFight)<br>
-[`21-02-07 - CollectParticlesDiagonal`](https://canvas-every-day.web.app/CollectParticlesDiagonal)<br>
-[`21-02-05 - LineWaves`](https://canvas-every-day.web.app/LineWaves)<br>
-[`21-02-04 - Dots`](https://canvas-every-day.web.app/Dots)<br>
-[`21-02-03 - GradientWaves_2`](https://canvas-every-day.web.app/GradientWaves_2)<br>
-[`21-02-02 - GradientWaves`](https://canvas-every-day.web.app/GradientWaves)<br>
-[`21-02-01 - Neons_2`](https://canvas-every-day.web.app/Neons_2)<br>
-[`21-01-31 - Neons`](https://canvas-every-day.web.app/Neons)<br>
-[`21-01-30 - Waves`](https://canvas-every-day.web.app/Waves)<br>
-[`21-01-29 - DotsPyramid`](https://canvas-every-day.web.app/DotsPyramid)<br>
-[`21-01-28 - SquareDestructionToRect`](https://canvas-every-day.web.app/SquareDestructionToRect)<br>
-[`21-01-27 - SquareDestruction`](https://canvas-every-day.web.app/SquareDestruction)<br>
-[`21-01-26 - SquareRender`](https://canvas-every-day.web.app/SquareRender)<br>
-[`21-01-24 - Numbers`](https://canvas-every-day.web.app/Numbers)<br>
-[`21-01-23 - ScatterBalls`](https://canvas-every-day.web.app/ScatterBalls)<br>
-[`21-01-23 - MoveCircleTrail`](https://canvas-every-day.web.app/MoveCircleTrail)<br>
-[`21-01-22 - DrawWaves`](https://canvas-every-day.web.app/DrawWaves)<br>
-[`21-01-22 - Main Canvas`](https://canvas-every-day.web.app)<br>
-[`21-01-21 - HeartTriangulation`](https://canvas-every-day.web.app/HeartTriangulation)<br>
-[`21-01-20 - HeartPulse`](https://canvas-every-day.web.app/HeartPulse)<br>
-[`21-01-19 - BigCirclesJelly`](https://canvas-every-day.web.app/BigCirclesJelly)<br>
-[`21-01-18 - TunnelOfParticles`](https://canvas-every-day.web.app/TunnelOfParticles)<br>
-[`21-01-17 - BurstOfParticles_2`](https://canvas-every-day.web.app/BurstOfParticles_2)<br>
-[`21-01-17 - BurstOfParticles`](https://canvas-every-day.web.app/BurstOfParticles)<br>
-[`21-01-16 - ParticlesSun`](https://canvas-every-day.web.app/ParticlesSun)<br>
-[`21-01-15 - SwirlOfSquares`](https://canvas-every-day.web.app/SwirlOfSquares)<br>
-[`21-01-14 - Orbit_2`](https://canvas-every-day.web.app/Orbit_2)<br>
-[`21-01-14 - Orbit`](https://canvas-every-day.web.app/Orbit)<br>
-[`21-01-13 - CircleOrnament`](https://canvas-every-day.web.app/CircleOrnament)<br>
-[`21-01-12 - Bouquet`](https://canvas-every-day.web.app/Bouquet)<br>
-[`21-01-11 - Jelly_2`](https://canvas-every-day.web.app/Jelly_2)<br>
-[`21-01-10 - Festoon_2`](https://canvas-every-day.web.app/Festoon_2)<br>
-[`21-01-10 - Festoon`](https://canvas-every-day.web.app/Festoon)<br>
-[`21-01-09 - ParticlesInMouseDirection`](https://canvas-every-day.web.app/ParticlesInMouseDirection)<br>
-[`21-01-08 - Jelly`](https://canvas-every-day.web.app/Jelly)<br>
-[`21-01-07 - Necklace`](https://canvas-every-day.web.app/Necklace)<br>
-[`21-01-06 - StainedGlass`](https://canvas-every-day.web.app/StainedGlass)<br>
-[`21-01-05 - StarrySky`](https://canvas-every-day.web.app/StarrySky)<br>
-[`21-01-04 - Balls`](https://canvas-every-day.web.app/Balls)<br>
-[`21-01-03 - ParticlesMoveInACircle`](https://canvas-every-day.web.app/ParticlesMoveInACircle) <br>
-[`21-01-02 - Firework`](https://canvas-every-day.web.app/Firework)<br>
---->
 
 
 

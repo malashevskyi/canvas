@@ -1,13 +1,15 @@
 import React, {Fragment, useRef} from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 
-import * as credits from './credits.js'
+import postsData from './data/postsData';
 
 const Routes = ({ allCanvasNames, canvas }) => {
   const canvasRef = useRef();
   const location = useLocation();
   const MainCanvas = canvas['Main'];
-  const Credits = credits[location.pathname === '/' ? 'Main' : location.pathname.slice(1)];
+
+  const name = location.pathname === "/" ? 'Main' : location.pathname.slice(1);
+  const Credits = postsData[name]?.credits
 
   return (
     <Fragment>
@@ -23,7 +25,7 @@ const Routes = ({ allCanvasNames, canvas }) => {
           let Canvas = canvas[name];
 
           return (
-            <Route key={name} path={`/${name}`} exact>
+            <Route key={name} path={`/${name.slice(1)}`} exact>
               <Canvas ref={canvasRef} />
             </Route>
           );

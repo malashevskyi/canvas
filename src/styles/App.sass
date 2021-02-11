@@ -7,8 +7,8 @@
 $topBarH: 50px
 $navBarWidth: 250px
 $border: 3px solid rgba(0, 0, 0, 0.2)
-$grey: #e9ecef
-$grey2: #ced4da
+$gray: #e9ecef
+$gray2: #ced4da
 $blue: #23a6d5
 
 body
@@ -40,6 +40,10 @@ body
 .rTransition
   transition: all 0s;
 
+.ReactVirtualized__Grid__innerScrollContainer,
+.ReactVirtualized__Grid.ReactVirtualized__List
+  outline: none
+
 
 .dg.ac
   z-index: 99 !important
@@ -54,10 +58,10 @@ body
   z-index: 2
   background-color: #fff
   width: 300px
-  border: 3px solid $grey
+  border: 3px solid $gray
   border-radius: 5px 0 0 
   .title
-    border-bottom: 3px solid $grey
+    border-bottom: 3px solid $gray
     padding: 10px
     font-size: 16px
   .inner
@@ -65,6 +69,76 @@ body
     font-size: 14px
   a
     color: $blue
+
+
+
+.tags
+  display: none
+  flex-wrap: wrap
+  position: absolute
+  top: 0
+  left: calc(100% + 3px)
+  z-index: 2
+  background-color: #fff
+  padding: 5px
+  width: 400px
+  border-right: $border
+  border-bottom: $border
+  transition: opacity .2s ease
+  opacity: 0
+  pointer-events: none
+  &.active
+    opacity: 1
+    pointer-events: auto
+.tags span
+  background: #fff
+  margin: 0 1px 1px 0
+  font-family: 'Arial'
+  font-size: 9px
+  padding: 0 5px
+  height: 20px
+  position: relative
+  overflow: hidden
+  align-items: center
+  box-sizing: border-box
+  display: flex
+  letter-spacing: 2px
+  background-color: $gray
+  cursor: pointer
+  transition: all 0.2s ease
+  text-transform: uppercase
+  border: 1px solid $blue
+  &:hover
+    background-color: $blue
+    color: #fff
+
+.clean
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 2
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  overflow: hidden
+  background-color: transparent
+  border: none
+  outline: none
+  opacity: 0
+  transition: opacity .2s ease
+  pointer-events: none
+  &.active
+    pointer-events: auto
+    opacity: 1
+  img
+    width: 80%
+    height: 80%
+    will-change: transform
+    transition: transform .2s ease
+  &:hover
+    img
+      transform: scale(1.2, 1.2)
 
 
 // body > canvas
@@ -91,7 +165,7 @@ body
   background-color: #fff
   width: 100%
   max-width: 253px
-  overflow: hidden
+  // overflow: hidden
   will-change: transform
   &.open
     transform: translate(0%, 0)
@@ -110,7 +184,7 @@ body
     width: 100%
     padding: 0 10px
     height: 100%
-    border: 1px solid $grey2
+    border: 1px solid $gray2
     outline: none
     position: relative
     z-index: 2
@@ -135,28 +209,32 @@ body
     position: absolute
     bottom: 0
     right: -1px
-    background-color: $grey
+    background-color: $gray
     z-index: 1
     height: 16px
     padding: 0 3px
-    font-size: 10px
+    font-size: 9px
     display: block
     transform: translate(0, 0)
     transition: transform .2s ease
     will-change: transform
     display: flex
     align-items: center
+    letter-spacing: 2px
 
   &--title
     position: absolute
     left: 0
     top: 0
     padding: 7px
-    background-color: $grey
+    background-color: $gray
     z-index: 2
     box-sizing: border-box
     font-weight: normal
-    font-size: 12px
+    font-size: 9px
+    font-weight: bold
+    letter-spacing: 1px
+    text-transform: uppercase
     &::before
       content: ''
       position: absolute
@@ -225,6 +303,7 @@ body
   font-size: 18px
   padding: 10px 10px 10px 20px
   transition: color 0.25s ease
+  text-transform: uppercase
   &:hover
     color: #23a6d5
 
@@ -234,10 +313,10 @@ body
   top: 0px
   right: 0px
   &--bar
-    width: 35px
+    width: 25px
     height: 4px
     background-color: $base_color
-    margin: 6px 0
+    margin: 4px 0
     border-radius: 3px
     will-change: transform
     transition: background-color 0.3s ease, transform 0.4s ease
@@ -247,11 +326,11 @@ body
   &.open
     .hamb--bar
       &:nth-child(1)
-        transform: rotate(-45deg) translate(-7px, 6px)
+        transform: rotate(-45deg) translate(-5px, 6px)
       &:nth-child(2)
         opacity: 0
       &:nth-child(3)
-        transform: rotate(45deg) translate(-8px, -7px)
+        transform: rotate(45deg) translate(-5px, -7px)
 
 .image
   width: 100%
@@ -282,8 +361,10 @@ body
       fill: #23a6d5
 
 +minW(768)
+  .tags
+    display: flex
   .title a
-    font-size: 25px
+    font-size: 22px
 +minW(1500)
   .navbar, .ReactVirtualized__Grid.ReactVirtualized__List
     max-width: 303px

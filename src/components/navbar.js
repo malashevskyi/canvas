@@ -7,7 +7,7 @@ import Preview from './preview';
 import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import * as previews from '../images/loadImages';
-import postDates from '../data/postDates';
+import postsData from '../data/postsData';
 
 const Navbar = ({
   onEnteredFilter,
@@ -16,10 +16,24 @@ const Navbar = ({
   const location = useLocation();
   const [isOpen] = useContext(MenuIsOpenContext);
 
+  const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
+  if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
+
   function rowRenderer({ key, index, style }) {
-    const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
-    if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
     const name = filteredCanvasNames[index];
+    if (!name) return;
+    
+    const postData = postsData[name.slice(1)];
+
+    const date = `${name?.slice(1, 5)}-${name?.slice(5, 7)}-${name?.slice(7, 9)}`;
+    let imgTitle = '';
+    let titleTags = '';
+
+    postData.tags.forEach(tag => {
+      titleTags += `/ ${tag} `;
+      imgTitle += `${tag} `;
+    });
+    titleTags = titleTags.slice(1);
 
     return name === 'Main' ? null : (
       <div
@@ -27,15 +41,17 @@ const Navbar = ({
         key={key}
         className={classNames({
           'navbar-menu--item': true,
-          active: location.pathname === `/${name}`,
+          active: location.pathname === `/${name.slice(1)}`,
         })}
         // onClick={() => setIsOpen(false)}
       >
-        <Link to={name}>
-          <h2 className="navbar-menu--title">{name}</h2>
-          <Preview name={name} preview={previews[name]} />
-          <time dateTime={postDates[name]}>
-            <span>{postDates[name]}</span>
+        <Link to={name.slice(1)}>
+          <h2 className="navbar-menu--title">
+            {titleTags}
+          </h2>
+          <Preview name={imgTitle} preview={previews[name]} />
+          <time dateTime={date}>
+            <span>{date}</span>
           </time>
         </Link>
       </div>
