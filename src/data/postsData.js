@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  202102121: { tags: ['move'], credits: () => '' },
   20210210: { tags: ['dots', 'scale'], credits: () => '' },
   20210209: { tags: ['pull', 'dots'], credits: () => '' },
   20210208: { tags: ['touch', 'fight', 'color'], credits: () => video("https://www.youtube.com/watch?v=FOPw03-jNrs&t=24s") },
