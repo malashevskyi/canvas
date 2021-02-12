@@ -2,8 +2,11 @@ import gsap from 'gsap';
 
 import setSketch from '../../utils/setSketch';
 import Smile from './Smile';
+import { debounceNotification } from '../../utils/debounce';
 
 const sketch = ({ context, width, height, canvas }) => {
+  debounceNotification('Move mouse to change eyes position');
+
   const mouse = {
     x: width / 2,
     y: height / 2,
