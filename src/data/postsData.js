@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  202102122: { tags: ['move', 'particles', 'connect', 'push'], credits: () => '' },
   202102121: { tags: ['move'], credits: () => '' },
   20210210: { tags: ['dots', 'scale'], credits: () => '' },
   20210209: { tags: ['pull', 'dots'], credits: () => '' },
@@ -40,7 +41,7 @@ const postsData = {
   20210109: { tags: ['draw', 'circle', 'rotate'], credits: () => video("https://www.youtube.com/watch?v=LHzgW9aQUV8&t=74s") },
   20210108: { tags: ['jelly', 'move'], credits: () => video("https://www.youtube.com/watch?v=XqB_Ulfpd0w") },
   20210107: { tags: ['particles', 'circle', 'burst'], credits: () => '' },
-  20210106: { tags: ['squares', 'flickering'], credits: () => '' },
+  20210106: { tags: ['squares', 'flickering', 'grid'], credits: () => '' },
   20210105: { tags: ['sky', 'flickering', 'fall'], credits: () => '' },
   20210104: { tags: ['balls'], credits: () => video("https://www.youtube.com/watch?v=yq2au9EfeRQ&t=415s") },
   20210103: { tags: ['circle', 'rotate', 'particles'], credits: () => video("https://www.youtube.com/watch?v=D_BPilf_F8k") },
