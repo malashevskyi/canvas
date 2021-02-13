@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  202102131: { tags: ['move', 'particles', 'connect', 'push'], credits: () => '' },
   202102122: { tags: ['move', 'particles', 'connect', 'push'], credits: () => '' },
   202102121: { tags: ['move'], credits: () => '' },
   20210210: { tags: ['dots', 'scale'], credits: () => '' },
