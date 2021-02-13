@@ -20,6 +20,7 @@ I try to add one animation every day. <br>
 - [`d3`](https://github.com/d3/d3)<br>
 
 ### Useful YouTube channels:
+- [`Franks laboratory`](https://www.youtube.com/c/Frankslaboratory/videos)<br>
 - [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)<br>
 - [`Coding Math`](https://www.youtube.com/user/codingmath/videos)<br>
 - [`Yuri Artyukh`](https://www.youtube.com/user/flintyara/videos)<br>
