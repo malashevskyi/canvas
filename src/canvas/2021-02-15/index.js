@@ -1,8 +1,10 @@
 import setSketch from '../../utils/setSketch';
 import Particle from './Particle';
 import getGui from '../../utils/getGui';
+import { debounceNotification } from '../../utils/debounce';
 
 const sketch = ({ context, width, height, canvas }) => {
+  debounceNotification('Move mouse to push particles');
 
   const particles = [];
   const mouse = {
