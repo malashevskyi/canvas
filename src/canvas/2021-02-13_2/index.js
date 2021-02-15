@@ -117,6 +117,7 @@ const sketch = ({ context, width, height, canvas }) => {
       particles.forEach(particle => {
         particle.update(mouse, width, height);
       })
+      context.restore();
     },
     resize() {
       getParticles();
