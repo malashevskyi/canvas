@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210216: { tags: ['image', 'split'], credits: () => photoUnsplash("https://unsplash.com/@jakehills?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText") },
   20210215: { tags: ['move', 'particles', 'connect', 'push', 'grid'], credits: () => video("https://www.youtube.com/watch?v=XGioNBHrFU4") },
   202102132: { tags: ['move', 'particles', 'connect', 'attraction'], credits: () => '' },
   202102131: { tags: ['move', 'particles', 'connect', 'push'], credits: () => '' },
@@ -56,6 +57,14 @@ function article(link) {
     <div className="title">Credits:</div>
     <div className="inner">
       Inspired by the&nbsp;<a target="_blank" rel="noreferrer" href={link} >article</a> .
+    </div>
+  </Fragment>
+}
+function photoUnsplash(link) {
+  return  <Fragment>
+    <div className="title">Credits:</div>
+    <div className="inner">
+      <span>Photo by <a target="_blank" rel="noreferrer" href={link}>Jake Hills</a> on <a target="_blank" rel="noreferrer" href="https://unsplash.com/">Unsplash</a></span>
     </div>
   </Fragment>
 }
