@@ -25,7 +25,7 @@ class Particle {
         duration: 5,
         x: this.xTo,
         y: this.yTo,
-        repeatDelay: 8,
+        repeatDelay: 5,
         repeat: -1,
         yoyo: true,
         ease: 'power4.in',
