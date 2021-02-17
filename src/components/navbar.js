@@ -8,6 +8,8 @@ import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import * as previews from '../images/loadImages';
 import postsData from '../data/postsData';
+import GithubLink from './githubLink'
+import CodePenLink from './codePenLink'
 
 const Navbar = ({
   onEnteredFilter,
@@ -25,9 +27,13 @@ const Navbar = ({
     
     const postData = postsData[name.slice(1)];
 
+    console.log(postData);
     const date = `${name?.slice(1, 5)}-${name?.slice(5, 7)}-${name?.slice(7, 9)}`;
     let imgTitle = '';
     let titleTags = '';
+
+    const githubLink = postData.github;
+    const codePenLink = postData.codePen;
 
     postData.tags.forEach(tag => {
       titleTags += `/ ${tag} `;
@@ -45,6 +51,8 @@ const Navbar = ({
         })}
         // onClick={() => setIsOpen(false)}
       >
+        {codePenLink && <CodePenLink link={codePenLink} />}
+        {githubLink && <GithubLink link={githubLink} />}
         <Link to={name.slice(1)}>
           <h2 className="navbar-menu--title">
             {titleTags}
