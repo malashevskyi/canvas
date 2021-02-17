@@ -27,7 +27,6 @@ const Navbar = ({
     
     const postData = postsData[name.slice(1)];
 
-    console.log(postData);
     const date = `${name?.slice(1, 5)}-${name?.slice(5, 7)}-${name?.slice(7, 9)}`;
     let imgTitle = '';
     let titleTags = '';
