@@ -1,6 +1,12 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210218: {
+    tags: ['pixels', 'blow', 'destruction', 'image'],
+    credits: () => '',
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-18',
+    codePen: 'https://codepen.io/shevsky/pen/JjbJWVE'
+  },
   20210217: {
     tags: ['pixels', 'transformation', 'destruction'],
     credits: () => '',
