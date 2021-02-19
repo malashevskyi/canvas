@@ -16,6 +16,9 @@ export default function setSketch(sketch, settings) {
       // console.log(window.countRoute);
       let manager;
 
+      // clear previos canvas timeout
+      clearTimeout(window.timeout);
+
       async function start() {
         manager = await canvasSketch(sketch, {
           canvas: ref.current,

@@ -1,3 +1,4 @@
+import _20210219 from './previews/20210219.png';
 import _20210218 from './previews/20210218.png';
 import _20210217 from './previews/20210217.png';
 import _20210216 from './previews/20210216.png';
@@ -50,6 +51,7 @@ import _20210103 from './previews/20210103.png';
 import _20210102 from './previews/20210102.png';
 
 export {
+  _20210219,
   _20210218,
   _20210217,
   _20210216,
