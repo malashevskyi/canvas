@@ -1,9 +1,12 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react'
+// import { useEffect } from 'react';
+
 import heartPoints from './heartPoints';
 import trianglesPoints from './trianglesPoints';
 import Dot from './Dot';
 import Triangle from './Triangle';
 import connectDots from './connectDots';
+import { useCanvas } from '../../hooks/useCanvas';
 
 window.MainCanvas = {
   triangles: [],
@@ -87,4 +90,14 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  // useEffect(() => {
+  // })
+  
+  return '';
+})
+
+export default Canvas;
