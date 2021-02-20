@@ -1,6 +1,7 @@
+import React from 'react';
 import gsap from 'gsap';
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 import Smile from './Smile';
 import { debounceNotification } from '../../utils/debounce';
 
@@ -62,7 +63,11 @@ const sketch = ({ context, width, height, canvas }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

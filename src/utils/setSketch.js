@@ -2,9 +2,8 @@ import React from 'react'
 import canvasSketch from 'canvas-sketch';
 import { useEffect } from 'react';
 import { store } from 'react-notifications-component';
-// import gsap from 'gsap';
 
-export default function setSketch(sketch, settings) {
+export default function setSketch(Sketch, settings) {
   return React.forwardRef((props, ref) => {
     
     useEffect(() => {
@@ -15,13 +14,14 @@ export default function setSketch(sketch, settings) {
       //   window.countRoute = 1
       // }
       // console.log(window.countRoute);
+      
       let manager;
 
       // clear previos canvas timeout
       clearTimeout(window.timeout);
 
       async function start() {
-        manager = await canvasSketch(sketch, {
+        manager = await canvasSketch(Sketch, {
           canvas,
           ...settings
         });
@@ -32,6 +32,16 @@ export default function setSketch(sketch, settings) {
         // clear canvas before changing route
         const context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // stop all gsap
+        // gsap.globalTimeline.pause()
+        for (let keyTls in window.tls) {
+          for (let i = 0; i < window.tls[keyTls].length; i++) {
+            const tl = window.tls[keyTls][i];
+
+            tl.pause();
+          }
+        }
         
         // Unload previous canvas sketch
         manager.unload()
@@ -50,6 +60,6 @@ export default function setSketch(sketch, settings) {
       };
     }, [ref]);
 
-    return '';
+    return <Sketch />;
   })
 }

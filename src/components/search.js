@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import postsData from '../data/postsData';
-import { useMousePosition } from '../utils/useMousePosition';
+import { useMousePosition } from '../hooks/useMousePosition';
 import icon from '../images/clean-icon.svg';
 
 const tags = []

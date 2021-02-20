@@ -1,8 +1,9 @@
+import React from 'react'
 import palettes from 'nice-color-palettes'
 import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
 random.setSeed(14)
 const palette = random.pick(palettes);
@@ -12,7 +13,7 @@ const sketch = ({ context, height, width }) => {
   let alpha = .3;
   let angle = 0;
   class Particle {
-    constructor(x, y, radius, color) {
+    constructor({ x, y, radius, color }) {
       this.x = x;
       this.y = y;
       this.radius = radius;
@@ -61,12 +62,12 @@ const sketch = ({ context, height, width }) => {
   }
 
   function getParticle(angle, i, firstRender) {
-    return new Particle(
-      firstRender ? lerp(0, (height - 400) * Math.sin(angle * i), 2) : lerp(0, Math.sin(angle * i), 2),
-      firstRender ? lerp(0, (height - 400) * Math.cos(angle * i), 2) : 0,
-      Math.random() + 0.5,
-      random.pick(palette)
-    )
+    return new Particle({
+      x: firstRender ? lerp(0, (height - 400) * Math.sin(angle * i), 2) : lerp(0, Math.sin(angle * i), 2),
+      y: firstRender ? lerp(0, (height - 400) * Math.cos(angle * i), 2) : 0,
+      radius: Math.random() + 0.5,
+      color: random.pick(palette)
+    })
   }
 
   function getParticles(amount) {
@@ -105,7 +106,11 @@ const sketch = ({ context, height, width }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+  
+  return '';
+})
+
+export default Canvas;

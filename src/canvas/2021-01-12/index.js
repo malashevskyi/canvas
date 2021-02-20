@@ -1,6 +1,7 @@
+import React from 'react'
 import random from 'canvas-sketch-util/random'
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ width, height, context }) => {
   random.setSeed(2)
@@ -119,7 +120,11 @@ const sketch = ({ width, height, context }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

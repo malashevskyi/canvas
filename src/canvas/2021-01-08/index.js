@@ -1,7 +1,8 @@
+import React from 'react'
+import { useEffect } from 'react';
 import random from 'canvas-sketch-util/random'
-// import getGui from '../utils/getGui';
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ width, height, context: { canvas } }) => {
   const mouse = {
@@ -20,7 +21,7 @@ const sketch = ({ width, height, context: { canvas } }) => {
     return -dRest / 2 * ( (t - 1) * (t - 3) - 1) + start;
   };
   class DrawCircle {
-    constructor(x, y, radius = 2, color = 'rgba(0, 0, 0, 0.2)') {
+    constructor({ x, y, radius = 2, color = 'rgba(0, 0, 0, 0.2)' }) {
       this.anchorX = x;
       this.anchorY = y;
       this.x = x;
@@ -143,10 +144,10 @@ const sketch = ({ width, height, context: { canvas } }) => {
     const count = 20;
     for (let i = 0; i < count; i++) {
       dots.push(
-        new DrawCircle(
-          widthHalf + 250 * Math.cos(i * Math.PI * 2 / count),
-          heightHalf + 250 * Math.sin(i * Math.PI * 2 / count)
-        )
+        new DrawCircle({
+          x: widthHalf + 250 * Math.cos(i * Math.PI * 2 / count),
+          y: heightHalf + 250 * Math.sin(i * Math.PI * 2 / count)
+        })
       );
     }
   }
@@ -166,26 +167,6 @@ const sketch = ({ width, height, context: { canvas } }) => {
     mouse.x = e.changedTouches[0].clientX;
     mouse.y = e.changedTouches[0].clientY;
   }
-
-  // const gui = (gui) => {
-  //   gui.width = 300
-  //   gui.add( {palettes: ''}, 'palettes', [
-  //     ['#230f2b', '#f21d41', 'default'],
-  //     ['#b9d7d9', '#668284'],
-  //     ['#382f32', '#ffeaf2'],
-  //     ['#000000', '#9f111b'],
-  //     ['#556270', '#4ecdc4'],
-  //     ['#1b325f', '#9cc4e4'],
-  //     ['#fc354c', '#29221f'],
-  //   ]).name('Change palette').onChange((e) => {
-  //     console.log(e);
-  //     palette = [
-  //       e.split(',')[0],
-  //       e.split(',')[1],
-  //     ]
-  //     renderConnectedDots()
-  //   })
-  // }
 
   function getM(props) {
     ({ height, width } = props);
@@ -217,7 +198,7 @@ const sketch = ({ width, height, context: { canvas } }) => {
         circle.update()
         // circle.render() // dots
       });
-      new DrawCircle(mouse.x, mouse.y, 90, 'rgba(255, 0, 0, .05').render();
+      new DrawCircle({ x: mouse.x, y: mouse.y, radius: 90, color: 'rgba(255, 0, 0, .05' }).render();
     },
     resize(props) {
       getM(props);
@@ -230,7 +211,15 @@ const sketch = ({ width, height, context: { canvas } }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  useEffect(() => {
+
+  })
+  
+  return '';
+})
+
+export default Canvas;

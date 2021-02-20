@@ -1,7 +1,9 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react'
+
 import points from './points';
 import connectDots from './connectDots';
 import Dot from './Dot';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ width, height, context }) => {
   const dots = [];
@@ -45,4 +47,11 @@ const sketch = ({ width, height, context }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

@@ -1,4 +1,6 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ context }) => {
   let tick = 0.3999;
@@ -30,7 +32,11 @@ const sketch = ({ context }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

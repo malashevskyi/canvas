@@ -1,7 +1,9 @@
-import setSketch from '../../utils/setSketch';
-import Particle from './Particle';
+import React from 'react';
 import gsap from 'gsap';
 import random from 'canvas-sketch-util/random';
+
+import { useCanvas } from './../../hooks/useCanvas';
+import Particle from './Particle';
 
 const sketch = ({ context, width, height, time }) => {
   random.setSeed(4);
@@ -45,7 +47,11 @@ const sketch = ({ context, width, height, time }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

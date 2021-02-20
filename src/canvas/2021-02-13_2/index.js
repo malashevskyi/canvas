@@ -1,4 +1,6 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 import Particle from './Particle';
 import getGui from '../../utils/getGui';
 
@@ -125,7 +127,11 @@ const sketch = ({ context, width, height, canvas }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

@@ -1,14 +1,10 @@
+import React from 'react'
 import random from 'canvas-sketch-util/random'
 import { linspace } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
-// random.setSeed('816577')
-// random.setSeed(16)
-// random.setSeed(6)
-// random.setSeed(5)
-// random.setSeed('816577')
 random.setSeed('749302')
 const palette = random.pick(palettes);
 
@@ -38,7 +34,7 @@ const sketch = ({ context, width, height }) => {
   let countY;
   
   class Particle {
-    constructor({x, y}) {
+    constructor({ x, y }) {
       this.x = x;
       this.y = y;
       this.color = random.pick(palette);
@@ -109,7 +105,11 @@ const sketch = ({ context, width, height }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+  
+  return '';
+})
+
+export default Canvas;

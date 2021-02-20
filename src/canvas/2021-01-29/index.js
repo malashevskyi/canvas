@@ -1,9 +1,11 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react'
+
+import { useCanvas } from './../../hooks/useCanvas';
 import Square from './Square';
 
 const sketch = ({ context, width, height }) => {
   const points = [];
-  const count = 1500;
+  const count = 1000;
   let outerPoints = [];
 
   for (let i = 0; i <= count / 4; i++) {
@@ -26,28 +28,28 @@ const sketch = ({ context, width, height }) => {
   }
   getSquares();
 
-  return {
-    render(props) {
-      ({height, width} = props)
+  return (props) =>  {
+    ({height, width} = props)
 
-      context.save()
-      
-      context.fillStyle = 'rgb(20, 20, 20)';
-      context.fillRect(0, 0, width, height);
-      context.translate(width / 2 - 40, height / 2 - 130);
-      context.rotate(Math.PI / 4);
-      
-      for (let i = 0; i < points.length; i++) {
-        points[i].render();
-      }
-      context.restore()
-    },
-    resize() {
+    context.save()
+    
+    context.fillStyle = 'rgb(20, 20, 20)';
+    context.fillRect(0, 0, width, height);
+    context.translate(width / 2 - 40, height / 2 - 130);
+    context.rotate(Math.PI / 4);
+    
+    for (let i = 0; i < points.length; i++) {
+      points[i].render();
     }
+    context.restore()
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

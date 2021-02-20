@@ -1,61 +1,63 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 import Particle from './Particle';
-import imageSrc from '../../images/canvas/gradient-circle.png'
+import { imageData } from './imageData';
 
 const sketch = ({ context, width, height }) => {
-  context.clearRect(0, 0, width, height);
-
   const particles = [];
-  const image = new Image();
-  image.src = imageSrc;
-
-  image.onload = () => {
-    context.drawImage(image, 0, 0)
-
-    const imageData = context.getImageData(0, 0, image.width, image.height).data;
-    context.clearRect(0, 0, width, height);
-    
+  const image = {
+    width: 80,
+    height: 80,
+  }
+  
+  function getParticles() {
     let i = 0;
     for (let y = 0; y < image.height; y++) {
       for (let x = 0; x < image.width; x++) {
         if (imageData[i + 3] > 100 && (imageData[i] < 255 || imageData[i + 1] < 255 || imageData[i + 2] < 255)) {
-          const theta = Math.atan2(image.height / 2 - y, image.width / 2 - x);
-          const radius = 70;
-          
-          let xTo = x * 2;
-          let yTo = y * 2;
-          
-          if (Math.cos(theta) <= 0 && Math.sin(theta) >= 0) {
-            // right top part
-            xTo += radius;
-            yTo += -radius;
-          } else if (Math.cos(theta) <= 0 && Math.sin(theta) < 0) {
-            // right bottom part
-            yTo += radius;
-            xTo += radius;
-          } else if (Math.cos(theta) > 0 && Math.sin(theta) < 0) {
-            // left bottom part
-            xTo += -radius;
-            yTo += radius;
-          } else {
-            // left top part
-            xTo += -radius;
-            yTo += -radius;
-          }
-
-          particles.push(new Particle({
-            context,
-            x: x * 2,
-            y: y * 2,
-            xTo,
-            yTo,
-            index: i,
-            color: `rgba(${imageData[i]}, ${imageData[i + 1]}, ${imageData[i + 2]}, ${imageData[i + 3]})`
-          } ));
+          addParticle(x, y, i);
         }
         i += 4;
       }
     }
+  }
+  getParticles();
+
+  function addParticle(x, y, i) {
+    const theta = Math.atan2(image.height / 2 - y, image.width / 2 - x);
+    const radius = 70;
+    
+    let xTo = x * 2;
+    let yTo = y * 2;
+    
+    if (Math.cos(theta) <= 0 && Math.sin(theta) >= 0) {
+      // right top part
+      xTo += radius;
+      yTo += -radius;
+    } else if (Math.cos(theta) <= 0 && Math.sin(theta) < 0) {
+      // right bottom part
+      yTo += radius;
+      xTo += radius;
+    } else if (Math.cos(theta) > 0 && Math.sin(theta) < 0) {
+      // left bottom part
+      xTo += -radius;
+      yTo += radius;
+    } else {
+      // left top part
+      xTo += -radius;
+      yTo += -radius;
+    }
+
+    particles.push(new Particle({
+      context,
+      x: x * 2,
+      y: y * 2,
+      xTo,
+      yTo,
+      index: i,
+      color: `rgba(${imageData[i]}, ${imageData[i + 1]}, ${imageData[i + 2]}, ${imageData[i + 3]})`
+    } ));
   }
 
   return (props) => {
@@ -70,7 +72,11 @@ const sketch = ({ context, width, height }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

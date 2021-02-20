@@ -1,4 +1,6 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ context, width, height}) => {
   const particles = [];
@@ -99,7 +101,11 @@ const sketch = ({ context, width, height}) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

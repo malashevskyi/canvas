@@ -1,9 +1,10 @@
+import React from 'react'
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
-import setSketch from '../../utils/setSketch';
 import Particle from './Particle';
 import { debounceNotification } from '../../utils/debounce';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ context, width, height }) => {
   debounceNotification('Click to see an animation.');
@@ -69,4 +70,11 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

@@ -1,6 +1,7 @@
 import random from 'canvas-sketch-util/random'
+import React from 'react'
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ context, width, height, canvas }) => {
   const mouse = {
@@ -168,7 +169,11 @@ const sketch = ({ context, width, height, canvas }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

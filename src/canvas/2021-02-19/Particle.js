@@ -20,21 +20,16 @@ class Particle {
   }
 
   update(mouse) {
-    let dx = mouse.x - this.x;
-    let dy = mouse.y - this.y;
-    let distance = Math.sqrt(dx * dx + dy * dy);
-    let forceDirectionX = dx / distance;
-    let forceDirectionY = dy / distance;
-    let maxDistance = mouse.radius;
-    let force = (maxDistance - distance) / maxDistance;
-    let directionX = forceDirectionX * force * this.density;
-    let directionY = forceDirectionY * force * this.density;
+    const dx = mouse.x - this.x;
+    const dy = mouse.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const forceDirectionX = dx / distance;
+    const forceDirectionY = dy / distance;
+    const maxDistance = mouse.radius;
+    const force = (maxDistance - distance) / maxDistance;
+    const directionX = forceDirectionX * force * this.density;
+    const directionY = forceDirectionY * force * this.density;
 
-    if (distance < mouse.radius + 5) {
-      this.color = 'red';
-    } else {
-      this.color = 'red';
-    }
     if (distance < mouse.radius) {
       this.x -= directionX;
       this.y -= directionY;

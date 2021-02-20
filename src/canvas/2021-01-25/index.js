@@ -1,9 +1,10 @@
+import React from 'react'
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 import * as d3 from 'd3';
 
-import setSketch from '../../utils/setSketch';
 import Numb from './Numb';
+import { useCanvas } from './../../hooks/useCanvas';
 
 d3.select('head')
 .append('link')
@@ -45,4 +46,11 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

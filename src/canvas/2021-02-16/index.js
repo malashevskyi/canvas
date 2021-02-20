@@ -1,6 +1,7 @@
+import React from 'react';
 import gsap from 'gsap';
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 import imageSrc from '../../images/canvas/mountains800-560.jpg';
 
 const sketch = ({ context, width, height }) => {
@@ -70,7 +71,11 @@ const sketch = ({ context, width, height }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

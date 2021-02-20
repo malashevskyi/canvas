@@ -1,7 +1,9 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react'
+
 import Circle from './Circle';
 import getGui from '../../utils/getGui';
 import { debounceNotification } from '../../utils/debounce';
+import { useCanvas } from './../../hooks/useCanvas';
 
 const sketch = ({ canvas, context, width, height }) => {
   debounceNotification('Move mouse to change position.');
@@ -58,4 +60,11 @@ const sketch = ({ canvas, context, width, height }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

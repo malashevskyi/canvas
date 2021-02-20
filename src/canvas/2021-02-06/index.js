@@ -1,5 +1,9 @@
-import setSketch from '../../utils/setSketch';
+import React, { useEffect } from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 import gsap from 'gsap';
+
+let tl;
 
 const sketch = ({ context, width, height}) => {
   const particles = [];
@@ -10,17 +14,15 @@ const sketch = ({ context, width, height}) => {
     radius: width,
   }
 
-  let tween;
   function setTween() {
-    tween?.kill();
-    tween = gsap.to(mouse, {
+    tl?.kill();
+    tl = gsap.to(mouse, {
       duration: 5,
       x: width + width,
       y: height + width,
       repeatDelay: 0,
       ease: 'power1.out',
       repeat: -1,
-      // yoyo: true
     })
   }
   setTween();
@@ -89,7 +91,6 @@ const sketch = ({ context, width, height}) => {
     render(props) {
       ({ width, height } = props);
     
-      // context.fillStyle = 'hsl(230, 50%, 50%)';
       context.fillStyle = 'black';
       context.fillRect(0, 0, width, height);
     
@@ -107,7 +108,17 @@ const sketch = ({ context, width, height}) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  useEffect(() => {
+    return () => {
+      tl?.kill();
+    }
+  })
+
+  return '';
+});
+
+export default Canvas;

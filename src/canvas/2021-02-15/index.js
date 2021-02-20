@@ -1,4 +1,6 @@
-import setSketch from '../../utils/setSketch';
+import React from 'react';
+
+import { useCanvas } from './../../hooks/useCanvas';
 import Particle from './Particle';
 import getGui from '../../utils/getGui';
 import { debounceNotification } from '../../utils/debounce';
@@ -95,8 +97,7 @@ const sketch = ({ context, width, height, canvas }) => {
 
   getGui((gui) => {
     gui.add(opt, 'offset').min(30).max(100).step(5).name('Particles offset').onChange(getParticles);
-  })
-  console.log(particles);
+  });
 
   return {
     render(props) {
@@ -123,7 +124,11 @@ const sketch = ({ context, width, height, canvas }) => {
   }
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

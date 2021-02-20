@@ -1,52 +1,21 @@
-import setSketch from '../../utils/setSketch';
+import React, { useEffect } from 'react'
+import { useCanvas } from './../../hooks/useCanvas';
 
-import random from 'canvas-sketch-util/random'
-import { lerp } from 'canvas-sketch-util/math'
-import palettes from 'nice-color-palettes'
+import random from 'canvas-sketch-util/random';
+import palettes from 'nice-color-palettes';
 
-import { debounceNotification } from '../../utils/debounce'  
-import { debounceInterval } from '../../utils/debounce'
-import getGui from '../../utils/getGui';
+import { debounceNotification } from '../../utils/debounce';
+import Particle from './Particle';
 
-const sketch = ({ width, height, context: { canvas }, context }) => {
-  debounceNotification('You can also click to see an animation');
+const particles = [];
 
-  const particles = [];
+const sketch = ({ width, height, canvas, context, }) => {
+  debounceNotification( 'Click to see an animation' );
+  
   const mouse = { x: null, y: null };
   const count = 150;
-  const gravity = 0.05;
   let canvasRectAlpha = 1;
   let intervalAlpha;
-  class Particle {
-    constructor(x, y, radius, color, velocity) {
-      this.x = x;
-      this.y = y;
-      this.radius = radius;
-      this.color = color;
-      this.velocity = velocity;
-      this.alpha = 1;
-    }
-
-    draw() {
-      context.save();
-      context.globalAlpha = this.alpha;
-      context.beginPath();
-      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      context.fillStyle = this.color;
-      context.fill();
-      context.restore();
-    }
-
-    render() {
-      this.draw();
-      this.velocity.x *= lerp(0.85, 1.02, Math.random());
-      this.velocity.y *= lerp(0.85, 1.02, Math.random());
-      this.velocity.y += gravity;
-      this.x += this.velocity.x;
-      this.y += this.velocity.y;
-      this.alpha -= 0.008;
-    }
-  }
 
   function addParticles(e) {
     mouse.x = e.clientX;
@@ -71,53 +40,35 @@ const sketch = ({ width, height, context: { canvas }, context }) => {
 
     const palette = random.pick(palettes).slice(0, 3);
     for (let i = 0; i < count; i++) {
+      addParticle(i);
+    }
+
+    function addParticle(i) {
       particles.push(
-        new Particle(mouse.x, mouse.y, 1, random.pick(palette), {
-          x: Math.cos(angleIncrement * i) * Math.random() * power,
-          y: Math.sin(angleIncrement * i) * Math.random() * power,
+        new Particle({
+          context,
+          x: mouse.x,
+          y: mouse.y,
+          radius: 1,
+          color: random.pick(palette),
+          velocity: {
+            x: Math.cos(angleIncrement * i) * Math.random() * power,
+            y: Math.sin(angleIncrement * i) * Math.random() * power,
+          }
         })
       );
     }
   }
 
-  const gui = (gui) => {
-    gui.width = 320
-    let opt = {
-      clear: () => {
-        clearInterval(window.interval)
-      },
-      thickness: 43
-    }
-    gui.add(opt, 'clear').name('Click to clear interval')
-  };
-  
-  getGui(gui);
-
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  function getRandomClientXY() {
-    let clientX = lerp(200, width - 200, Math.random());
-    let clientY = lerp(200, height - 200, Math.random());
-    return { clientX, clientY };
-  }
-
-  debounceInterval(() => addParticles(getRandomClientXY()), 700)
-
-  document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === 'visible') {
-      debounceInterval(() => addParticles(getRandomClientXY()), 700)
-    }
-  });
-
-  canvas.addEventListener('click', addParticles);
+  canvas.onclick = addParticles;
 
   return (props) => {
+    ({ height, width } = props);
 
-    ({height, width} = props)
-
+    // console.log(canvasRectAlpha);
     context.fillStyle = `rgba(10, 10, 10, ${canvasRectAlpha})`;
     context.fillRect(0, 0, width, height);
-    
+
     particles.forEach((particle, i) => {
       if (particle.alpha > 0) {
         particle.render();
@@ -128,7 +79,16 @@ const sketch = ({ width, height, context: { canvas }, context }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  useEffect(() => {
+    return () => {
+     }
+  })
+
+  return '';
+})
+
+export default Canvas;

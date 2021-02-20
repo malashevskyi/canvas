@@ -45,7 +45,7 @@ export { default as _20210109 } from './2021-01-09';
 export { default as _20210108 } from './2021-01-08';
 export { default as _20210107 } from './2021-01-07';
 export { default as _20210106 } from './2021-01-06';
-export { default as _20210105 } from './2021-01-06';
+export { default as _20210105 } from './2021-01-05';
 export { default as _20210104 } from './2021-01-04';
 export { default as _20210103 } from './2021-01-03';
 export { default as _20210102 } from './2021-01-02';

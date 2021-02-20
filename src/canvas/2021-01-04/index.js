@@ -1,11 +1,12 @@
+import React from 'react'
+import { useCanvas } from './../../hooks/useCanvas';
+
 import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
-import setSketch from '../../utils/setSketch';
 import getGui from '../../utils/getGui';
 
-// random.setSeed(random.pick(['964335', '372336', '513468', '414867']))
 random.setSeed(random.pick(['513468']))
 const palette = random.pick(palettes);
 
@@ -20,7 +21,7 @@ const sketch = ({ context, width, height }) => {
     return axis > start && axis < end;
   }
  
-  function Ball(x, y, dx, dy, radius) {
+  function Ball({ x, y, dx, dy, radius }) {
     this.x = lerp(radius, width - radius, x);
     this.y = lerp(radius, height - radius, y);
     this.dx = dx;
@@ -52,13 +53,13 @@ const sketch = ({ context, width, height }) => {
   function createBalls() {
     for (let i = 0; i < opt.ballsCount; i++) {
       balls.push(
-        new Ball(
-          Math.random(),
-          Math.random(),
-          random.gaussian(0, 1) * 0.5,
-          random.gaussian(0, 1) * 0.5,
-          Math.abs(random.gaussian(0, 1)) * 14
-        )
+        new Ball({
+          x: Math.random(),
+          y: Math.random(),
+          dx: random.gaussian(0, 1) * 0.5,
+          dy: random.gaussian(0, 1) * 0.5,
+          radius: Math.abs(random.gaussian(0, 1)) * 14
+        })
       );
     }
   }
@@ -87,7 +88,11 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+})
+
+export default Canvas;

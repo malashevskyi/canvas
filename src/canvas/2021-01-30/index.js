@@ -1,6 +1,7 @@
+import React from 'react'
 import { lerp } from 'canvas-sketch-util/math';
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 import getGui from '../../utils/getGui';
 import Point from './Point';
 
@@ -115,4 +116,11 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(sketch, { animate: true });
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+
+  return '';
+});
+
+export default Canvas;

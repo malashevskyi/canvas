@@ -1,11 +1,13 @@
-import { lerp } from 'canvas-sketch-util/math'
-import random from 'canvas-sketch-util/random'
+import React from 'react';
+import { lerp } from 'canvas-sketch-util/math';
+import random from 'canvas-sketch-util/random';
 
-import setSketch from '../../utils/setSketch';
+import { useCanvas } from './../../hooks/useCanvas';
 
 function getAlphaMarker(count, delay) {
   let isThrottled = false;
   let tick = 0;
+
   return () => {
     if (isThrottled) return true;
     tick++
@@ -31,7 +33,7 @@ const sketch = ({ context, width, height }) => {
   let reduceAlpha = false;
   let alpha = 1;
   class Particle {
-    constructor(x, y, radius, delay) {
+    constructor({ x, y, radius, delay }) {
       this.x = x;
       this.y = y;
       this.radius = radius;
@@ -93,7 +95,7 @@ const sketch = ({ context, width, height }) => {
     }
   }
   class ParticleFall {
-    constructor(x, y, radius, color) {
+    constructor({ x, y, radius, color }) {
       this.x = x;
       this.y = y;
       this.radius = radius;
@@ -119,15 +121,15 @@ const sketch = ({ context, width, height }) => {
   }
 
   function getParticleFall(x, y, r) {
-    return new ParticleFall( x, y, r * 2, 'yellow' );
+    return new ParticleFall({ x, y, radius: r * 2, color: 'yellow' });
   }
   function getParticle() {
-    return new Particle(
-      lerp(-width / 2, width / 2, Math.random()),
-      lerp(-height / 2, height / 2, Math.random()),
-      Math.random() + 0.5,
-      Math.random() * 100,
-    )
+    return new Particle({
+      x: lerp(-width / 2, width / 2, Math.random()),
+      y: lerp(-height / 2, height / 2, Math.random()),
+      radius: Math.random() + 0.5,
+      delay: Math.random() * 100,
+    })
   }
 
   function getParticles(amount) {
@@ -176,7 +178,11 @@ const sketch = ({ context, width, height }) => {
   };
 };
 
-export default setSketch(
-  sketch,
-  { animate: true }
-);
+const Canvas = React.forwardRef((props, ref) => {
+  const canvas = ref.current;
+  useCanvas({ canvas, sketch });
+  
+  return '';
+})
+
+export default Canvas;
