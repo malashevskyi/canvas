@@ -1,6 +1,12 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210220: {
+    tags: ['join', 'burst', 'particles'],
+    credits: () => '',
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-19',
+    codePen: 'https://codepen.io/shevsky/pen/NWbvawm'
+  },
   20210219: {
     tags: ['move', 'image', 'push', 'creation', 'particles'],
     credits: () => video("https://www.youtube.com/watch?v=XGioNBHrFU4&t=17s"),
