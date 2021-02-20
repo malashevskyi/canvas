@@ -8,6 +8,7 @@ import Navbar from './components/navbar';
 import Routes from './routes';
 import MenuIsOpenProvider from './context/menuIsOpenContext';
 import postsData from './data/postsData';
+import Additional from './components/additional';
 
 function getCanvasNames() {
   return Object.keys(canvas);
@@ -54,6 +55,7 @@ function App() {
         />
       </MenuIsOpenProvider>
       <Routes canvas={canvas} allCanvasNames={allCanvasNames} />
+      <Additional />
     </div>
   );
 }

@@ -1,22 +1,13 @@
 import React, {Fragment, useRef} from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
-
-import postsData from './data/postsData';
+import { Switch, Route } from 'react-router-dom';
 
 const Routes = ({ allCanvasNames, canvas }) => {
   const canvasRef = useRef();
-  const location = useLocation();
   const MainCanvas = canvas['Main'];
-
-  const name = location.pathname === "/" ? 'Main' : location.pathname.slice(1);
-  const Credits = postsData[name]?.credits
 
   return (
     <Fragment>
       <canvas ref={canvasRef}></canvas>
-      <div className="credits">
-        <Credits />
-      </div>
       <Switch>
         <Route path="/" exact>
           <MainCanvas ref={canvasRef} />
