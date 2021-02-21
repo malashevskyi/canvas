@@ -86,7 +86,7 @@ const postsData = {
   },
   Main: {
     number: 40, 
-    tags: ['pull', 'dots'], 
+    tags: ['triangulation', 'heart', 'triangles', 'pulse'], 
     credits: () => video("https://www.youtube.com/watch?v=LNSvO-jJhKg"),
     github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/main',
   },

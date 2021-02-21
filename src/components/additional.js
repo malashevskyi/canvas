@@ -18,20 +18,12 @@ const Additional = () => {
   const githubLink = post.github;
   const codePenLink = post.codePen;
   const credits = post.credits();
-  // const [additionalHeight, setAdditionalHeight] = useState(0);
-  // const containerRef = useRef();
 
-  function onResize() {
+  const onResize = () => {
     setAdditionalOpen(false);
-    // setAdditionalHeight(containerRef.current.offsetHeight);
   }
   
   useEffect(() => {
-    console.log(canvasName, postsData);
-    console.log(canvasName, preview);
-    // setAdditionalOpen(containerRef.current.offsetHeight);
-    // console.log(additionalOpen);
-    // console.log(containerRef.current.offsetHeight);
     window.addEventListener('resize', onResize);
     return () => {
       window.removeEventListener('resize', onResize);
@@ -43,19 +35,12 @@ const Additional = () => {
     setAdditionalOpen(!additionalOpen);
   }
 
-  // additionalOpen={additionalOpen}
-
   return (
     <div className={
       classnames({
         'additional': true,
         'open': additionalOpen
       })}
-      style={{
-        // transform: `translate(0, ${additionalOpen ? -additionalHeight : 0}px)`
-        // height: additionalHeight
-      }}
-      // ref={containerRef}
     >
       <ArrowInfo onClickHandler={onArrowInfoClickHandler} additionalOpen={additionalOpen} />
       <div className="inner">

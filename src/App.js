@@ -26,8 +26,6 @@ function App() {
 
     const newFilteredCanvas = [];
     Object.keys(canvas).forEach((name) => {
-      
-      // delete postsData.Main;
 
       if (name !== 'Main') {
         const postsTags = postsData[name.slice(1)].tags;

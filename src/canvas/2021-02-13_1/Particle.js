@@ -49,17 +49,10 @@ class Particle {
       // push
       this.x -= (dx / distance) * force * this.power;
       this.y -= (dy / distance) * force * this.power;
-
-      // particle color inside mouse radius
-      // this.color = 'rgba(255, 0, 0 1)';
     } else {
       // return to the anchor point
       if (this.x !== this.anchorX) returnXBack();
       if (this.y !== this.anchorY) returnYBack();
-      
-      // restore previous color
-      // this.color = 'white';
-
     }
     
     this.draw();

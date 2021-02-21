@@ -48,7 +48,6 @@ const Navbar = ({
           'navbar-menu--item': true,
           active: location.pathname === `/${name.slice(1)}`,
         })}
-        // onClick={() => setIsOpen(false)}
       >
         {codePenLink && <CodePenLink link={codePenLink} />}
         {githubLink && <GithubLink link={githubLink} />}

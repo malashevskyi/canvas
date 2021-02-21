@@ -20,7 +20,6 @@ const sketch = ({ context, width, height, time }) => {
     duration: 2,
     radius: 390,
     repeat: -1,
-    // delay: 1,
     repeatDelay: 0,
     yoyo: true,
     ease: 'power1.inOut'

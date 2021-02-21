@@ -65,7 +65,6 @@ const sketch = ({ width, height, canvas, context, }) => {
   return (props) => {
     ({ height, width } = props);
 
-    // console.log(canvasRectAlpha);
     context.fillStyle = `rgba(10, 10, 10, ${canvasRectAlpha})`;
     context.fillRect(0, 0, width, height);
 

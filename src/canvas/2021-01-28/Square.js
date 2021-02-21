@@ -1,6 +1,5 @@
 import random from 'canvas-sketch-util/random';
 
-// commit 12cdbc1 SquareDestruction with TweenMax
 class Square {
   constructor(context, maxSide, [x, y], [xOuterRect, yOuterRect], squareSideHalf) {
     this.context = context;

@@ -1,5 +1,4 @@
 import React from 'react'
-// import { useEffect } from 'react';
 
 import heartPoints from './heartPoints';
 import trianglesPoints from './trianglesPoints';
@@ -93,9 +92,6 @@ const sketch = ({ context, width, height }) => {
 const Canvas = React.forwardRef((props, ref) => {
   const canvas = ref.current;
   useCanvas({ canvas, sketch });
-
-  // useEffect(() => {
-  // })
   
   return '';
 })
