@@ -186,8 +186,6 @@ const sketch = ({ width, height, context: { canvas } }) => {
         
         canvas.addEventListener('mousemove', mouseMoveHandler)
         canvas.addEventListener('touchmove', touchMoveHandler)
-        
-        // getGui(gui);
       }
       
       clearCanvas();

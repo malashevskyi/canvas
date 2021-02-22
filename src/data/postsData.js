@@ -1,11 +1,18 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210222: {
+    number: 54,
+    tags: ['rects', 'rotate', 'gradient'],
+    credits: () => '',
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-22',
+    codePen: 'https://codepen.io/shevsky/pen/poNWvEa'
+  },
   20210220: {
     number: 53,
     tags: ['join', 'burst', 'particles'],
     credits: () => '',
-    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-19',
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-20',
     codePen: 'https://codepen.io/shevsky/pen/NWbvawm'
   },
   20210219: {

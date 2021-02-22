@@ -16,7 +16,6 @@ const sketch = ({ width, height, context }) => {
     constructor() {
       this.x = 0;
       this.y = 0;
-      // this.color = `hsl(${random.range(50, 310)}, 100%, 50%)`
       this.color = random.pick(['#495F8C', '#F2E205', '#F2B705', '#F29F05', '#F25C05'])
       this.dx = 1;
       this.radius = 20;

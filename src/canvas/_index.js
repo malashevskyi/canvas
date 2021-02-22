@@ -1,3 +1,4 @@
+export { default as _20210222 } from './2021-02-22';
 export { default as _20210220 } from './2021-02-20';
 export { default as _20210219 } from './2021-02-19';
 export { default as _20210218 } from './2021-02-18';

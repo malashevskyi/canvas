@@ -97,7 +97,6 @@ const sketch = ({ context, width, height }) => {
     gui.add(opt, 'count').min(5).max(40).step(1).name('Count').onChange(drawPoints);
     gui.add(opt, 'level').min(0.1).max(0.4).name('Level').onChange(() => { drawPoints(); });
     gui.add(opt, 'thickness').min(5).max(Math.floor(height * 0.05)).name('Thickness').onChange(renderShape);
-    // gui.add(opt, 'showPoints').name('Show Points').listen();
   });
 
   drawPoints();
