@@ -1,6 +1,13 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210223: {
+    number: 55,
+    tags: ['circle', 'rotate', 'gradient', 'button'],
+    credits: () => '',
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-23',
+    codePen: 'https://codepen.io/shevsky/pen/WNoXzzN'
+  },
   20210222: {
     number: 54,
     tags: ['rects', 'rotate', 'gradient'],
