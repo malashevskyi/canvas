@@ -2,7 +2,7 @@
 I try to add one animation every day. <br>
 **Plans:** some animation with WebGL, Three.js, GLSL, SVG, D3, GSAP
 
-[**DEMO**](https://canvas-every-day.web.app/) — checked in latest chrome version.
+[**DEMO**](https://canvas-every-day.web.app/) — checked in the latest chrome version.
 
 `16-02-2021` - I have started to post all new animation on CodePen as well.
 
