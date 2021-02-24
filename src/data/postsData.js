@@ -1,6 +1,13 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210224: {
+    number: 56,
+    tags: ['particles', 'chase', 'move'],
+    credits: () => codepen('https://codepen.io/osublake/pen/qNPBpJ'),
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-24',
+    codePen: 'https://codepen.io/shevsky/pen/XWNVMVE'
+  },
   20210223: {
     number: 55,
     tags: ['circle', 'rotate', 'gradient', 'button'],
@@ -365,6 +372,13 @@ function codesandbox(link) {
   return  <Fragment>
     <div className="inner">
       Inspired by the &nbsp;<a target="_blank" rel="noreferrer" href={link} >codesandbox</a> .
+    </div>
+  </Fragment>
+}
+function codepen(link) {
+  return  <Fragment>
+    <div className="inner">
+      Inspired by the &nbsp;<a target="_blank" rel="noreferrer" href={link} >codepen</a> .
     </div>
   </Fragment>
 }

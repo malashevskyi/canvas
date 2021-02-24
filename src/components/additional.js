@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { useLocation } from 'react-router-dom';
 import postsData from '../data/postsData';
