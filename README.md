@@ -4,7 +4,7 @@ I try to add one animation every day. <br>
 
 [**DEMO**](https://canvas-every-day.web.app/) — checked in latest chrome version.
 
-`16-02-2021` - I have started to post all new animation on CodePen as well, </br> you find links in the demo and in readme files (in a folder of every new animation)
+`16-02-2021` - I have started to post all new animation on CodePen as well.
 
 ![Screenshot](screenshot.png)
 
