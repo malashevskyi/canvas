@@ -1,6 +1,8 @@
 ## canvas
 Canvas animations.
 
+[**DEMO**](https://canvas-every-day.web.app/) — checked in the latest chrome version.
+
 ![Screenshot](screenshot.png)
 
 ### Dependencies:
