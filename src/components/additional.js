@@ -14,7 +14,7 @@ const Additional = () => {
   const canvasName = location.pathname === '/' ? 'Main' : location.pathname.slice(1);
   const post = postsData[canvasName];
   const preview = location.pathname === '/' ? previews["_20210121"] : previews["_" + canvasName];
-  const tags = post.tags.map((tag, i) => <span>{`${i === 0 ? '' : '/ '}` + tag}</span>);
+  const tags = post.tags.map((tag, i) => <span key={tag}>{`${i === 0 ? '' : '/ '}` + tag}</span>);
   const githubLink = post.github;
   const codePenLink = post.codePen;
   const credits = post.credits();
@@ -56,7 +56,7 @@ const Additional = () => {
       {credits && (
         <div className="credits">
           <h3 className="credits-title">Credits:</h3>
-          <p>{credits}</p>
+          <div>{credits}</div>
         </div>
       )}
     </div>
