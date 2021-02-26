@@ -1,6 +1,13 @@
 import { Fragment } from 'react';
 
 const postsData = {
+  20210226: {
+    number: 58,
+    tags: ['text', 'blend', 'gradient'],
+    credits: () => video("https://www.youtube.com/watch?v=qP2pJdOb-i8"),
+    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-02-26',
+    codePen: 'https://codepen.io/shevsky/pen/JjbpBeW'
+  },
   20210225: {
     number: 57,
     tags: ['image', 'split'],
