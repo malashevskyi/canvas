@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+@import 'react-notifications-component/dist/theme.css'
+@import '_var.sass'
+@import '_base.sass'
+@import '_media.sass'
+
+$topBarH: 50px
+$navBarWidth: 250px
+$border: 3px solid rgba(0, 0, 0, 0.2)
+$gray: #e9ecef
+$gray2: #ced4da
+$blue: #23a6d5
+
+body
+  height: 100vh
+  overflow: hidden
+
+@keyframes flipInY
+  0%
+    transform: perspective(400px) rotateY(90deg)
+    animation-timing-function: ease-in
+    opacity: 0
+  40%
+    transform: perspective(400px) rotateY(-20deg)
+    animation-timing-function: ease-in
+  60%
+    transform: perspective(400px) rotateY(10deg)
+    opacity: 1
+  80%
+    transform: perspective(400px) rotateY(-5deg)
+  to
+    transform: perspective(400px)
+
+@keyframes boxShadowAnm
+  0%
+    box-shadow: 0px 0px 9px white
+  70%
+    box-shadow: 0px 0px 9px $blue
+  100%
+    box-shadow: 0px 0px 9px white
+
+
+.flipInY
+  backface-visibility: visible !important
+  animation-name: flipInY
+.animated
+  animation-duration: 1s
+  animation-fill-mode: both
+.rTransition
+  transition: all 0s;
+
+.ReactVirtualized__Grid__innerScrollContainer,
+.ReactVirtualized__Grid.ReactVirtualized__List
+  outline: none
+
+
+.dg.ac
+  z-index: 99 !important
+.dg
+  position: absolute !important
+  right: 0
+
+.tags
+  display: none
+  flex-wrap: wrap
+  position: absolute
+  top: 0
+  left: calc(100% + 3px)
+  z-index: 2
+  background-color: #fff
+  padding: 5px
+  width: 400px
+  border-right: $border
+  border-bottom: $border
+  transition: opacity .2s ease
+  opacity: 0
+  pointer-events: none
+  &.active
+    opacity: 1
+    pointer-events: auto
+.tags span
+  background: #fff
+  margin: 0 1px 1px 0
+  font-family: 'Arial'
+  font-size: 9px
+  padding: 0 5px
+  height: 20px
+  position: relative
+  overflow: hidden
+  align-items: center
+  box-sizing: border-box
+  display: flex
+  letter-spacing: 2px
+  background-color: $gray
+  cursor: pointer
+  transition: all 0.2s ease
+  text-transform: uppercase
+  border: 1px solid $blue
+  &:hover
+    background-color: $blue
+    color: #fff
+
+.clean
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 2
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  overflow: hidden
+  background-color: transparent
+  border: none
+  outline: none
+  opacity: 0
+  transition: opacity .2s ease
+  pointer-events: none
+  &.active
+    pointer-events: auto
+    opacity: 1
+  img
+    width: 80%
+    height: 80%
+    will-change: transform
+    transition: transform .2s ease
+  &:hover
+    img
+      transform: scale(1.2, 1.2)
+
+
+// body > canvas
+.container
+  height: 100vh
+  width: 100%
+  display: flex
+  align-items: center
+  position: absolute
+  top: 0
+  left: 0
+.container canvas
+  display: block
+  margin: auto
+  left: 0
+  top: 0
+.ReactVirtualized__Grid.ReactVirtualized__List
+  max-width: 250px
+.navbar
+  border-right: $border
+  position: absolute
+  top: 50px
+  left: 0
+  z-index: 3
+  transform: translate(-100%, 0)
+  transition-duration: .4s
+  height: calc(100vh - 50px)
+  background-color: #fff
+  width: 100%
+  max-width: 253px
+  // overflow: hidden
+  will-change: transform
+  &.open
+    transform: translate(0%, 0)
+  &--inner
+    background-color: #fff
+    height: calc(100vh - 50px)
+    display: flex
+    flex-direction: column
+    position: relative
+
+.navbar-search
+  position: relative
+  margin: 5px 5px 10px
+  min-height: 40px
+  input
+    width: 100%
+    padding: 0 10px
+    height: 100%
+    border: 1px solid $gray2
+    outline: none
+    position: relative
+    z-index: 2
+    border-radius: 2px
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    &:focus
+      border-color: $blue
+      box-shadow: 0 0 0 3px rgba(0,123,255,.25)
+
+.navbar-menu, .links
+  .github-link,
+  .codePen-link
+    position: absolute
+    bottom: 21px
+    right: 0
+    display: flex
+    z-index: 3
+    transform: translate(0, 0)
+    transition: transform .2s ease, fill .2s ease
+    fill: #000
+    box-shadow: 0px 0px 9px white
+    svg
+      animation-name: boxShadowAnm
+      animation-duration: 1.5s
+      animation-timing-function: ease
+      animation-iteration-count: infinite
+      animation-direction: alternate
+    &:hover
+      fill: $blue
+  .codePen-link
+    right: 26px
+.links
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-bottom: 20px
+  .github-link,
+  .codePen-link
+    position: relative
+    bottom: 0
+    right: 0
+    top: 0
+    left: 0
+    padding: 5px
+    svg
+      transition: fill 0.25s ease
+      width: 40px
+      height: 40px
+    &:hover
+      svg
+        fill: #23a6d5
+.navbar-menu
+  height: 100%
+  a
+    display: block
+    position: relative
+  &--list
+    overflow-y: auto
+    overflow-x: hidden
+    height: 100%
+    position: relative
+  time
+    position: absolute
+    bottom: 0
+    right: -1px
+    background-color: $gray
+    z-index: 1
+    height: 16px
+    padding: 0 3px
+    font-size: 9px
+    display: block
+    transform: translate(0, 0)
+    transition: transform .2s ease
+    will-change: transform
+    display: flex
+    align-items: center
+    letter-spacing: 2px
+
+  &--title
+    position: absolute
+    left: 0
+    top: 0
+    padding: 7px
+    background-color: $gray
+    z-index: 2
+    box-sizing: border-box
+    font-weight: normal
+    font-size: 9px
+    font-weight: bold
+    letter-spacing: 1px
+    text-transform: uppercase
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: -25px
+      width: 100%
+      height: 100%
+      z-index: -1
+      background: $blue
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0px
+      width: 100%
+      z-index: -1
+      height: 100%
+      background-color: #fff
+      border: 1px solid $blue
+  &--item
+    margin-bottom: 5px
+    position: relative
+    border-radius: 5px
+    background-color: #fff
+    transform: translate(0, 0)
+    transition: transform .2s ease
+    will-change: transform
+    height: 125px
+    min-height: 125px
+    &::before
+      content: ''
+      width: calc(100% + 30px)
+      height: 100%
+      position: absolute
+      left: -30px
+      top: 0
+      background-color: #000
+      z-index: 3
+      display: none
+      opacity: 0
+    &.active
+      transform: translate(25px, 0)
+      transition: transform .3s ease
+      &::before
+        display: block
+      time,
+      .github-link,
+      .codePen-link
+        transform: translate(-25px, 0)
+        transition: transform .3s ease
+
+.header
+  display: flex
+  align-items: center
+  background: #fff
+  padding: 0 15px
+  height: 50px
+  max-height: 50px
+  min-height: 50px
+  border-bottom: $border
+  z-index: 1
+  position: absolute
+  top: 0
+  left: 0
+  width: 100vw
+
+.title a
+  font-size: 18px
+  padding: 10px 10px 10px 20px
+  transition: color 0.25s ease
+  text-transform: uppercase
+  &:hover
+    color: #23a6d5
+
+.hamb
+  cursor: pointer
+  position: relative
+  top: 0px
+  right: 0px
+  &--bar
+    width: 25px
+    height: 4px
+    background-color: $base_color
+    margin: 4px 0
+    border-radius: 3px
+    will-change: transform
+    transition: background-color 0.3s ease, transform 0.4s ease
+  &:hover
+    .hamb--bar
+      background-color: #23a6d5
+  &.open
+    .hamb--bar
+      &:nth-child(1)
+        transform: rotate(-45deg) translate(-5px, 6px)
+      &:nth-child(2)
+        opacity: 0
+      &:nth-child(3)
+        transform: rotate(45deg) translate(-5px, -7px)
+
+.image
+  width: 100%
+  height: 120px
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.4)
+    z-index: 1
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.github-logo
+  display: flex
+  align-items: center
+  padding: 0 10px
+  svg
+    transition: fill 0.25s ease
+  &:hover
+    svg
+      fill: #23a6d5
+
+
+.additional
+  position: absolute
+  top: 100vh
+  left: 0
+  width: 100%
+  background-color: #fff
+  border: 2px solid $blue
+  z-index: 2
+  transition: transform 0.4s ease
+  max-height: 50vh
+  text-align: center
+  padding: 30px
+  .inner
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+  .text
+    width: 100%
+  &.open
+    transform: translate(0, -100%)
+  .title
+    font-size: 30px
+    text-align: center
+    padding: 20px
+    span
+      padding: 2px
+      text-transform: uppercase
+      font-size: 15px
+  .sign
+    font-weight: normal
+  img
+    margin-bottom: 20px
+    order: 1
+    height: auto !important
+    min-height: auto !important
+    width: 100% !important
+    min-width: auto !important
+    max-height: 200% !important
+.additional-image
+  width: 290px
+  height: 120px
+  position: relative
+
+  
+.credits
+  border-top: 3px solid $gray
+  a
+    color: $blue
+    transition: color .3s ease
+    &:hover
+      color: rgb(120, 20, 220)
+.credits-title
+  padding: 15px 10px 10px
+  font-size: 20px
+  font-weight: normal
+
+
+.arrow-info
+  position: absolute
+  left: calc(50% - 75px)
+  top: -30px
+  background-color: #fff
+  z-index: 10
+  border: 2px solid $blue
+  height: 30px
+  width: 150px
+  outline: none
+  transition: background-color .2s ease
+  overflow: visible
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 4px
+    background-color: #fff
+    bottom: -2px
+    left: 0
+    z-index: 2
+    transition: background-color .2s ease
+  &:hover
+    background-color: $blue
+    &::before
+      background-color: $blue
+    span
+      color: #fff
+    svg
+      fill: #fff
+  svg
+    transition: fill .2s ease, transform .2s ease
+    width: 20px
+    height: 15px
+    position: absolute
+    right: 8px
+    top: 50%
+    transform: translate(0, -50%) rotate(180deg)
+  &.open
+    svg
+      transform: translate(0, -50%) rotate(0)
+  span
+    transition: color .2s ease
+    text-transform: uppercase
+    font-size: 15px
+    position: relative
+    top: -1px
+    left: -10px
+    font-weight: 700
+
++minW(768)
+  .tags
+    display: flex
+  .title a
+    font-size: 22px
++minW(1200)
+  .additional
+    .inner
+      flex-wrap: nowrap
+      align-items: flex-start
+      img
+        order: 0
+        width: 290px
+        height: auto
+    .text
+      width: auto
+    .title
+      text-align: left
+      padding-top: 0
+      padding-bottom: 10px
+      line-height: 29px
+      span
+    .links
+      justify-content: flex-start
+      padding: 0 20px
+    
++minW(1500)
+  .navbar, .ReactVirtualized__Grid.ReactVirtualized__List
+    max-width: 303px

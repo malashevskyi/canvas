@@ -1,0 +1,35 @@
+@mixin minW($param)
+  @media (min-width: #{$param}px)
+    @content
+@mixin maxW($param)
+  @media (max-width: #{$param}px)
+    @content
+  
+@mixin minH($param)
+  @media (min-height: #{$param}px)
+    @content
+@mixin maxH($param)
+  @media (max-height: #{$param}px)
+    @content
+
+@mixin image-2x
+  @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx)
+    @content
+
+
+@mixin ie
+  @media only screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    @content
+
+@mixin ie-maxW($param)
+  @media only screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-width : #{$param}px)
+    @content
+@mixin ie-minW($param)
+  @media only screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width : #{$param}px)
+    @content
+@mixin ie-maxH($param)
+  @media only screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-height : #{$param}px)
+    @content
+@mixin ie-minH($param)
+  @media only screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-height : #{$param}px)
+    @content
