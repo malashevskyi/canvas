@@ -1,4 +1,5 @@
-import { List } from 'react-virtualized';
+import { useState, useEffect } from 'react';
+import { List, WindowScroller, AutoSizer } from 'react-virtualized';
 import gsap from 'gsap';
 
 import postsData from '../data/postsData';
@@ -12,8 +13,13 @@ const cardHeight = 130;
 const cardWidth = 290;
 const tls = [];
 
-function rowRenderer( dataArr, columnCount, { key, index, style }) {
-
+function rowRenderer(
+  scrollDirection,
+  dataArr,
+  columnCount,
+  anmRenderFirstScreen,
+  { key, index, style }
+) {
   // This is the range of cards visible on this row, given the current width:
   const startIndex = index * columnCount;
   const stopIndex = Math.min(
@@ -21,7 +27,7 @@ function rowRenderer( dataArr, columnCount, { key, index, style }) {
     startIndex + columnCount - 1
   );
 
-  // count of cards in one row 
+  // count of cards in one row
   const cards = [];
 
   for (let i = startIndex; i <= stopIndex; i++) {
@@ -29,18 +35,21 @@ function rowRenderer( dataArr, columnCount, { key, index, style }) {
     const title = dataArr[i].title;
     const id = dataArr[i].id;
 
-    console.log(cardData);
-
-    cards.push(<Card
-      index={i}
-      width={cardWidth}
-      height={cardHeight - 10} // - margin
-      date={id}
-      margin={`0 ${gapSize / 2}px`}
-      link={`/post/${dataArr[i].id}`}
-      title={title}
-      id={id}
-      />);
+    cards.push(
+      <Card
+        index={i}
+        indexInItem={i - startIndex}
+        width={cardWidth}
+        height={cardHeight - 10} // - margin
+        date={id}
+        margin={`0 ${gapSize / 2}px`}
+        link={`/post/${dataArr[i].id}`}
+        title={title}
+        id={id}
+        scrollDirection={scrollDirection}
+        anmRenderFirstScreen={anmRenderFirstScreen}
+      />
+    );
   }
 
   return (
@@ -53,10 +62,11 @@ function rowRenderer( dataArr, columnCount, { key, index, style }) {
 function getPostsDataArray(obj) {
   const data = [];
 
-  Object.keys(obj).forEach(key => {
+  Object.keys(obj).forEach((key) => {
     data.push({
       id: key,
-      title: 'Canvas animation - ' + obj[key].tags.join(', ')
+      title:
+        'Canvas animation - ' + obj[key].tags.join(', '),
     });
   });
 
@@ -65,16 +75,37 @@ function getPostsDataArray(obj) {
 
 const Index = ({ comments, postsData }) => {
   const dataArr = getPostsDataArray(postsData);
+  const [ scrollListTop, setScrollListTop ] = useState(0);
+  const [ scrollDirection, setScrollDirection ] = useState('down');
+
+  // more powerful animation on the first render for first screen cards 
+  const [ anmRenderFirstScreen, setAnmRenderFirstScreen ] = useState(true);
+
+  useEffect(() => {
+    // more lighter animation for new cards to be displayed when scrolling
+    setTimeout(() => {
+      setAnmRenderFirstScreen(false);
+    }, 1000)
+  }, [])
 
   // set initial dimensions to detect how many card render on server side;
-  // render 42 cards -- 6 columns * 6 rows (+ 6 card auto adding, one to each column)
+  // render 42 cards -- 6 columns * 6 rows + 6 card auto adding, one to each column
   const size = useWindowSize({
     width: 1910, // 6 * card width
-    height: 780 // 6 * card height
+    height: 780, // 6 * card height
   });
-  
+
   const columnCount = Math.floor( (size.width - gapSize) / (cardWidth + gapSize) );
   const rowCount = Math.ceil(dataArr.length / columnCount);
+
+  const onListScrollHandler = ({ scrollTop }) => {
+    if (scrollTop < scrollListTop) {
+      setScrollDirection('up');
+    } else {
+      setScrollDirection('down');
+    }
+    setScrollListTop(scrollTop);
+  }
 
   return (
     <div className="main">
@@ -82,18 +113,27 @@ const Index = ({ comments, postsData }) => {
         width={size.width}
         height={size.height}
         rowCount={rowCount}
+        onScroll={onListScrollHandler}
         rowHeight={cardHeight}
-        rowRenderer={(rowArgs) => rowRenderer( dataArr, columnCount, rowArgs )}
         overscanRowCount={0}
+        rowRenderer={(rowArgs) =>
+          rowRenderer(
+            scrollDirection,
+            dataArr,
+            columnCount,
+            anmRenderFirstScreen,
+            rowArgs
+          )
+        }
       />
     </div>
   );
 };
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   return {
-    postsData
+    postsData,
   };
-}
+};
 
 export default Index;
