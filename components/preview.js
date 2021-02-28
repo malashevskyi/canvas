@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 const Preview = ({ title, name }) => {
-  const imageSrc = `/images/previews/${name}`;
+  const imageSrc = `/images/previews/${name}.png`;
   
   return (
     <div className="image">

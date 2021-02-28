@@ -5,10 +5,12 @@ import ReactNotification from 'react-notifications-component'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.StrictMode>
+    // <React.StrictMode>
+    <>
       <Component {...pageProps} />
       <ReactNotification />
-    </React.StrictMode>
+    </>
+    // </React.StrictMode>
   );
 }
 

@@ -56,7 +56,7 @@ const Navbar = ({
             <h2 className="navbar-menu--title">
               {titleTags}
             </h2>
-            <Preview title={imgTitle} name={name + '.png'} />
+            <Preview title={imgTitle} name={name} />
             <time dateTime={date}>
               <span>{date}</span>
             </time>

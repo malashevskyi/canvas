@@ -358,13 +358,7 @@ const postsData = {
     tags: ['firework', 'burst', 'particles'], 
     credits: () => video("https://www.youtube.com/watch?v=R_CnWF3a_ks&t=1290s"),
     github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/2021-01-02',
-  },
-  "Main": {
-    number: 40, 
-    tags: ['triangulation', 'heart', 'triangles', 'pulse'], 
-    credits: () => video("https://www.youtube.com/watch?v=LNSvO-jJhKg"),
-    github: 'https://github.com/malashevskyi/canvas/tree/master/src/canvas/main',
-  },
+  }
 };
 
 function article(link) {
