@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
 import { List, WindowScroller, AutoSizer } from 'react-virtualized';
-import gsap from 'gsap';
 
 import postsData from '../data/postsData';
 import useWindowSize from '../hooks/useWindowSize';
@@ -13,7 +12,6 @@ import 'react-virtualized/styles.css';
 const gapSize = 10;
 const cardHeight = 130;
 const cardWidth = 290;
-const tls = [];
 
 function rowRenderer(
   scrollDirection,
@@ -75,7 +73,7 @@ function getPostsDataArray(obj) {
   return data;
 }
 
-const Index = ({ comments, postsData }) => {
+const Home = ({ comments, postsData }) => {
   const dataArr = getPostsDataArray(postsData);
   const [ scrollListTop, setScrollListTop ] = useState(0);
   const [ scrollDirection, setScrollDirection ] = useState('down');
@@ -138,10 +136,10 @@ const Index = ({ comments, postsData }) => {
   );
 };
 
-Index.getInitialProps = async function () {
+Home.getInitialProps = async function () {
   return {
     postsData,
   };
 };
 
-export default Index;
+export default Home;
