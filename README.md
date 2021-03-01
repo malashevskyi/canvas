@@ -1,33 +1,26 @@
 ## canvas
 Canvas animations.
 
-[**DEMO**](https://canvas-every-day.web.app/) — checked in the latest chrome version.
+[**DEMO**](https://canvas-phi-fawn.vercel.app/home/) — checked in the latest chrome version.
 
-![Screenshot](screenshot.png)
+![Screenshot](public/images/sc.png)
 
 ### Dependencies:
+- [`next.js`](https://github.com/vercel/next.js)<br>
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)<br>
+- [`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
-- [`react`](https://github.com/facebook/react)<br>
-- [`create-react-app`](https://github.com/facebook/create-react-app)<br>
 - [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
 - [`classnames`](https://github.com/JedWatson/classnames)<br>
 - [`dat.gui`](https://github.com/dataarts/dat.gui)<br>
-- [`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
 - [`gsap`](https://github.com/greensock/GSAP)<br>
-- [`d3`](https://github.com/d3/d3)<br>
-
 ### Useful YouTube channels:
 - [`Franks laboratory`](https://www.youtube.com/c/Frankslaboratory/videos)<br>
 - [`The Art of Code`](https://www.youtube.com/c/TheArtofCodeIsCool/videos)<br>
 - [`Coding Math`](https://www.youtube.com/user/codingmath/videos)<br>
 - [`Yuri Artyukh`](https://www.youtube.com/user/flintyara/videos)<br>
 - [`Chris Courses`](https://www.youtube.com/c/ChrisCourses/videos)<br>
-
-### Useful courses:
-- [`https://frontendmasters.com/courses/canvas-webgl/`](https://frontendmasters.com/courses/canvas-webgl/)<br>
-- [`https://frontendmasters.com/courses/webgl-shaders/`](https://frontendmasters.com/courses/webgl-shaders/)<br>
 
 ### Documentations, websites, guides:
 - [`Three.js Doc`](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)<br>
