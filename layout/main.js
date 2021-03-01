@@ -57,7 +57,7 @@ const MainLayout = ({ title, children }) => {
         <title>{title}</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
       </Head>
-      <LoadSpinner />
+      <LoadSpinner text="Loading data for all canvases..." />
       <MenuIsOpenProvider>
         <Header />
         <Navbar

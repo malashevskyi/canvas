@@ -81,11 +81,14 @@ const Home = ({ comments, postsData }) => {
   // more powerful animation on the first render for first screen cards 
   const [ anmRenderFirstScreen, setAnmRenderFirstScreen ] = useState(true);
 
-  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
 
   useEffect(() => {
     // remove loader
-    setIsActive(false);
+    setSpinner({
+      active: false,
+      text: ''
+    });
 
     // more lighter animation for new cards to be displayed when scrolling
     setTimeout(() => {

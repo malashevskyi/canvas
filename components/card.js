@@ -20,7 +20,7 @@ const Card = ({
   scrollDirection,
   anmRenderFirstScreen
 }) => {
-  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const yAnmUp = -30 * indexInItem - 50;
   const router = useRouter();
   let yAnmDown = 30 * indexInItem + 50;
@@ -33,7 +33,10 @@ const Card = ({
 
   const onCardClickHandler = (e) => {
     e.preventDefault();
-    setIsActive(true);
+    setSpinner({
+      active: true,
+      text: 'Loading data for all canvases. \n Please wait.'
+    });
 
     setTimeout(() => {
       router.push(link);

@@ -7,15 +7,24 @@ import postsData from '../../data/postsData';
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext';
 
 const Post = ({ id }) => {
-  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
   const [canvasCheck, setCanvasCheck] = useState('');
   const gui = useGUI();
   let Canvas = null;
 
   useEffect(() => {
-    setIsActive(false);
-    return () => setIsActive(true);
+    setSpinner({
+      active: false,
+      text: ''
+    });
+    
+    return () => {
+      setSpinner({
+        active: true,
+        text: ''
+      });
+    }
   }, []);
 
   return (

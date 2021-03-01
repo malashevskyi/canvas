@@ -6,11 +6,14 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 
 const Index = ({ comments, postsData }) => {
-  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
 
   useEffect(() => {
-    setIsActive(true);
+    setSpinner({
+      active: true,
+      text: 'Loading main page assets. \n Please wait.'
+    });
 
     setTimeout(() => {
       router.push("/");

@@ -6,17 +6,18 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 import Preview from './preview';
 import classNames from 'classnames';
 
-const Card = ({ }) => {
-  const [isActive] = useContext(LoadSpinnerContext);
+const LoadSpinner = () => {
+  const [spinner] = useContext(LoadSpinnerContext);
 
   return (
     <div className={classNames({
       loadSpinner: true,
-      isActive
+      isActive: spinner.active
     })}>
+      <h4 className="loader-title"><pre>{spinner.text}</pre></h4>
       <div className="loader">Loading...</div>
     </div>
   );
 };
 
-export default Card;
+export default LoadSpinner;
