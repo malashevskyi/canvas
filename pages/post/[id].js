@@ -5,12 +5,18 @@ import * as canvases from '../../canvases/_index';
 import { useGUI } from '../../hooks/useGUI';
 import postsData from '../../data/postsData';
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext';
+import NotFound from '../404';
 
 const Post = ({ id }) => {
   const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
   const [canvasCheck, setCanvasCheck] = useState('');
   const gui = useGUI();
+
+  if (!postsData[id]) {
+    return <NotFound title="Post" />
+  }
+
   let Canvas = null;
 
   useEffect(() => {

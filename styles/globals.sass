@@ -264,6 +264,7 @@ body
   position: absolute
   top: 0
   left: 0
+  z-index: -1
 .container canvas
   display: block
   margin: auto
@@ -467,6 +468,28 @@ time
   text-transform: uppercase
   &:hover
     color: #23a6d5
+
+.not-found
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  height: 100vh
+  &--title
+    margin-bottom: 20px
+    text-transform: uppercase
+    font-size: 35px
+  &--link
+    color: $blue
+    text-transform: uppercase
+    letter-spacing: 1px
+    background-color: #e7f9ff
+    padding: 20px
+    transition: background-color .25s ease, color .25s ease
+  &--link
+    &:hover
+      background-color: $blue
+      color: #fff
 
 
 

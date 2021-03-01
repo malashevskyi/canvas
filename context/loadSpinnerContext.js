@@ -13,8 +13,11 @@ const LoadSpinnerProvider = ({ children }) => {
   const router = useRouter();
   
   useEffect(() => {
-    // Router.events.on('routeChangeStart', (url) => {});
+    // Router.events.on('routeChangeStart', (url) => {
+    //   console.log(url);
+    // });
     Router.events.on('routeChangeComplete', (url) => {
+      console.log(url);
       setSpinner({
         active: false,
         text: ''
