@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
 
 import postsData from '../data/postsData';
 import { useMousePosition } from '../hooks/useMousePosition';
+import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import Image from 'next/image';
-// import icon from '../images/clean-icon.svg';
 
 const tags = []
 
@@ -20,6 +20,8 @@ const Search = React.memo(({ onEnteredFilter }) => {
   const [enteredFilter, setEnteredFilter] = useState('');
   const [isFocus, setIsFocus] = useState(false);
 
+  const [isOpen, setIsOpen] = useContext(MenuIsOpenContext);
+
   let position = useMousePosition();
   
   useEffect(() => {
@@ -30,6 +32,17 @@ const Search = React.memo(({ onEnteredFilter }) => {
         onEnteredFilter('');
       }
     }, 200);
+
+    // check if menu closed, close tags
+    if (!isOpen) hideTags();
+
+    if (isOpen) setIsFocus(true);
+
+    // clear input after closing
+    if (isOpen) {
+      // setEnteredFilter(' ');
+      // clearInput();
+    }
     
     return () => {
       clearTimeout(timer);
@@ -42,6 +55,9 @@ const Search = React.memo(({ onEnteredFilter }) => {
   
   function onInputChangeHandler(e) {
     setEnteredFilter(e.target.value.trim());
+    if (enteredFilter === '') {
+      setIsFocus(true)
+    }
   }
 
   function onTagClickHandler(e) {
@@ -60,6 +76,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
   }
   function hideTags(e) {
     const closest = getElementClick().closest('.tags');
+    console.log('onBlur', closest);
 
     if (closest === null) {
       setIsFocus(false);
