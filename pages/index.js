@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
-import { List, WindowScroller, AutoSizer } from 'react-virtualized';
+import { List } from 'react-virtualized';
 
 import postsData from '../data/postsData';
 import useWindowSize from '../hooks/useWindowSize';
 import Card from '../components/card';
-import LoadSpinner from '../components/loadSpinner';
 import { LoadSpinnerContext } from '../context/loadSpinnerContext';
+import MainLayout from '../layout/main';
 
 import 'react-virtualized/styles.css';
 
@@ -73,7 +73,7 @@ function getPostsDataArray(obj) {
   return data;
 }
 
-const Home = ({ comments, postsData }) => {
+const Index = ({ comments, postsData }) => {
   const dataArr = getPostsDataArray(postsData);
   const [ scrollListTop, setScrollListTop ] = useState(0);
   const [ scrollDirection, setScrollDirection ] = useState('down');
@@ -116,8 +116,7 @@ const Home = ({ comments, postsData }) => {
   }
 
   return (
-    <div className="main">
-      <LoadSpinner />
+    <MainLayout title="Canvas animations">
       <List
         width={size.width}
         height={size.height}
@@ -135,14 +134,14 @@ const Home = ({ comments, postsData }) => {
           )
         }
       />
-    </div>
+    </MainLayout>
   );
 };
 
-Home.getInitialProps = async function () {
+Index.getInitialProps = async function () {
   return {
     postsData,
   };
 };
 
-export default Home;
+export default Index;

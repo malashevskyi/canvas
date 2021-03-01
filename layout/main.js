@@ -17,56 +17,15 @@ import Menu from '../components/menu';
 
 
 const MainLayout = ({ title, children }) => {
-  function getCanvasNames() {
-    const names = Object.keys(postsData);
-    return names;
-  }
-  const [
-    filteredCanvasNames,
-    setFilteredCanvasNames,
-  ] = useState(getCanvasNames);
-  const [allCanvasNames] = useState(getCanvasNames);
-  const router = useRouter();
-
-  const onEnteredFilterHandler = useCallback((filter) => {
-    if (!filter.length) {
-      setFilteredCanvasNames(Object.keys(postsData));
-      return;
-    }
-
-    const newFilteredCanvas = [];
-    Object.keys(postsData).forEach((name) => {
-      if (name !== 'Main') {
-        const postsTags = postsData[name].tags;
-
-        for (let i = 0; i < postsTags.length; i++) {
-          const tag = postsTags[i];
-          if (tag.toLowerCase().includes(filter)) {
-            newFilteredCanvas.push(name);
-            continue;
-          }
-        }
-      }
-    });
-    setFilteredCanvasNames(newFilteredCanvas);
-  }, []);
-
   return (
     <Fragment>
       <Head>
         <title>{title}</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
       </Head>
-      <LoadSpinner />
-      <MenuIsOpenProvider>
-        <Navbar
-          filteredCanvasNames={filteredCanvasNames}
-          onEnteredFilter={onEnteredFilterHandler}
-        />
+      <div className="main">
         {children}
-        <Menu />
-      </MenuIsOpenProvider>
-      <Additional />
+      </div>
+      <LoadSpinner />
     </Fragment>
   );
 };

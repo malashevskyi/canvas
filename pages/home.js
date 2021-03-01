@@ -1,11 +1,11 @@
 import { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 
-import LoadSpinner from '../components/loadSpinner';
 import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
+import MainLayout from '../layout/main';
 
-const Index = ({ comments, postsData }) => {
+const Home = ({ comments, postsData }) => {
   const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
 
@@ -21,12 +21,11 @@ const Index = ({ comments, postsData }) => {
   }, [])
 
   return (
-    <div>
-      <LoadSpinner />
+    <MainLayout title="Canvas animations">
       <h1>Canvas</h1>
       <h2>Canvas animations</h2>
-    </div>
+    </MainLayout>
   );
 };
 
-export default Index;
+export default Home;

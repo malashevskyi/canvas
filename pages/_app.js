@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import '../styles/globals.sass';
-import MainLayout from '../layout/main';
 import ReactNotification from 'react-notifications-component'
 import LoadSpinnerProvider from '../context/loadSpinnerContext';
 

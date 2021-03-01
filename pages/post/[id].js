@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import MainLayout from '../../layout/main';
+import PostLayout from '../../layout/post';
 import * as canvases from '../../canvases/_index';
 import { useGUI } from '../../hooks/useGUI';
 import postsData from '../../data/postsData';
@@ -34,7 +34,7 @@ const Post = ({ id }) => {
   }, []);
 
   return (
-    <MainLayout>
+    <PostLayout>
 
       {router.query.id && (() => {
         const postName = '_' + id.replace(/-/g, '_');
@@ -49,7 +49,7 @@ const Post = ({ id }) => {
 
       })()
       }
-    </MainLayout>
+    </PostLayout>
   );
 };
 
