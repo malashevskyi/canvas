@@ -16,6 +16,9 @@ const Post = ({ id }) => {
   if (!postsData[id]) {
     return <NotFound title="Post" />
   }
+
+  const canvasIds = Object.keys(postsData);
+  const thisPostIndex = canvasIds.findIndex((el) => el === id);
   
   const postTitle = 'Canvas animation №' + postsData[id].number; 
   const postDescription = 'Canvas animation - ' + postsData[id].tags.join(' / '); 
@@ -44,6 +47,7 @@ const Post = ({ id }) => {
       postDescription={postDescription}
       tags={tags}
       url={url}
+      faviconIndex={thisPostIndex % 7 + 1}
     >
 
       {router.query.id && (() => {

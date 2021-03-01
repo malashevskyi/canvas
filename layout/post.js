@@ -16,7 +16,7 @@ import LoadSpinner from '../components/loadSpinner';
 import Menu from '../components/menu';
 
 
-const PostLayout = ({ title, children, postTitle, postDescription, tags, url }) => {
+const PostLayout = ({ title, children, postTitle, postDescription, tags, url, faviconIndex }) => {
   function getCanvasNames() {
     const names = Object.keys(postsData);
     return names;
@@ -65,6 +65,11 @@ const PostLayout = ({ title, children, postTitle, postDescription, tags, url }) 
         <meta property="og:image:height" content="400" />
         <meta property="og:site_name" content={postTitle} />
         <meta property="og:description" content={postDescription} />
+
+        <link rel="apple-touch-icon" sizes="180x180" href={`/favicons/${faviconIndex}/apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`/favicons/${faviconIndex}/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`/favicons/${faviconIndex}/favicon-16x16.png`} />
+        <link rel="manifest" href={`/favicons/${faviconIndex}/site.webmanifest`} />
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
       </Head>

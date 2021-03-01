@@ -35,14 +35,6 @@ const Search = React.memo(({ onEnteredFilter }) => {
 
     // check if menu closed, close tags
     if (!isOpen) hideTags();
-
-    if (isOpen) setIsFocus(true);
-
-    // clear input after closing
-    if (isOpen) {
-      // setEnteredFilter(' ');
-      // clearInput();
-    }
     
     return () => {
       clearTimeout(timer);
@@ -76,7 +68,6 @@ const Search = React.memo(({ onEnteredFilter }) => {
   }
   function hideTags(e) {
     const closest = getElementClick().closest('.tags');
-    console.log('onBlur', closest);
 
     if (closest === null) {
       setIsFocus(false);

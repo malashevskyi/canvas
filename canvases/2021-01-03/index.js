@@ -101,7 +101,6 @@ const sketch = ({ gui }) => {
             speedUp = !speedUp;
           }, 3000)
         } else {
-          console.log('invisible');
           clearInterval(interval)
         }
       }

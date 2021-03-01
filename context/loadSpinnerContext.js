@@ -17,7 +17,6 @@ const LoadSpinnerProvider = ({ children }) => {
     //   console.log(url);
     // });
     Router.events.on('routeChangeComplete', (url) => {
-      console.log(url);
       setSpinner({
         active: false,
         text: ''
