@@ -12,7 +12,8 @@ import MenuIsOpenProvider from '../context/menuIsOpenContext';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import postsData from '../data/postsData';
-import Additional from '../components/additional'
+import Additional from '../components/additional';
+import LoadSpinner from '../components/loadSpinner';
 
 
 const MainLayout = ({ title, children }) => {
@@ -56,6 +57,7 @@ const MainLayout = ({ title, children }) => {
         <title>{title}</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
       </Head>
+      <LoadSpinner />
       <MenuIsOpenProvider>
         <Header />
         <Navbar

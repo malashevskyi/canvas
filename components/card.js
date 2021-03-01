@@ -1,5 +1,9 @@
+import { useContext } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+
+import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 import Preview from './preview';
 
@@ -16,13 +20,24 @@ const Card = ({
   scrollDirection,
   anmRenderFirstScreen
 }) => {
+  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const yAnmUp = -30 * indexInItem - 50;
+  const router = useRouter();
   let yAnmDown = 30 * indexInItem + 50;
-  let yAnmUp = -30 * indexInItem - 50;
   let delay = indexInItem / 100;
 
   if (anmRenderFirstScreen) {
     yAnmDown += index * 4;
     delay = index / 50;
+  }
+
+  const onCardClickHandler = (e) => {
+    e.preventDefault();
+    setIsActive(true);
+
+    setTimeout(() => {
+      router.push(link);
+    }, 700);
   }
 
   return (
@@ -45,7 +60,7 @@ const Card = ({
         style={{ width, height, margin }}
       >
         <Link href={link}>
-          <a>
+          <a onClick={onCardClickHandler}>
             <time dateTime={date}>
               <span>{date}</span>
             </time>

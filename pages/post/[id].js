@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import MainLayout from '../../layout/main';
 import * as canvases from '../../canvases/_index';
 import { useGUI } from '../../hooks/useGUI';
 import postsData from '../../data/postsData';
+import { LoadSpinnerContext } from '../../context/loadSpinnerContext';
 
 const Post = ({ id }) => {
+  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
   const router = useRouter();
   const [canvasCheck, setCanvasCheck] = useState('');
   const gui = useGUI();
   let Canvas = null;
+
+  useEffect(() => {
+    setIsActive(false);
+    return () => setIsActive(true);
+  }, []);
 
   return (
     <MainLayout>
@@ -24,7 +31,7 @@ const Post = ({ id }) => {
         } else {
           return '';
         }
-        
+
       })()
       }
     </MainLayout>

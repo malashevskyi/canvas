@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { List, WindowScroller, AutoSizer } from 'react-virtualized';
 import gsap from 'gsap';
 
 import postsData from '../data/postsData';
 import useWindowSize from '../hooks/useWindowSize';
 import Card from '../components/card';
+import LoadSpinner from '../components/loadSpinner';
+import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 import 'react-virtualized/styles.css';
 
@@ -81,7 +83,12 @@ const Index = ({ comments, postsData }) => {
   // more powerful animation on the first render for first screen cards 
   const [ anmRenderFirstScreen, setAnmRenderFirstScreen ] = useState(true);
 
+  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+
   useEffect(() => {
+    // remove loader
+    setIsActive(false);
+
     // more lighter animation for new cards to be displayed when scrolling
     setTimeout(() => {
       setAnmRenderFirstScreen(false);
@@ -109,6 +116,7 @@ const Index = ({ comments, postsData }) => {
 
   return (
     <div className="main">
+      <LoadSpinner />
       <List
         width={size.width}
         height={size.height}
