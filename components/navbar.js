@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -21,7 +21,7 @@ const Navbar = ({
   const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
   if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
 
-  const thisNavbarIndex = filteredCanvasNames.findIndex((el) => el === location.query.id);
+  const [thisNavbarIndex] = useState(filteredCanvasNames.findIndex((el) => el === location.query.id));
 
   function rowRenderer({ key, index, style }) {
     const name = filteredCanvasNames[index];
