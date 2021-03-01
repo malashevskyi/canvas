@@ -12,10 +12,15 @@ const Post = ({ id }) => {
   const router = useRouter();
   const [canvasCheck, setCanvasCheck] = useState('');
   const gui = useGUI();
-
+  
   if (!postsData[id]) {
     return <NotFound title="Post" />
   }
+  
+  const postTitle = 'Canvas animation №' + postsData[id].number; 
+  const postDescription = 'Canvas animation - ' + postsData[id].tags.join(' / '); 
+  const tags = postsData[id].tags.join(', '); 
+  const url = `post/${id}`; 
 
   let Canvas = null;
 
@@ -34,7 +39,12 @@ const Post = ({ id }) => {
   }, []);
 
   return (
-    <PostLayout>
+    <PostLayout
+      postTitle={postTitle}
+      postDescription={postDescription}
+      tags={tags}
+      url={url}
+    >
 
       {router.query.id && (() => {
         const postName = '_' + id.replace(/-/g, '_');

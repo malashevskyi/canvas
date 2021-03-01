@@ -16,7 +16,7 @@ import LoadSpinner from '../components/loadSpinner';
 import Menu from '../components/menu';
 
 
-const PostLayout = ({ title, children }) => {
+const PostLayout = ({ title, children, postTitle, postDescription, tags, url }) => {
   function getCanvasNames() {
     const names = Object.keys(postsData);
     return names;
@@ -54,7 +54,18 @@ const PostLayout = ({ title, children }) => {
   return (
     <Fragment>
       <Head>
-        <title>{title}</title>
+        <title>{postTitle}</title>
+        <meta name="keywords" content={`Canvas, animation, ${tags}`} />
+        <meta name="description" content={postDescription} />
+        <meta property="og:title" content={postTitle} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`/${url}`} />
+        <meta property="og:image" content="/images/main-og.jpg" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:site_name" content={postTitle} />
+        <meta property="og:description" content={postDescription} />
+        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
       </Head>
       <LoadSpinner />
