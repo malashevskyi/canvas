@@ -21,6 +21,8 @@ const Navbar = ({
   const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
   if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
 
+  const thisNavbarIndex = filteredCanvasNames.findIndex((el) => el === location.query.id);
+
   function rowRenderer({ key, index, style }) {
     const name = filteredCanvasNames[index];
     if (!name) return;
@@ -87,6 +89,8 @@ const Navbar = ({
                     rowHeight={125}
                     rowRenderer={rowRenderer}
                     overscanRowCount={3}
+                    scrollToIndex={thisNavbarIndex}
+                    scrollToAlignment="start"
                   />
                 );
               }}
