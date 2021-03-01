@@ -4,13 +4,16 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 const Logo = () => {
   const router = useRouter();
-  const [isActive, setIsActive] = useContext(LoadSpinnerContext);
+  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   
   const onLogoClickHandler = (e) => {
     e.preventDefault();
 
     // activate spinner
-    setIsActive(true);
+    setSpinner({
+      active: true,
+      text: 'Loading main page assets. \n Please wait.'
+    })
 
     // open index page with delay
     setTimeout(() => {

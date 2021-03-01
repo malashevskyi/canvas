@@ -9,7 +9,6 @@ import { useNotification } from '../../hooks/useNotification';
 const particles = [];
 const particlesTo = [];
 const tls = [];
-let timeout; // notification
 
 const sketch = ({ gui }) => {
   return ({ context, width, height, canvas }) => {
@@ -85,11 +84,11 @@ const sketch = ({ gui }) => {
     function drawMouseCircle() {
       context.beginPath();
       context.fillStyle = 'rgba(255, 255, 255, 0.03)';
-      context.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI * 2)
+      context.arc(mouse.x, mouse.y, mouse.radius, 0, Math.PI * 2);
       context.fill();
       context.restore()
     }
-    
+
     return (props) => {
       ({ width, height } = props);
 
@@ -131,7 +130,6 @@ function Canvas({ gui }) {
       tls.forEach(tl => {
         tl.pause();
       });
-      clearTimeout(timeout);
     }
   });
 

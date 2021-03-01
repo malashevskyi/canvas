@@ -18,7 +18,7 @@ const Post = ({ id }) => {
       active: false,
       text: ''
     });
-    
+
     return () => {
       setSpinner({
         active: true,
