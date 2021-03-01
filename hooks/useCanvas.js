@@ -5,9 +5,12 @@ import { useEffect, useState } from 'react';
 export const useCanvas = ({ sketch }) => {
 
   useEffect(() => {
+
+    // ! temporarily
     if (!window.canvas) {
       window.canvas = document.getElementById('canvas');
     }
+
     let manager;
 
     async function start() {

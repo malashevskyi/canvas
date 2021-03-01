@@ -8,8 +8,8 @@ import Preview from './preview';
 import Search from './search';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import postsData from '../data/postsData';
-import GithubLink from './githubLink'
-import CodePenLink from './codePenLink'
+import GithubLink from './githubLink';
+import CodePenLink from './codePenLink';
 
 const Navbar = ({
   onEnteredFilter,

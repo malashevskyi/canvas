@@ -22,9 +22,7 @@ const Logo = () => {
   }
   
   return (
-    <h1 className="title">
-      <a href="/" onClick={onLogoClickHandler}>Canvas</a>
-    </h1>
+      <a href={'/'} className="menu-item" onClick={onLogoClickHandler}> <h1>All animations</h1> </a>
   );
 };
 

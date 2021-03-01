@@ -9,11 +9,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import MenuIsOpenProvider from '../context/menuIsOpenContext';
-import Header from '../components/header';
 import Navbar from '../components/navbar';
 import postsData from '../data/postsData';
 import Additional from '../components/additional';
 import LoadSpinner from '../components/loadSpinner';
+import Menu from '../components/menu';
 
 
 const MainLayout = ({ title, children }) => {
@@ -59,12 +59,12 @@ const MainLayout = ({ title, children }) => {
       </Head>
       <LoadSpinner />
       <MenuIsOpenProvider>
-        <Header />
         <Navbar
           filteredCanvasNames={filteredCanvasNames}
           onEnteredFilter={onEnteredFilterHandler}
         />
         {children}
+        <Menu />
       </MenuIsOpenProvider>
       <Additional />
     </Fragment>

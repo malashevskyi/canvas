@@ -1,18 +1,19 @@
 
 
-const GithubLogo = () => {
+const GithubButton = () => {
   return (
     <a
       href="https://github.com/malashevskyi/canvas-every-day"
       target="_blank"
       rel="noreferrer"
-      className="github-logo"
+      className="menu-item"
     >
+      Github
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
-        width="25"
-        height="25"
+        width="20"
+        height="20"
       >
         <path
           fillRule="evenodd"
@@ -23,4 +24,4 @@ const GithubLogo = () => {
   );
 };
 
-export default GithubLogo;
+export default GithubButton;
