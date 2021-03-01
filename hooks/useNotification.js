@@ -15,7 +15,7 @@ export const useNotification = ({ message, delay = 0 }) => {
         type: 'info',
         id: notificationId,
         insert: "top",
-        container: "top-center",
+        container: "bottom-right",
         animationIn: ["animate__animated animated flipInY"],
         dismiss: {
           duration: 5000,

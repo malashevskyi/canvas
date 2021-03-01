@@ -44,29 +44,31 @@ const Additional = (props) => {
         'open': additionalOpen
       })}
     >
-      <ArrowInfo onClickHandler={onArrowInfoClickHandler} additionalOpen={additionalOpen} />
-      <div className="inner">
-        <div className="additional-image">
-          <Image 
-            src={imageSrc}
-            alt={`Canvas animation,${post.tags.map(tag => ' ' + tag)}`}
-            layout="fill"
-          />
-        </div>
-        <div className="text">
-          <h1 className="title">Canvas animation №{post.number} <br/> {tags}</h1>
-          <div className="links">
-            {codePenLink && <CodePenLink link={codePenLink} />}
-            {githubLink && <GithubLink link={githubLink} />}
+      <div className="additional-container">
+        <ArrowInfo onClickHandler={onArrowInfoClickHandler} additionalOpen={additionalOpen} />
+        <div className="inner">
+          <div className="additional-image">
+            <Image 
+              src={imageSrc}
+              alt={`Canvas animation,${post.tags.map(tag => ' ' + tag)}`}
+              layout="fill"
+            />
+          </div>
+          <div className="text">
+            <h1 className="title">Canvas animation №{post.number} <br/> {tags}</h1>
+            <div className="links">
+              {codePenLink && <CodePenLink link={codePenLink} />}
+              {githubLink && <GithubLink link={githubLink} />}
+            </div>
           </div>
         </div>
+        {credits && (
+          <div className="credits">
+            <h3 className="credits-title">Credits:</h3>
+            <div>{credits}</div>
+          </div>
+        )}
       </div>
-      {credits && (
-        <div className="credits">
-          <h3 className="credits-title">Credits:</h3>
-          <div>{credits}</div>
-        </div>
-      )}
     </div>
   );
 };

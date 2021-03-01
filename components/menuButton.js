@@ -8,7 +8,10 @@ const MenuButton = () => {
 
   return (
     <button
-      className="menu-item"
+      className={classNames({
+        "menu-item": true,
+        "active": isOpen
+      })}
       onClick={() => setIsOpen(!isOpen)}
     >
      Menu
