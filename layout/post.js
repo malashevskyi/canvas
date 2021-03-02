@@ -60,9 +60,9 @@ const PostLayout = ({ title, children, postTitle, postDescription, tags, url, fa
         <meta property="og:title" content={postTitle} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://canvas-phi-fawn.vercel.app/${url}`} />
-        <meta property="og:image" content="https://canvas-phi-fawn.vercel.app/images/main-og.jpg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
+        <meta property="og:image" content="https://canvas-phi-fawn.vercel.app/images/post-og.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={postTitle} />
         <meta property="og:description" content={postDescription} />
 
