@@ -1,7 +1,7 @@
 ## canvas
 Canvas animations.
 
-[**DEMO**](https://canvas-phi-fawn.vercel.app/home/) — checked in the latest chrome version.
+[**DEMO**](https://canvas-malashevskyi.vercel.app/home/) — checked in the latest chrome version.
 
 ![Screenshot](public/images/sc.png)
 
