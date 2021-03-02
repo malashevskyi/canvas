@@ -4,8 +4,8 @@ class Square {
   constructor({ context, maxSide, position, outerPosition, sideHalf }) {
     this.context = context;
     this.angle = random.range(0, Math.PI * 2);
-    this.fxCircle = Math.cos(this.angle) * maxSide / 3  + sideHalf;
-    this.fyCircle = Math.sin(this.angle) * maxSide / 3  + sideHalf;
+    this.fxCircle = (Math.cos(this.angle) * maxSide) / 3 + sideHalf;
+    this.fyCircle = (Math.sin(this.angle) * maxSide) / 3 + sideHalf;
     this.fxRect = outerPosition[0];
     this.fyRect = outerPosition[1];
     this.x = position[0];
@@ -18,9 +18,9 @@ class Square {
     this.distTick = 200 + Math.trunc(1000 * Math.random());
     this.initTimeout = 100;
     this.back = true;
-    this.frameTick = 0
+    this.frameTick = 0;
   }
-  
+
   render() {
     this.frameTick++;
     // delay in 30 frames
@@ -29,8 +29,8 @@ class Square {
       this.draw();
       return;
     }
-    const dCos = (dist, angle) => Math.cos(angle) * dist / this.distTick;
-    const dSin = (dist, angle) => Math.sin(angle) * dist / this.distTick;
+    const dCos = (dist, angle) => (Math.cos(angle) * dist) / this.distTick;
+    const dSin = (dist, angle) => (Math.sin(angle) * dist) / this.distTick;
 
     let dx, dy, dist, part;
 
@@ -52,7 +52,7 @@ class Square {
       }
       dist = Math.sqrt(dx * dx + dy * dy);
       part = dist / this.distTick;
-      
+
       if (dist >= part) {
         const angle = Math.atan2(dy, dx);
         this.x += dCos(dist, angle);
@@ -73,7 +73,7 @@ class Square {
       dy = this.y - this.yBack;
       dist = Math.sqrt(dx * dx + dy * dy);
       part = dist / this.distTick;
-      
+
       if (dist >= part) {
         const angle = Math.atan2(dy, dx);
         this.x -= dCos(dist, angle);

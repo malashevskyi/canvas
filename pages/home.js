@@ -5,20 +5,20 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 import MainLayout from '../layout/main';
 
-const Home = ({ comments, postsData }) => {
-  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
+const Home = () => {
+  const [_, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
 
   useEffect(() => {
     setSpinner({
       active: true,
-      text: 'Loading main page assets. \n Please wait.'
+      text: 'Loading main page assets. \n Please wait.',
     });
 
     setTimeout(() => {
-      router.push("/");
+      router.push('/');
     }, 500);
-  }, [])
+  }, []);
 
   return (
     <MainLayout title="Canvas animations">

@@ -1,12 +1,5 @@
-import {
-  Fragment,
-  useState,
-  useEffect,
-  useCallback,
-} from 'react';
-import Link from 'next/link';
+import { Fragment, useState, useCallback } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 import MenuIsOpenProvider from '../context/menuIsOpenContext';
 import Navbar from '../components/navbar';
@@ -15,18 +8,21 @@ import Additional from '../components/additional';
 import LoadSpinner from '../components/loadSpinner';
 import Menu from '../components/menu';
 
-
-const PostLayout = ({ title, children, postTitle, postDescription, tags, url, faviconIndex }) => {
+const PostLayout = ({
+  children,
+  postTitle,
+  postDescription,
+  tags,
+  url,
+  faviconIndex,
+}) => {
   function getCanvasNames() {
     const names = Object.keys(postsData);
     return names;
   }
-  const [
-    filteredCanvasNames,
-    setFilteredCanvasNames,
-  ] = useState(getCanvasNames);
-  const [allCanvasNames] = useState(getCanvasNames);
-  const router = useRouter();
+  const [filteredCanvasNames, setFilteredCanvasNames] = useState(
+    getCanvasNames
+  );
 
   const onEnteredFilterHandler = useCallback((filter) => {
     if (!filter.length) {
@@ -59,19 +55,45 @@ const PostLayout = ({ title, children, postTitle, postDescription, tags, url, fa
         <meta name="description" content={postDescription} />
         <meta property="og:title" content={postTitle} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://canvas-phi-fawn.vercel.app/${url}`} />
-        <meta property="og:image" content="https://canvas-phi-fawn.vercel.app/images/post-og.jpg" />
+        <meta
+          property="og:url"
+          content={`https://canvas-phi-fawn.vercel.app/${url}`}
+        />
+        <meta
+          property="og:image"
+          content="https://canvas-phi-fawn.vercel.app/images/post-og.jpg"
+        />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={postTitle} />
         <meta property="og:description" content={postDescription} />
 
-        <link rel="apple-touch-icon" sizes="180x180" href={`/favicons/${faviconIndex}/apple-touch-icon.png`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`/favicons/${faviconIndex}/favicon-32x32.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`/favicons/${faviconIndex}/favicon-16x16.png`} />
-        <link rel="manifest" href={`/favicons/${faviconIndex}/site.webmanifest`} />
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"/>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={`/favicons/${faviconIndex}/apple-touch-icon.png`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={`/favicons/${faviconIndex}/favicon-32x32.png`}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={`/favicons/${faviconIndex}/favicon-16x16.png`}
+        />
+        <link
+          rel="manifest"
+          href={`/favicons/${faviconIndex}/site.webmanifest`}
+        />
+
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
+        />
       </Head>
       <LoadSpinner />
       <MenuIsOpenProvider>

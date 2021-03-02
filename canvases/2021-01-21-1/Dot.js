@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random';
 
 class Dot {
-  constructor(context, x, y, radius = 2, color = '#000' ) {
+  constructor(context, x, y, radius = 2, color = '#000') {
     this.context = context;
     this.x = x;
     this.y = y;
@@ -19,7 +19,7 @@ class Dot {
   draw() {
     this.context.save();
     this.context.beginPath();
-    this.context.arc( this.x, this.y, this.radius, 0, Math.PI * 2 );
+    this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     this.context.fillStyle = this.color;
     this.context.fill();
     this.context.restore();

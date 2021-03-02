@@ -4,10 +4,10 @@ class Numb {
   constructor(context, palette) {
     this.context = context;
     this.color = random.pick(palette);
-    this.text = random.pick([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ]);
+    this.text = random.pick([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     this.initial();
   }
-  
+
   initial() {
     this.gaussian = random.gaussian(-0.2, 0.2) + 0.3;
     this.x = this.gaussian;

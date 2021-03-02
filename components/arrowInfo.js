@@ -1,15 +1,12 @@
-
 import classnames from 'classnames';
 
 const ArrowInfo = ({ onClickHandler, additionalOpen }) => {
   return (
     <button
-      className={
-        classnames({
-          "arrow-info": true,
-          "open": additionalOpen
-        })
-      }
+      className={classnames({
+        'arrow-info': true,
+        open: additionalOpen,
+      })}
       onClick={onClickHandler}
     >
       <svg

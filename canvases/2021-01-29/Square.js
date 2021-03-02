@@ -16,7 +16,7 @@ class Square {
     this.initTimeout = 20;
     this.back = true;
   }
-  
+
   render() {
     // delay in 20 frames
     if (this.initTimeout) {
@@ -24,8 +24,8 @@ class Square {
       this.draw();
       return;
     }
-    const dCos = (dist, angle) => Math.cos(angle) * dist / this.distTick;
-    const dSin = (dist, angle) => Math.sin(angle) * dist / this.distTick;
+    const dCos = (dist, angle) => (Math.cos(angle) * dist) / this.distTick;
+    const dSin = (dist, angle) => (Math.sin(angle) * dist) / this.distTick;
 
     let dx, dy, dist, part;
 
@@ -35,7 +35,7 @@ class Square {
       dy = this.fy - this.y;
       dist = Math.sqrt(dx * dx + dy * dy);
       part = dist / this.distTick;
-      
+
       if (dist >= part) {
         const angle = Math.atan2(dy, dx);
         this.x += dCos(dist, angle);
@@ -56,7 +56,7 @@ class Square {
       dy = this.y - this.yBack;
       dist = Math.sqrt(dx * dx + dy * dy);
       part = dist / this.distTick;
-      
+
       if (dist >= part) {
         const angle = Math.atan2(dy, dx);
         this.x -= dCos(dist, angle);

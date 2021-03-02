@@ -5,15 +5,15 @@ class Particle {
     this.y = y;
     this.anchorX = this.x;
     this.anchorY = this.y;
-    this.density = (Math.random() * 10) + 15;
+    this.density = Math.random() * 10 + 15;
     this.color = 'white';
     this.side = 0;
   }
-  
+
   draw() {
     this.context.fillStyle = this.color;
     this.context.beginPath();
-    this.context.rect(this.x, this.y, this.side, this.side)
+    this.context.rect(this.x, this.y, this.side, this.side);
     this.context.lineWidth = 0;
     this.context.closePath();
     this.context.fill();
@@ -29,7 +29,6 @@ class Particle {
     const force = (maxDistance - distance) / maxDistance;
     const directionX = forceDirectionX * force * this.density;
     const directionY = forceDirectionY * force * this.density;
-
 
     if (distance < mouse.radius) {
       this.x -= directionX;

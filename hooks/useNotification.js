@@ -6,7 +6,6 @@ export const useNotification = ({ message, delay = 0 }) => {
   const notificationId = Math.random();
 
   useEffect(() => {
-
     const timeout = setTimeout(() => {
       store.addNotification({
         showIcon: true,
@@ -14,13 +13,13 @@ export const useNotification = ({ message, delay = 0 }) => {
         message,
         type: 'info',
         id: notificationId,
-        insert: "top",
-        container: "bottom-right",
-        animationIn: ["animate__animated animated flipInY"],
+        insert: 'top',
+        container: 'bottom-right',
+        animationIn: ['animate__animated animated flipInY'],
         dismiss: {
           duration: 5000,
-          onScreen: true
-        }
+          onScreen: true,
+        },
       });
     }, delay);
 

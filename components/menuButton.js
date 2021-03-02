@@ -9,12 +9,12 @@ const MenuButton = () => {
   return (
     <button
       className={classNames({
-        "menu-item": true,
-        "active": isOpen
+        'menu-item': true,
+        active: isOpen,
       })}
       onClick={() => setIsOpen(!isOpen)}
     >
-     Menu
+      Menu
     </button>
   );
 };

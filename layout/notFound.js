@@ -10,9 +10,7 @@ const NotFoundLayout = ({ title, children }) => {
         <title>{title}</title>
       </Head>
       <LoadSpinner />
-      <MenuIsOpenProvider>
-        {children}
-      </MenuIsOpenProvider>
+      <MenuIsOpenProvider>{children}</MenuIsOpenProvider>
     </>
   );
 };

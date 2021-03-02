@@ -6,11 +6,11 @@ import { useMousePosition } from '../hooks/useMousePosition';
 import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import Image from 'next/image';
 
-const tags = []
+const tags = [];
 
 for (let key in postsData) {
   const postTags = postsData[key].tags;
-  
+
   for (let i = 0; i < postTags.length; i++) {
     if (tags.indexOf(postTags[i]) === -1) tags.push(postTags[i]);
   }
@@ -23,7 +23,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
   const [isOpen, setIsOpen] = useContext(MenuIsOpenContext);
 
   let position = useMousePosition();
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (enteredFilter.length !== 0) {
@@ -35,7 +35,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
 
     // check if menu closed, close tags
     if (!isOpen) hideTags();
-    
+
     return () => {
       clearTimeout(timer);
     };
@@ -44,11 +44,11 @@ const Search = React.memo(({ onEnteredFilter }) => {
   function getElementClick() {
     return document.elementFromPoint(position.x, position.y);
   }
-  
+
   function onInputChangeHandler(e) {
     setEnteredFilter(e.target.value.trim());
     if (enteredFilter === '') {
-      setIsFocus(true)
+      setIsFocus(true);
     }
   }
 
@@ -78,7 +78,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
     setEnteredFilter('');
     document.querySelector('.navbar-search input').focus();
   }
-  
+
   return (
     <Fragment>
       <div className="navbar-search">
@@ -93,12 +93,12 @@ const Search = React.memo(({ onEnteredFilter }) => {
         <button
           className={classNames({
             clean: true,
-            active: enteredFilter.length > 0
+            active: enteredFilter.length > 0,
           })}
           onClick={clearInput}
         >
           <Image
-            src={"/images/clean-icon.svg"}
+            src={'/images/clean-icon.svg'}
             alt="clean input"
             width="80%"
             height="80%"
@@ -108,11 +108,15 @@ const Search = React.memo(({ onEnteredFilter }) => {
       <div
         className={classNames({
           tags: true,
-          active: isFocus
+          active: isFocus,
         })}
         onClick={onTagClickHandler}
       >
-        {tags.map(tag => <span key={tag} onClick={(e) => onTagClickHandler(e)}>{tag}</span>)}
+        {tags.map((tag) => (
+          <span key={tag} onClick={(e) => onTagClickHandler(e)}>
+            {tag}
+          </span>
+        ))}
       </div>
     </Fragment>
   );

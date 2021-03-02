@@ -31,7 +31,6 @@ function rowRenderer(
   const cards = [];
 
   for (let i = startIndex; i <= stopIndex; i++) {
-    const cardData = dataArr[i];
     const title = dataArr[i].title;
     const id = dataArr[i].id;
 
@@ -65,8 +64,7 @@ function getPostsDataArray(obj) {
   Object.keys(obj).forEach((key) => {
     data.push({
       id: key,
-      title:
-        'Canvas animation - ' + obj[key].tags.join(', '),
+      title: 'Canvas animation - ' + obj[key].tags.join(', '),
     });
   });
 
@@ -75,26 +73,26 @@ function getPostsDataArray(obj) {
 
 const Index = ({ comments, postsData }) => {
   const dataArr = getPostsDataArray(postsData);
-  const [ scrollListTop, setScrollListTop ] = useState(0);
-  const [ scrollDirection, setScrollDirection ] = useState('down');
+  const [scrollListTop, setScrollListTop] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState('down');
 
-  // more powerful animation on the first render for first screen cards 
-  const [ anmRenderFirstScreen, setAnmRenderFirstScreen ] = useState(true);
+  // more powerful animation on the first render for first screen cards
+  const [anmRenderFirstScreen, setAnmRenderFirstScreen] = useState(true);
 
-  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
+  const [_, setSpinner] = useContext(LoadSpinnerContext);
 
   useEffect(() => {
     // remove loader
     setSpinner({
       active: false,
-      text: ''
+      text: '',
     });
 
     // more lighter animation for new cards to be displayed when scrolling
     setTimeout(() => {
       setAnmRenderFirstScreen(false);
-    }, 1000)
-  }, [])
+    }, 1000);
+  }, []);
 
   // set initial dimensions to detect how many card render on server side;
   // render 42 cards -- 6 columns * 6 rows + 6 card auto adding, one to each column
@@ -103,7 +101,9 @@ const Index = ({ comments, postsData }) => {
     height: 780, // 6 * card height
   });
 
-  const columnCount = Math.floor( (size.width - gapSize) / (cardWidth + gapSize) );
+  const columnCount = Math.floor(
+    (size.width - gapSize) / (cardWidth + gapSize)
+  );
   const rowCount = Math.ceil(dataArr.length / columnCount);
 
   const onListScrollHandler = ({ scrollTop }) => {
@@ -113,7 +113,7 @@ const Index = ({ comments, postsData }) => {
       setScrollDirection('down');
     }
     setScrollListTop(scrollTop);
-  }
+  };
 
   return (
     <MainLayout title="Canvas animations">

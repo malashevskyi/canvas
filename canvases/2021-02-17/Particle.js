@@ -31,14 +31,14 @@ class Particle {
         ease: 'power4.in',
       });
     }
-    this.context.save()
+    this.context.save();
     this.context.globalAlpha = this.alpha;
     this.context.beginPath();
     this.context.fillStyle = this.color;
     this.context.rect(this.x, this.y, this.width, this.height);
     this.context.closePath();
     this.context.fill();
-    this.context.restore()
+    this.context.restore();
   }
 }
 

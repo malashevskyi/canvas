@@ -18,15 +18,15 @@ class Particle {
   }
 
   render(speedUp) {
-    this.draw()
+    this.draw();
     const dx = this.x;
     const dy = this.y;
     const angle = Math.atan2(this.x, this.y);
     const radius = Math.sqrt(dx * dx + dy * dy);
-    const angleInc = speedUp ? 0.01 : 0.001
+    const angleInc = speedUp ? 0.01 : 0.001;
 
-    this.x = radius * Math.sin((angle + angleInc).toFixed(3))
-    this.y = radius * Math.cos((angle + angleInc).toFixed(3))
+    this.x = radius * Math.sin((angle + angleInc).toFixed(3));
+    this.y = radius * Math.cos((angle + angleInc).toFixed(3));
   }
 }
 

@@ -12,12 +12,12 @@ class Ball {
     this.dyInit = 1;
     this.radius = 10;
   }
-  
+
   draw() {
     this.context.save();
     this.context.rotate(this.angle);
     this.context.beginPath();
-    this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+    this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     this.context.fillStyle = this.color;
     this.context.closePath();
     this.context.fill();
@@ -32,9 +32,9 @@ class Ball {
     if (this.radius <= 0.2) this.radius = 0;
 
     this.dy += Math.sin(this.tick) * this.m;
-    
+
     if (this.dy > 20 || this.dy < -20) {
-      this.dyInit = -this.dyInit
+      this.dyInit = -this.dyInit;
     }
     this.x += this.dx;
     this.y = this.dy;

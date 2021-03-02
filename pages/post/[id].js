@@ -2,43 +2,42 @@ import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PostLayout from '../../layout/post';
 import * as canvases from '../../canvases/_index';
-import { useGUI } from '../../hooks/useGUI';
+// import useGUI from '../../hooks/useGUI';
 import postsData from '../../data/postsData';
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext';
 import NotFound from '../404';
 
 const Post = ({ id }) => {
-  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
+  const [_, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
-  const [canvasCheck, setCanvasCheck] = useState('');
-  const gui = useGUI();
-  
+  // ! temporarily hide
+  // const gui = useGUI();
+
   if (!postsData[id]) {
-    return <NotFound title="Post" />
+    return <NotFound title="Post" />;
   }
 
   const canvasIds = Object.keys(postsData);
   const thisPostIndex = canvasIds.findIndex((el) => el === id);
-  
-  const postTitle = 'Canvas animation №' + postsData[id].number; 
-  const postDescription = 'Canvas animation - ' + postsData[id].tags.join(' / '); 
-  const tags = postsData[id].tags.join(', '); 
-  const url = `post/${id}`; 
 
-  let Canvas = null;
+  const postTitle = 'Canvas animation №' + postsData[id].number;
+  const postDescription =
+    'Canvas animation - ' + postsData[id].tags.join(' / ');
+  const tags = postsData[id].tags.join(', ');
+  const url = `post/${id}`;
 
   useEffect(() => {
     setSpinner({
       active: false,
-      text: ''
+      text: '',
     });
 
     return () => {
       setSpinner({
         active: true,
-        text: ''
+        text: '',
       });
-    }
+    };
   }, []);
 
   return (
@@ -47,22 +46,21 @@ const Post = ({ id }) => {
       postDescription={postDescription}
       tags={tags}
       url={url}
-      faviconIndex={thisPostIndex % 7 + 1}
+      faviconIndex={(thisPostIndex % 7) + 1}
     >
+      {router.query.id &&
+        (() => {
+          const postName = '_' + id.replace(/-/g, '_');
 
-      {router.query.id && (() => {
-        const postName = '_' + id.replace(/-/g, '_');
+          if (canvases[postName]) {
+            const Canvas = canvases[postName];
 
-        if (canvases[postName]) {
-          const Canvas = canvases[postName];
-
-          return <Canvas gui={gui} />;
-        } else {
-          return '';
-        }
-
-      })()
-      }
+            // ! temporarily hide gui (<Canvas gui={gui} />)
+            return <Canvas />;
+          } else {
+            return '';
+          }
+        })()}
     </PostLayout>
   );
 };
@@ -70,7 +68,7 @@ const Post = ({ id }) => {
 Post.getInitialProps = (context) => {
   return {
     id: context.query.id,
-  }
-}
+  };
+};
 
 export default Post;

@@ -11,17 +11,16 @@ import postsData from '../data/postsData';
 import GithubLink from './githubLink';
 import CodePenLink from './codePenLink';
 
-const Navbar = ({
-  onEnteredFilter,
-  filteredCanvasNames,
-}) => {
+const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
   const location = useRouter();
   const [isOpen] = useContext(MenuIsOpenContext);
 
   const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
   if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
 
-  const [thisNavbarIndex] = useState(filteredCanvasNames.findIndex((el) => el === location.query.id));
+  const [thisNavbarIndex] = useState(
+    filteredCanvasNames.findIndex((el) => el === location.query.id)
+  );
 
   function rowRenderer({ key, index, style }) {
     const name = filteredCanvasNames[index];
@@ -29,14 +28,17 @@ const Navbar = ({
 
     const postData = postsData[name];
 
-    const date = `${name?.slice(0, 4)}-${name?.slice(5, 7)}-${name?.slice(8, 10)}`;
+    const date = `${name?.slice(0, 4)}-${name?.slice(5, 7)}-${name?.slice(
+      8,
+      10
+    )}`;
     let imgTitle = '';
     let titleTags = '';
 
     const githubLink = postData.github;
     const codePenLink = postData.codePen;
 
-    postData.tags.forEach(tag => {
+    postData.tags.forEach((tag) => {
       titleTags += `/ ${tag} `;
       imgTitle += `${tag} `;
     });
@@ -55,9 +57,7 @@ const Navbar = ({
         {githubLink && <GithubLink link={githubLink} />}
         <Link href={`/post/${name}`}>
           <a>
-            <h2 className="navbar-menu--title">
-              {titleTags}
-            </h2>
+            <h2 className="navbar-menu--title">{titleTags}</h2>
             <Preview title={imgTitle} name={name} />
             <time dateTime={date}>
               <span>{date}</span>

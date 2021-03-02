@@ -20,10 +20,8 @@ class Point {
   setTarget() {
     this.initialX = this.x;
     this.initialY = this.y;
-    this.targetX =
-      this.anchorX + random.rangeFloor(0, 20) - 20;
-    this.targetY =
-      this.anchorY + random.rangeFloor(0, 80) - 80;
+    this.targetX = this.anchorX + random.rangeFloor(0, 20) - 20;
+    this.targetY = this.anchorY + random.rangeFloor(0, 80) - 80;
     this.tick = 0;
     this.duration = random.rangeFloor(30, 70);
   }

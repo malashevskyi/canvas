@@ -6,7 +6,7 @@ class Particle {
     this.radius = 3;
     this.anchorX = this.x;
     this.anchorY = this.y;
-    this.power = (Math.random() * 10);
+    this.power = Math.random() * 10;
     this.color = 'white';
     this.anchorDx = Math.random() - 0.5;
     this.anchorDy = Math.random() - 0.5;
@@ -16,7 +16,7 @@ class Particle {
   draw() {
     this.context.fillStyle = this.color;
     this.context.beginPath();
-    this.context.rect(this.x, this.y, 2, 2)
+    this.context.rect(this.x, this.y, 2, 2);
     this.context.lineWidth = 0;
     this.context.closePath();
     this.context.fill();
@@ -31,11 +31,11 @@ class Particle {
     const returnXBack = () => {
       const dx = this.x - this.anchorX;
       this.x -= dx / returnSmooth;
-    }
+    };
     const returnYBack = () => {
       const dy = this.y - this.anchorY;
       this.y -= dy / returnSmooth;
-    }
+    };
 
     // move
     this.anchorX += this.anchorDx;
@@ -46,17 +46,15 @@ class Particle {
     if (distance < mouse.radius) {
       this.force += 0.2;
       // pull
-      this.x += (dx / distance) * 5 / this.force;
-      this.y += (dy / distance) * 5 / this.force;
-
-
+      this.x += ((dx / distance) * 5) / this.force;
+      this.y += ((dy / distance) * 5) / this.force;
     } else {
       this.force = 1;
       // return to the anchor point
       if (this.x !== this.anchorX) returnXBack();
       if (this.y !== this.anchorY) returnYBack();
     }
-    
+
     this.draw();
   }
 }

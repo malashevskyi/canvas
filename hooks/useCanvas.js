@@ -1,11 +1,10 @@
 import canvasSketch from 'canvas-sketch';
-import { store } from 'react-notifications-component';
 import { useEffect, useState } from 'react';
 
-export const useCanvas = ({ sketch }) => {
+const useCanvas = (props) => {
+  const [sketch] = useState(props.sketch);
 
   useEffect(() => {
-
     // ! temporarily
     if (!window.canvas) {
       window.canvas = document.getElementById('canvas');
@@ -16,11 +15,11 @@ export const useCanvas = ({ sketch }) => {
     async function start() {
       manager = await canvasSketch(sketch, {
         canvas: window.canvas,
-        animate: true
+        animate: true,
       });
-    };
-    start()
-      
+    }
+    start();
+
     return () => {
       // clear canvas before changing route
       const context = window.canvas.getContext('2d');
@@ -33,3 +32,5 @@ export const useCanvas = ({ sketch }) => {
     };
   }, []);
 };
+
+export default useCanvas;

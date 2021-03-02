@@ -1,83 +1,86 @@
-import { useCanvas } from '../../hooks/useCanvas';
+import useCanvas from '../../hooks/useCanvas';
 import { useNotification } from '../../hooks/useNotification';
 
-const sketch = ({ gui }) => {
-  return ({ context, width, height, canvas }) => {
-    const mouse = { x: 0, y: 0 }
-    const opt = { scale: 1, rotate: 0 }
-    let tick = 0;
+const sketch = () => (initialProps) => {
+  const { context } = initialProps;
+  let { height, width } = initialProps;
 
-    canvas.addEventListener('mousemove', (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
+  const mouse = { x: 0, y: 0 };
+  const opt = { scale: 1, rotate: 0 };
+  let tick = 0;
 
-    // set angle circle / 20;
-    const rot = Array(20).fill('').map((v, i) => Math.PI / 10 * i);
+  canvas.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
 
-    function drawShape(i) {
-      context.save();
-      context.beginPath();
-      context.rotate(rot[i]);
-      context.fillStyle = `hsl(${tick + 10 * i}, 50%, 50%)`;
-      context.moveTo(-20, 126);
-      context.lineTo(20, 126);
-      context.lineTo(-20, -126);
-      context.lineTo(20, -126);
-      context.fill();
-      context.closePath();
-      context.restore();
-    }
+  // set angle circle / 20;
+  const rot = Array(20)
+    .fill('')
+    .map((v, i) => (Math.PI / 10) * i);
 
-    function drawCircle(path) {
-      context.beginPath();
-      context.strokeStyle = `hsl(${tick + 150}, 50%, 50%)`;
-      path.arc(0, 0, 128, 0, Math.PI * 2);
-      context.lineWidth = 5;
-      context.stroke(path);
-      context.closePath();
-    }
+  function drawShape(i) {
+    context.save();
+    context.beginPath();
+    context.rotate(rot[i]);
+    context.fillStyle = `hsl(${tick + 10 * i}, 50%, 50%)`;
+    context.moveTo(-20, 126);
+    context.lineTo(20, 126);
+    context.lineTo(-20, -126);
+    context.lineTo(20, -126);
+    context.fill();
+    context.closePath();
+    context.restore();
+  }
 
-    return (props) => {
-      ({ width, height } = props);
+  function drawCircle(path) {
+    context.beginPath();
+    context.strokeStyle = `hsl(${tick + 150}, 50%, 50%)`;
+    path.arc(0, 0, 128, 0, Math.PI * 2);
+    context.lineWidth = 5;
+    context.stroke(path);
+    context.closePath();
+  }
 
-      tick += 0.5;
+  return (updatedProps) => {
+    ({ width, height } = updatedProps);
 
-      context.clearRect(0, 0, width, height);
-      context.translate(width / 2, height / 2);
-      context.rotate(opt.rotate);
-      context.scale(opt.scale, opt.scale);
-      
-      rot.forEach((e, i) => drawShape(i));
+    tick += 0.5;
 
-      const path = new Path2D();
-      drawCircle(path);
-      
-      // if mouse hover circle
-      if (context.isPointInPath(path, mouse.x, mouse.y)) {
-        if (opt.scale < 2) {
-          opt.rotate += 0.05;
-          opt.scale += 0.01;
-        } else {
-          opt.rotate += 0.01;
-        }
-        
-        canvas.style.cursor = 'pointer';
+    context.clearRect(0, 0, width, height);
+    context.translate(width / 2, height / 2);
+    context.rotate(opt.rotate);
+    context.scale(opt.scale, opt.scale);
+
+    rot.forEach((e, i) => drawShape(i));
+
+    const path = new Path2D();
+    drawCircle(path);
+
+    // if mouse hover circle
+    if (context.isPointInPath(path, mouse.x, mouse.y)) {
+      if (opt.scale < 2) {
+        opt.rotate += 0.05;
+        opt.scale += 0.01;
       } else {
-        canvas.style.cursor = 'auto';
-        if (opt.scale > 1.05) {
-          opt.rotate += 0.05;
-          opt.scale -= 0.05
-        };
+        opt.rotate += 0.01;
+      }
+
+      canvas.style.cursor = 'pointer';
+    } else {
+      canvas.style.cursor = 'auto';
+      if (opt.scale > 1.05) {
+        opt.rotate += 0.05;
+        opt.scale -= 0.05;
       }
     }
-  }
-}
+  };
+};
 
 function Canvas({ gui }) {
-  useCanvas({ sketch: sketch({ gui }) });
+  useCanvas({ sketch: () => sketch({ gui }) });
   useNotification({
-    message: 'Hover button to scale and rotate'
+    message: 'Hover button to scale and rotate',
   });
 
   return '';

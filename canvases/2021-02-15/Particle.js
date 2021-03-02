@@ -6,14 +6,14 @@ class Particle {
     this.radius = 3;
     this.baseX = this.x;
     this.baseY = this.y;
-    this.density = (Math.random() * 10) + 15;
+    this.density = Math.random() * 10 + 15;
     this.color = 'rgba(255, 255, 255, 0.1)';
   }
 
   draw() {
     this.context.fillStyle = this.color;
     this.context.beginPath();
-    this.context.rect(this.x, this.y, 2.5, 2.5)
+    this.context.rect(this.x, this.y, 2.5, 2.5);
     this.context.lineWidth = 0;
     this.context.closePath();
     this.context.fill();

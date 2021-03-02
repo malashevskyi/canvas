@@ -15,8 +15,8 @@ class Particle {
   draw() {
     this.context.drawImage(
       this.image,
-      this.image.width / this.opt.squaresCount * this.uX,
-      this.image.height / this.opt.squaresCount * this.uY,
+      (this.image.width / this.opt.squaresCount) * this.uX,
+      (this.image.height / this.opt.squaresCount) * this.uY,
       this.image.width / this.opt.squaresCount,
       this.image.height / this.opt.squaresCount,
       (this.opt.squareWidth + this.opt.offset) * this.uX + this.x,

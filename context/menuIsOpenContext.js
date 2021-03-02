@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect} from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const MenuIsOpenContext = createContext();
 
@@ -7,9 +7,9 @@ const MenuIsOpenProvider = ({ children }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setIsOpen(true)
+      setIsOpen(true);
     }, 1000);
-  }, [])
+  }, []);
 
   return (
     <MenuIsOpenContext.Provider value={[isOpen, setIsOpen]}>

@@ -9,14 +9,7 @@ class Circle {
     radius *= 30;
     this.context.save();
     this.context.beginPath();
-    this.context.arc(
-      this.x,
-      this.y,
-      this.radius * (30 - radius),
-      0,
-      2 * Math.PI,
-      true
-    );
+    this.context.arc(this.x, this.y, this.radius * (30 - radius), 0, 2 * Math.PI, true);
     this.context.fillStyle = color;
     this.context.strokeWidth = 1;
     this.context.fill();

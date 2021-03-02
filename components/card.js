@@ -18,7 +18,7 @@ const Card = ({
   id,
   title,
   scrollDirection,
-  anmRenderFirstScreen
+  anmRenderFirstScreen,
 }) => {
   const [spinner, setSpinner] = useContext(LoadSpinnerContext);
   const yAnmUp = -30 * indexInItem - 50;
@@ -35,21 +35,19 @@ const Card = ({
     e.preventDefault();
     setSpinner({
       active: true,
-      text: 'Loading data for all canvases. \n Please wait.'
+      text: 'Loading data for all canvases. \n Please wait.',
     });
 
     setTimeout(() => {
       router.push(link);
     }, 700);
-  }
+  };
 
   return (
     <motion.div
       initial={{
         opacity: 0,
-        y: scrollDirection === 'down'
-            ? yAnmDown
-            : yAnmUp,
+        y: scrollDirection === 'down' ? yAnmDown : yAnmUp,
       }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -57,11 +55,7 @@ const Card = ({
         delay,
       }}
     >
-      <div
-        key={index}
-        className="card"
-        style={{ width, height, margin }}
-      >
+      <div key={index} className="card" style={{ width, height, margin }}>
         <Link href={link}>
           <a onClick={onCardClickHandler}>
             <time dateTime={date}>
