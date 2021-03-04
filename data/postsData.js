@@ -70,6 +70,14 @@ function codepen(link) {
 }
 
 const postsData = {
+  '2021-03-04': {
+    number: 58,
+    tags: ['game', 'shoot', 'circles', 'guns'],
+    credits: () => video('https://www.youtube.com/watch?v=52rKp7P3gIs'),
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-03-04',
+    codePen: 'https://codepen.io/shevsky/pen/QWGxXRr',
+  },
   '2021-02-26': {
     number: 58,
     tags: ['text', 'blend', 'gradient'],
