@@ -4,7 +4,7 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 const Logo = () => {
   const router = useRouter();
-  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
+  const [, setSpinner] = useContext(LoadSpinnerContext);
 
   const onLogoClickHandler = (e) => {
     e.preventDefault();
@@ -22,9 +22,8 @@ const Logo = () => {
   };
 
   return (
-    <a href={'/'} className="menu-item" onClick={onLogoClickHandler}>
-      {' '}
-      <h1>All animations</h1>{' '}
+    <a href="/" className="menu-item" onClick={onLogoClickHandler}>
+      <h1>All animations</h1>
     </a>
   );
 };

@@ -14,7 +14,7 @@ const sketch = ({ gui }) => (initialProps) => {
   const opt = {
     count: 150,
   };
-  let touchColor = 'rgba(255, 0, 255, 1)';
+  const touchColor = 'rgba(255, 0, 255, 1)';
 
   canvas.addEventListener('mousemove', (event) => {
     mouse.x = event.x;
@@ -39,25 +39,26 @@ const sketch = ({ gui }) => (initialProps) => {
   }
   getParticles();
 
-  function connectParticles(touchColor) {
+  function setStrokeStyle(distance, radius, color) {
+    if (distance < radius) {
+      context.strokeStyle = color;
+    }
+  }
+  function setDotColor(distance, radius, color, i, j) {
+    if (distance < radius) {
+      particles[i].color = color;
+      particles[j].color = color;
+    }
+  }
+
+  function connectParticles(color) {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i; j < particles.length; j++) {
         // reset all lines color
         context.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-        function setStrokeStyle(distance, radius) {
-          if (distance < radius) {
-            context.strokeStyle = touchColor;
-          }
-        }
         // reset all particles color
         particles[i].color = 'white';
         particles[j].color = 'white';
-        function setDotColor(distance, radius) {
-          if (distance < radius) {
-            particles[i].color = touchColor;
-            particles[j].color = touchColor;
-          }
-        }
 
         let dx, dy, distance;
 
@@ -81,8 +82,8 @@ const sketch = ({ gui }) => (initialProps) => {
         dx = mouse.x - particles[i].x;
         dy = mouse.y - particles[i].y;
         distance = Math.sqrt(dx * dx + dy * dy);
-        setDotColor(distance, 200);
-        setStrokeStyle(distance, 200);
+        setDotColor(distance, 200, color, i, j);
+        setStrokeStyle(distance, 200, color);
 
         dx = mouse.x - particles[j].x;
         dy = mouse.y - particles[j].y;
@@ -103,7 +104,7 @@ const sketch = ({ gui }) => (initialProps) => {
     render(updatedProps) {
       ({ width, height } = updatedProps);
 
-      tick++;
+      tick += 1;
       if (tick % 20 === 0) {
         mouse.x = Math.random() * width;
         mouse.y = Math.random() * height;

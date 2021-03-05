@@ -7,7 +7,7 @@ const sketch = () => (initialProps) => {
 
   const points = [];
   const count = 1000;
-  let outerPoints = [];
+  const outerPoints = [];
 
   for (let i = 0; i <= count / 4; i++) {
     outerPoints.push([i, 0]);
@@ -22,7 +22,7 @@ const sketch = () => (initialProps) => {
     let i = 0;
     for (let y = 0; y < s * 2; y += 2) {
       for (let x = 0; x < s * 2; x += 2) {
-        i++;
+        i += 1;
         points.push(new Square(context, [x, y], outerPoints[i]));
       }
     }

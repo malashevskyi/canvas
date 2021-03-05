@@ -38,8 +38,8 @@ const sketch = () => (initialProps) => {
     render() {
       this.draw();
 
-      let x0 = this.x === 0;
-      let angle = Math.atan2(this.x, this.y);
+      const x0 = this.x === 0;
+      const theta = Math.atan2(this.x, this.y);
 
       if (x0 && this.radiusMarker) {
         this.radius = +7;
@@ -47,7 +47,7 @@ const sketch = () => (initialProps) => {
       }
       if (x0 && this.radius > 1) this.radius -= 0.03;
 
-      this.x = (height / 2) * Math.sin(angle);
+      this.x = (height / 2) * Math.sin(theta);
       this.y += 3;
 
       if (this.y > height / 2 + 120) {
@@ -61,10 +61,10 @@ const sketch = () => (initialProps) => {
     }
   }
 
-  function getParticle(angle, i, firstRender) {
+  function getParticle(particleAngle, i, firstRender) {
     return new Particle({
       x: firstRender
-        ? lerp(0, (height - 400) * Math.sin(angle * i), 2)
+        ? lerp(0, (height - 400) * Math.sin(particleAngle * i), 2)
         : lerp(0, Math.sin(angle * i), 2),
       y: firstRender ? lerp(0, (height - 400) * Math.cos(angle * i), 2) : 0,
       radius: Math.random() + 0.5,
@@ -74,6 +74,7 @@ const sketch = () => (initialProps) => {
 
   function getParticles(amount) {
     angle = (Math.PI * 2) / amount;
+
     for (let i = 0; i < amount; i++) {
       particles.push(getParticle(angle, i, true));
     }

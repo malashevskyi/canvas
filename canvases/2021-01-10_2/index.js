@@ -41,6 +41,7 @@ const sketch = ({ gui }) => (initialProps) => {
       context.fill();
       context.closePath();
     }
+    
     render() {
       this.dx += this.dxI;
       if (this.dx % 50 === 0) {
@@ -83,11 +84,11 @@ const sketch = ({ gui }) => (initialProps) => {
   return (updatedProps) => {
     ({ width, height } = updatedProps);
 
-    tick++;
+    tick += 1;
 
     context.translate(width / 2, height / 2);
 
-    let d = [4.5, 1.7, 1.1];
+    const d = [4.5, 1.7, 1.1];
     for (let j = 0; j < 3; j++) {
       context.save();
       context.translate(

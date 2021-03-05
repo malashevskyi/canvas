@@ -37,12 +37,10 @@ class Particle {
     } else {
       this.color = 'rgba(255, 255, 255, 0.1)';
       if (this.x !== this.baseX) {
-        let dx = this.x - this.baseX;
-        this.x -= dx / 10;
+        this.x -= (this.x - this.baseX) / 10;
       }
       if (this.y !== this.baseY) {
-        let dy = this.y - this.baseY;
-        this.y -= dy / 10;
+        this.y -= (this.y - this.baseY) / 10;
       }
     }
 

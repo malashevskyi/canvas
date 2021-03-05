@@ -1,10 +1,7 @@
 import { useContext } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import classNames from 'classnames';
 
 import { LoadSpinnerContext } from '../context/loadSpinnerContext';
-import Preview from './preview';
-import classNames from 'classnames';
 
 const LoadSpinner = () => {
   const [spinner] = useContext(LoadSpinnerContext);

@@ -1,28 +1,50 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react';
+import React, { useEffect, useCallback, useState, useContext } from 'react';
 import classNames from 'classnames';
-
-import postsData from '../data/postsData';
-import { useMousePosition } from '../hooks/useMousePosition';
-import { MenuIsOpenContext } from '../context/menuIsOpenContext';
 import Image from 'next/image';
 
+import postsData from '../data/postsData';
+import useMousePosition from '../hooks/useMousePosition';
+import { MenuIsOpenContext } from '../context/menuIsOpenContext';
+
 const tags = [];
+const postsDataKeys = Object.keys(postsData);
 
-for (let key in postsData) {
-  const postTags = postsData[key].tags;
-
+function addPostTags(postTags) {
   for (let i = 0; i < postTags.length; i++) {
     if (tags.indexOf(postTags[i]) === -1) tags.push(postTags[i]);
   }
 }
+function addTags() {
+  for (let i = 0; i < postsDataKeys.length; i++) {
+    const postTags = postsData[postsDataKeys[i]].tags;
+
+    addPostTags(postTags);
+  }
+}
+addTags();
 
 const Search = React.memo(({ onEnteredFilter }) => {
   const [enteredFilter, setEnteredFilter] = useState('');
   const [isFocus, setIsFocus] = useState(false);
 
-  const [isOpen, setIsOpen] = useContext(MenuIsOpenContext);
+  const [isOpen] = useContext(MenuIsOpenContext);
 
-  let position = useMousePosition();
+  const position = useMousePosition();
+
+  const getElementClick = useCallback(
+    () => document.elementFromPoint(position.x, position.y),
+    [position]
+  );
+  const hideTags = useCallback(
+    (e) => {
+      const closest = getElementClick().closest('.tags');
+
+      if (closest === null) {
+        setIsFocus(false);
+      }
+    },
+    [getElementClick]
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,11 +61,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [enteredFilter, onEnteredFilter]);
-
-  function getElementClick() {
-    return document.elementFromPoint(position.x, position.y);
-  }
+  }, [enteredFilter, onEnteredFilter, hideTags, isOpen]);
 
   function onInputChangeHandler(e) {
     setEnteredFilter(e.target.value.trim());
@@ -66,13 +84,6 @@ const Search = React.memo(({ onEnteredFilter }) => {
   function onFocusHandler() {
     setIsFocus(true);
   }
-  function hideTags(e) {
-    const closest = getElementClick().closest('.tags');
-
-    if (closest === null) {
-      setIsFocus(false);
-    }
-  }
 
   function clearInput() {
     setEnteredFilter('');
@@ -80,7 +91,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
   }
 
   return (
-    <Fragment>
+    <>
       <div className="navbar-search">
         <input
           value={enteredFilter}
@@ -91,6 +102,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
           onChange={(e) => onInputChangeHandler(e)}
         />
         <button
+          type="button"
           className={classNames({
             clean: true,
             active: enteredFilter.length > 0,
@@ -98,7 +110,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
           onClick={clearInput}
         >
           <Image
-            src={'/images/clean-icon.svg'}
+            src="/images/clean-icon.svg"
             alt="clean input"
             width="80%"
             height="80%"
@@ -110,15 +122,21 @@ const Search = React.memo(({ onEnteredFilter }) => {
           tags: true,
           active: isFocus,
         })}
+        aria-hidden="true"
         onClick={onTagClickHandler}
+        onKeyDown={onTagClickHandler}
       >
         {tags.map((tag) => (
-          <span key={tag} onClick={(e) => onTagClickHandler(e)}>
+          <span
+            key={tag}
+            aria-hidden="true"
+            onClick={(e) => onTagClickHandler(e)}
+          >
             {tag}
           </span>
         ))}
       </div>
-    </Fragment>
+    </>
   );
 });
 

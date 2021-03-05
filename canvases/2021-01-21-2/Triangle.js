@@ -8,16 +8,23 @@ class Triangle {
     this.x3 = x3;
     this.y3 = y3;
     this.positionFrom = Array(3).fill([sin, cos]).flat();
+    // eslint-disable-next-line
     this.fromX1 = this.positionFrom[0];
+    // eslint-disable-next-line
     this.fromY1 = this.positionFrom[1];
+    // eslint-disable-next-line
     this.fromX2 = this.positionFrom[2];
+    // eslint-disable-next-line
     this.fromY2 = this.positionFrom[3];
+    // eslint-disable-next-line
     this.fromX3 = this.positionFrom[4];
+    // eslint-disable-next-line
     this.fromY3 = this.positionFrom[5];
   }
+  
   draw() {
     this.context.beginPath();
-    this.context.fillStyle = `rgb(255, 0, 0)`;
+    this.context.fillStyle = 'rgb(255, 0, 0)';
     this.context.moveTo(this.x1, this.y1);
     this.context.lineTo(this.x2, this.y2);
     this.context.lineTo(this.x3, this.y3);

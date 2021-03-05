@@ -1,8 +1,8 @@
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
+  const { context, canvas } = initialProps;
   let { height, width } = initialProps;
 
   const mouse = { x: 0, y: 0 };
@@ -17,7 +17,7 @@ const sketch = () => (initialProps) => {
   // set angle circle / 20;
   const rot = Array(20)
     .fill('')
-    .map((v, i) => (Math.PI / 10) * i);
+    .map((u, i) => (Math.PI / 10) * i);
 
   function drawShape(i) {
     context.save();

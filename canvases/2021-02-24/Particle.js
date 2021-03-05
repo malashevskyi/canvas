@@ -43,9 +43,9 @@ class Particle {
         if (mouse.y - this.mouseY > 0) this.angleY = -this.angleY;
 
         // find the distance between new and old mouse position
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let dist = Math.sqrt(dx * dx + dy * dy);
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
         // add this.random to randomly change speed of the particle movement
         this.x += (dx / dist) * this.random;

@@ -13,6 +13,13 @@ const Additional = (props) => {
   const [additionalOpen, setAdditionalOpen] = useState(false);
   const location = useRouter();
 
+  const onArrowInfoClickHandler = () => {
+    setAdditionalOpen(!additionalOpen);
+  };
+  const onResize = () => {
+    setAdditionalOpen(false);
+  };
+
   useEffect(() => {
     window.addEventListener('resize', onResize);
     return () => {
@@ -32,13 +39,7 @@ const Additional = (props) => {
       ? '/images/previews/2021-01-21.png'
       : `/images/previews/${canvasName}.png`;
 
-  const onResize = () => {
-    setAdditionalOpen(false);
-  };
 
-  const onArrowInfoClickHandler = () => {
-    setAdditionalOpen(!additionalOpen);
-  };
 
   return (
     <div

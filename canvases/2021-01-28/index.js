@@ -7,7 +7,7 @@ const sketch = ({ gui }) => (initialProps) => {
 
   const points = [];
   const outerPoints = [];
-  let opt = {
+  const opt = {
     count: 1600,
     squareSideHalf: 40,
   };
@@ -75,7 +75,7 @@ const sketch = ({ gui }) => (initialProps) => {
     points.length = 0;
     for (let y = 0; y < s * 2; y += 2) {
       for (let x = 0; x < s * 2; x += 2) {
-        i++;
+        i += 1;
         points.push(
           new Square({
             context,

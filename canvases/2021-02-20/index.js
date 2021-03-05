@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import useCanvas from '../../hooks/useCanvas';
-
 import gsap from 'gsap';
+import { useEffect } from 'react';
 
+import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
 
 const particles = [];
@@ -22,24 +21,6 @@ const sketch = () => (initialProps) => {
     width: 50,
     height: 50,
   };
-
-  function getParticles() {
-    // reset particles
-    particles.length = 0;
-
-    let i = 0;
-    for (let y = 0; y < square.height; y++) {
-      for (let x = 0; x < square.width; x++) {
-        addParticle(x, y, i);
-      }
-    }
-  }
-
-  if (particles.length === 0) {
-    getParticles();
-    animateParticles();
-    animateRadius();
-  }
 
   function addParticle(x, y) {
     const theta = Math.atan2(square.height / 2 - y, square.width / 2 - x);
@@ -110,10 +91,28 @@ const sketch = () => (initialProps) => {
     );
   }
 
+  function getParticles() {
+    // reset particles
+    particles.length = 0;
+
+    const i = 0;
+    for (let y = 0; y < square.height; y++) {
+      for (let x = 0; x < square.width; x++) {
+        addParticle(x, y, i);
+      }
+    }
+  }
+
+  if (particles.length === 0) {
+    getParticles();
+    animateParticles();
+    animateRadius();
+  }
+
   return (updatedProps) => {
     ({ width, height } = updatedProps);
 
-    context.fillStyle = `rgba(10, 10, 10, 0.3)`;
+    context.fillStyle = 'rgba(10, 10, 10, 0.3)';
     context.fillRect(0, 0, width, height);
 
     context.save();

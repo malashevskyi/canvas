@@ -55,12 +55,20 @@ npm i -D eslint \
     "jsx-quotes":["error", "prefer-double"],
     "quotes": ["error", "single"],
     // alow unary ++ and -- in the end of loops
-    "allowForLoopAfterthoughts": true,
-
-    // "no-underscore-dangle": "off",
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    // "object-property-newline": [2, {"allowMultiplePropertiesPerLine": false}],
+    // alow unused vars in function arguments
+    "no-unused-vars": ["error", { "args": "none" }],
+    "react/prop-types": 0,
+    "prefer-template": 0,
 
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
+
+    "one-var": "off",
+
+    // for next.js a tags inside Link
+    "jsx-a11y/anchor-is-valid": 0,
 
     // allow jsx syntax in js files
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts"] }]

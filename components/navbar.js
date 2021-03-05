@@ -44,7 +44,9 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
     });
     titleTags = titleTags.slice(1);
 
-    return name === 'Main' ? null : (
+    // Should have return
+    // eslint-disable-next-line
+    return (
       <div
         style={style}
         key={key}
@@ -80,20 +82,18 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
         <nav className="navbar-menu">
           <div className="navbar-menu--list">
             <AutoSizer>
-              {({ height }) => {
-                return (
-                  <List
-                    width={300}
-                    height={height}
-                    rowCount={filteredCanvasNames.length}
-                    rowHeight={125}
-                    rowRenderer={rowRenderer}
-                    overscanRowCount={3}
-                    scrollToIndex={thisNavbarIndex}
-                    scrollToAlignment="start"
-                  />
-                );
-              }}
+              {({ height }) => (
+                <List
+                  width={300}
+                  height={height}
+                  rowCount={filteredCanvasNames.length}
+                  rowHeight={125}
+                  rowRenderer={rowRenderer}
+                  overscanRowCount={3}
+                  scrollToIndex={thisNavbarIndex}
+                  scrollToAlignment="start"
+                />
+              )}
             </AutoSizer>
           </div>
         </nav>

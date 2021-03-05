@@ -3,7 +3,7 @@ import Circle from './Circle';
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps;
-  let { height, width, time } = initialProps;
+  let { height, width } = initialProps;
 
   let startAngle = 0;
 
@@ -31,9 +31,9 @@ const sketch = () => (initialProps) => {
 
   return {
     render(updatedProps) {
-      ({ height, width, time } = updatedProps);
+      ({ height, width } = updatedProps);
 
-      startAngle++;
+      startAngle += 1
 
       context.clearRect(0, 0, width, height);
 

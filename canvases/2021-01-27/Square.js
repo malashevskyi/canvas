@@ -1,4 +1,5 @@
 import random from 'canvas-sketch-util/random';
+
 class Square {
   constructor(context, maxSide, [x, y]) {
     this.context = context;
@@ -20,7 +21,7 @@ class Square {
   render() {
     // delay in 100 frames
     if (this.initTimeout) {
-      this.initTimeout--;
+      this.initTimeout -= 1;
       this.draw();
       return;
     }
@@ -40,7 +41,7 @@ class Square {
         const angle = Math.atan2(dy, dx);
         this.x += dCos(dist, angle);
         this.y += dSin(dist, angle);
-        this.distTick--;
+        this.distTick -= 1;
       } else if (dist < part) {
         this.x = this.fx;
         this.y = this.fy;
@@ -61,7 +62,7 @@ class Square {
         const angle = Math.atan2(dy, dx);
         this.x -= dCos(dist, angle);
         this.y -= dSin(dist, angle);
-        this.distTick--;
+        this.distTick -= 1
       } else if (dist < part) {
         this.x = this.xBack;
         this.y = this.yBack;

@@ -3,7 +3,7 @@ import palettes from 'nice-color-palettes';
 
 import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps;
@@ -13,7 +13,7 @@ const sketch = () => (initialProps) => {
   const particles = [];
   const mouse = { x: width / 2, y: height / 2 };
   const count = 45;
-  let canvasRectAlpha = 0.2;
+  const canvasRectAlpha = 0.2;
 
   canvas.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;

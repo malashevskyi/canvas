@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import random from 'canvas-sketch-util/random';
 
 import useCanvas from '../../hooks/useCanvas';
@@ -13,9 +12,11 @@ const sketch = () => (initialProps) => {
   };
   let widthHalf, heightHalf;
   const dots = [];
-  let palette = ['#230f2b', '#f21d41'];
+  const palette = ['#230f2b', '#f21d41'];
 
-  let ease = function (t, start, dRest, duration) {
+  const ease = (time, start, dRest, duration) => {
+    let t = time;
+
     t /= Math.floor(duration / 1.8);
     if (t < 1) {
       return dRest * 0.55 * t * t + start;
@@ -66,14 +67,14 @@ const sketch = () => (initialProps) => {
       if (dist < 70) {
         const angle = Math.atan2(dy, dx);
 
-        let tx = mouse.x + Math.cos(angle) * 50;
-        let ty = mouse.y + Math.sin(angle) * 50;
+        const tx = mouse.x + Math.cos(angle) * 50;
+        const ty = mouse.y + Math.sin(angle) * 50;
 
         this.vx += (tx - this.x) / 4;
         this.vy += (ty - this.y) / 4;
 
-        let dx1 = -(this.x - this.anchorX - 30);
-        let dy1 = -(this.y - this.anchorY - 30);
+        const dx1 = -(this.x - this.anchorX - 30);
+        const dy1 = -(this.y - this.anchorY - 30);
 
         this.vx += (dx1 * this.springFactor) / 1.5;
         this.vy += (dy1 * this.springFactor) / 1.5;
@@ -87,9 +88,9 @@ const sketch = () => (initialProps) => {
         this.targetX = this.x;
         this.targetY = this.y;
         return;
-      } else {
-        this.setTargetMarker = true;
       }
+
+      this.setTargetMarker = true;
 
       dx = this.targetX - this.x;
       dy = this.targetY - this.y;
@@ -98,28 +99,45 @@ const sketch = () => (initialProps) => {
       if (Math.abs(dist) <= 0) {
         this.setTarget();
       } else {
-        let t = this.tick;
+        const t = this.tick;
+        const d = this.duration;
         let start = this.initialY;
         let dRest = this.targetY - start;
-        let d = this.duration;
         this.y = ease(t, start, dRest, d);
 
         start = this.initialX;
         dRest = this.targetX - start;
         this.x = ease(t, start, dRest, d);
 
-        this.tick++;
+        this.tick += 1;
       }
     }
   }
 
-  function connectDots(dots) {
-    let pathSmall = new Path2D();
-    let pathBig = new Path2D();
+  function renderConnectedDots(pathSmall, pathBig) {
+    context.beginPath();
+    context.save();
+    context.translate(width / 2, height / 2);
+    context.scale(1.4, 1.4);
+    // eslint-disable-next-line
+    context.fillStyle = palette[0];
+    context.rotate(1);
+    context.fill(pathBig);
+    context.restore();
+    
+    context.save();
+    // eslint-disable-next-line
+    context.fillStyle = palette[1];
+    context.fill(pathSmall);
+    context.restore();
+  }
+  function connectDots(d) {
+    const pathSmall = new Path2D();
+    const pathBig = new Path2D();
 
-    for (let i = 0, l = dots.length; i <= l; i++) {
-      let p0 = dots[i === l ? 0 : i];
-      let p1 = dots[i + 1 >= l ? i + 1 - l : i + 1];
+    for (let i = 0, l = d.length; i <= l; i++) {
+      const p0 = d[i === l ? 0 : i];
+      const p1 = d[i + 1 >= l ? i + 1 - l : i + 1];
 
       pathSmall.quadraticCurveTo(p0.x, p0.y, (p0.x + p1.x) * 0.5, (p0.y + p1.y) * 0.5);
       pathBig.quadraticCurveTo(
@@ -130,21 +148,6 @@ const sketch = () => (initialProps) => {
       );
     }
     renderConnectedDots(pathSmall, pathBig);
-  }
-  function renderConnectedDots(pathSmall, pathBig) {
-    context.beginPath();
-    context.save();
-    context.translate(width / 2, height / 2);
-    context.scale(1.4, 1.4);
-    context.fillStyle = palette[0];
-    context.rotate(1);
-    context.fill(pathBig);
-    context.restore();
-
-    context.save();
-    context.fillStyle = palette[1];
-    context.fill(pathSmall);
-    context.restore();
   }
 
   function getDots() {

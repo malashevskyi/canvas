@@ -1,6 +1,6 @@
 import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
-import { imageData } from './imageData';
+import imageData from './imageData';
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps;
@@ -11,22 +11,6 @@ const sketch = () => (initialProps) => {
     width: 80,
     height: 80,
   };
-
-  function getParticles() {
-    let i = 0;
-    for (let y = 0; y < image.height; y++) {
-      for (let x = 0; x < image.width; x++) {
-        if (
-          imageData[i + 3] > 100 &&
-          (imageData[i] < 255 || imageData[i + 1] < 255 || imageData[i + 2] < 255)
-        ) {
-          addParticle(x, y, i);
-        }
-        i += 4;
-      }
-    }
-  }
-  getParticles();
 
   function addParticle(x, y, i) {
     const theta = Math.atan2(image.height / 2 - y, image.width / 2 - x);
@@ -67,6 +51,22 @@ const sketch = () => (initialProps) => {
       })
     );
   }
+
+  function getParticles() {
+    let i = 0;
+    for (let y = 0; y < image.height; y++) {
+      for (let x = 0; x < image.width; x++) {
+        if (
+          imageData[i + 3] > 100 &&
+          (imageData[i] < 255 || imageData[i + 1] < 255 || imageData[i + 2] < 255)
+        ) {
+          addParticle(x, y, i);
+        }
+        i += 4;
+      }
+    }
+  }
+  getParticles();
 
   return (updatedProps) => {
     ({ width, height } = updatedProps);

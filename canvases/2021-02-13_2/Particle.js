@@ -29,12 +29,10 @@ class Particle {
     const returnSmooth = 15; // return back speed
 
     const returnXBack = () => {
-      const dx = this.x - this.anchorX;
-      this.x -= dx / returnSmooth;
+      this.x -= (this.x - this.anchorX) / returnSmooth;
     };
     const returnYBack = () => {
-      const dy = this.y - this.anchorY;
-      this.y -= dy / returnSmooth;
+      this.y -= (this.y - this.anchorY) / returnSmooth;
     };
 
     // move

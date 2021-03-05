@@ -1,9 +1,9 @@
-import useCanvas from '../../hooks/useCanvas';
-import Ball from './Ball';
-
 import { lerp } from 'canvas-sketch-util/math';
 import palettes from 'nice-color-palettes';
 import random from 'canvas-sketch-util/random';
+
+import useCanvas from '../../hooks/useCanvas';
+import Ball from './Ball';
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps;
@@ -64,7 +64,9 @@ const sketch = () => (initialProps) => {
     return historyColors[maxIndex];
   }
 
-  function throwBalls(first, second) {
+  function throwBalls(i, j) {
+    const first = balls[i]
+    const second = balls[j]
     // throw balls in different directions
     const dRadius = 4 * Math.random();
     first.dy = Math.sin(random.range(0, 3)) * dRadius;
@@ -99,7 +101,7 @@ const sketch = () => (initialProps) => {
 
     context.clearRect(0, 0, width, height);
 
-    tick++;
+    tick += 1;
 
     if (tick % 20 === 0) addNewColor();
 
@@ -114,7 +116,7 @@ const sketch = () => (initialProps) => {
         const dy = el.y - elNext.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < radius * 2) throwBalls(el, elNext);
+        if (distance < radius * 2) throwBalls(i, j);
       }
     }
   };

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import random from 'canvas-sketch-util/random';
 import { lerp } from 'canvas-sketch-util/math';
 
@@ -9,7 +10,7 @@ function getAlphaMarker(count, delay) {
 
   return () => {
     if (isThrottled) return true;
-    tick++;
+    tick += 1;
 
     if (tick < count * delay) {
       isThrottled = false;
@@ -34,6 +35,37 @@ const sketch = () => (initialProps) => {
   };
   let reduceAlpha = false;
   let alpha = 1;
+
+  class ParticleFall {
+    constructor({ x, y, radius, color }) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.color = color;
+    }
+
+    draw() {
+      this.radius *= 0.9;
+
+      context.save();
+      context.beginPath();
+      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      context.shadowColor = this.color;
+      context.shadowBlur = 2;
+      context.fillStyle = this.color;
+      context.fill();
+      context.restore();
+    }
+
+    animate(a) {
+      this.color = `rgba(255, 255, 0, ${a})`;
+      this.draw();
+    }
+  }
+
+  function getParticleFall(x, y, r) {
+    return new ParticleFall({ x, y, radius: r * 2, color: 'yellow' });
+  }
   class Particle {
     constructor({ x, y, radius, delay }) {
       this.x = x;
@@ -53,15 +85,15 @@ const sketch = () => (initialProps) => {
     }
 
     draw() {
-      let alphaMarker = this.alphaMarker();
-      this.tick++;
+      const alphaMarker = this.alphaMarker();
+      this.tick += 1;
 
       this.fallDelay = opt.fallDelay * this.random;
 
       if (this.fall) {
-        this.dy = this.dy + 0.01;
-        this.y = this.y + this.dy;
-        this.x = this.x + this.dx / 2;
+        this.dy += 0.01;
+        this.y += this.dy;
+        this.x += this.dx / 2;
 
         this.innerParticles.push(getParticleFall(this.x, this.y, this.radius));
 
@@ -92,39 +124,12 @@ const sketch = () => (initialProps) => {
       context.fill();
       context.restore();
     }
+
     animate() {
       this.draw();
     }
   }
-  class ParticleFall {
-    constructor({ x, y, radius, color }) {
-      this.x = x;
-      this.y = y;
-      this.radius = radius;
-      this.color = color;
-    }
-
-    draw() {
-      this.radius = this.radius * 0.9;
-
-      context.save();
-      context.beginPath();
-      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      context.shadowColor = this.color;
-      context.shadowBlur = 2;
-      context.fillStyle = this.color;
-      context.fill();
-      context.restore();
-    }
-    animate(alpha) {
-      this.color = `rgba(255, 255, 0, ${alpha})`;
-      this.draw();
-    }
-  }
-
-  function getParticleFall(x, y, r) {
-    return new ParticleFall({ x, y, radius: r * 2, color: 'yellow' });
-  }
+  
   function getParticle() {
     return new Particle({
       x: lerp(-width / 2, width / 2, Math.random()),
@@ -161,7 +166,9 @@ const sketch = () => (initialProps) => {
     context.save();
     context.translate(width / 2, height / 2);
 
-    particles.forEach((particle, i) => {
+    for (let i = 0; i < particles.length; i++) {
+      const particle = particles[i];
+
       if (particle.tick > particle.fallDelay) {
         particle.fall = true;
         if (particle.y > height / 2 + 20) {
@@ -169,12 +176,11 @@ const sketch = () => (initialProps) => {
         }
       }
       particle.animate();
-
-      particle.innerParticles.forEach((pInner, i) => {
-        let alpha = 1 / particle.innerParticles.length;
-        pInner.animate(alpha);
+  
+      particle.innerParticles.forEach((pInner) => {
+        pInner.animate(1 / particle.innerParticles.length);
       });
-    });
+    }
 
     context.restore();
   };

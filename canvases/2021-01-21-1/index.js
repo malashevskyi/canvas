@@ -28,14 +28,14 @@ const sketch = () => (initialProps) => {
     trianglesPoints.forEach((array, i) => {
       const radiusM = radius + radius * 0.2 * Math.random();
       const rotateAngle = 70;
-
+      
       triangles.push(
         new Triangle({
           context,
           position: array,
           yFrom: Math.sin(angle * (i + rotateAngle)) * radiusM,
           xFrom: Math.cos(angle * (i + rotateAngle)) * radiusM,
-          last: i === trianglesPoints.length - 1 ? true : false,
+          last: i === trianglesPoints.length - 1,
         })
       );
     });

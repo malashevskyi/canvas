@@ -22,7 +22,7 @@ const sketch = () => (initialProps) => {
 
   return (updatedProps) => {
     ({ width, height } = updatedProps);
-    tick++;
+    tick += 1;
 
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);

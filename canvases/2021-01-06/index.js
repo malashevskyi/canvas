@@ -16,7 +16,7 @@ const sketch = () => (initialProps) => {
     let tick = 0;
     return () => {
       if (isThrottled) return true;
-      tick++;
+      tick += 1;
 
       if (tick > count * delay) {
         isThrottled = true;
@@ -49,7 +49,7 @@ const sketch = () => (initialProps) => {
     }
 
     draw() {
-      let throttle = this.throttleTimeout();
+      const throttle = this.throttleTimeout();
 
       if (throttle && this.alpha <= 1) {
         this.alpha += 0.03;
@@ -70,6 +70,7 @@ const sketch = () => (initialProps) => {
       context.fill();
       context.restore();
     }
+    
     animate() {
       this.draw();
     }

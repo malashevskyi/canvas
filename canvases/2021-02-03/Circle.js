@@ -25,7 +25,11 @@ class Circle {
       const amp = smooth[i] * Math.sin(angle * 6 + this.offsetAngle) * ampRadius;
       const x = widthHalf + Math.cos(angle) * (this.radius + amp);
       const y = heightHalf + Math.sin(angle) * (this.radius + amp);
-      i > 0 ? this.context.lineTo(x, y) : this.context.moveTo(x, y);
+      if (i > 0) {
+        this.context.lineTo(x, y);
+      } else {
+        this.context.moveTo(x, y);
+      }
     }
     this.context.closePath();
     this.context.fillStyle = this.color;

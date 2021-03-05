@@ -1,4 +1,4 @@
-import { Fragment, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Head from 'next/head';
 
 import MenuIsOpenProvider from '../context/menuIsOpenContext';
@@ -32,15 +32,12 @@ const PostLayout = ({
 
     const newFilteredCanvas = [];
     Object.keys(postsData).forEach((name) => {
-      if (name !== 'Main') {
-        const postsTags = postsData[name].tags;
+      const postsTags = postsData[name].tags;
 
-        for (let i = 0; i < postsTags.length; i++) {
-          const tag = postsTags[i];
-          if (tag.toLowerCase().includes(filter)) {
-            newFilteredCanvas.push(name);
-            continue;
-          }
+      for (let i = 0; i < postsTags.length; i++) {
+        const tag = postsTags[i];
+        if (tag.toLowerCase().includes(filter)) {
+          newFilteredCanvas.push(name);
         }
       }
     });
@@ -48,7 +45,7 @@ const PostLayout = ({
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Head>
         <title>{postTitle}</title>
         <meta name="keywords" content={`Canvas, animation, ${tags}`} />
@@ -105,7 +102,7 @@ const PostLayout = ({
         <Menu />
       </MenuIsOpenProvider>
       <Additional />
-    </Fragment>
+    </>
   );
 };
 

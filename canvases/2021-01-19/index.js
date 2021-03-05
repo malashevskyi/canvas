@@ -1,6 +1,6 @@
 import Circle from './Circle';
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = ({ gui }) => (initialProps) => {
   const { context, canvas } = initialProps;
@@ -14,8 +14,8 @@ const sketch = ({ gui }) => (initialProps) => {
   let yPos = height / 2;
   let circles = Array(opt.trailLength).fill('');
 
-  function storeLastPosition(xPos, yPos) {
-    circles.unshift(new Circle(context, xPos, yPos, opt.radius));
+  function storeLastPosition(x, y) {
+    circles.unshift(new Circle(context, x, y, opt.radius));
     circles.pop();
   }
 
@@ -52,7 +52,7 @@ const sketch = ({ gui }) => (initialProps) => {
     ({ height, width } = updatedProps);
     styleRect();
     circles.forEach((circle, i) => {
-      let radius = (i + 1) / circles.length;
+      const radius = (i + 1) / circles.length;
       circle.draw?.(radius, `hsl(${250 + 5 * i}, 50%, 50%)`);
     });
     storeLastPosition(xPos, yPos);

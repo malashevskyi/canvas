@@ -2,7 +2,7 @@ import gsap from 'gsap';
 
 import useCanvas from '../../hooks/useCanvas';
 import Smile from './Smile';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps;

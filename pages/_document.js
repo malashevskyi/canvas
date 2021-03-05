@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -25,7 +26,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <div className="container">
-            <canvas id="canvas"></canvas>
+            <canvas id="canvas" />
           </div>
           <Main />
           <NextScript />

@@ -30,7 +30,6 @@ class Circle {
 
         if (distance < this.radius) {
           this.shot = true;
-          cartridge.used = true;
 
           gsap.to(this, {
             radius: 30,

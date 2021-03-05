@@ -17,6 +17,7 @@ const sketch = () => (initialProps) => {
       this.speed = speed;
       this.alpha = 1;
     }
+
     draw() {
       context.globalAlpha = this.alpha;
       context.beginPath();
@@ -24,6 +25,7 @@ const sketch = () => (initialProps) => {
       context.fillStyle = this.color;
       context.fill();
     }
+
     animate() {
       this.draw();
       this.x += this.speed.x;
@@ -37,7 +39,7 @@ const sketch = () => (initialProps) => {
     const angleIncrement = (Math.PI * 2) / count;
 
     for (let i = 0; i < count; i++) {
-      let inc = i % (count / 42);
+      const inc = i % (count / 42);
 
       particles.push(
         new Particle(mouse.x, mouse.y, `hsl(${tick * 10}, 50%, 50%)`, {
@@ -49,7 +51,7 @@ const sketch = () => (initialProps) => {
     addParticlesTimeout = setTimeout(addParticles, 400);
   }
   addParticles();
-  document.addEventListener('visibilitychange', function () {
+  document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
       setTimeout(addParticles);
     } else {
@@ -64,7 +66,7 @@ const sketch = () => (initialProps) => {
     ({ width, height } = updatedProps);
     tick += 0.04;
 
-    context.fillStyle = `rgba(10, 10, 10, 1)`;
+    context.fillStyle = 'rgba(10, 10, 10, 1)';
     context.fillRect(0, 0, width, height);
 
     context.save();

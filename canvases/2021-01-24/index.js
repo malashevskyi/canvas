@@ -36,7 +36,7 @@ const sketch = () => (initialProps) => {
     }
 
     render() {
-      this.tick++;
+      this.tick += 1;
       if (this.radius < 15 && this.start) this.radius += 0.5;
 
       if (this.radius >= 15) this.start = false;
@@ -58,7 +58,7 @@ const sketch = () => (initialProps) => {
 
   return (updatedProps) => {
     ({ width, height } = updatedProps);
-    tick++;
+    tick += 1;
 
     if (balls.length < 300 && tick % 3 === 0) {
       balls.push(new Ball(random.pick(angles)));
@@ -70,7 +70,7 @@ const sketch = () => (initialProps) => {
     context.save();
     context.translate(width / 2, height / 2);
     balls.forEach((ball, i) => {
-      let radius = 750;
+      const radius = 750;
       if (ball.x > radius || ball.y > radius || ball.x < -radius || ball.y < -radius) {
         balls.splice(i, 1, new Ball(random.pick(angles)));
       }

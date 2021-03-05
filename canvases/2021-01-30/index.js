@@ -17,24 +17,22 @@ const sketch = ({ gui }) => (initialProps) => {
   };
 
   function updatePoints() {
-    let i = points.length;
-    while (i--) {
+    for (let i = 0; i < points.length; i++) {
       points[i].update();
     }
   }
 
   function renderPoints() {
-    let i = points.length;
-    while (i--) {
+    for (let i = 0; i < points.length; i++) {
       points[i].draw();
     }
   }
 
   function renderCurve(space) {
-    let pointCount = points.length;
-    let s = space === 'top';
+    const pointCount = points.length;
+    const s = space === 'top';
     for (let i = 0; i < pointCount - 1; i++) {
-      let c = (points[i].x + points[i + 1].x) / 2;
+      const c = (points[i].x + points[i + 1].x) / 2;
       let d = (points[i].y + points[i + 1].y) / 2;
 
       if (space === 'top') {
@@ -50,7 +48,7 @@ const sketch = ({ gui }) => (initialProps) => {
     }
   }
 
-  let renderShape = function () {
+  const renderShape = () => {
     context.fillStyle = opt.fillStyle;
     context.lineWidth = opt.thickness;
 

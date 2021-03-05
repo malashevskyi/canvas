@@ -2,7 +2,7 @@ import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 import Particle from './Particle';
 
 const particles = [];
@@ -25,7 +25,7 @@ const sketch = () => (initialProps) => {
     canvasRectAlpha = 0.1;
 
     intervalAlpha = setInterval(() => {
-      startClearRect++;
+      startClearRect += 1;
       if (startClearRect > 200) {
         canvasRectAlpha += 0.004;
       }
@@ -38,9 +38,6 @@ const sketch = () => (initialProps) => {
     const angleIncrement = (Math.PI * 2) / count;
 
     const palette = random.pick(palettes).slice(0, 3);
-    for (let i = 0; i < count; i++) {
-      addParticle(i);
-    }
 
     function addParticle(i) {
       particles.push(
@@ -56,6 +53,10 @@ const sketch = () => (initialProps) => {
           },
         })
       );
+    }
+
+    for (let i = 0; i < count; i++) {
+      addParticle(i);
     }
   }
 

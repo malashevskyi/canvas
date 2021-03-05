@@ -22,6 +22,7 @@ const sketch = () => (initialProps) => {
       this.w = 15;
       this.h = 15;
     }
+
     draw() {
       context.save();
       context.globalAlpha = this.alpha;
@@ -32,6 +33,7 @@ const sketch = () => (initialProps) => {
       context.fill();
       context.restore();
     }
+
     render() {
       this.draw();
       if (this.w > 0.2) {
@@ -48,7 +50,7 @@ const sketch = () => (initialProps) => {
     const angleIncrement = (Math.PI * 2) / count;
 
     for (let i = 0; i < count; i++) {
-      let inc = i % (count / 40);
+      const inc = i % (count / 40);
 
       particles.push(
         new Particle(0, 0, `hsl(${random.range(40, 60)}, 50%, 50%)`, {
@@ -68,9 +70,9 @@ const sketch = () => (initialProps) => {
       }
     }
 
-    tick++;
+    tick += 1;
 
-    context.fillStyle = `rgba(10, 10, 10, 1)`;
+    context.fillStyle = 'rgba(10, 10, 10, 1)';
     context.fillRect(0, 0, width, height);
 
     context.save();

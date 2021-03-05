@@ -31,8 +31,7 @@ function rowRenderer(
   const cards = [];
 
   for (let i = startIndex; i <= stopIndex; i++) {
-    const title = dataArr[i].title;
-    const id = dataArr[i].id;
+    const { title, id } = dataArr[i];
 
     cards.push(
       <Card
@@ -71,15 +70,15 @@ function getPostsDataArray(obj) {
   return data;
 }
 
-const Index = ({ comments, postsData }) => {
-  const dataArr = getPostsDataArray(postsData);
+const Index = ({ postsDataServer }) => {
+  const dataArr = getPostsDataArray(postsDataServer);
   const [scrollListTop, setScrollListTop] = useState(0);
   const [scrollDirection, setScrollDirection] = useState('down');
 
   // more powerful animation on the first render for first screen cards
   const [anmRenderFirstScreen, setAnmRenderFirstScreen] = useState(true);
 
-  const [_, setSpinner] = useContext(LoadSpinnerContext);
+  const [, setSpinner] = useContext(LoadSpinnerContext);
 
   useEffect(() => {
     // remove loader
@@ -92,7 +91,7 @@ const Index = ({ comments, postsData }) => {
     setTimeout(() => {
       setAnmRenderFirstScreen(false);
     }, 1000);
-  }, []);
+  }, [setSpinner]);
 
   // set initial dimensions to detect how many card render on server side;
   // render 42 cards -- 6 columns * 6 rows + 6 card auto adding, one to each column
@@ -138,10 +137,6 @@ const Index = ({ comments, postsData }) => {
   );
 };
 
-Index.getInitialProps = async function () {
-  return {
-    postsData,
-  };
-};
+Index.getInitialProps = () => ({ postsDataServer: postsData });
 
 export default Index;

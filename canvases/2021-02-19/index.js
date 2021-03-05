@@ -2,16 +2,16 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 
 import Particle from './Particle';
-import { imageData } from './imageData';
+import imageData from './imageData';
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const particles = [];
 const particlesTo = [];
 const tls = [];
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
+  const { context, canvas } = initialProps;
   let { height, width } = initialProps;
 
   const mouse = {
@@ -33,25 +33,6 @@ const sketch = () => (initialProps) => {
     width: 170,
     height: 30,
   };
-
-  if (particles.length === 0) {
-    getParticles();
-    animateParticles();
-  }
-
-  function getParticles() {
-    // reset particles
-    particles.length = 0;
-
-    let i = 0;
-    for (let y = 0; y < image.height; y++) {
-      for (let x = 0; x < image.width; x++) {
-        // check r value of rgba
-        if (imageData[i] < 100) addParticle(x, y, i);
-        i += 4;
-      }
-    }
-  }
 
   function addParticle(x, y, i) {
     const screenRadius = Math.sqrt(width * width + height * height) / 2;
@@ -77,6 +58,21 @@ const sketch = () => (initialProps) => {
     );
   }
 
+
+  function getParticles() {
+    // reset particles
+    particles.length = 0;
+
+    let i = 0;
+    for (let y = 0; y < image.height; y++) {
+      for (let x = 0; x < image.width; x++) {
+        // check r value of rgba
+        if (imageData[i] < 100) addParticle(x, y, i);
+        i += 4;
+      }
+    }
+  }
+
   function animateParticles() {
     particles.forEach((particle, i) => {
       tls.push(
@@ -97,10 +93,15 @@ const sketch = () => (initialProps) => {
     context.restore();
   }
 
+  if (particles.length === 0) {
+    getParticles();
+    animateParticles();
+  }
+
   return (updatedProps) => {
     ({ width, height } = updatedProps);
 
-    tick++;
+    tick += 1;
 
     context.fillStyle = `rgba(10, 10, 10, ${alpha})`;
     context.fillRect(0, 0, width, height);

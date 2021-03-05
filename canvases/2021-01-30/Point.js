@@ -1,6 +1,7 @@
 const random = require('canvas-sketch-util/random');
 
-let ease = function (t, start, dRest, duration) {
+const ease = (time, start, dRest, duration) => {
+  let t = time;
   t /= Math.floor(duration / 1.8);
   if (t < 1) {
     return dRest * 0.55 * t * t + start;
@@ -17,6 +18,7 @@ class Point {
     this.y = y;
     this.setTarget();
   }
+
   setTarget() {
     this.initialX = this.x;
     this.initialY = this.y;
@@ -25,26 +27,28 @@ class Point {
     this.tick = 0;
     this.duration = random.rangeFloor(30, 70);
   }
+
   update() {
-    let dx = this.targetX - this.x;
-    let dy = this.targetY - this.y;
-    let dist = Math.sqrt(dx * dx + dy * dy);
+    const dx = this.targetX - this.x;
+    const dy = this.targetY - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
     if (Math.abs(dist) <= 0) {
       this.setTarget();
     } else {
-      let t = this.tick;
+      const t = this.tick;
       let start = this.initialY;
       let dRest = this.targetY - start;
-      let d = this.duration;
+      const d = this.duration;
       this.y = ease(t, start, dRest, d);
 
       start = this.initialX;
       dRest = this.targetX - start;
       this.x = ease(t, start, dRest, d);
 
-      this.tick++;
+      this.tick += 1;
     }
   }
+  
   draw() {
     this.context.beginPath();
     this.context.arc(this.x, this.y, 4, 0, Math.PI * 2);

@@ -32,7 +32,7 @@ const sketch = () => (initialProps) => {
       square.render();
     }
 
-    tick++;
+    tick += 1;
   };
 };
 

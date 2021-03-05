@@ -2,14 +2,13 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
-import { store } from 'react-notifications-component';
+import useNotification from '../../hooks/useNotification';
 import Particle from './Particle';
 
 const tls = [];
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
+  const { context, canvas } = initialProps;
   let { height, width } = initialProps;
 
   const particles = [];

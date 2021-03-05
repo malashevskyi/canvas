@@ -3,7 +3,7 @@ import palettes from 'nice-color-palettes';
 
 import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps;
@@ -23,7 +23,7 @@ const sketch = () => (initialProps) => {
     let startClearRect = 0;
     canvasRectAlpha = 0.2;
     intervalAlpha = setInterval(() => {
-      startClearRect++;
+      startClearRect += 1;
       if (startClearRect > 200) {
         canvasRectAlpha += 0.009;
       }

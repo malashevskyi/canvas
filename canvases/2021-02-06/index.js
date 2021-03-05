@@ -1,9 +1,9 @@
+import gsap from 'gsap';
 import { useEffect } from 'react';
 
 import useCanvas from '../../hooks/useCanvas';
-import gsap from 'gsap';
 
-let tls = [];
+const tls = [];
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps;
@@ -58,21 +58,19 @@ const sketch = () => (initialProps) => {
         this.colorTickC = -this.colorTickC;
       }
 
-      let dx = mouse.x - this.x;
-      let dy = mouse.y - this.y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < mouse.radius) {
         this.x += (dx / distance) * 1.5;
         this.y += (dy / distance) * 1.5;
       } else {
         if (this.x !== this.baseX) {
-          let dx = this.x - this.baseX;
-          this.x -= dx / 12;
+          this.x -= (this.x - this.baseX) / 12;
         }
         if (this.y !== this.baseY) {
-          let dy = this.y - this.baseY;
-          this.y -= dy / 12;
+          this.y -= (this.y - this.baseY) / 12;
         }
       }
       this.draw();

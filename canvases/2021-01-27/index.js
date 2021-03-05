@@ -6,7 +6,7 @@ const sketch = () => (initialProps) => {
   let { height, width } = initialProps;
 
   const points = [];
-  let maxSide = Math.max(width, height);
+  const maxSide = Math.max(width, height);
 
   function getSquares() {
     points.length = 0;

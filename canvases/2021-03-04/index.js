@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-
-import Gun from './Gun'
-import Circle from './Circle'
+import Gun from './Gun';
+import Circle from './Circle';
 import useCanvas from '../../hooks/useCanvas';
 
 const sketch = () => (initialProps) => {
@@ -45,21 +43,23 @@ const sketch = () => (initialProps) => {
   getGuns();
 
   function getCircle() {
-    circles.push(new Circle({
-      context,
-      cartridges,
-      x: Math.random() * (width - 400) + 200,
-      y: -40
-    }))
+    circles.push(
+      new Circle({
+        context,
+        cartridges,
+        x: Math.random() * (width - 400) + 200,
+        y: -40,
+      })
+    );
   }
   getCircle();
 
   return {
-    render(initialProps) {
-      ({ width, height } = initialProps);
-      
-      tick++;
-      
+    render(updatedProps) {
+      ({ width, height } = updatedProps);
+
+      tick += 1;
+
       context.fillStyle = 'black';
       context.fillRect(0, 0, width, height);
 
@@ -67,29 +67,30 @@ const sketch = () => (initialProps) => {
       if (tick % 10 === 0) {
         getCircle();
       }
-    
-      guns.forEach(gun => {
+
+      guns.forEach((gun) => {
         gun.draw(mouse, tick);
 
         if (tick % 10 === 0) {
           cartridges.push(gun.getCartridge());
-        } 
-      })
+        }
+      });
 
       circles.forEach((particle, i) => {
-        if (particle.y - 50 > height || particle.radius === 0) circles.splice(i, 1);
+        if (particle.y - 50 > height || particle.radius === 0)
+          circles.splice(i, 1);
         particle.update();
         particle.draw();
-      })
+      });
       cartridges.forEach((cartridge, i) => {
-        if (cartridge.y < -10 || cartridge.used) cartridges.splice(i, 1);
-        cartridge.update();
+        if (cartridge.y < -10) cartridges.splice(i, 1);
+        cartridge.update(i);
         cartridge.draw();
-      })
+      });
     },
     resize() {
       getGuns();
-    }
+    },
   };
 };
 

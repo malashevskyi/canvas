@@ -16,6 +16,7 @@ const sketch = () => (initialProps) => {
       this.y = y;
       this.color = 'red';
     }
+
     draw() {
       context.beginPath();
       context.arc(this.x, this.y, 20, 0, Math.PI * 2);
@@ -23,6 +24,7 @@ const sketch = () => (initialProps) => {
       context.fill();
       context.closePath();
     }
+    
     update(x, y, color) {
       this.color = color;
       this.x = x + y;

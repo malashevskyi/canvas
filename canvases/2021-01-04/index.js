@@ -1,9 +1,9 @@
-import useCanvas from '../../hooks/useCanvas';
-
+import palettes from 'nice-color-palettes';
 import random from 'canvas-sketch-util/random';
 import { lerp } from 'canvas-sketch-util/math';
 
-import palettes from 'nice-color-palettes';
+import useCanvas from '../../hooks/useCanvas';
+
 random.setSeed(random.pick(['513468']));
 const palette = random.pick(palettes);
 
@@ -29,14 +29,14 @@ const sketch = ({ gui }) => (initialProps) => {
     this.radius = radius;
     this.color = random.pick(palette.slice(0, 3));
 
-    this.draw = function () {
+    this.draw = () => {
       context.beginPath();
       context.arc(this.x, this.y, this.radius * opt.radiusInc, 0, Math.PI * 2, false);
       context.fillStyle = this.color;
       context.fill();
       context.closePath();
     };
-    this.update = function () {
+    this.update = () => {
       const r = this.radius;
       if (!inRange(this.x, r, width - r)) this.dx = -this.dx;
       if (!inRange(this.y, r, height - r)) this.dy = -this.dy;
@@ -44,7 +44,7 @@ const sketch = ({ gui }) => (initialProps) => {
       this.x += this.dx;
       this.y += this.dy;
     };
-    this.render = function () {
+    this.render = () => {
       this.draw();
       this.update();
     };

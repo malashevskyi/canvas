@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import PostLayout from '../../layout/post';
 import * as canvases from '../../canvases/_index';
@@ -8,7 +8,22 @@ import { LoadSpinnerContext } from '../../context/loadSpinnerContext';
 import NotFound from '../404';
 
 const Post = ({ id }) => {
-  const [_, setSpinner] = useContext(LoadSpinnerContext);
+  const [, setSpinner] = useContext(LoadSpinnerContext);
+
+  useEffect(() => {
+    setSpinner({
+      active: false,
+      text: '',
+    });
+
+    return () => {
+      setSpinner({
+        active: true,
+        text: '',
+      });
+    };
+  }, [setSpinner]);
+
   const router = useRouter();
   // ! temporarily hide
   // const gui = useGUI();
@@ -26,19 +41,6 @@ const Post = ({ id }) => {
   const tags = postsData[id].tags.join(', ');
   const url = `post/${id}`;
 
-  useEffect(() => {
-    setSpinner({
-      active: false,
-      text: '',
-    });
-
-    return () => {
-      setSpinner({
-        active: true,
-        text: '',
-      });
-    };
-  }, []);
 
   return (
     <PostLayout
@@ -57,18 +59,13 @@ const Post = ({ id }) => {
 
             // ! temporarily hide gui (<Canvas gui={gui} />)
             return <Canvas />;
-          } else {
-            return '';
           }
+          return '';
         })()}
     </PostLayout>
   );
 };
 
-Post.getInitialProps = (context) => {
-  return {
-    id: context.query.id,
-  };
-};
+Post.getInitialProps = (context) => ({ id: context.query.id });
 
 export default Post;

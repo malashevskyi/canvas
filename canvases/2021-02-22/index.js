@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import useCanvas from '../../hooks/useCanvas';
-
 import gsap from 'gsap';
+
+import useCanvas from '../../hooks/useCanvas';
 
 const tls = [];
 
@@ -69,7 +69,7 @@ const sketch = ({ gui }) => (initialProps) => {
   return (updatedProps) => {
     ({ width, height } = updatedProps);
 
-    tick++;
+    tick += 1;
 
     context.clearRect(0, 0, width, height);
     context.translate(width / 2 - (43 * 20) / 2, height / 2 + 125);

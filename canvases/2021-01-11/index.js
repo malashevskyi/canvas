@@ -47,8 +47,8 @@ const sketch = () => (initialProps) => {
       if (dist < 150) {
         const angle = Math.atan2(dy, dx);
 
-        let tx = mouse.x + Math.cos(angle) * 50;
-        let ty = mouse.y + Math.sin(angle) * 50;
+        const tx = mouse.x + Math.cos(angle) * 50;
+        const ty = mouse.y + Math.sin(angle) * 50;
 
         this.vx += (tx - this.x) / 8;
         this.vy += (ty - this.y) / 8;
@@ -61,10 +61,10 @@ const sketch = () => (initialProps) => {
       this.x += random.gaussian(-1, 1) / 2 + (random.gaussian(-1, 1) * this.waveCount) / 250;
       this.y += random.gaussian(-1, 1) / 2 + (random.gaussian(-1, 1) * this.waveCount) / 250;
 
-      this.animateCount++;
+      this.animateCount += 1;
 
-      let dx1 = -(this.x - this.originalX);
-      let dy1 = -(this.y - this.originalY);
+      const dx1 = -(this.x - this.originalX);
+      const dy1 = -(this.y - this.originalY);
 
       this.vx += (dx1 * this.springFactor) / 2;
       this.vy += (dy1 * this.springFactor) / 2;
@@ -77,15 +77,15 @@ const sketch = () => (initialProps) => {
     }
   }
 
-  function connectDots(dots) {
+  function connectDots(d) {
     context.beginPath();
 
-    let pathSmall = new Path2D();
-    let pathBig = new Path2D();
+    const pathSmall = new Path2D();
+    const pathBig = new Path2D();
 
-    for (let i = 0, l = dots.length; i <= l; i++) {
-      let p0 = dots[i === l ? 0 : i];
-      let p1 = dots[i + 1 >= l ? i + 1 - l : i + 1];
+    for (let i = 0, l = d.length; i <= l; i++) {
+      const p0 = d[i === l ? 0 : i];
+      const p1 = d[i + 1 >= l ? i + 1 - l : i + 1];
 
       pathSmall.quadraticCurveTo(p0.x, p0.y, (p0.x + p1.x) * 0.5, (p0.y + p1.y) * 0.5);
       pathBig.quadraticCurveTo(

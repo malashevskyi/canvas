@@ -33,9 +33,9 @@ class Dot {
       this.x -= random.gaussian(-3, 2) * 2;
       this.y -= random.gaussian(-3, 2) * 5;
     }
-    this.animateCount++;
-    let dx = this.originalX - this.x;
-    let dy = this.originalY - this.y;
+    this.animateCount += 1;
+    const dx = this.originalX - this.x;
+    const dy = this.originalY - this.y;
 
     this.vx += dx * 0.1;
     this.vy += dy * 0.1;

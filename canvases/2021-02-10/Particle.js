@@ -19,9 +19,9 @@ class Particle {
   }
 
   update(mouse) {
-    let dx = mouse.x - this.x;
-    let dy = mouse.y - this.y;
-    let distance = Math.sqrt(dx * dx + dy * dy);
+    const dx = mouse.x - this.x;
+    const dy = mouse.y - this.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
 
     if (distance < mouse.radius) {
       this.radiusTarget = Math.max((mouse.radius - distance) / 4.5, 3);

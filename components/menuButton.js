@@ -8,6 +8,7 @@ const MenuButton = () => {
 
   return (
     <button
+      type="button"
       className={classNames({
         'menu-item': true,
         active: isOpen,

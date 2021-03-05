@@ -37,9 +37,9 @@ const sketch = ({ gui }) => (initialProps) => {
   return (updatedProps) => {
     ({ width, height } = updatedProps);
 
-    tick++;
+    tick += 1;
 
-    let y = Math.sin((xRight + opt.yOffset) / amplitude) * radius;
+    const y = Math.sin((xRight + opt.yOffset) / amplitude) * radius;
 
     if (xRight < width / 2 - 10) {
       for (let i = 0; i < count; i++) {
@@ -47,7 +47,7 @@ const sketch = ({ gui }) => (initialProps) => {
         context.fillStyle = palette[i];
 
         // from the center to the right
-        let ofs = (height / count) * i - radius + 50;
+        const ofs = (height / count) * i - radius + 50;
 
         context.save();
         context.translate(width / 2, 0);

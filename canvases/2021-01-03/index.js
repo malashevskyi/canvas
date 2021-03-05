@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
-import useCanvas from '../../hooks/useCanvas';
-
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
+import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
 
 const sketch = ({ gui }) => (initialProps) => {
@@ -14,7 +12,7 @@ const sketch = ({ gui }) => (initialProps) => {
   let alpha = 1;
   let speedUp = true;
   let interval;
-  let opt = {
+  const opt = {
     palettes: [
       ['#cfffdd', '#b4dec1', '#5c5863', '#a85163', '#ff1f4c'],
       ['#382f32', '#ffeaf2', '#fcd9e5', '#fbc5d8', '#f1396d'],
@@ -54,9 +52,9 @@ const sketch = ({ gui }) => (initialProps) => {
         opt.palettes[e - 1][3],
         opt.palettes[e - 1][4],
       ];
-      particles.forEach((particle) => {
-        particle.color = random.pick(palette);
-      });
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].color = random.pick(palette);
+      }
     });
 
   getParticles(120);
@@ -64,7 +62,7 @@ const sketch = ({ gui }) => (initialProps) => {
     speedUp = !speedUp;
   }, 3000);
 
-  document.addEventListener('visibilitychange', function () {
+  document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
       interval = setInterval(() => {
         speedUp = !speedUp;

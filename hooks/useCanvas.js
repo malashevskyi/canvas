@@ -30,6 +30,7 @@ const useCanvas = (props) => {
       // console.log('manager', manager);
       manager?.unload();
     };
+  // eslint-disable-next-line
   }, []);
 };
 

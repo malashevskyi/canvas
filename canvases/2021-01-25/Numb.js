@@ -23,7 +23,7 @@ class Numb {
     this.context.beginPath();
     this.context.scale(this.scale, this.scale);
     this.context.fillStyle = this.color;
-    this.context.font = `10px Potta One`;
+    this.context.font = '10px Potta One';
     this.context.fillText(this.text, this.x, this.y);
     this.context.closePath();
     this.context.fill();
@@ -32,7 +32,7 @@ class Numb {
 
   render() {
     this.scale += 0.05;
-    this.tick++;
+    this.tick += 1;
     this.x -= this.dx;
     this.y -= this.dy;
     this.dx /= 1.01;

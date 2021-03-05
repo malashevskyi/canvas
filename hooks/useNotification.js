@@ -1,8 +1,7 @@
-import { getURL } from 'next/dist/next-server/lib/utils';
 import { useEffect } from 'react';
 import { store } from 'react-notifications-component';
 
-export const useNotification = ({ message, delay = 0 }) => {
+const useNotification = ({ message, delay = 0 }) => {
   const notificationId = Math.random();
 
   useEffect(() => {
@@ -27,5 +26,7 @@ export const useNotification = ({ message, delay = 0 }) => {
       clearTimeout(timeout);
       store.removeNotification(notificationId);
     };
-  }, []);
+  }, [notificationId, message, delay]);
 };
+
+export default useNotification;

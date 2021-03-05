@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random';
 import palettes from 'nice-color-palettes';
 
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 import useCanvas from '../../hooks/useCanvas';
 
 const sketch = () => (initialProps) => {
@@ -59,6 +59,7 @@ const sketch = () => (initialProps) => {
     context.beginPath();
     context.rect(-40, -25, 80, 50);
     context.closePath();
+    // eslint-disable-next-line
     context.fillStyle = palette[4];
     context.fill();
     context.restore();
@@ -78,7 +79,7 @@ const sketch = () => (initialProps) => {
     arrowX = width / 2;
     arrowY = height / 2;
 
-    tick++;
+    tick += 1;
 
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);

@@ -1,7 +1,6 @@
 function inRange(axis, start, end) {
   return axis > start && axis < end;
 }
-
 class Ball {
   constructor({ context, x, y, dx, dy, color }) {
     this.context = context;

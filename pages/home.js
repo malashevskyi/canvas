@@ -6,7 +6,7 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 import MainLayout from '../layout/main';
 
 const Home = () => {
-  const [_, setSpinner] = useContext(LoadSpinnerContext);
+  const [, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
     setTimeout(() => {
       router.push('/');
     }, 500);
-  }, []);
+  }, [setSpinner, router]);
 
   return (
     <MainLayout title="Canvas animations">

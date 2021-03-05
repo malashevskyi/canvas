@@ -5,8 +5,8 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext';
 
 import NotFoundLayout from '../layout/notFound';
 
-export default function notFound({ title }) {
-  const [_, setSpinner] = useContext(LoadSpinnerContext);
+const NotFound = ({ title }) => {
+  const [, setSpinner] = useContext(LoadSpinnerContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function notFound({ title }) {
       active: false,
       text: '',
     });
-  }, []);
+  }, [setSpinner]);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -33,6 +33,7 @@ export default function notFound({ title }) {
     <NotFoundLayout title="Page is not found!">
       <div className="not-found">
         <h1 className="not-found--title">
+          {/* eslint-disable-next-line */}
           {title ? title : 'Page '} Not Found
         </h1>
         <a href="/" className="not-found--link" onClick={onClickHandler}>
@@ -42,3 +43,6 @@ export default function notFound({ title }) {
     </NotFoundLayout>
   );
 }
+
+
+export default NotFound;

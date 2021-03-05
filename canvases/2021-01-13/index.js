@@ -77,59 +77,19 @@ const sketch = () => (initialProps) => {
 
       tick += 1;
 
-      let d = [
-        1.1,
-        1.2,
-        1.3,
-        1.4,
-        1.5,
-        1.6,
-        1.7,
-        1.8,
-        1.9,
-        2,
-        2.1,
-        2.2,
-        2.3,
-        2.4,
-        2.5,
-        2.6,
-        2.7,
-        2.8,
-        2.9,
-        3,
-        3.1,
-        3.3,
-        3.5,
-        3.7,
-        3.9,
-        4.1,
-        4.3,
-        4.9,
-        5.4,
-        5.8,
-        6.1,
-        6.3,
-        6.5,
-        6.7,
-        6.9,
-        7.1,
-        7.5,
-        7.9,
-        8.8,
-        13,
-        18,
-      ];
+      const d = [ 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.9, 5.4, 5.8, 6.1, 6.3, 6.5, 6.7, 6.9, 7.1, 7.5, 7.9, 8.8, 13, 18, ];
       for (let i = 1; i <= 40; i++) {
-        if (!coords[Math.floor(tick / 1.2)]) continue;
-        context.save();
-        context.translate(
-          coords[Math.floor(tick / 1.2) % coords.length].x / d[i],
-          coords[Math.floor(tick / 1.2) % coords.length].y / d[i]
-        );
-        context.rotate(((Math.PI * 2) / 1200) * ((tick - 20) % 1200) + 2.5);
-        balls[i].update(d[i]);
-        context.restore();
+        if (coords[Math.floor(tick / 1.2)]) {
+          context.save();
+          context.translate(
+            coords[Math.floor(tick / 1.2) % coords.length].x / d[i],
+            coords[Math.floor(tick / 1.2) % coords.length].y / d[i]
+          );
+          context.rotate(((Math.PI * 2) / 1200) * ((tick - 20) % 1200) + 2.5);
+          balls[i].update(d[i]);
+          context.restore();
+        }
+
       }
     },
     resize() {

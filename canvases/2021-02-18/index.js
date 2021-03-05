@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import useCanvas from '../../hooks/useCanvas';
-
 import random from 'canvas-sketch-util/random';
 import gsap from 'gsap';
 
+import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
-import { imageData } from './imageData';
+import imageData from './imageData';
 
 const particles = [];
 const tls = [];
@@ -20,11 +19,19 @@ const sketch = () => (initialProps) => {
     data: imageData,
   };
 
-  if (particles.length === 0) {
-    getParticles();
-    animateParticles();
+  function addParticle(x, y, i) {
+    particles.push(
+      new Particle({
+        context,
+        x: x * 2,
+        y: y * 2,
+        color: `rgba(${image.data[i]}, ${image.data[i + 1]}, ${image.data[i + 2]}, ${
+          image.data[i + 3]
+        })`,
+      })
+    );
   }
-
+  
   function getParticles() {
     // reset particles
     particles.length = 0;
@@ -38,18 +45,6 @@ const sketch = () => (initialProps) => {
     }
   }
 
-  function addParticle(x, y, i) {
-    particles.push(
-      new Particle({
-        context,
-        x: x * 2,
-        y: y * 2,
-        color: `rgba(${image.data[i]}, ${image.data[i + 1]}, ${image.data[i + 2]}, ${
-          image.data[i + 3]
-        })`,
-      })
-    );
-  }
 
   function animateParticles() {
     particles.forEach((particle, i) => {
@@ -60,7 +55,7 @@ const sketch = () => (initialProps) => {
           x: random.rangeFloor(400, 900),
           y: 500,
           ease: 'power4.in',
-          delay: delay,
+          delay,
         })
       );
       tls.push(
@@ -72,6 +67,11 @@ const sketch = () => (initialProps) => {
         })
       );
     });
+  }
+
+  if (particles.length === 0) {
+    getParticles();
+    animateParticles();
   }
 
   return (updatedProps) => {

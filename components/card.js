@@ -20,7 +20,7 @@ const Card = ({
   scrollDirection,
   anmRenderFirstScreen,
 }) => {
-  const [spinner, setSpinner] = useContext(LoadSpinnerContext);
+  const [, setSpinner] = useContext(LoadSpinnerContext);
   const yAnmUp = -30 * indexInItem - 50;
   const router = useRouter();
   let yAnmDown = 30 * indexInItem + 50;
@@ -57,7 +57,9 @@ const Card = ({
     >
       <div key={index} className="card" style={{ width, height, margin }}>
         <Link href={link}>
-          <a onClick={onCardClickHandler}>
+          { /* IT IS NOT A BUTTON */
+          /* eslint-disable-next-line */}
+          <a onClick={onCardClickHandler} >
             <time dateTime={date}>
               <span>{date}</span>
             </time>

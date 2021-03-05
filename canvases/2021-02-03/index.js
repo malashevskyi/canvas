@@ -36,14 +36,14 @@ const sketch = () => (initialProps) => {
       widthHalf = width / 2;
       heightHalf = height / 2;
 
-      startAngle++;
+      startAngle += 1;
 
       context.clearRect(0, 0, width, height);
 
-      circles.forEach((circle, i) => {
-        circle.color = `hsl(${i * 5 + time * 10 + 110}, 50%, 50%)`;
-        circle.draw(widthHalf, heightHalf, startAngle);
-      });
+      for (let i = 0; i < circles.length; i++) {
+        circles[i].color = `hsl(${i * 5 + time * 10 + 110}, 50%, 50%)`;
+        circles[i].draw(widthHalf, heightHalf, startAngle);
+      }
     },
   };
 };

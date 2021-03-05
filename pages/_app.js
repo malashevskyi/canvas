@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import '../styles/globals.sass';
 import ReactNotification from 'react-notifications-component';
-import LoadSpinnerProvider from '../context/loadSpinnerContext';
 import { useRouter } from 'next/router';
+
+import LoadSpinnerProvider from '../context/loadSpinnerContext';
 import postsData from '../data/postsData';
 
 function MyApp({ Component, pageProps }) {
@@ -33,12 +34,11 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    // <React.StrictMode>
     <LoadSpinnerProvider>
+      {/* eslint-disable-next-line */}
       <Component {...pageProps} />
       <ReactNotification />
     </LoadSpinnerProvider>
-    // </React.StrictMode>
   );
 }
 

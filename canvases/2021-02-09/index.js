@@ -41,21 +41,19 @@ const sketch = () => (initialProps) => {
       }
       this.color = `hsl(${this.colorTick * 2 + 250}, 50%, 50%)`;
 
-      let dx = mouse.x - this.x;
-      let dy = mouse.y - this.y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < mouse.radius) {
         this.x += (dx / distance) * 1.5;
         this.y += (dy / distance) * 1.5;
       } else {
         if (this.x !== this.baseX) {
-          let dx = this.x - this.baseX;
-          this.x -= dx / 12;
+          this.x -= (this.x - this.baseX) / 12;
         }
         if (this.y !== this.baseY) {
-          let dy = this.y - this.baseY;
-          this.y -= dy / 12;
+          this.y -= (this.y - this.baseY) / 12;
         }
       }
       this.draw();
@@ -81,7 +79,7 @@ const sketch = () => (initialProps) => {
     xL = Math.min(width, 1000);
     yL = Math.min(height, 600);
 
-    tick++;
+    tick += 1;
 
     if (tick > 50) {
       mouse.x = -10000;

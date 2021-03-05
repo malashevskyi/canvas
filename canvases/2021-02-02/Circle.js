@@ -16,7 +16,7 @@ class Circle {
   }
 
   draw(startAngle, width, height) {
-    this.tick++;
+    this.tick += 1;
     this.color = `hsl(${this.index * 5 + this.tick / 5 + 110}, 50%, 50%)`;
 
     this.context.beginPath();
@@ -25,10 +25,14 @@ class Circle {
       const angle = ((i + startAngle) * Math.PI) / 180;
 
       const ampRadius = 10;
-      let amp = smooth[i] * Math.sin(angle * 6 + this.offsetAngle) * ampRadius;
-      let x = width / 2 + Math.cos(angle) * (this.radius + amp);
-      let y = height / 2 + Math.sin(angle) * (this.radius + amp);
-      i > 0 ? this.context.lineTo(x, y) : this.context.moveTo(x, y);
+      const amp = smooth[i] * Math.sin(angle * 6 + this.offsetAngle) * ampRadius;
+      const x = width / 2 + Math.cos(angle) * (this.radius + amp);
+      const y = height / 2 + Math.sin(angle) * (this.radius + amp);
+      if (i > 0) {
+        this.context.lineTo(x, y);
+      } else {
+        this.context.moveTo(x, y);
+      }
     }
     this.context.closePath();
     this.context.fillStyle = this.color;

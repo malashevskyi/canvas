@@ -35,12 +35,10 @@ class Particle {
       this.y -= directionY;
     } else {
       if (this.x !== this.anchorX) {
-        let dx = this.x - this.anchorX;
-        this.x -= dx / 10;
+        this.x -= (this.x - this.anchorX) / 10;
       }
       if (this.y !== this.anchorY) {
-        let dy = this.y - this.anchorY;
-        this.y -= dy / 10;
+        this.y -= (this.y - this.anchorY) / 10;
       }
     }
   }

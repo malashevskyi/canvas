@@ -1,4 +1,4 @@
-let trianglesPoints = [
+const trianglesPoints = [
   [15, 163, 26, 211, 65, 174],
   [26, 211, 45, 249, 80, 208],
   [26, 211, 65, 174, 80, 208],

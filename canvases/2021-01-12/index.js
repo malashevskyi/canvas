@@ -37,7 +37,7 @@ const sketch = () => (initialProps) => {
         this.radius -= 0.5;
       }
 
-      this.tick++;
+      this.tick += 1;
 
       this.x += this.dx;
       this.y += this.dx;
@@ -74,7 +74,7 @@ const sketch = () => (initialProps) => {
     render(updatedProps) {
       ({ width, height } = updatedProps);
 
-      tick++;
+      tick += 1;
 
       context.translate(width / 2, height / 2);
 

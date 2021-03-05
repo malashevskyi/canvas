@@ -1,7 +1,9 @@
 class Square {
   constructor({ context, xy }) {
     this.context = context;
+    // eslint-disable-next-line
     this.x = xy[0];
+    // eslint-disable-next-line
     this.y = xy[1];
   }
 

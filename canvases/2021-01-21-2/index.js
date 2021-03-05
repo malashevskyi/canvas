@@ -18,7 +18,7 @@ const sketch = () => (initialProps) => {
     const radius = Math.sqrt(width * width + height * height) / 2;
     trianglesPoints.forEach((array, i) => {
       const radiusM = radius + radius * 0.2 * Math.random();
-      let a = 70;
+      const a = 70;
 
       triangles.push(
         new Triangle({
@@ -36,11 +36,6 @@ const sketch = () => (initialProps) => {
         })
       );
     });
-  }
-
-  if (triangles.length === 0) {
-    getTriangles();
-    animateParticles();
   }
 
   function animateParticles() {
@@ -63,6 +58,12 @@ const sketch = () => (initialProps) => {
       );
     });
   }
+  
+  if (triangles.length === 0) {
+    getTriangles();
+    animateParticles();
+  }
+
 
   return (updatedProps) => {
     ({ width, height } = updatedProps);

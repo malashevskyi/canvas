@@ -1,7 +1,5 @@
-import { store } from 'react-notifications-component';
-
 import useCanvas from '../../hooks/useCanvas';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps;
@@ -10,25 +8,24 @@ const sketch = () => (initialProps) => {
   const motionTrailLength = 20;
   let xPos = width / 2;
   let yPos = height / 2;
-  let circles = [];
+  const circles = [];
 
   class DrawCircle {
-    constructor(xPos, yPos) {
-      this.x = xPos;
-      this.y = yPos;
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
     }
 
-    draw(alpha) {
+    draw(a) {
       let radius = 50;
-
-      if (alpha !== 1) {
-        alpha /= 4;
-        radius = 220 * alpha;
+      
+      if (a !== 1) {
+        radius = 220 * (a / 4);
       }
 
       context.beginPath();
       context.arc(this.x, this.y, radius, 0, 2 * Math.PI, true);
-      context.fillStyle = 'rgba(254, 231, 21, ' + alpha + ')';
+      context.fillStyle = 'rgba(254, 231, 21, ' + a + ')';
       context.fill();
     }
   }
@@ -45,7 +42,7 @@ const sketch = () => (initialProps) => {
   }
 
   function addCircle() {
-    let lastCircle = new DrawCircle(xPos, yPos);
+    const lastCircle = new DrawCircle(xPos, yPos);
     circles.push(lastCircle);
     lastCircle.draw(1);
   }
@@ -56,7 +53,7 @@ const sketch = () => (initialProps) => {
 
   function drawCircles() {
     circles.forEach((circle, i) => {
-      let alpha = (i + 1) / circles.length;
+      const alpha = (i + 1) / circles.length;
       circle.draw(alpha);
     });
   }

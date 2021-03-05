@@ -1,6 +1,6 @@
 import useCanvas from '../../hooks/useCanvas';
 import Particle from './Particle';
-import { useNotification } from '../../hooks/useNotification';
+import useNotification from '../../hooks/useNotification';
 
 const sketch = ({ gui }) => (initialProps) => {
   const { context, canvas } = initialProps;
@@ -39,13 +39,13 @@ const sketch = ({ gui }) => (initialProps) => {
   }
   getParticles();
 
+  function setStrokeStyle(distance, radius) {
+    if (distance < radius) context.strokeStyle = 'rgba(255, 0, 255, 1)';
+  }
   function connectParticles() {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i; j < particles.length; j++) {
         context.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-        function setStrokeStyle(distance, radius) {
-          if (distance < radius) context.strokeStyle = 'rgba(255, 0, 255, 1)';
-        }
 
         let dx, dy, distance;
 
