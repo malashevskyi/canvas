@@ -70,6 +70,14 @@ function codepen(link) {
 }
 
 const postsData = {
+  '2021-03-08': {
+    number: 58,
+    tags: ['logo', 'particles', 'create', 'firework'],
+    credits: () => '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-03-08',
+    codePen: '',
+  },
   '2021-03-04': {
     number: 58,
     tags: ['game', 'shoot', 'circles', 'guns'],

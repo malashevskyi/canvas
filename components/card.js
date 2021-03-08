@@ -61,7 +61,7 @@ const Card = ({
           /* eslint-disable-next-line */}
           <a onClick={onCardClickHandler} >
             <time dateTime={date}>
-              <span>{date}</span>
+              <span>{date.slice(0, 10)}</span>
             </time>
             <Preview name={id} title={title} />
           </a>
