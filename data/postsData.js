@@ -71,7 +71,7 @@ function codepen(link) {
 
 const postsData = {
   '2021-03-08': {
-    number: 58,
+    number: 60,
     tags: ['logo', 'particles', 'create', 'firework'],
     credits: () => '',
     github:
@@ -79,7 +79,7 @@ const postsData = {
     codePen: '',
   },
   '2021-03-04': {
-    number: 58,
+    number: 59,
     tags: ['game', 'shoot', 'circles', 'guns'],
     credits: () => video('https://www.youtube.com/watch?v=52rKp7P3gIs'),
     github:
