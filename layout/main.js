@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import LoadSpinner from '../components/loadSpinner';
 
 const MainLayout = ({ title, children }) => (

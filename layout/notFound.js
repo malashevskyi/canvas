@@ -1,7 +1,6 @@
 import Head from 'next/head';
-
-import MenuIsOpenProvider from '../context/menuIsOpenContext';
 import LoadSpinner from '../components/loadSpinner';
+import MenuIsOpenProvider from '../context/menuIsOpenContext';
 
 const NotFoundLayout = ({ title, children }) => (
   <>

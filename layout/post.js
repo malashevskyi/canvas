@@ -1,12 +1,11 @@
-import { useState, useCallback } from 'react';
 import Head from 'next/head';
-
-import MenuIsOpenProvider from '../context/menuIsOpenContext';
-import Navbar from '../components/navbar';
-import postsData from '../data/postsData';
+import { useCallback, useState } from 'react';
 import Additional from '../components/additional';
 import LoadSpinner from '../components/loadSpinner';
 import Menu from '../components/menu';
+import Navbar from '../components/navbar';
+import MenuIsOpenProvider from '../context/menuIsOpenContext';
+import postsData from '../data/postsData';
 
 const PostLayout = ({
   children,

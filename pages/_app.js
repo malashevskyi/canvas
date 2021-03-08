@@ -9,6 +9,7 @@ import postsData from '../data/postsData';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
+  const { id } = router.query;
   useEffect(() => {
     const canvasContainer = document.querySelector('body > .container');
 
@@ -24,9 +25,9 @@ function MyApp({ Component, pageProps }) {
 
     if (router.pathname === '/post/[id]') {
       // if the post is not found
-      if (!postsData[router.query.id]) hideCanvas();
+      if (!postsData[id]) hideCanvas();
       // if the post exists
-      if (postsData[router.query.id]) showCanvas();
+      if (postsData[id]) showCanvas();
     } else {
       // hide canvas on all other urls
       hideCanvas();
