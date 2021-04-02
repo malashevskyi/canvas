@@ -13,9 +13,12 @@ const LoadSpinner = () => {
         isActive: spinner.active,
       })}
     >
-      <h4 className="loader-title">
-        <pre>{spinner.text}</pre>
-      </h4>
+      {spinner.text && (
+        <h4 className="loader-title">
+          {spinner.text}
+          {/* <pre>{spinner.text}</pre> */}
+        </h4>
+      )}
       <div className="loader">Loading...</div>
     </div>
   );

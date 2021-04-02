@@ -33,13 +33,15 @@ function rowRenderer(
   for (let i = startIndex; i <= stopIndex; i++) {
     const { title, id } = dataArr[i];
 
+    const date = id.slice(0, 10);
+
     cards.push(
       <Card
         index={i}
         indexInItem={i - startIndex}
         width={cardWidth}
         height={cardHeight - 10} // - margin
-        date={id}
+        date={date}
         margin={`0 ${gapSize / 2}px`}
         link={`/post/${dataArr[i].id}`}
         title={title}
