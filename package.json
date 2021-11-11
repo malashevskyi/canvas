@@ -32,9 +32,7 @@
   "keywords": [
     "canvas",
     "animations",
-    "gsap",
-    "webgl",
-    "glsl"
+    "gsap"
   ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
