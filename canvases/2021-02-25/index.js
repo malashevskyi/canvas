@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
+import { useEffect } from 'react'
+import gsap from 'gsap'
 
-import useCanvas from '../../hooks/useCanvas';
-import Particle from './Particle';
-import imageSrc from '../../public/images/canvas/lake1000-1000.jpg';
+import useCanvas from '../../hooks/useCanvas'
+import Particle from './Particle'
 
-const tls = [];
+const tls = []
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
-  const particles = [];
+  const particles = []
 
   const opt = {
     offset: 0,
@@ -23,9 +22,9 @@ const sketch = () => (initialProps) => {
     squareWidth: 20,
     squareHeight: 20,
     screenRadius: Math.sqrt(width * width + height * height) / 2,
-  };
-  const image = new Image();
-  image.src = imageSrc;
+  }
+  const image = new Image()
+  image.src = '/images/canvas/lake1000-1000.jpg'
 
   image.onload = () => {
     for (let uX = 0; uX < opt.squaresCount; uX++) {
@@ -36,9 +35,9 @@ const sketch = () => (initialProps) => {
           uY,
           opt,
           image,
-        });
+        })
 
-        particles.push(newParticle);
+        particles.push(newParticle)
 
         tls.push(
           gsap.to(newParticle, {
@@ -51,45 +50,49 @@ const sketch = () => (initialProps) => {
             yoyo: true,
             ease: 'power1.inOut',
           })
-        );
+        )
       }
     }
-  };
+  }
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
+    ;({ width, height } = updatedProps)
 
-    context.clearRect(0, 0, width, height);
+    context.clearRect(0, 0, width, height)
 
     context.translate(
-      width / 2 - (opt.squaresCount * opt.squareWidth) / 2 - (opt.squaresCount * opt.offset) / 2,
-      height / 2 - (opt.squaresCount * opt.squareHeight) / 2 - (opt.squaresCount * opt.offset) / 2
-    );
+      width / 2 -
+        (opt.squaresCount * opt.squareWidth) / 2 -
+        (opt.squaresCount * opt.offset) / 2,
+      height / 2 -
+        (opt.squaresCount * opt.squareHeight) / 2 -
+        (opt.squaresCount * opt.offset) / 2
+    )
 
     if (particles.length !== 0) {
       particles.forEach((particle) => {
-        particle.update();
-      });
+        particle.update()
+      })
     }
-  };
-};
+  }
+}
 
 function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+  useCanvas({ sketch: () => sketch({ gui }) })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  });
+        tl.pause()
+      })
+    }
+  })
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas

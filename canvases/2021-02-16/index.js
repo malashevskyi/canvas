@@ -1,26 +1,25 @@
-import gsap from 'gsap';
+import gsap from 'gsap'
 
-import useCanvas from '../../hooks/useCanvas';
-import imageSrc from '../../public/images/canvas/mountains800-560.jpg';
+import useCanvas from '../../hooks/useCanvas'
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
-  const image = new Image();
-  image.src = imageSrc;
+  const image = new Image()
+  image.src = '/images/canvas/mountains800-560.jpg'
 
-  let drawImage;
+  let drawImage
   // image 800 X 560
-  const squaresCountX = 10;
-  const squaresCountY = 7;
-  const squareWidth = 80; // 800 / 10 (squaresCountX)
-  const squareHeight = 80; // 800 / 7 (squaresCountY)
+  const squaresCountX = 10
+  const squaresCountY = 7
+  const squareWidth = 80 // 800 / 10 (squaresCountX)
+  const squareHeight = 80 // 800 / 7 (squaresCountY)
 
   const opt = {
     offset: 0,
     offset2: 0,
-  };
+  }
 
   image.onload = () => {
     drawImage = () => {
@@ -38,10 +37,10 @@ const sketch = () => (initialProps) => {
             (squareHeight + opt.offset) * y,
             squareWidth,
             squareHeight
-          );
+          )
         }
       }
-    };
+    }
     gsap.to(opt, {
       duration: 1,
       delay: 0.7,
@@ -50,39 +49,43 @@ const sketch = () => (initialProps) => {
       repeatDelay: 0.5,
       yoyo: true,
       ease: 'none',
-    });
-  };
+    })
+  }
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
+    ;({ width, height } = updatedProps)
 
-    context.fillStyle = 'black';
-    context.fillRect(0, 0, width, height);
+    context.fillStyle = 'black'
+    context.fillRect(0, 0, width, height)
 
     // background
     for (let i = width / 80; i < width / 40; i++) {
-      context.beginPath();
-      context.moveTo(i * 40, 0);
-      context.lineTo(0, i * 40);
-      context.strokeStyle = 'white';
-      context.stroke();
-      context.closePath();
+      context.beginPath()
+      context.moveTo(i * 40, 0)
+      context.lineTo(0, i * 40)
+      context.strokeStyle = 'white'
+      context.stroke()
+      context.closePath()
     }
 
     context.translate(
-      width / 2 - (squaresCountX * squareWidth) / 2 - (squaresCountX * opt.offset) / 2,
-      height / 2 - (squaresCountY * squareHeight) / 2 - (squaresCountY * opt.offset) / 2
-    );
+      width / 2 -
+        (squaresCountX * squareWidth) / 2 -
+        (squaresCountX * opt.offset) / 2,
+      height / 2 -
+        (squaresCountY * squareHeight) / 2 -
+        (squaresCountY * opt.offset) / 2
+    )
 
     if (drawImage) {
-      drawImage();
+      drawImage()
     }
-  };
-};
-
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
-  return '';
+  }
 }
 
-export default Canvas;
+function Canvas({ gui }) {
+  useCanvas({ sketch: () => sketch({ gui }) })
+  return ''
+}
+
+export default Canvas
