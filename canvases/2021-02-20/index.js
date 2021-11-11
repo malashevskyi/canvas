@@ -1,49 +1,49 @@
-import gsap from 'gsap';
-import { useEffect } from 'react';
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
-import useCanvas from '../../hooks/useCanvas';
-import Particle from './Particle';
+import useCanvas from '../../hooks/useCanvas'
+import Particle from './Particle'
 
-const particles = [];
-const particlesTo = [];
-const tls = [];
+const particles = []
+const particlesTo = []
+const tls = []
 const mouse = {
   x: 0,
   y: 0,
   radius: 0,
-};
+}
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
   const square = {
     width: 50,
     height: 50,
-  };
+  }
 
   function addParticle(x, y) {
-    const theta = Math.atan2(square.height / 2 - y, square.width / 2 - x);
-    const offset = (square.width * 7) / 2;
-    const radius = 300;
+    const theta = Math.atan2(square.height / 2 - y, square.width / 2 - x)
+    const offset = (square.width * 7) / 2
+    const radius = 300
     const conf = {
       // left top
       x: -radius,
       y: -radius,
-    };
+    }
 
     if (theta >= Math.PI / 2 && theta <= Math.PI) {
       // right top
-      conf.x = radius;
-      conf.y = -radius;
+      conf.x = radius
+      conf.y = -radius
     } else if (theta <= 0 && theta >= -Math.PI / 2) {
       // left bottom
-      conf.x = -radius;
-      conf.y = radius;
+      conf.x = -radius
+      conf.y = radius
     } else if (theta < -Math.PI / 2 && theta >= -Math.PI) {
       // right bottom
-      conf.x = radius;
-      conf.y = radius;
+      conf.x = radius
+      conf.y = radius
     }
 
     particles.push(
@@ -51,7 +51,7 @@ const sketch = () => (initialProps) => {
         context,
         ...conf,
       })
-    );
+    )
 
     particlesTo.push(
       new Particle({
@@ -59,7 +59,7 @@ const sketch = () => (initialProps) => {
         x: x * 7 - offset,
         y: y * 7 - offset,
       })
-    );
+    )
   }
 
   function animateParticles() {
@@ -74,8 +74,8 @@ const sketch = () => (initialProps) => {
           repeat: -1,
           repeatDelay: 1.5,
         })
-      );
-    });
+      )
+    })
   }
 
   function animateRadius() {
@@ -88,58 +88,58 @@ const sketch = () => (initialProps) => {
         ease: 'power4.in',
         repeat: -1,
       })
-    );
+    )
   }
 
   function getParticles() {
     // reset particles
-    particles.length = 0;
+    particles.length = 0
 
-    const i = 0;
     for (let y = 0; y < square.height; y++) {
       for (let x = 0; x < square.width; x++) {
-        addParticle(x, y, i);
+        addParticle(x, y)
       }
     }
   }
 
   if (particles.length === 0) {
-    getParticles();
-    animateParticles();
-    animateRadius();
+    getParticles()
+    animateParticles()
+    animateRadius()
   }
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
+    ;({ width, height } = updatedProps)
 
-    context.fillStyle = 'rgba(10, 10, 10, 0.3)';
-    context.fillRect(0, 0, width, height);
+    context.fillStyle = 'rgba(10, 10, 10, 0.3)'
+    context.fillRect(0, 0, width, height)
 
-    context.save();
-    context.translate(width / 2, height / 2);
+    context.save()
+    context.translate(width / 2, height / 2)
     particles.forEach((particle) => {
-      particle.draw();
-      particle.update(mouse);
-    });
-  };
-};
+      particle.draw()
+      particle.update(mouse)
+    })
+    context.restore()
+  }
+}
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  });
+        tl.pause()
+      })
+    }
+  })
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas
