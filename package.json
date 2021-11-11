@@ -16,17 +16,17 @@
   "dependencies": {
     "canvas-sketch": "^0.7.4",
     "canvas-sketch-util": "^1.10.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "dat.gui": "^0.7.7",
-    "framer-motion": "^3.7.0",
-    "gsap": "^3.6.0",
-    "next": "10.0.7",
-    "next-images": "^1.7.0",
+    "framer-motion": "^5.3.0",
+    "gsap": "^3.8.0",
+    "next": "12.0.3",
+    "next-images": "^1.8.2",
     "nice-color-palettes": "^3.0.0",
-    "node-sass": "^5.0.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-notifications-component": "^3.0.3",
+    "node-sass": "^6.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-notifications-component": "^3.1.0",
     "react-virtualized": "^9.22.3"
   },
   "keywords": [
@@ -34,19 +34,16 @@
     "animations",
     "gsap",
     "webgl",
-    "three.js",
-    "glsl",
-    "d3",
-    "svg"
+    "glsl"
   ],
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.21.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }
