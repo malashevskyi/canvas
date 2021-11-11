@@ -1,93 +1,93 @@
-import React, { useEffect, useCallback, useState, useContext } from 'react';
-import classNames from 'classnames';
-import Image from 'next/image';
+import React, { useEffect, useCallback, useState, useContext } from 'react'
+import classNames from 'classnames'
+import Image from 'next/image'
 
-import postsData from '../data/postsData';
-import useMousePosition from '../hooks/useMousePosition';
-import { MenuIsOpenContext } from '../context/menuIsOpenContext';
+import postsData from '../data/postsData'
+import useMousePosition from '../hooks/useMousePosition'
+import { MenuIsOpenContext } from '../context/menuIsOpenContext'
 
-const tags = [];
-const postsDataKeys = Object.keys(postsData);
+const tags = []
+const postsDataKeys = Object.keys(postsData)
 
 function addPostTags(postTags) {
   for (let i = 0; i < postTags.length; i++) {
-    if (tags.indexOf(postTags[i]) === -1) tags.push(postTags[i]);
+    if (tags.indexOf(postTags[i]) === -1) tags.push(postTags[i])
   }
 }
 function addTags() {
   for (let i = 0; i < postsDataKeys.length; i++) {
-    const postTags = postsData[postsDataKeys[i]].tags;
+    const postTags = postsData[postsDataKeys[i]].tags
 
-    addPostTags(postTags);
+    addPostTags(postTags)
   }
 }
-addTags();
+addTags()
 
 const Search = React.memo(({ onEnteredFilter }) => {
-  const [enteredFilter, setEnteredFilter] = useState('');
-  const [isFocus, setIsFocus] = useState(false);
+  const [enteredFilter, setEnteredFilter] = useState('')
+  const [isFocus, setIsFocus] = useState(false)
 
-  const [isOpen] = useContext(MenuIsOpenContext);
+  const [isOpen] = useContext(MenuIsOpenContext)
 
-  const position = useMousePosition();
+  const position = useMousePosition()
 
   const getElementClick = useCallback(
     () => document.elementFromPoint(position.x, position.y),
     [position]
-  );
+  )
   const hideTags = useCallback(
     (e) => {
-      const closest = getElementClick().closest('.tags');
+      const closest = getElementClick().closest('.tags')
 
       if (closest === null) {
-        setIsFocus(false);
+        setIsFocus(false)
       }
     },
     [getElementClick]
-  );
+  )
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (enteredFilter.length !== 0) {
-        onEnteredFilter(enteredFilter.toLowerCase());
+        onEnteredFilter(enteredFilter.toLowerCase())
       } else {
-        onEnteredFilter('');
+        onEnteredFilter('')
       }
-    }, 200);
+    }, 200)
 
     // check if menu closed, close tags
-    if (!isOpen) hideTags();
+    if (!isOpen) hideTags()
 
     return () => {
-      clearTimeout(timer);
-    };
-  }, [enteredFilter, onEnteredFilter, hideTags, isOpen]);
+      clearTimeout(timer)
+    }
+  }, [enteredFilter, onEnteredFilter, hideTags, isOpen])
 
   function onInputChangeHandler(e) {
-    setEnteredFilter(e.target.value.trim());
+    setEnteredFilter(e.target.value.trim())
     if (enteredFilter === '') {
-      setIsFocus(true);
+      setIsFocus(true)
     }
   }
 
   function onTagClickHandler(e) {
-    e.stopPropagation();
-    document.querySelector('.navbar-search input').focus();
+    e.stopPropagation()
+    document.querySelector('.navbar-search input').focus()
 
     if (e.target.classList.contains('tags')) {
-      setEnteredFilter('');
-      return;
+      setEnteredFilter('')
+      return
     }
-    setEnteredFilter(e.target.textContent);
+    setEnteredFilter(e.target.textContent)
   }
 
   function onFocusHandler() {
-    setIsFocus(true);
+    setIsFocus(true)
   }
 
   function clearInput() {
-    setEnteredFilter('');
-    document.querySelector('.navbar-search input').focus();
+    setEnteredFilter('')
+    document.querySelector('.navbar-search input').focus()
   }
 
   return (
@@ -137,7 +137,7 @@ const Search = React.memo(({ onEnteredFilter }) => {
         ))}
       </div>
     </>
-  );
-});
+  )
+})
 
-export default Search;
+export default Search
