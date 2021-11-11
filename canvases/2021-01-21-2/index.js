@@ -1,24 +1,24 @@
-import random from 'canvas-sketch-util/random';
-import gsap from 'gsap';
-import { useEffect } from 'react';
+import random from 'canvas-sketch-util/random'
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
-import Triangle from './Triangle';
-import trianglesPoints from './trianglesPoints';
-import useCanvas from '../../hooks/useCanvas';
+import Triangle from './Triangle'
+import trianglesPoints from './trianglesPoints'
+import useCanvas from '../../hooks/useCanvas'
 
-const triangles = [];
-const tls = [];
+const triangles = []
+const tls = []
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
   function getTriangles() {
-    const angle = (Math.PI * 2) / trianglesPoints.length;
-    const radius = Math.sqrt(width * width + height * height) / 2;
+    const angle = (Math.PI * 2) / trianglesPoints.length
+    const radius = Math.sqrt(width * width + height * height) / 2
     trianglesPoints.forEach((array, i) => {
-      const radiusM = radius + radius * 0.2 * Math.random();
-      const a = 70;
+      const radiusM = radius + radius * 0.2 * Math.random()
+      const a = 70
 
       triangles.push(
         new Triangle({
@@ -34,8 +34,8 @@ const sketch = () => (initialProps) => {
           sin: Math.sin(angle * (i + a)) * radiusM,
           cos: Math.cos(angle * (i + a)) * radiusM,
         })
-      );
-    });
+      )
+    })
   }
 
   function animateParticles() {
@@ -55,48 +55,47 @@ const sketch = () => (initialProps) => {
           yoyo: true,
           ease: 'power2.in',
         })
-      );
-    });
-  }
-  
-  if (triangles.length === 0) {
-    getTriangles();
-    animateParticles();
+      )
+    })
   }
 
+  if (triangles.length === 0) {
+    getTriangles()
+    animateParticles()
+  }
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
-    context.clearRect(0, 0, width, height);
+    ;({ width, height } = updatedProps)
+    context.clearRect(0, 0, width, height)
 
-    context.save();
-    context.translate(width / 2 - 283, height / 2 - 274);
+    context.save()
+    context.translate(width / 2 - 283, height / 2 - 274)
 
     triangles.forEach((triangle) => {
-      triangle.draw();
-    });
+      triangle.draw()
+    })
 
-    context.fill();
-    context.restore();
-  };
-};
+    context.fill()
+    context.restore()
+  }
+}
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  });
+        tl.pause()
+      })
+    }
+  })
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas

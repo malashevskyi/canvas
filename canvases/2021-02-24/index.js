@@ -1,30 +1,30 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
+import { useEffect } from 'react'
+import gsap from 'gsap'
 
-import useCanvas from '../../hooks/useCanvas';
-import useNotification from '../../hooks/useNotification';
-import Particle from './Particle';
+import useCanvas from '../../hooks/useCanvas'
+import useNotification from '../../hooks/useNotification'
+import Particle from './Particle'
 
-const tls = [];
+const tls = []
 
 const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps;
-  let { height, width } = initialProps;
+  const { context, canvas } = initialProps
+  let { height, width } = initialProps
 
-  const particles = [];
-  const coordsCount = 200;
-  const angle = (Math.PI * 2) / coordsCount;
-  const circlesRadius = 100;
+  const particles = []
+  const coordsCount = 200
+  const angle = (Math.PI * 2) / coordsCount
+  const circlesRadius = 100
 
   const mouse = {
     x: width / 2,
     y: height / 2,
-  };
+  }
 
   canvas.addEventListener('mousemove', (event) => {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-  });
+    mouse.x = event.clientX
+    mouse.y = event.clientY
+  })
 
   function getParticles() {
     for (let i = 0; i < 40; i++) {
@@ -37,9 +37,9 @@ const sketch = () => (initialProps) => {
         circlesRadius,
         mouseStart: mouse,
         index: i,
-      });
+      })
 
-      particles.push(newParticle);
+      particles.push(newParticle)
 
       tls.push(
         gsap.to(newParticle, {
@@ -50,42 +50,42 @@ const sketch = () => (initialProps) => {
           delay: Math.random() * 3,
           ease: 'power2.inOut',
         })
-      );
+      )
     }
   }
-  getParticles();
+  getParticles()
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
+    ;({ width, height } = updatedProps)
 
-    context.fillStyle = 'rgba(10, 10, 10, 1)';
-    context.fillRect(0, 0, width, height);
+    context.fillStyle = 'rgba(10, 10, 10, 1)'
+    context.fillRect(0, 0, width, height)
 
     particles.forEach((particle) => {
-      particle.update(mouse);
-    });
-  };
-};
+      particle.update(mouse)
+    })
+  }
+}
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
   useNotification({
     message: 'Move mouse to interact with particles',
-  });
+  })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  }, []);
+        tl.pause()
+      })
+    }
+  }, [])
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas

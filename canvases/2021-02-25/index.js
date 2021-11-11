@@ -77,8 +77,8 @@ const sketch = () => (initialProps) => {
   }
 }
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) })
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
     tls.forEach((tl) => {

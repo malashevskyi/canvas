@@ -1,43 +1,43 @@
-import random from 'canvas-sketch-util/random';
-import palettes from 'nice-color-palettes';
+import random from 'canvas-sketch-util/random'
+import palettes from 'nice-color-palettes'
 
-import useCanvas from '../../hooks/useCanvas';
-import useNotification from '../../hooks/useNotification';
-import Particle from './Particle';
+import useCanvas from '../../hooks/useCanvas'
+import useNotification from '../../hooks/useNotification'
+import Particle from './Particle'
 
-const particles = [];
+const particles = []
 
 const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps;
-  let { height, width } = initialProps;
+  const { context, canvas } = initialProps
+  let { height, width } = initialProps
 
-  const mouse = { x: null, y: null };
-  const count = 150;
-  let canvasRectAlpha = 1;
-  let intervalAlpha;
+  const mouse = { x: null, y: null }
+  const count = 150
+  let canvasRectAlpha = 1
+  let intervalAlpha
 
   function addParticles(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.x = e.clientX
+    mouse.y = e.clientY
 
-    clearInterval(intervalAlpha);
-    let startClearRect = 0;
-    canvasRectAlpha = 0.1;
+    clearInterval(intervalAlpha)
+    let startClearRect = 0
+    canvasRectAlpha = 0.1
 
     intervalAlpha = setInterval(() => {
-      startClearRect += 1;
+      startClearRect += 1
       if (startClearRect > 200) {
-        canvasRectAlpha += 0.004;
+        canvasRectAlpha += 0.004
       }
       if (canvasRectAlpha >= 1) {
-        clearInterval(intervalAlpha);
+        clearInterval(intervalAlpha)
       }
-    });
+    })
 
-    const power = 30;
-    const angleIncrement = (Math.PI * 2) / count;
+    const power = 30
+    const angleIncrement = (Math.PI * 2) / count
 
-    const palette = random.pick(palettes).slice(0, 3);
+    const palette = random.pick(palettes).slice(0, 3)
 
     function addParticle(i) {
       particles.push(
@@ -52,39 +52,39 @@ const sketch = () => (initialProps) => {
             y: Math.sin(angleIncrement * i) * Math.random() * power,
           },
         })
-      );
+      )
     }
 
     for (let i = 0; i < count; i++) {
-      addParticle(i);
+      addParticle(i)
     }
   }
 
-  canvas.onclick = addParticles;
+  canvas.onclick = addParticles
 
   return (updatedProps) => {
-    ({ height, width } = updatedProps);
+    ;({ height, width } = updatedProps)
 
-    context.fillStyle = `rgba(10, 10, 10, ${canvasRectAlpha})`;
-    context.fillRect(0, 0, width, height);
+    context.fillStyle = `rgba(10, 10, 10, ${canvasRectAlpha})`
+    context.fillRect(0, 0, width, height)
 
     particles.forEach((particle, i) => {
       if (particle.alpha > 0) {
-        particle.render();
+        particle.render()
       } else {
-        particles.splice(i, 1);
+        particles.splice(i, 1)
       }
-    });
-  };
-};
-
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
-  useNotification({
-    message: 'Click to see an animation',
-  });
-
-  return '';
+    })
+  }
 }
 
-export default Canvas;
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
+  useNotification({
+    message: 'Click to see an animation',
+  })
+
+  return ''
+}
+
+export default Canvas

@@ -1,21 +1,21 @@
-import gsap from 'gsap';
-import { useEffect } from 'react';
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
-import useCanvas from '../../hooks/useCanvas';
+import useCanvas from '../../hooks/useCanvas'
 
-const tls = [];
+const tls = []
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
-  const particles = [];
+  const particles = []
 
   const mouse = {
     x: -width,
     y: -width,
     radius: width,
-  };
+  }
 
   function setTween() {
     tls.push(
@@ -27,104 +27,104 @@ const sketch = () => (initialProps) => {
         ease: 'power1.out',
         repeat: -1,
       })
-    );
+    )
   }
-  setTween();
+  setTween()
 
   class Particle {
     constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.radius = 1;
-      this.baseX = this.x;
-      this.baseY = this.y;
-      this.density = Math.random() * 40 + 5;
-      this.colorTick = 0;
-      this.colorTickC = 1;
-      this.color = 'hsl(360, 50%, 50%)';
+      this.x = x
+      this.y = y
+      this.radius = 1
+      this.baseX = this.x
+      this.baseY = this.y
+      this.density = Math.random() * 40 + 5
+      this.colorTick = 0
+      this.colorTickC = 1
+      this.color = 'hsl(360, 50%, 50%)'
     }
 
     draw() {
-      context.fillStyle = this.color;
-      context.beginPath();
-      context.rect(this.x, this.y, 19, 19);
-      context.closePath();
-      context.fill();
+      context.fillStyle = this.color
+      context.beginPath()
+      context.rect(this.x, this.y, 19, 19)
+      context.closePath()
+      context.fill()
     }
 
     update() {
-      this.colorTick += this.colorTickC;
+      this.colorTick += this.colorTickC
       if (this.colorTickC > 100 || this.colorTickC === 0) {
-        this.colorTickC = -this.colorTickC;
+        this.colorTickC = -this.colorTickC
       }
 
-      const dx = mouse.x - this.x;
-      const dy = mouse.y - this.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      const dx = mouse.x - this.x
+      const dy = mouse.y - this.y
+      const distance = Math.sqrt(dx * dx + dy * dy)
 
       if (distance < mouse.radius) {
-        this.x += (dx / distance) * 1.5;
-        this.y += (dy / distance) * 1.5;
+        this.x += (dx / distance) * 1.5
+        this.y += (dy / distance) * 1.5
       } else {
         if (this.x !== this.baseX) {
-          this.x -= (this.x - this.baseX) / 12;
+          this.x -= (this.x - this.baseX) / 12
         }
         if (this.y !== this.baseY) {
-          this.y -= (this.y - this.baseY) / 12;
+          this.y -= (this.y - this.baseY) / 12
         }
       }
-      this.draw();
+      this.draw()
     }
   }
 
   function init() {
-    particles.length = 0;
+    particles.length = 0
 
     for (let x = 0; x < Math.ceil(width / 20); x++) {
       for (let y = 0; y < Math.ceil(height / 20); y++) {
-        particles.push(new Particle(x * 20, y * 20));
+        particles.push(new Particle(x * 20, y * 20))
       }
     }
   }
-  init();
+  init()
 
   return {
     render(updatedProps) {
-      ({ width, height } = updatedProps);
+      ;({ width, height } = updatedProps)
 
-      context.fillStyle = 'black';
-      context.fillRect(0, 0, width, height);
+      context.fillStyle = 'black'
+      context.fillRect(0, 0, width, height)
 
       particles.forEach((particle) => {
-        particle.update();
-      });
+        particle.update()
+      })
     },
     resize(updatedProps) {
-      ({ width, height } = updatedProps);
-      mouse.x = -width;
-      mouse.y = -width;
-      init();
-      setTween();
+      ;({ width, height } = updatedProps)
+      mouse.x = -width
+      mouse.y = -width
+      init()
+      setTween()
     },
-  };
-};
+  }
+}
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  });
+        tl.pause()
+      })
+    }
+  })
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas

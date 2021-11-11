@@ -1,20 +1,20 @@
-import useCanvas from '../../hooks/useCanvas';
-import Circle from './Circle';
+import useCanvas from '../../hooks/useCanvas'
+import Circle from './Circle'
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width, time } = initialProps;
+  const { context } = initialProps
+  let { height, width, time } = initialProps
 
-  let startAngle = 0;
-  let widthHalf, heightHalf;
+  let startAngle = 0
+  let widthHalf, heightHalf
 
   const opt = {
     count: 15,
     offset: 30,
     radius: 200,
     waveOffset: 100,
-  };
-  const circles = [];
+  }
+  const circles = []
 
   function getCircles() {
     for (let i = opt.count; i > 0; i--) {
@@ -24,33 +24,33 @@ const sketch = () => (initialProps) => {
           radius: opt.radius + opt.offset * i,
           offsetAngle: (i * opt.waveOffset * Math.PI) / 180,
         })
-      );
+      )
     }
   }
-  getCircles();
+  getCircles()
 
   return {
     render(updatedProps) {
-      ({ width, height, time } = updatedProps);
+      ;({ width, height, time } = updatedProps)
 
-      widthHalf = width / 2;
-      heightHalf = height / 2;
+      widthHalf = width / 2
+      heightHalf = height / 2
 
-      startAngle += 1;
+      startAngle += 1
 
-      context.clearRect(0, 0, width, height);
+      context.clearRect(0, 0, width, height)
 
       for (let i = 0; i < circles.length; i++) {
-        circles[i].color = `hsl(${i * 5 + time * 10 + 110}, 50%, 50%)`;
-        circles[i].draw(widthHalf, heightHalf, startAngle);
+        circles[i].color = `hsl(${i * 5 + time * 10 + 110}, 50%, 50%)`
+        circles[i].draw(widthHalf, heightHalf, startAngle)
       }
     },
-  };
-};
-
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
-  return '';
+  }
 }
 
-export default Canvas;
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
+  return ''
+}
+
+export default Canvas

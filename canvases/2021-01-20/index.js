@@ -1,56 +1,56 @@
-import points from './points';
-import connectDots from './connectDots';
-import Dot from './Dot';
-import useCanvas from '../../hooks/useCanvas';
+import points from './points'
+import connectDots from './connectDots'
+import Dot from './Dot'
+import useCanvas from '../../hooks/useCanvas'
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
-  const dots = [];
+  const dots = []
 
   function getDots() {
     points.forEach((point) => {
-      dots.push(new Dot(context, point[0], point[1]));
-    });
+      dots.push(new Dot(context, point[0], point[1]))
+    })
   }
 
   function clearCanvas() {
-    context.clearRect(0, 0, width, height);
-    context.fillStyle = 'rgba(255, 255, 255, 1)';
-    context.fillRect(0, 0, width, height);
+    context.clearRect(0, 0, width, height)
+    context.fillStyle = 'rgba(255, 255, 255, 1)'
+    context.fillRect(0, 0, width, height)
   }
 
   function getHeart() {
-    context.save();
-    context.beginPath();
-    connectDots(context, dots);
-    context.fillStyle = 'rgba(255, 0, 0, 1)';
-    context.fill();
-    context.restore();
+    context.save()
+    context.beginPath()
+    connectDots(context, dots)
+    context.fillStyle = 'rgba(255, 0, 0, 1)'
+    context.fill()
+    context.restore()
   }
 
-  getDots();
+  getDots()
 
   return (updatedProps) => {
-    ({ height, width } = updatedProps);
+    ;({ height, width } = updatedProps)
 
-    clearCanvas();
+    clearCanvas()
 
-    context.translate(width / 2, height / 2);
+    context.translate(width / 2, height / 2)
 
-    getHeart();
+    getHeart()
 
     dots.forEach((dot) => {
-      dot.update();
+      dot.update()
       // dot.draw();
-    });
-  };
-};
-
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
-  return '';
+    })
+  }
 }
 
-export default Canvas;
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
+  return ''
+}
+
+export default Canvas

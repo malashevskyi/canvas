@@ -1,87 +1,79 @@
-import random from 'canvas-sketch-util/random';
-import { linspace } from 'canvas-sketch-util/math';
-import palettes from 'nice-color-palettes';
+import random from 'canvas-sketch-util/random'
+import { linspace } from 'canvas-sketch-util/math'
+import palettes from 'nice-color-palettes'
 
-import useCanvas from '../../hooks/useCanvas';
+import useCanvas from '../../hooks/useCanvas'
 
-random.setSeed('749302');
-const palette = random.pick(palettes);
+random.setSeed('749302')
+const palette = random.pick(palettes)
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { height, width } = initialProps;
+  const { context } = initialProps
+  let { height, width } = initialProps
 
   function throttleTimeout(count, delay) {
-    let isThrottled = false;
-    let tick = 0;
+    let isThrottled = false
+    let tick = 0
     return () => {
-      if (isThrottled) return true;
-      tick += 1;
+      if (isThrottled) return true
+      tick += 1
 
       if (tick > count * delay) {
-        isThrottled = true;
+        isThrottled = true
 
         setTimeout(() => {
-          isThrottled = false;
-          tick = 0;
-        }, count * delay * 16);
+          isThrottled = false
+          tick = 0
+        }, count * delay * 16)
       }
-      return isThrottled;
-    };
+      return isThrottled
+    }
   }
 
-  const rects = [];
-  let countX;
-  let countY;
+  const rects = []
+  let countX
+  let countY
 
   class Particle {
     constructor({ x, y }) {
-      this.x = x;
-      this.y = y;
-      this.color = random.pick(palette);
-      this.delay = Math.random() * 100;
-      this.alphaMarker = false;
-      this.alpha = 1;
-      this.throttleTimeout = throttleTimeout(
-        10,
-        this.delay
-      );
+      this.x = x
+      this.y = y
+      this.color = random.pick(palette)
+      this.delay = Math.random() * 100
+      this.alphaMarker = false
+      this.alpha = 1
+      this.throttleTimeout = throttleTimeout(10, this.delay)
     }
 
     draw() {
-      const throttle = this.throttleTimeout();
+      const throttle = this.throttleTimeout()
 
       if (throttle && this.alpha <= 1) {
-        this.alpha += 0.03;
+        this.alpha += 0.03
       } else if (this.alpha > 0.5) {
-        this.alpha -= 0.03;
+        this.alpha -= 0.03
       }
 
-      context.save();
-      context.beginPath();
-      context.rect(
-        this.x,
-        this.y,
-        width / countX,
-        height / countY
-      );
-      context.globalAlpha = this.alpha;
-      context.fillStyle = this.color;
-      context.fill();
-      context.restore();
+      context.save()
+      context.beginPath()
+      context.rect(this.x, this.y, width / countX, height / countY)
+      context.globalAlpha = this.alpha
+      context.fillStyle = this.color
+      context.fill()
+      context.restore()
     }
-    
+
     animate() {
-      this.draw();
+      this.draw()
     }
   }
 
   const createGrid = () => {
-    countX = Math.floor(width / 40);
-    countY = Math.floor(height / 40);
+    countX = Math.floor(width / 40)
+    countY = Math.floor(height / 40)
 
-    const u = linspace(countX);
-    const v = linspace(countY);
+    const u = linspace(countX)
+    const v = linspace(countY)
 
     for (let x = 0; x < countX; x++) {
       for (let y = 0; y < countY; y++) {
@@ -92,35 +84,35 @@ const sketch = () => (initialProps) => {
             x: width * u[x],
             y: height * v[y],
           })
-        );
+        )
       }
     }
-  };
+  }
 
-  createGrid();
+  createGrid()
 
   return {
     render(updatedProps) {
-      ({ width, height } = updatedProps);
+      ;({ width, height } = updatedProps)
 
-      context.fillRect(0, 0, width, height);
+      context.fillRect(0, 0, width, height)
 
       rects.forEach((particle) => {
-        particle.animate();
-      });
+        particle.animate()
+      })
     },
 
     resize(updatedProps) {
-      ({ width, height } = updatedProps);
-      rects.length = 0;
-      createGrid();
+      ;({ width, height } = updatedProps)
+      rects.length = 0
+      createGrid()
     },
-  };
-};
-
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
-  return '';
+  }
 }
 
-export default Canvas;
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
+  return ''
+}
+
+export default Canvas

@@ -1,17 +1,17 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
+import { useEffect } from 'react'
+import gsap from 'gsap'
 
-import useCanvas from '../../hooks/useCanvas';
+import useCanvas from '../../hooks/useCanvas'
 
-const tls = [];
+const tls = []
 
 const sketch = () => (initialProps) => {
-  const { context } = initialProps;
-  let { width, height } = initialProps;
+  const { context } = initialProps
+  let { width, height } = initialProps
 
-  const ys = Array(8).fill(0);
-  const alpha = Array(8).fill(0);
-  let tick = 0;
+  const ys = Array(8).fill(0)
+  const alpha = Array(8).fill(0)
+  let tick = 0
 
   // move from bottom and top to center
   ys.forEach((_, i) => {
@@ -22,8 +22,8 @@ const sketch = () => (initialProps) => {
         [i]: i % 2 === 0 ? -height / 2 : height / 2,
         ease: 'power3.out',
       })
-    );
-  });
+    )
+  })
   // animate opacity
   alpha.forEach((_, i) => {
     tls.push(
@@ -33,8 +33,8 @@ const sketch = () => (initialProps) => {
         [i]: 1,
         ease: 'power3.out',
       })
-    );
-  });
+    )
+  })
 
   const paths = [
     /* C */ new Path2D(
@@ -49,63 +49,59 @@ const sketch = () => (initialProps) => {
     /* A */ new Path2D(
       'M65.6,68.9H26.3l-5.4,12.7H0L34.9,0h22l35,81.6h-21L65.6,68.9z M58.8,52.8L46.1,22.3l-13,30.5H58.8z'
     ),
-    /* T */ new Path2D(
-      'M77.8,18.2H48.8v63.4H28.9V18.2H0V0h77.8V18.2z'
-    ),
+    /* T */ new Path2D('M77.8,18.2H48.8v63.4H28.9V18.2H0V0h77.8V18.2z'),
     /* I */ new Path2D('M19.7,81.6H0V0h19.7V81.6z'),
-    /* V */ new Path2D(
-      'M57.7,81.6H36.1L0,0h21.7L47,58.3L72.2,0H94L57.7,81.6z'
-    ),
+    /* V */ new Path2D('M57.7,81.6H36.1L0,0h21.7L47,58.3L72.2,0H94L57.7,81.6z'),
     /* E */ new Path2D(
       'M62.5,0v18.2H19.7v14h35.8v17H19.7v14h42.8v18.2H0V0H62.5z'
     ),
-  ];
-  const xPositions = [0, 62, 118, 146, 201, 259, 257, 315];
+  ]
+  const xPositions = [0, 62, 118, 146, 201, 259, 257, 315]
 
   function drawLetter(i) {
-    context.save();
-    context.globalAlpha = alpha[i];
-    context.fillStyle = `hsl(${tick + 10 * i}, 50%, 50%)`;
-    context.translate(xPositions[i], ys[i]);
-    context.fill(paths[i]);
-    context.restore();
+    context.save()
+    context.globalAlpha = alpha[i]
+    context.fillStyle = `hsl(${tick + 10 * i}, 50%, 50%)`
+    context.translate(xPositions[i], ys[i])
+    context.fill(paths[i])
+    context.restore()
   }
 
   return (updatedProps) => {
-    ({ width, height } = updatedProps);
+    ;({ width, height } = updatedProps)
 
-    tick += 1;
+    tick += 1
 
-    context.clearRect(0, 0, width, height);
-    context.translate(width / 2 - 420, height / 2 - 100);
+    context.clearRect(0, 0, width, height)
+    context.translate(width / 2 - 420, height / 2 - 100)
 
-    context.scale(2, 2);
+    context.scale(2, 2)
 
-    context.beginPath();
-    context.globalCompositeOperation = 'multiply';
+    context.beginPath()
+    context.globalCompositeOperation = 'multiply'
 
-    xPositions.forEach((e, i) => drawLetter(i));
+    xPositions.forEach((e, i) => drawLetter(i))
 
-    context.closePath();
-  };
-};
+    context.closePath()
+  }
+}
 
-function Canvas({ gui }) {
-  useCanvas({ sketch: () => sketch({ gui }) });
+function Canvas() {
+  useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
     tls.forEach((tl) => {
-      tl.restart(true, false);
-    });
+      tl.restart(true, false)
+    })
 
     return () => {
       tls.forEach((tl) => {
-        tl.pause();
-      });
-    };
-  });
+        tl.pause()
+      })
+    }
+  })
 
-  return '';
+  return ''
 }
 
-export default Canvas;
+export default Canvas
