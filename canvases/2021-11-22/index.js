@@ -1,14 +1,11 @@
-import { useEffect } from 'react'
-
+import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
-import useCanvas from '../../hooks/useCanvas'
+import { useEffect } from 'react'
+import { clearCanvas } from '../../utiles'
 
 const tls = []
-let timeout
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { width, height } = initialProps
+const sketch = ({ context, width, height }) => {
   const radius = 350
   const count = 3
   const angle = (Math.PI * 2) / count
@@ -127,12 +124,25 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  let manager
 
   useEffect(() => {
-    clearTimeout(timeout)
+    const settings = {
+      canvas: document.getElementById('canvas'),
+      animate: true,
+    }
+
+    async function init() {
+      manager = await canvasSketch(sketch, settings)
+    }
+    init()
 
     return () => {
+      clearCanvas('2d')
+
+      // Unload previous canvas sketch
+      manager?.unload()
+
       // kill all gsap animations
       tls.forEach((tl) => {
         tl.kill()
