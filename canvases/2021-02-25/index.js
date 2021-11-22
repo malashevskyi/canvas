@@ -3,6 +3,7 @@ import gsap from 'gsap'
 
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
+import { resetCanvas } from '../../utiles'
 
 const tls = []
 
@@ -81,6 +82,7 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

@@ -1,6 +1,8 @@
 import { lerp } from 'canvas-sketch-util/math'
+import { useEffect } from 'react/cjs/react.development'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 import Point from './Point'
 
 const sketch = () => (initialProps) => {
@@ -113,6 +115,11 @@ function Canvas() {
   useCanvas({
     sketch: () => sketch(),
   })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

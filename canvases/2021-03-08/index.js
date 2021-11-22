@@ -5,6 +5,7 @@ import useCanvas from '../../hooks/useCanvas'
 import imageData from './imageData'
 import Particle from './Particle'
 import ParticleScale from './ParticleScale'
+import { resetCanvas } from '../../utiles'
 
 const tls = []
 const particles = []
@@ -213,6 +214,7 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
     clearTimeout(timeout)
 
     return () => {

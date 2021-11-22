@@ -1,6 +1,8 @@
 import random from 'canvas-sketch-util/random'
+import { useEffect } from 'react/cjs/react.development'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 
 random.setSeed(random.pick(['513468']))
 
@@ -93,6 +95,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

@@ -1,6 +1,7 @@
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
 import imageData from './imageData'
+import { resetCanvas } from '../../utiles'
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps
@@ -83,6 +84,7 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
+  resetCanvas()
   useCanvas({ sketch: () => sketch() })
   return ''
 }

@@ -1,4 +1,6 @@
+import { useEffect } from 'react/cjs/react.development'
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 import Square from './Square'
 
 const sketch = () => (initialProps) => {
@@ -48,6 +50,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

@@ -1,6 +1,8 @@
 import Circle from './Circle'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps
@@ -50,6 +52,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   useNotification({
     message: 'Move mouse to change position',
   })

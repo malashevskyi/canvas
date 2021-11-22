@@ -1,7 +1,9 @@
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
+import { useEffect } from 'react/cjs/react.development'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 import Particle from './Particle'
 
 const sketch = () => (initialProps) => {
@@ -97,6 +99,10 @@ function Canvas() {
   useCanvas({
     sketch: () => sketch(),
   })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
 
   return ''
 }

@@ -5,6 +5,7 @@ import Particle from './Particle'
 import imageData from './imageData'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
 
 const particles = []
 const particlesTo = []
@@ -128,6 +129,7 @@ function Canvas() {
   })
 
   useEffect(() => {
+    resetCanvas()
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

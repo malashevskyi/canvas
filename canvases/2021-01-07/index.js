@@ -3,6 +3,8 @@ import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 random.setSeed(14)
 const palette = random.pick(palettes)
@@ -111,6 +113,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

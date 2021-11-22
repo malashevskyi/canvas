@@ -4,6 +4,8 @@ import palettes from 'nice-color-palettes'
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps
@@ -66,6 +68,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   useNotification({
     message: 'Click to see an animation',
   })

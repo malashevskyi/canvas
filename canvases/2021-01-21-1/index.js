@@ -8,6 +8,7 @@ import Dot from './Dot'
 import Triangle from './Triangle'
 import connectDots from './connectDots'
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 
 const tls = []
 
@@ -123,6 +124,8 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
+
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

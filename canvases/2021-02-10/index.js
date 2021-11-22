@@ -3,6 +3,8 @@ import random from 'canvas-sketch-util/random'
 
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps
@@ -50,6 +52,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

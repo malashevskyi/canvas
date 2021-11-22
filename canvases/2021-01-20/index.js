@@ -2,6 +2,8 @@ import points from './points'
 import connectDots from './connectDots'
 import Dot from './Dot'
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps
@@ -50,6 +52,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

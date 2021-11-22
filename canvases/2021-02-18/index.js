@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
 import imageData from './imageData'
+import { resetCanvas } from '../../utiles'
 
 const particles = []
 const tls = []
@@ -98,6 +99,7 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

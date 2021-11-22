@@ -1,8 +1,10 @@
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
+import { useEffect } from 'react/cjs/react.development'
 
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
 import Particle from './Particle'
 
 const particles = []
@@ -80,6 +82,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   useNotification({
     message: 'Click to see an animation',
   })

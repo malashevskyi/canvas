@@ -1,4 +1,6 @@
+import { useEffect } from 'react/cjs/react.development'
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 import Particle from './Particle'
 
 const sketch = () => (initialProps) => {
@@ -126,6 +128,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

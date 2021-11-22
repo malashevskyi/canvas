@@ -1,38 +1,38 @@
-import { useEffect } from 'react';
-import '../styles/globals.sass';
-import ReactNotification from 'react-notifications-component';
-import { useRouter } from 'next/router';
+import { useEffect } from 'react'
+import '../styles/globals.sass'
+import ReactNotification from 'react-notifications-component'
+import { useRouter } from 'next/router'
 
-import LoadSpinnerProvider from '../context/loadSpinnerContext';
-import postsData from '../data/postsData';
+import LoadSpinnerProvider from '../context/loadSpinnerContext'
+import postsData from '../data/postsData'
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
+  const router = useRouter()
 
-  const { id } = router.query;
+  const { id } = router.query
   useEffect(() => {
-    const canvasContainer = document.querySelector('body > .container');
+    const canvasContainer = document.querySelector('body > .container')
 
     const hideCanvas = () => {
       canvasContainer.setAttribute(
         'style',
         'opacity: 0; width: 0; height: 0; z-index: -1;'
-      );
-    };
-    const showCanvas = () => {
-      canvasContainer.removeAttribute('style');
-    };
+      )
+    }
+    const resetCanvas = () => {
+      canvasContainer.removeAttribute('style')
+    }
 
     if (router.pathname === '/post/[id]') {
       // if the post is not found
-      if (!postsData[id]) hideCanvas();
+      if (!postsData[id]) hideCanvas()
       // if the post exists
-      if (postsData[id]) showCanvas();
+      if (postsData[id]) resetCanvas()
     } else {
       // hide canvas on all other urls
-      hideCanvas();
+      hideCanvas()
     }
-  });
+  })
 
   return (
     <LoadSpinnerProvider>
@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
       <ReactNotification />
     </LoadSpinnerProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

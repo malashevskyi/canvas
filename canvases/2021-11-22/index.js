@@ -1,7 +1,7 @@
 import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
 import { useEffect } from 'react'
-import { clearCanvas } from '../../utiles'
+import { resetCanvas } from '../../utiles'
 
 const tls = []
 
@@ -127,6 +127,7 @@ function Canvas() {
   let manager
 
   useEffect(() => {
+    resetCanvas()
     const settings = {
       canvas: document.getElementById('canvas'),
       animate: true,
@@ -138,8 +139,6 @@ function Canvas() {
     init()
 
     return () => {
-      clearCanvas('2d')
-
       // Unload previous canvas sketch
       manager?.unload()
 

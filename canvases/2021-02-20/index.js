@@ -2,6 +2,7 @@ import gsap from 'gsap'
 import { useEffect } from 'react'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 import Particle from './Particle'
 
 const particles = []
@@ -128,6 +129,7 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

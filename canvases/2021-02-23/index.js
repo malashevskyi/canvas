@@ -1,5 +1,7 @@
+import { useEffect } from 'react/cjs/react.development'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps
@@ -82,6 +84,10 @@ function Canvas() {
   useNotification({
     message: 'Hover button to scale and rotate',
   })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
 
   return ''
 }

@@ -3,6 +3,8 @@ import { linspace } from 'canvas-sketch-util/math'
 import palettes from 'nice-color-palettes'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 random.setSeed('749302')
 const palette = random.pick(palettes)
@@ -112,6 +114,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 

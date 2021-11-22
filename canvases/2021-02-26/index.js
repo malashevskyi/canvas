@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import gsap from 'gsap'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
 
 const tls = []
 
@@ -90,6 +91,7 @@ function Canvas() {
   useCanvas({ sketch: () => sketch() })
 
   useEffect(() => {
+    resetCanvas()
     tls.forEach((tl) => {
       tl.restart(true, false)
     })

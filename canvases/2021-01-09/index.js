@@ -3,6 +3,8 @@ import palettes from 'nice-color-palettes'
 
 import useNotification from '../../hooks/useNotification'
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context } = initialProps
@@ -108,6 +110,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   useNotification({
     message: 'Move mouse to rotate',
   })

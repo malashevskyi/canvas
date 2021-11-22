@@ -4,6 +4,8 @@ import palettes from 'nice-color-palettes'
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
 import useNotification from '../../hooks/useNotification'
+import { useEffect } from 'react/cjs/react.development'
+import { resetCanvas } from '../../utiles'
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps
@@ -60,6 +62,10 @@ function Canvas() {
   useNotification({
     message: 'Move mouse to change position',
   })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
 
   return ''
 }

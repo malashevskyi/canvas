@@ -70,6 +70,14 @@ function codepen(link) {
 }
 
 const postsData = {
+  '2021-11-23': {
+    number: 62,
+    tags: ['...'],
+    credits: () => '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-11-23',
+    codePen: '',
+  },
   '2021-11-22': {
     number: 61,
     tags: ['fractals', 'triangles'],

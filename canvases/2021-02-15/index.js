@@ -1,6 +1,8 @@
 import useCanvas from '../../hooks/useCanvas'
 import Particle from './Particle'
 import useNotification from '../../hooks/useNotification'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps
@@ -128,6 +130,10 @@ function Canvas() {
   useNotification({
     message: 'Move mouse to push particles',
   })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
 
   return ''
 }

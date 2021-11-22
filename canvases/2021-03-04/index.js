@@ -1,6 +1,8 @@
 import Gun from './Gun'
 import Circle from './Circle'
 import useCanvas from '../../hooks/useCanvas'
+import { useEffect } from 'react/cjs/react.development'
+import { resetCanvas } from '../../utiles'
 
 const sketch = () => (initialProps) => {
   const { context, canvas } = initialProps
@@ -96,6 +98,10 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
 
   return ''
 }

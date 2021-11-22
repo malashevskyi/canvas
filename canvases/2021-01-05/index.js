@@ -3,6 +3,8 @@ import random from 'canvas-sketch-util/random'
 import { lerp } from 'canvas-sketch-util/math'
 
 import useCanvas from '../../hooks/useCanvas'
+import { resetCanvas } from '../../utiles'
+import { useEffect } from 'react/cjs/react.development'
 
 function getAlphaMarker(count, delay) {
   let isThrottled = false
@@ -188,6 +190,11 @@ const sketch = () => (initialProps) => {
 
 function Canvas() {
   useCanvas({ sketch: () => sketch() })
+
+  useEffect(() => {
+    resetCanvas()
+  }, [])
+
   return ''
 }
 
