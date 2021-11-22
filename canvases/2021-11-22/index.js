@@ -49,8 +49,6 @@ const sketch = () => (initialProps) => {
     tls.push(tl)
   }
 
-  gsapAnimate()
-
   function drawTriangle(p0, p1, p2, color) {
     context.beginPath()
     context.moveTo(p0.x, p0.y)
@@ -104,6 +102,8 @@ const sketch = () => (initialProps) => {
       ;({ width, height } = updatedProps)
 
       context.clearRect(0, 0, width, height)
+
+      if (tick === 10) gsapAnimate()
 
       tick += 0.5
 
