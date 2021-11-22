@@ -9,7 +9,7 @@ function article(link) {
         .
       </div>
     </>
-  );
+  )
 }
 function photoUnsplash(name, link) {
   return (
@@ -27,7 +27,7 @@ function photoUnsplash(name, link) {
         </span>
       </div>
     </>
-  );
+  )
 }
 function video(link) {
   return (
@@ -40,7 +40,7 @@ function video(link) {
         .
       </div>
     </>
-  );
+  )
 }
 function codesandbox(link) {
   return (
@@ -53,7 +53,7 @@ function codesandbox(link) {
         .
       </div>
     </>
-  );
+  )
 }
 function codepen(link) {
   return (
@@ -66,10 +66,18 @@ function codepen(link) {
         .
       </div>
     </>
-  );
+  )
 }
 
 const postsData = {
+  '2021-11-22': {
+    number: 61,
+    tags: ['fractals', 'triangles'],
+    credits: () => video('https://www.youtube.com/watch?v=bIfNwgUVjV8&t=438s'),
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-11-22',
+    codePen: '',
+  },
   '2021-03-08': {
     number: 60,
     tags: ['logo', 'particles', 'create', 'firework'],
@@ -514,6 +522,6 @@ const postsData = {
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-01-02',
   },
-};
+}
 
-export default postsData;
+export default postsData
