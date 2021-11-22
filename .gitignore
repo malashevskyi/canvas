@@ -8,6 +8,7 @@ firebase-debug.log*
 firebase-debug.*.log*
 .next
 .vscode
+.DS_Store
 
 # Firebase cache
 .firebase/
