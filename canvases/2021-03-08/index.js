@@ -1,21 +1,17 @@
 import { useEffect } from 'react'
-
 import gsap from 'gsap'
-import useCanvas from '../../hooks/useCanvas'
 import imageData from './imageData'
 import Particle from './Particle'
 import ParticleScale from './ParticleScale'
 import { resetCanvas } from '../../utiles'
+import canvasSketch from 'canvas-sketch'
 
-const tls = []
 const particles = []
 let particles2 = []
 let timeout
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { width, height } = initialProps
-
+const sketch = ({ context, width, height }) => {
+  window.tls = []
   const offset = [0]
   let alpha = 0.2
   let tick = 0
@@ -57,10 +53,10 @@ const sketch = () => (initialProps) => {
 
   function restart() {
     // reset gsap particles animation
-    tls.forEach((tl) => {
+    window.tls.forEach((tl) => {
       tl.kill()
     })
-    tls.length = 0
+    window.tls.length = 0
     // reset top part of particles
     particles.length = 0
     // reset bottom part of particles
@@ -108,7 +104,7 @@ const sketch = () => (initialProps) => {
   function gsapAnimateParticles(p) {
     p.forEach((particle, i) => {
       const last = i === p.length / 2 - 2
-      tls.push(
+      window.tls.push(
         gsap.to(particle, {
           duration: 3.5,
           x: particle.xTo,
@@ -136,12 +132,13 @@ const sketch = () => (initialProps) => {
   return {
     render(updatedProps) {
       ;({ width, height } = updatedProps)
-      if (tls.length === 0) {
+
+      if (window.tls.length === 0) {
         gsapAnimateParticles(particles)
         gsapAnimateParticles(particles2)
       }
 
-      context.fillStyle = `rgba(10, 10, 10, ${alpha})`
+      context.fillStyle = `rgba(10, 10, 10, 1)`
       context.fillRect(0, 0, width, height)
 
       // center point
@@ -211,17 +208,37 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  // useCanvas({ sketch: () => sketch() })
+  let manager = {
+    unload: () => {},
+  }
 
   useEffect(() => {
     resetCanvas()
-    clearTimeout(timeout)
+    // const context = window.canvas.getContext('2d')
+    // context.clearRect(0, 0, window.innerWidth, window.innerHeight)
+    // context.globalAlpha = 1
+    const settings = {
+      canvas: document.getElementById('canvas'),
+      animate: true,
+    }
+
+    async function init() {
+      manager = await canvasSketch(sketch.bind('something'), settings)
+    }
+    init()
 
     return () => {
-      tls.forEach((tl) => {
+      console.log('killed')
+      particles.length = 0
+      window.tls.forEach((tl) => {
         tl.kill()
       })
-      tls.length = 0
+      window.tls.length = 0
+      manager.unload()
+      // console.log('manager', manager.unload)
+      // if (manager && typeof manager.upload === 'object') {
+      // }
     }
   })
 
