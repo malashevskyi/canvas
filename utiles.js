@@ -15,9 +15,10 @@ export const resetCanvas = (type) => {
 }
 
 export const destroyObjects = (manager) => {
-  // manager.unload()
+  manager.unload()
 
   window.timelines.forEach((timeline) => {
+    timeline.pause()
     timeline.kill()
   })
   setTimeout(() => {
