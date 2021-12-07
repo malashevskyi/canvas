@@ -1,9 +1,9 @@
 import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
 import { useEffect } from 'react'
-import { resetCanvas } from '../../utiles'
-
-const tls = []
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
 const sketch = ({ context, width, height }) => {
   const radius = 350
@@ -43,7 +43,7 @@ const sketch = ({ context, width, height }) => {
     tl.to(config, { b: 3, delay: 0.4, repeatDelay: 0.2, ...gsapConf })
     tl.to(config, { c: 3, delay: 0.6, repeatDelay: 0.2, ...gsapConf })
 
-    tls.push(tl)
+    window['timelines'].push(tl)
   }
 
   function drawTriangle(p0, p1, p2, color) {
@@ -98,7 +98,9 @@ const sketch = ({ context, width, height }) => {
     render(updatedProps) {
       ;({ width, height } = updatedProps)
 
-      context.clearRect(0, 0, width, height)
+      context.beginPath()
+      context.fillStyle = '#ffffff'
+      context.fillRect(0, 0, width, height)
 
       if (tick === 10) gsapAnimate()
 
@@ -124,31 +126,29 @@ const sketch = ({ context, width, height }) => {
 }
 
 function Canvas() {
-  let manager
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
     const settings = {
-      canvas: document.getElementById('canvas'),
+      canvas: state.canvas2D,
       animate: true,
     }
 
-    async function init() {
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
       manager = await canvasSketch(sketch, settings)
-    }
-    init()
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      // Unload previous canvas sketch
-      manager?.unload()
-
-      // kill all gsap animations
-      tls.forEach((tl) => {
-        tl.kill()
-      })
-      tls.length = 0
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }
