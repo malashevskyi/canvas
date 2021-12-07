@@ -1,10 +1,24 @@
-import { useEffect } from 'react'
-import '../styles/globals.sass'
-import ReactNotification from 'react-notifications-component'
 import { useRouter } from 'next/router'
-
+import { useEffect } from 'react'
+import ReactNotification from 'react-notifications-component'
+import { GlobalContextProvider } from '../context/globalContext'
 import LoadSpinnerProvider from '../context/loadSpinnerContext'
 import postsData from '../data/postsData'
+import '../styles/globals.sass'
+
+// const GlobalContext = createContext({})
+
+// export function GlobalContextProvider({ children }) {
+//   const [state, dispatch] = useState({
+//     something: 'something',
+//   })
+
+//   return (
+//     <GlobalContext.Provider value={[state, dispatch]}>
+//       {children}
+//     </GlobalContext.Provider>
+//   )
+// }
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -37,7 +51,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <LoadSpinnerProvider>
       {/* eslint-disable-next-line */}
-      <Component {...pageProps} />
+      <GlobalContextProvider>
+        <Component {...pageProps} />
+      </GlobalContextProvider>
       <ReactNotification />
     </LoadSpinnerProvider>
   )

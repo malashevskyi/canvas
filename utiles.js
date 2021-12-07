@@ -9,7 +9,18 @@ export const resetCanvas = (type) => {
     canvas.style.display = 'block'
     canvasGL.style.display = 'none'
     const context = canvas.getContext('2d')
-    context.clearRect(0, 0, window.innerWidth, window.innerHeight)
     context.globalAlpha = 1
+    context.clearRect(0, 0, window.innerWidth, window.innerHeight)
   }
+}
+
+export const destroyObjects = (manager) => {
+  // manager.unload()
+
+  window.timelines.forEach((timeline) => {
+    timeline.kill()
+  })
+  setTimeout(() => {
+    window.timelines.length = 0
+  })
 }
