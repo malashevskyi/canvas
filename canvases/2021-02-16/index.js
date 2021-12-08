@@ -2,7 +2,7 @@ import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import { destroyObjects, resetCanvas } from '../../utiles'
 
 const sketch = ({ context, height, width }) => {

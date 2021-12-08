@@ -2,7 +2,7 @@ import canvasSketch from 'canvas-sketch'
 import { useEffect } from 'react'
 import { useContext } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import { destroyObjects, resetCanvas } from '../../utiles'
 import imageData from './imageData'
 import Particle from './Particle'

@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { useEffect } from 'react'
 import { useContext } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import useNotification from '../../hooks/useNotification'
 import { destroyObjects, resetCanvas } from '../../utiles'
 import imageData from './imageData'

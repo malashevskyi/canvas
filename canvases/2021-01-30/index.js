@@ -2,7 +2,7 @@ import canvasSketch from 'canvas-sketch'
 import { lerp } from 'canvas-sketch-util/math'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import { destroyObjects, resetCanvas } from '../../utiles'
 import Point from './Point'
 

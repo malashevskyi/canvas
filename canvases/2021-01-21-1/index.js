@@ -4,7 +4,7 @@ import gsap from 'gsap'
 import { useEffect } from 'react'
 import { useContext } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import { destroyObjects, resetCanvas } from '../../utiles'
 import connectDots from './connectDots'
 import Dot from './Dot'

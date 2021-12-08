@@ -3,7 +3,7 @@ import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
+
 import useNotification from '../../hooks/useNotification'
 import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
