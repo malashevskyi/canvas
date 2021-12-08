@@ -11,7 +11,6 @@ const Logo = () => {
   const onLogoClickHandler = (e) => {
     e.preventDefault()
 
-    // activate spinner
     setSpinner({
       active: true,
       text: 'Loading main page assets. \n Please wait.',

@@ -6,7 +6,6 @@ export const GlobalContext = createContext({})
 
 export const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useState({
-    // canvas2D: document.getElementById('canvas'),
     manager: { unload: () => {} },
     canvas2D: null,
     context2D: null,

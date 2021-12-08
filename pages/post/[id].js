@@ -59,15 +59,8 @@ const Post = ({ id }) => {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   return { props: { id: context.params.id } }
-}
-
-export async function getStaticPaths(context) {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  }
 }
 
 export default Post

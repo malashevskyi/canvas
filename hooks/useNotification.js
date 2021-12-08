@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
-import { store } from 'react-notifications-component';
+import { useEffect } from 'react'
+import { store } from 'react-notifications-component'
 
 const useNotification = ({ message, delay = 0 }) => {
-  const notificationId = Math.random();
+  const notificationId = Math.random().toString()
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       store.addNotification({
-        showIcon: true,
         title: 'Info',
         message,
         type: 'info',
@@ -19,14 +18,14 @@ const useNotification = ({ message, delay = 0 }) => {
           duration: 5000,
           onScreen: true,
         },
-      });
-    }, delay);
+      })
+    }, delay)
 
     return () => {
-      clearTimeout(timeout);
-      store.removeNotification(notificationId);
-    };
-  }, [notificationId, message, delay]);
-};
+      clearTimeout(timeout)
+      store.removeNotification(notificationId)
+    }
+  }, [notificationId, message, delay])
+}
 
-export default useNotification;
+export default useNotification

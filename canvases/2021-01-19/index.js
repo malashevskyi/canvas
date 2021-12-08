@@ -2,7 +2,7 @@ import canvasSketch from 'canvas-sketch'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
 
-import useNotification from '../../hooks/useNotification'
+import useNotification from '../../__/hooks/useNotification'
 import { destroyObjects, resetCanvas } from '../../utiles'
 import Circle from './Circle'
 

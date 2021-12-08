@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useContext } from 'react/cjs/react.development'
 import { GlobalContext } from '../../context/globalContext'
 
-import useNotification from '../../hooks/useNotification'
+import useNotification from '../../__/hooks/useNotification'
 import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
 

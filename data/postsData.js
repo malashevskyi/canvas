@@ -1,5 +1,4 @@
-import { Button } from '@chakra-ui/button'
-import { Box, Link } from '@chakra-ui/layout'
+import { Box, Link } from '@chakra-ui/react'
 
 function article(link) {
   return (

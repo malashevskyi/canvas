@@ -14,7 +14,6 @@ Canvas animations.
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
 - [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
-- [`classnames`](https://github.com/JedWatson/classnames)<br>
 - [`gsap`](https://github.com/greensock/GSAP)<br>
 
 ### Useful YouTube channels:
