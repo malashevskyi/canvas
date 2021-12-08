@@ -43,6 +43,8 @@ function Canvas() {
   useEffect(() => {
     resetCanvas()
 
+    if (!state.canvas2D) return
+
     const settings = {
       canvas: state.canvas2D,
       animate: true,
@@ -60,9 +62,8 @@ function Canvas() {
     return () => {
       destroyObjects(manager)
     }
-  }, [])
+  }, [state.canvas2D])
 
   return ''
 }
-
 export default Canvas
