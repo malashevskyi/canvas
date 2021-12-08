@@ -59,6 +59,15 @@ const Post = ({ id }) => {
   )
 }
 
-Post.getInitialProps = (context) => ({ id: context.query.id })
+export async function getStaticProps(context) {
+  return { props: { id: context.params.id } }
+}
+
+export async function getStaticPaths(context) {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
 
 export default Post
