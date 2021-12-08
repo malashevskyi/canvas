@@ -18,7 +18,6 @@ export const destroyObjects = (manager) => {
   manager.unload()
 
   window['timelines'].forEach((timeline) => {
-    timeline.pause()
     timeline.kill()
   })
   setTimeout(() => {
