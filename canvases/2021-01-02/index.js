@@ -1,17 +1,15 @@
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
-import { useEffect } from 'react/cjs/react.development'
-
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
 
-const particles = []
-
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { height, width } = initialProps
+const sketch = ({ context, height, width, canvas }) => {
+  const particles = []
 
   const mouse = { x: null, y: null }
   const count = 150
@@ -81,15 +79,33 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
-
-  useEffect(() => {
-    resetCanvas()
-  }, [])
+  const [state, dispatch] = useContext(GlobalContext)
 
   useNotification({
     message: 'Click to see an animation',
   })
+
+  useEffect(() => {
+    resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
+  }, [])
 
   return ''
 }

@@ -1,18 +1,15 @@
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
 import gsap from 'gsap'
 import { useEffect } from 'react'
-
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Triangle from './Triangle'
 import trianglesPoints from './trianglesPoints'
-import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
 
-const triangles = []
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
+const sketch = ({ context, width, height }) => {
+  const triangles = []
 
   function getTriangles() {
     const angle = (Math.PI * 2) / trianglesPoints.length
@@ -41,7 +38,7 @@ const sketch = () => (initialProps) => {
 
   function animateParticles() {
     triangles.forEach((triangle) => {
-      tls.push(
+      window['timelines'].push(
         gsap.to(triangle, {
           duration: 3,
           x1: triangle.fromX1,
@@ -82,21 +79,29 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
 
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }

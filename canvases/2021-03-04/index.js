@@ -1,13 +1,12 @@
-import Gun from './Gun'
+import canvasSketch from 'canvas-sketch'
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Circle from './Circle'
-import useCanvas from '../../hooks/useCanvas'
-import { useEffect } from 'react/cjs/react.development'
-import { resetCanvas } from '../../utiles'
+import Gun from './Gun'
 
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { width, height } = initialProps
-
+const sketch = ({ context, canvas, width, height }) => {
   const guns = []
   const circles = []
   const cartridges = []
@@ -97,10 +96,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

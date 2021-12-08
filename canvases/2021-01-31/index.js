@@ -1,12 +1,11 @@
-import { useEffect } from 'react/cjs/react.development'
+import canvasSketch from 'canvas-sketch'
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Ball from './Ball'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width, time } = initialProps
-
+const sketch = ({ context, height, width, time }) => {
   let color
   let tick = 0
   const balls = []
@@ -58,12 +57,31 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''
 }
+
 export default Canvas

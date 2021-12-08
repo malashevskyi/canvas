@@ -1,15 +1,13 @@
-import gsap from 'gsap'
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
-
+import gsap from 'gsap'
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
-import { resetCanvas } from '../../utiles'
-import { useEffect } from 'react/cjs/react.development'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   random.setSeed(4)
 
   const particles = []
@@ -51,10 +49,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

@@ -1,17 +1,14 @@
-import { useEffect } from 'react'
+import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
-
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
-import { resetCanvas } from '../../utiles'
 
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, canvas, height, width }) => {
   const particles = []
   const coordsCount = 200
   const angle = (Math.PI * 2) / coordsCount
@@ -42,7 +39,7 @@ const sketch = () => (initialProps) => {
 
       particles.push(newParticle)
 
-      tls.push(
+      window['timelines'].push(
         gsap.to(newParticle, {
           duration: 4,
           radius: 7,
@@ -69,21 +66,31 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
+
   useNotification({
     message: 'Move mouse to interact with particles',
   })
 
   useEffect(() => {
     resetCanvas()
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
   }, [])
 

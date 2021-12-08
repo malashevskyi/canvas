@@ -1,18 +1,17 @@
-import palettes from 'nice-color-palettes'
-import random from 'canvas-sketch-util/random'
+import canvasSketch from 'canvas-sketch'
 import { lerp } from 'canvas-sketch-util/math'
-
+import random from 'canvas-sketch-util/random'
+import palettes from 'nice-color-palettes'
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
-import { useEffect } from 'react/cjs/react.development'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
 random.setSeed(random.pick(['513468']))
 const palette = random.pick(palettes)
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const balls = []
   const opt = {
     radiusInc: 1.1,
@@ -86,10 +85,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

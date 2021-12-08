@@ -1,16 +1,13 @@
-import { useEffect } from 'react'
+import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
-
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Particle from './Particle'
-import { resetCanvas } from '../../utiles'
 
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const particles = []
 
   const opt = {
@@ -40,7 +37,7 @@ const sketch = () => (initialProps) => {
 
         particles.push(newParticle)
 
-        tls.push(
+        window['timelines'].push(
           gsap.to(newParticle, {
             x: 0,
             y: 0,
@@ -79,20 +76,29 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }

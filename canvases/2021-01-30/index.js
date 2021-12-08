@@ -1,14 +1,12 @@
+import canvasSketch from 'canvas-sketch'
 import { lerp } from 'canvas-sketch-util/math'
-import { useEffect } from 'react/cjs/react.development'
-
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import Point from './Point'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const points = []
   const opt = {
     fillStyle: 'red',
@@ -112,12 +110,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({
-    sketch: () => sketch(),
-  })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

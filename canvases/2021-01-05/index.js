@@ -1,10 +1,12 @@
 // eslint-disable-next-line
-import random from 'canvas-sketch-util/random'
+import canvasSketch from 'canvas-sketch'
 import { lerp } from 'canvas-sketch-util/math'
-
+import random from 'canvas-sketch-util/random'
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
-import { useEffect } from 'react/cjs/react.development'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
 function getAlphaMarker(count, delay) {
   let isThrottled = false
@@ -27,10 +29,7 @@ function getAlphaMarker(count, delay) {
   }
 }
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const particles = []
   const opt = {
     fallDelay: 20000,
@@ -189,10 +188,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

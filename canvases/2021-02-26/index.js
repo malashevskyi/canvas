@@ -1,22 +1,19 @@
-import { useEffect } from 'react'
+import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
-
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { width, height } = initialProps
-
+const sketch = ({ context, width, height }) => {
   const ys = Array(8).fill(0)
   const alpha = Array(8).fill(0)
   let tick = 0
 
   // move from bottom and top to center
   ys.forEach((_, i) => {
-    tls.push(
+    window['timelines'].push(
       gsap.from(ys, {
         duration: 2,
         delay: i / 2,
@@ -27,7 +24,7 @@ const sketch = () => (initialProps) => {
   })
   // animate opacity
   alpha.forEach((_, i) => {
-    tls.push(
+    window['timelines'].push(
       gsap.to(alpha, {
         duration: 2,
         delay: i / 2 + 0.5,
@@ -88,20 +85,29 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }

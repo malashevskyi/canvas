@@ -1,15 +1,14 @@
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
-
-import useNotification from '../../hooks/useNotification'
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
-import { useEffect } from 'react/cjs/react.development'
+import useNotification from '../../hooks/useNotification'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   random.setSeed(17)
 
   const palette = random.pick(palettes)
@@ -109,15 +108,33 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
-
-  useEffect(() => {
-    resetCanvas()
-  }, [])
+  const [state, dispatch] = useContext(GlobalContext)
 
   useNotification({
     message: 'Move mouse to rotate',
   })
+
+  useEffect(() => {
+    resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
+  }, [])
 
   return ''
 }

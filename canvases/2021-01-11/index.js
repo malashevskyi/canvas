@@ -1,13 +1,11 @@
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
-import { useEffect } from 'react/cjs/react.development'
-
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, canvas, height, width }) => {
   const mouse = {
     x: null,
     y: null,
@@ -66,8 +64,6 @@ const sketch = () => (initialProps) => {
       this.y +=
         random.gaussian(-1, 1) / 2 +
         (random.gaussian(-1, 1) * this.waveCount) / 250
-
-      this.animateCount += 1
 
       const dx1 = -(this.x - this.originalX)
       const dy1 = -(this.y - this.originalY)
@@ -185,10 +181,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

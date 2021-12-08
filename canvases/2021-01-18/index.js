@@ -1,16 +1,15 @@
+import canvasSketch from 'canvas-sketch'
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
-
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import Particle from './Particle'
 import useNotification from '../../hooks/useNotification'
-import { useEffect } from 'react/cjs/react.development'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
+import Particle from './Particle'
 
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, canvas, height, width }) => {
   random.setSeed(1)
   const particles = []
   const mouse = { x: width / 2, y: height / 2 }
@@ -58,15 +57,35 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
+
   useNotification({
     message: 'Move mouse to change position',
   })
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''
 }
+
 export default Canvas

@@ -1,14 +1,13 @@
-import points from './points'
+import canvasSketch from 'canvas-sketch'
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
+import useCanvas from '../../hooks/useCanvas'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import connectDots from './connectDots'
 import Dot from './Dot'
-import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
-import { useEffect } from 'react/cjs/react.development'
+import points from './points'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const dots = []
 
   function getDots() {
@@ -51,10 +50,28 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
   }, [])
 
   return ''

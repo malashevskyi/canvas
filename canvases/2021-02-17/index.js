@@ -1,12 +1,13 @@
+import canvasSketch from 'canvas-sketch'
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import Particle from './Particle'
+import { destroyObjects, resetCanvas } from '../../utiles'
 import imageData from './imageData'
-import { resetCanvas } from '../../utiles'
+import Particle from './Particle'
 
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const particles = []
   const image = {
     width: 80,
@@ -84,8 +85,30 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  resetCanvas()
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
+
+  useEffect(() => {
+    resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
+  }, [])
+
   return ''
 }
 

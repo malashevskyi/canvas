@@ -1,12 +1,11 @@
-import { useEffect } from 'react/cjs/react.development'
+import canvasSketch from 'canvas-sketch'
+import { useContext, useEffect } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
 import useNotification from '../../hooks/useNotification'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
-const sketch = () => (initialProps) => {
-  const { context, canvas } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, canvas, height, width }) => {
   const motionTrailLength = 20
   let xPos = width / 2
   let yPos = height / 2
@@ -82,15 +81,33 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
-
-  useEffect(() => {
-    resetCanvas()
-  }, [])
+  const [state, dispatch] = useContext(GlobalContext)
 
   useNotification({
     message: 'Move mouse to change position',
   })
+
+  useEffect(() => {
+    resetCanvas()
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
+
+    return () => {
+      destroyObjects(manager)
+    }
+  }, [])
 
   return ''
 }

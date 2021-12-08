@@ -1,15 +1,12 @@
-import { useEffect } from 'react'
+import canvasSketch from 'canvas-sketch'
 import gsap from 'gsap'
-
+import { useEffect } from 'react'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
 
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const count = 20
   const ys = Array(count).fill(0)
   const rot = Array(count).fill(0)
@@ -18,7 +15,7 @@ const sketch = () => (initialProps) => {
 
   for (let i = 0; i < count; i++) {
     // move from bottom and top to center
-    tls.push(
+    window['timelines'].push(
       gsap.from(ys, {
         duration: 2,
         delay: i / 2,
@@ -28,7 +25,7 @@ const sketch = () => (initialProps) => {
     )
 
     // rotate
-    tls.push(
+    window['timelines'].push(
       gsap.to(rot, {
         duration: 2,
         delay: i / 2 + 12,
@@ -41,7 +38,7 @@ const sketch = () => (initialProps) => {
     )
 
     // animate opacity
-    tls.push(
+    window['timelines'].push(
       gsap.to(alpha, {
         duration: 2,
         delay: i / 2 + 0.5,
@@ -86,20 +83,29 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }

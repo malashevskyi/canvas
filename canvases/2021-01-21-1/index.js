@@ -1,21 +1,18 @@
+import canvasSketch from 'canvas-sketch'
+import random from 'canvas-sketch-util/random'
 import gsap from 'gsap'
 import { useEffect } from 'react'
-import random from 'canvas-sketch-util/random'
-
-import heartPoints from './heartPoints'
-import trianglesPoints from './trianglesPoints'
-import Dot from './Dot'
-import Triangle from './Triangle'
-import connectDots from './connectDots'
+import { useContext } from 'react/cjs/react.development'
+import { GlobalContext } from '../../context/globalContext'
 import useCanvas from '../../hooks/useCanvas'
-import { resetCanvas } from '../../utiles'
+import { destroyObjects, resetCanvas } from '../../utiles'
+import connectDots from './connectDots'
+import Dot from './Dot'
+import heartPoints from './heartPoints'
+import Triangle from './Triangle'
+import trianglesPoints from './trianglesPoints'
 
-const tls = []
-
-const sketch = () => (initialProps) => {
-  const { context } = initialProps
-  let { height, width } = initialProps
-
+const sketch = ({ context, height, width }) => {
   const angle = (Math.PI * 2) / trianglesPoints.length
   const radius = Math.max(width, height)
   const triangles = []
@@ -45,7 +42,7 @@ const sketch = () => (initialProps) => {
     generateTriangles()
 
     triangles.forEach((triangle) => {
-      tls.push(
+      window['timelines'].push(
         gsap.from(triangle, {
           duration: 3,
           x1: triangle.xFrom,
@@ -83,7 +80,7 @@ const sketch = () => (initialProps) => {
     })
     context.restore()
 
-    tls.push(
+    window['timelines'].push(
       gsap.to(heartAlpha, {
         duration: 1,
         delay: 6.3,
@@ -121,21 +118,29 @@ const sketch = () => (initialProps) => {
 }
 
 function Canvas() {
-  useCanvas({ sketch: () => sketch() })
+  const [state, dispatch] = useContext(GlobalContext)
 
   useEffect(() => {
     resetCanvas()
 
-    tls.forEach((tl) => {
-      tl.restart(true, false)
-    })
+    const settings = {
+      canvas: state.canvas2D,
+      animate: true,
+    }
+
+    let manager
+    ;(async () => {
+      state.manager.unload()
+
+      manager = await canvasSketch(sketch, settings)
+
+      dispatch({ ...state, manager })
+    })()
 
     return () => {
-      tls.forEach((tl) => {
-        tl.pause()
-      })
+      destroyObjects(manager)
     }
-  })
+  }, [])
 
   return ''
 }
