@@ -1,31 +1,30 @@
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
-import { LoadSpinnerContext } from '../context/loadSpinnerContext';
+import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { LoadSpinnerContext } from '../context/loadSpinnerContext'
+import { Button } from '@chakra-ui/button'
+import Link from 'next/link'
 
 const Logo = () => {
-  const router = useRouter();
-  const [, setSpinner] = useContext(LoadSpinnerContext);
+  const router = useRouter()
+  const [, setSpinner] = useContext(LoadSpinnerContext)
 
   const onLogoClickHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     // activate spinner
     setSpinner({
       active: true,
       text: 'Loading main page assets. \n Please wait.',
-    });
+    })
 
-    // open index page with delay
-    setTimeout(() => {
-      router.push('/');
-    }, 700);
-  };
+    router.push('/')
+  }
 
   return (
-    <a href="/" className="menu-item" onClick={onLogoClickHandler}>
-      <h1>All animations</h1>
-    </a>
-  );
-};
+    <Link href="/">
+      <Button onClick={onLogoClickHandler}>Animations</Button>
+    </Link>
+  )
+}
 
-export default Logo;
+export default Logo

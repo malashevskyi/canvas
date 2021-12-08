@@ -4,21 +4,39 @@ import ReactNotification from 'react-notifications-component'
 import { GlobalContextProvider } from '../context/globalContext'
 import LoadSpinnerProvider from '../context/loadSpinnerContext'
 import postsData from '../data/postsData'
+import { ChakraProvider } from '@chakra-ui/react'
 import '../styles/globals.sass'
 
-// const GlobalContext = createContext({})
+import { extendTheme } from '@chakra-ui/react'
 
-// export function GlobalContextProvider({ children }) {
-//   const [state, dispatch] = useState({
-//     something: 'something',
-//   })
-
-//   return (
-//     <GlobalContext.Provider value={[state, dispatch]}>
-//       {children}
-//     </GlobalContext.Provider>
-//   )
-// }
+const theme = extendTheme({
+  components: {
+    Button: {
+      variants: {
+        solid: {
+          bg: 'blue.300',
+          color: 'white',
+          borderRadius: '0',
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+          _hover: {
+            bg: 'blue.600',
+          },
+          _active: {
+            bg: 'blue.500',
+            _hover: {
+              bg: 'blue.600',
+            },
+          },
+        },
+      },
+      defaultProps: {
+        variant: 'solid',
+        size: 'sm',
+      },
+    },
+  },
+})
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
@@ -28,13 +46,13 @@ function MyApp({ Component, pageProps }) {
     const canvasContainer = document.querySelector('body > .container')
 
     const hideCanvas = () => {
-      canvasContainer.setAttribute(
+      canvasContainer?.setAttribute(
         'style',
         'opacity: 0; width: 0; height: 0; z-index: -1;'
       )
     }
     const resetCanvas = () => {
-      canvasContainer.removeAttribute('style')
+      canvasContainer?.removeAttribute('style')
     }
 
     if (router.pathname === '/post/[id]') {
@@ -52,7 +70,9 @@ function MyApp({ Component, pageProps }) {
     <LoadSpinnerProvider>
       {/* eslint-disable-next-line */}
       <GlobalContextProvider>
-        <Component {...pageProps} />
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
       </GlobalContextProvider>
       <ReactNotification />
     </LoadSpinnerProvider>

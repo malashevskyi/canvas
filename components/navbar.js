@@ -1,86 +1,148 @@
-import { useContext, useState } from 'react';
-import classNames from 'classnames';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { List, AutoSizer } from 'react-virtualized';
+import { Button } from '@chakra-ui/button'
+import { Badge, Box, VStack, Link } from '@chakra-ui/layout'
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
+import { useContext, useState } from 'react'
+import { AutoSizer, List } from 'react-virtualized'
+import { MenuIsOpenContext } from '../context/menuIsOpenContext'
+import postsData from '../data/postsData'
+import Preview from './preview'
 
-import Preview from './preview';
-import Search from './search';
-import { MenuIsOpenContext } from '../context/menuIsOpenContext';
-import postsData from '../data/postsData';
-import GithubLink from './githubLink';
-import CodePenLink from './codePenLink';
-
-const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
-  const location = useRouter();
-  const [isOpen] = useContext(MenuIsOpenContext);
-
-  const mainIndex = filteredCanvasNames.findIndex((i) => i === 'Main');
-  if (mainIndex !== -1) filteredCanvasNames.splice(mainIndex, 1);
+const Navbar = ({ filteredCanvasNames }) => {
+  const location = useRouter()
+  const [isOpen] = useContext(MenuIsOpenContext)
 
   const [thisNavbarIndex] = useState(
     filteredCanvasNames.findIndex((el) => el === location.query.id)
-  );
+  )
 
   function rowRenderer({ key, index, style }) {
-    const name = filteredCanvasNames[index];
-    if (!name) return;
+    const name = filteredCanvasNames[index]
+    if (!name) return
 
-    const postData = postsData[name];
+    const postData = postsData[name]
 
     const date = `${name?.slice(0, 4)}-${name?.slice(5, 7)}-${name?.slice(
       8,
       10
-    )}`;
-    let imgTitle = '';
-    let titleTags = '';
+    )}`
+    let imgTitle = ''
 
-    const githubLink = postData.github;
-    const codePenLink = postData.codePen;
+    const githubLink = postData.github
 
-    postData.tags.forEach((tag) => {
-      titleTags += `/ ${tag} `;
-      imgTitle += `${tag} `;
-    });
-    titleTags = titleTags.slice(1);
-
-    // Should have return
-    // eslint-disable-next-line
     return (
-      <div
+      <Box
         style={style}
         key={key}
-        className={classNames({
-          'navbar-menu--item': true,
-          active: location.query.id === name,
-        })}
+        pos="relative"
+        pl="10px"
+        _before={{
+          content: '""',
+          pos: 'absolute',
+          zIndex: 0,
+          w: '100%',
+          h: '100%',
+          top: 0,
+          right: '-10px',
+        }}
       >
-        {codePenLink && <CodePenLink link={codePenLink} />}
-        {githubLink && <GithubLink link={githubLink} />}
-        <Link href={`/post/${name}`}>
-          <a>
-            <h2 className="navbar-menu--title">{titleTags}</h2>
-            <Preview title={imgTitle} name={name} />
-            <time dateTime={date}>
-              <span>{date}</span>
-            </time>
-          </a>
-        </Link>
-      </div>
-    );
+        <NextLink href={`/post/${name}`}>
+          <Link
+            d="block"
+            borderLeft="3px solid"
+            borderColor={`${
+              location.query.id === name ? 'yellow.400' : 'blue.200'
+            }`}
+            overflow="hidden"
+            transform={`translate(${
+              location.query.id === name ? '-10px' : 0
+            }, 0)`}
+          >
+            {githubLink && (
+              <Button
+                fontSize="11px"
+                p={1}
+                borderRadius="3px"
+                h="20px"
+                pos="absolute"
+                bottom="25px"
+                zIndex={2}
+                right={1}
+              >
+                Github
+              </Button>
+            )}
+            <VStack
+              as="h2"
+              alignItems="flex-start"
+              spacing={1}
+              p={1}
+              pos="absolute"
+              top={0}
+              left="0"
+              zIndex={2}
+              mt="2px"
+              ml="2px"
+              flexWrap="wrap"
+              willChange="transform"
+              transition="transform .3s ease"
+            >
+              {postData.tags.map((tag, index) => (
+                <Box
+                  color="blue.500"
+                  fontSize="11px"
+                  textTransform="uppercase"
+                  letterSpacing="1px"
+                  fontWeight="600"
+                  bg="white"
+                  px={1}
+                  borderRadius="2px"
+                >
+                  {tag}
+                </Box>
+              ))}
+            </VStack>
+            <Preview
+              willChange="transform"
+              transition="transform .3s ease"
+              title={imgTitle}
+              name={name}
+            />
+            <Badge
+              as="time"
+              dateTime={date}
+              pos="absolute"
+              right={1}
+              bottom={2}
+              letterSpacing="2px"
+              fontSize="9px"
+              color="gray.600"
+              zIndex={2}
+            >
+              {date.slice(0, 10)}
+            </Badge>
+          </Link>
+        </NextLink>
+      </Box>
+    )
   }
 
   return (
-    <div
-      className={classNames({
-        navbar: true,
-        open: isOpen,
-      })}
+    <Box
+      pos="fixed"
+      top={0}
+      right={0}
+      zIndex={10}
+      transition="transform .4s ease"
+      h="100vh"
+      w="100%"
+      maxW={['253px', '253px', '303px']}
+      willChange="transform"
+      transform={`translate(${isOpen ? 0 : '100%'}, 0)`}
     >
-      <div className="navbar--inner">
-        <Search onEnteredFilter={onEnteredFilter} />
-        <nav className="navbar-menu">
-          <div className="navbar-menu--list">
+      <Box h="100vh">
+        <Box h="100%">
+          <Box overflowY="auto" h="100%" pos="relative" overflowX="hidden">
             <AutoSizer>
               {({ height }) => (
                 <List
@@ -95,11 +157,11 @@ const Navbar = ({ onEnteredFilter, filteredCanvasNames }) => {
                 />
               )}
             </AutoSizer>
-          </div>
-        </nav>
-      </div>
-    </div>
-  );
-};
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  )
+}
 
-export default Navbar;
+export default Navbar

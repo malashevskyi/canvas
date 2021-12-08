@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
 @import 'react-notifications-component/dist/theme.css'
-@import '_var.sass'
-@import '_base.sass'
-@import '_media.sass'
 
 $topBarH: 50px
 $navBarWidth: 250px
@@ -10,10 +6,6 @@ $border: 3px solid rgba(0, 0, 0, 0.2)
 $gray: #e9ecef
 $gray2: #ced4da
 $blue: #23a6d5
-
-body
-  height: 100vh
-  overflow: hidden
 
 @keyframes flipInY
   0%
@@ -52,28 +44,10 @@ body
 .navbar .ReactVirtualized__Grid.ReactVirtualized__List
   outline: none
 
-body > canvas
-  width: 1px !important
-  height: 1px !important
-  display: none !important
-
-.loadSpinner
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-color: #fff
-  z-index: 99
-  display: flex
-  align-items: center
-  justify-content: center
-  opacity: 0
-  transition: opacity .35s ease
-  pointer-events: none
-  &.isActive
-    opacity: 1
-    pointer-events: auto
+// body > canvas
+//   width: 1px !important
+//   height: 1px !important
+//   display: none !important
 
 .loader
   background: #01afda
@@ -127,22 +101,6 @@ body > canvas
   position: absolute !important
   right: 0
 
-.main
-  height: 100vh
-// .List 
-
-.item
-  display: flex
-  align-items: center
-  justify-content: center
-
-.ReactVirtualized__Grid__innerScrollContainer, .ReactVirtualized__List
-  border: 1px solid #fff
-  outline: none
-  transition: border .3s ease
-  &:focus
-    border: 1px solid #23a6d5
-
 .card
   display: flex
   align-items: center
@@ -154,9 +112,6 @@ body > canvas
   height: 100%
   opacity: 1
   outline: none
-  time
-    right: 0
-    z-index: 3
   a
     outline: none
     position: relative
@@ -164,6 +119,7 @@ body > canvas
     width: 100%
     height: 100%
     display: block
+    overflow: hidden
     &::before
       content: ''
       position: absolute
@@ -174,7 +130,6 @@ body > canvas
       background-color: rgba(0, 0, 0, 0.3)
       z-index: 2
       pointer-events: none
-      // will-change: border
       transition: border .3s ease
       border: 3px solid rgba(0, 0, 0, 0)
     &:focus
@@ -183,73 +138,6 @@ body > canvas
   img
     max-height: 200px !important
     height: auto !important
-
-.tags
-  display: none
-  flex-wrap: wrap
-  position: absolute
-  top: 0
-  left: calc(100% + 3px)
-  z-index: 2
-  background-color: #fff
-  padding: 5px
-  width: 400px
-  border-right: $border
-  border-bottom: $border
-  transition: opacity .2s ease
-  opacity: 0
-  pointer-events: none
-  &.active
-    opacity: 1
-    pointer-events: auto
-.tags span
-  background: #fff
-  margin: 0 1px 1px 0
-  font-family: 'Arial'
-  font-size: 9px
-  padding: 0 5px
-  height: 20px
-  position: relative
-  overflow: hidden
-  align-items: center
-  box-sizing: border-box
-  display: flex
-  letter-spacing: 2px
-  background-color: $gray
-  cursor: pointer
-  transition: all 0.2s ease
-  text-transform: uppercase
-  border: 1px solid $blue
-  &:hover
-    background-color: $blue
-    color: #fff
-
-.clean
-  position: absolute
-  top: 0
-  right: 0
-  z-index: 2
-  width: 40px
-  height: 40px
-  display: flex
-  align-items: center
-  overflow: hidden
-  background-color: transparent
-  border: none
-  outline: none
-  opacity: 0
-  transition: opacity .2s ease
-  pointer-events: none
-  &.active
-    pointer-events: auto
-    opacity: 1
-  div
-    overflow: visible !important
-  img
-    width: 80%
-    height: 80%
-    will-change: transform
-    transition: transform .2s ease
 
 .container
   height: 100vh
@@ -273,202 +161,6 @@ body > canvas
   z-index: 2
 .navbar .ReactVirtualized__Grid.ReactVirtualized__List
   max-width: 250px
-.navbar
-  border-right: $border
-  position: absolute
-  top: 0
-  left: 0
-  z-index: 10
-  transform: translate(-100%, 0)
-  transition-duration: .4s
-  height: 100vh
-  background-color: #fff
-  width: 100%
-  max-width: 253px
-  // overflow: hidden
-  will-change: transform
-  &.open
-    transform: translate(0%, 0)
-  &--inner
-    background-color: #fff
-    height: 100vh
-    display: flex
-    flex-direction: column
-    position: relative
-
-.navbar-search
-  position: relative
-  margin: 5px 5px 10px
-  min-height: 40px
-  input
-    width: 100%
-    padding: 0 10px
-    height: 100%
-    border: 1px solid $gray2
-    outline: none
-    position: relative
-    z-index: 2
-    border-radius: 2px
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
-    &:focus
-      border-color: $blue
-      box-shadow: 0 0 0 3px rgba(0,123,255,.25)
-
-.navbar-menu, .links
-  .github-link,
-  .codePen-link
-    position: absolute
-    bottom: 21px
-    right: 0
-    display: flex
-    z-index: 3
-    transform: translate(0, 0)
-    transition: transform .2s ease, fill .2s ease
-    fill: #000
-    box-shadow: 0px 0px 9px white
-    svg
-      animation-name: boxShadowAnm
-      animation-duration: 1.5s
-      animation-timing-function: ease
-      animation-iteration-count: infinite
-      animation-direction: alternate
-    &:hover
-      fill: $blue
-  .codePen-link
-    right: 26px
-.links
-  display: flex
-  align-items: center
-  justify-content: center
-  margin-bottom: 20px
-  .github-link,
-  .codePen-link
-    position: relative
-    bottom: 0
-    right: 0
-    top: 0
-    left: 0
-    padding: 5px
-    svg
-      transition: fill 0.25s ease
-      width: 40px
-      height: 40px
-    &:hover
-      svg
-        fill: #23a6d5
-time
-  position: absolute
-  bottom: 0
-  right: -1px
-  background-color: $gray
-  z-index: 1
-  height: 16px
-  padding: 0 3px
-  font-size: 9px
-  display: block
-  transform: translate(0, 0)
-  transition: transform .2s ease
-  will-change: transform
-  display: flex
-  align-items: center
-  letter-spacing: 2px
-.navbar-menu
-  height: 100%
-  a
-    display: block
-    position: relative
-  &--list
-    overflow-y: auto
-    overflow-x: hidden
-    height: 100%
-    position: relative
-
-  &--title
-    position: absolute
-    left: 0
-    top: 0
-    padding: 7px
-    background-color: $gray
-    z-index: 2
-    box-sizing: border-box
-    font-weight: normal
-    font-size: 9px
-    font-weight: bold
-    letter-spacing: 1px
-    text-transform: uppercase
-    &::before
-      content: ''
-      position: absolute
-      top: 0
-      left: -25px
-      width: 100%
-      height: 100%
-      z-index: -1
-      background: $blue
-    &::after
-      content: ''
-      position: absolute
-      top: 0
-      left: 0px
-      width: 100%
-      z-index: -1
-      height: 100%
-      background-color: #fff
-      border: 1px solid $blue
-  &--item
-    margin-bottom: 5px
-    position: relative
-    border-radius: 5px
-    background-color: #fff
-    transform: translate(0, 0)
-    transition: transform .2s ease
-    will-change: transform
-    height: 125px
-    min-height: 125px
-    &::before
-      content: ''
-      width: calc(100% + 30px)
-      height: 100%
-      position: absolute
-      left: -30px
-      top: 0
-      background-color: #000
-      z-index: 3
-      display: none
-      opacity: 0
-    &.active
-      transform: translate(25px, 0)
-      transition: transform .3s ease
-      &::before
-        display: block
-      time,
-      .github-link,
-      .codePen-link
-        transform: translate(-25px, 0)
-        transition: transform .3s ease
-
-.header
-  display: flex
-  align-items: center
-  background: #fff
-  padding: 0 15px
-  height: 50px
-  max-height: 50px
-  min-height: 50px
-  border-bottom: $border
-  z-index: 1
-  position: absolute
-  top: 0
-  left: 0
-  width: 100vw
-
-.title a
-  font-size: 18px
-  padding: 10px 10px 10px 20px
-  transition: color 0.25s ease
-  text-transform: uppercase
-  &:hover
-    color: #23a6d5
 
 .not-found
   display: flex
@@ -491,228 +183,3 @@ time
     &:hover
       background-color: $blue
       color: #fff
-
-.menu
-  position: absolute
-  top: 0
-  left: 50%
-  display: flex
-  white-space: nowrap
-  z-index: 4
-  transform-origin: 0 0
-  transform: translateX(-50%)
-.menu-item
-  background-color: #fff
-  outline: none
-  transition: background-color 0.25s ease, color .2s ease, border .25s ease
-  border: 2px solid #23a6d5
-  margin: 1px 2px
-  border-radius: 0
-  text-transform: uppercase
-  font-size: 15px
-  position: relative
-  font-weight: 700
-  height: 30px
-  display: flex
-  align-items: center
-  justify-content: center
-  padding: 0 10px
-  letter-spacing: 2px
-  &:active
-    background-color: #044c66
-  svg
-    margin-left: 5px
-    position: relative
-    z-index: 2
-    transition: fill 0.25s ease
-  &:hover
-    svg
-      fill: #fff
-  &.active
-    background-color: #42cdff
-    color: #fff
-    border: 2px solid #42cdff
-  &:hover
-    background-color: $blue !important
-    border: 2px solid #23a6d5 !important
-    color: #fff
-
-.image
-  width: 100%
-  height: 120px
-  position: relative
-  &::before
-    content: ''
-    position: absolute
-    left: 0
-    top: 0
-    width: 100%
-    height: 100%
-    background-color: rgba(0, 0, 0, 0.4)
-    z-index: 1
-  img
-    width: 100%
-    height: 100%
-    object-fit: cover
-
-.additional
-  position: fixed
-  top: calc(100vh - 30px)
-  left: 0
-  width: 100%
-  z-index: 2
-  transition: transform 0.4s ease
-  // max-height: 50vh
-  height: 300px
-  text-align: center
-  overflow-y: visible
-  padding-top: 30px
-  .inner
-    display: flex
-    flex-wrap: wrap
-    justify-content: center
-  .text
-    width: 100%
-  &.open
-    transform: translate(0, calc(-100% + 30px))
-  .title
-    font-size: 30px
-    text-align: center
-    padding: 20px
-    span
-      padding: 2px
-      text-transform: uppercase
-      font-size: 15px
-  .sign
-    font-weight: normal
-  img
-    margin-bottom: 20px
-    order: 1
-    height: auto !important
-    min-height: auto !important
-    width: 100% !important
-    min-width: auto !important
-    max-height: 200% !important
-.additional-image
-  width: 290px
-  height: 120px
-  position: relative
-.additional-container
-  background-color: #fff
-  border: 2px solid $blue
-  padding: 30px
-  height: 100%
-  overflow: auto
-
-.credits
-  border-top: 3px solid $gray
-  a
-    color: $blue
-    transition: color .3s ease
-    &:hover
-      color: rgb(120, 20, 220)
-.credits-title
-  padding: 15px 10px 10px
-  font-size: 20px
-  font-weight: normal
-
-.arrow-info
-  position: absolute
-  left: calc(50% - 75px)
-  top: 2px
-  background-color: #fff
-  z-index: 10
-  border: 2px solid $blue
-  height: 30px
-  width: 160px
-  outline: none
-  transition: background-color .2s ease
-  overflow: visible
-  letter-spacing: 1.5px
-  &::before
-    content: ''
-    position: absolute
-    width: 100%
-    height: 4px
-    background-color: #fff
-    bottom: -2px
-    left: 0
-    z-index: 2
-    transition: background-color .2s ease
-  &:hover
-    background-color: $blue
-    &::before
-      background-color: $blue
-    span
-      color: #fff
-    svg
-      fill: #fff
-  svg
-    transition: fill .2s ease, transform .2s ease
-    width: 20px
-    height: 15px
-    position: absolute
-    right: 8px
-    top: 50%
-    transform: translate(0, -50%) rotate(180deg)
-  &.open
-    svg
-      transform: translate(0, -50%) rotate(0)
-  span
-    transition: color .2s ease
-    text-transform: uppercase
-    font-size: 15px
-    position: relative
-    top: -1px
-    left: -10px
-    font-weight: 700
-
-+minW(768)
-  .tags
-    display: flex
-  .title a
-    font-size: 22px
-  .additional
-    height: 410px
-+minW(1200)
-  .additional
-    height: auto
-    .inner
-      flex-wrap: nowrap
-      align-items: flex-start
-      img
-        order: 0
-        width: 290px
-        height: auto
-    .text
-      width: auto
-    .title
-      text-align: left
-      padding-top: 0
-      padding-bottom: 10px
-      line-height: 29px
-      span
-    .links
-      justify-content: flex-start
-      padding: 0 20px
-
-+minW(1500)
-  .navbar, .navbar .ReactVirtualized__Grid.ReactVirtualized__List
-    max-width: 303px
-
-+maxW(992)
-  .menu
-    // transform: rotate(90deg)
-    // transform-origin: 0 0
-    // left: 100%
-    left: 100%
-    transform: translateX(-100%)
-+maxW(640)
-  .menu
-    transform: rotate(90deg)
-    transform-origin: 0 0
-    left: 100%
-
-+maxH(420)
-  .additional
-    height: 300px

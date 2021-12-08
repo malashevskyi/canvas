@@ -1,23 +1,16 @@
-import { useContext } from 'react';
-import classNames from 'classnames';
+import { useContext } from 'react'
 
-import { MenuIsOpenContext } from '../context/menuIsOpenContext';
+import { MenuIsOpenContext } from '../context/menuIsOpenContext'
+import { Button } from '@chakra-ui/button'
 
 const MenuButton = () => {
-  const [isOpen, setIsOpen] = useContext(MenuIsOpenContext);
+  const [isOpen, setIsOpen] = useContext(MenuIsOpenContext)
 
   return (
-    <button
-      type="button"
-      className={classNames({
-        'menu-item': true,
-        active: isOpen,
-      })}
-      onClick={() => setIsOpen(!isOpen)}
-    >
+    <Button isActive={isOpen} onClick={() => setIsOpen(!isOpen)}>
       Menu
-    </button>
-  );
-};
+    </Button>
+  )
+}
 
-export default MenuButton;
+export default MenuButton

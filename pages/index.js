@@ -8,6 +8,7 @@ import { LoadSpinnerContext } from '../context/loadSpinnerContext'
 import MainLayout from '../layout/main'
 
 import 'react-virtualized/styles.css'
+import { Box, Flex } from '@chakra-ui/layout'
 
 const gapSize = 10
 const cardHeight = 130
@@ -53,9 +54,9 @@ function rowRenderer(
   }
 
   return (
-    <div className="item" key={key} style={style}>
+    <Flex key={key} align="center" justify="center" style={style}>
       {cards}
-    </div>
+    </Flex>
   )
 }
 

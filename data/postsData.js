@@ -1,71 +1,93 @@
+import { Button } from '@chakra-ui/button'
+import { Box, Link } from '@chakra-ui/layout'
+
 function article(link) {
   return (
-    <>
-      <div className="inner">
-        Inspired by the&nbsp;
-        <a target="_blank" rel="noreferrer" href={link}>
-          article
-        </a>{' '}
-        .
-      </div>
-    </>
+    <Box>
+      Inspired by the
+      <Link
+        href={link}
+        px={1}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        article
+      </Link>
+    </Box>
   )
 }
 function photoUnsplash(name, link) {
   return (
-    <>
-      <div className="inner">
-        <span>
-          Photo by{' '}
-          <a target="_blank" rel="noreferrer" href={link}>
-            {name}
-          </a>{' '}
-          on{' '}
-          <a target="_blank" rel="noreferrer" href="https://unsplash.com/">
-            Unsplash
-          </a>
-        </span>
-      </div>
-    </>
+    <Box>
+      Photo by
+      <Link
+        href={link}
+        px={1}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        {name}
+      </Link>
+      on
+      <Link
+        href="https://unsplash.com"
+        px={1}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        Unsplash
+      </Link>
+    </Box>
   )
 }
 function video(link) {
   return (
-    <>
-      <div className="inner">
-        Inspired by the&nbsp;
-        <a target="_blank" rel="noreferrer" href={link}>
-          video
-        </a>{' '}
-        .
-      </div>
-    </>
+    <Box>
+      Inspired by the&nbsp;
+      <Link
+        href={link}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        video
+      </Link>
+    </Box>
   )
 }
 function codesandbox(link) {
   return (
-    <>
-      <div className="inner">
-        Inspired by the &nbsp;
-        <a target="_blank" rel="noreferrer" href={link}>
-          codesandbox
-        </a>{' '}
-        .
-      </div>
-    </>
+    <Box>
+      Inspired by the
+      <Link
+        href={link}
+        px={1}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        codesandbox
+      </Link>
+    </Box>
   )
 }
 function codepen(link) {
   return (
-    <>
-      <div className="inner">
-        Inspired by the &nbsp;
-        <a target="_blank" rel="noreferrer" href={link}>
-          codepen
-        </a>{' '}
-        .
-      </div>
-    </>
+    <Box>
+      Inspired by the
+      <Link
+        href={link}
+        px={1}
+        color="blue.400"
+        _hover={{ color: 'blue.600' }}
+        isExternal
+      >
+        codepen
+      </Link>
+    </Box>
   )
 }
 
@@ -76,7 +98,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-12-06',
-    codePen: '',
   },
   '2021-11-22': {
     number: 61,
@@ -84,7 +105,6 @@ const postsData = {
     credits: () => video('https://www.youtube.com/watch?v=bIfNwgUVjV8&t=438s'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-11-22',
-    codePen: '',
   },
   '2021-03-08': {
     number: 60,
@@ -92,7 +112,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-03-08',
-    codePen: '',
   },
   '2021-03-04': {
     number: 59,
@@ -100,7 +119,6 @@ const postsData = {
     credits: () => video('https://www.youtube.com/watch?v=52rKp7P3gIs'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-03-04',
-    codePen: 'https://codepen.io/shevsky/pen/QWGxXRr',
   },
   '2021-02-26': {
     number: 58,
@@ -108,7 +126,6 @@ const postsData = {
     credits: () => video('https://www.youtube.com/watch?v=qP2pJdOb-i8'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-26',
-    codePen: 'https://codepen.io/shevsky/pen/JjbpBeW',
   },
   '2021-02-25': {
     number: 57,
@@ -117,7 +134,6 @@ const postsData = {
       photoUnsplash('Ivana Cajina', 'https://unsplash.com/@von_co'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-25',
-    codePen: 'https://codepen.io/shevsky/pen/vYypQaj',
   },
   '2021-02-24': {
     number: 56,
@@ -125,7 +141,6 @@ const postsData = {
     credits: () => codepen('https://codepen.io/osublake/pen/qNPBpJ'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-24',
-    codePen: 'https://codepen.io/shevsky/pen/XWNVMVE',
   },
   '2021-02-23': {
     number: 55,
@@ -133,7 +148,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-23',
-    codePen: 'https://codepen.io/shevsky/pen/WNoXzzN',
   },
   '2021-02-22': {
     number: 54,
@@ -141,7 +155,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-22',
-    codePen: 'https://codepen.io/shevsky/pen/poNWvEa',
   },
   '2021-02-20': {
     number: 53,
@@ -149,7 +162,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-20',
-    codePen: 'https://codepen.io/shevsky/pen/NWbvawm',
   },
   '2021-02-19': {
     number: 52,
@@ -157,7 +169,6 @@ const postsData = {
     credits: () => video('https://www.youtube.com/watch?v=XGioNBHrFU4&t=17s'),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-19',
-    codePen: 'https://codepen.io/shevsky/pen/RwoZWYN',
   },
   '2021-02-18': {
     number: 51,
@@ -165,7 +176,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-18',
-    codePen: 'https://codepen.io/shevsky/pen/JjbJWVE',
   },
   '2021-02-17': {
     number: 50,
@@ -173,7 +183,6 @@ const postsData = {
     credits: () => '',
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-17',
-    codePen: 'https://codepen.io/shevsky/pen/jOVmBOe',
   },
   '2021-02-16': {
     number: 49,
@@ -185,7 +194,6 @@ const postsData = {
       ),
     github:
       'https://github.com/malashevskyi/canvas/tree/master/canvases/2021-02-16',
-    codePen: 'https://codepen.io/shevsky/pen/oNYWLWv',
   },
   '2021-02-15': {
     number: 48,

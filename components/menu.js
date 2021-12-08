@@ -1,13 +1,14 @@
-import Logo from './logo';
-import GithubButton from './githubButton';
-import MenuButton from './menuButton';
+import Logo from './logo'
+import GithubButton from './githubButton'
+import MenuButton from './menuButton'
+import { HStack } from '@chakra-ui/layout'
 
 const Menu = () => (
-  <div className="menu">
+  <HStack spacing={1} p={1} justifyContent="flex-start">
     <MenuButton />
     <Logo />
-    <GithubButton />
-  </div>
-);
+    <GithubButton link="https://github.com/malashevskyi/canvas" />
+  </HStack>
+)
 
-export default Menu;
+export default Menu
