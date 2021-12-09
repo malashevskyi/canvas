@@ -46,6 +46,23 @@ const Navbar = ({ canvasNames }) => {
           right: '-10px',
         }}
       >
+        {githubLink && (
+          <Button
+            as={Link}
+            href={githubLink}
+            isExternal
+            fontSize="11px"
+            p={1}
+            borderRadius="3px"
+            h="20px"
+            pos="absolute"
+            bottom="27px"
+            zIndex={2}
+            right={1}
+          >
+            Github
+          </Button>
+        )}
         <NextLink href={`/post/${name}`}>
           <Link
             d="block"
@@ -58,20 +75,6 @@ const Navbar = ({ canvasNames }) => {
               location.query.id === name ? '-10px' : 0
             }, 0)`}
           >
-            {githubLink && (
-              <Button
-                fontSize="11px"
-                p={1}
-                borderRadius="3px"
-                h="20px"
-                pos="absolute"
-                bottom="25px"
-                zIndex={2}
-                right={1}
-              >
-                Github
-              </Button>
-            )}
             <VStack
               as="h2"
               alignItems="flex-start"
