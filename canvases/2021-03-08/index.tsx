@@ -1,13 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { useEffect } from 'react'
+import useCanvas from '../../hooks/useCanvas'
 import imageData from './imageData'
 import Particle from './Particle'
 import ParticleScale from './ParticleScale'
-import { destroyObjects, resetCanvas } from '../../utiles'
-import canvasSketch from 'canvas-sketch'
-import { useContext } from 'react/cjs/react.development'
-import { GlobalContext } from '../../context/globalContext'
-import useCanvas from '../../hooks/useCanvas'
 
 function Canvas() {
   let timeout
