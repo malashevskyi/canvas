@@ -59,6 +59,9 @@ const Navbar = ({ canvasNames }) => {
             bottom="27px"
             zIndex={2}
             right={1}
+            transform={`translate(${
+              location.query.id === name ? '-25px' : 0
+            }, 0)`}
           >
             Github
           </Button>
@@ -136,10 +139,10 @@ const Navbar = ({ canvasNames }) => {
       top={0}
       right={0}
       zIndex={10}
-      transition="transform .4s ease"
       h="100vh"
       w="100%"
       maxW={['253px', '253px', '303px']}
+      transition="transform .4s ease"
       willChange="transform"
       transform={`translate(${isOpen ? 0 : '100%'}, 0)`}
     >
