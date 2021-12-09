@@ -1,7 +1,8 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { GetServerSideProps } from 'next'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ReactNotification from 'react-notifications-component'
 import GlobalContextProvider from '../context/globalContext'
 import LoadSpinnerProvider from '../context/loadSpinnerContext'
@@ -38,14 +39,53 @@ const theme = extendTheme({
   },
 })
 
-function MyApp({ Component, pageProps }: AppProps) {
+const RouteIndicator = ({ children }: React.PropsWithChildren<{}>) => {
   const router = useRouter()
 
+  // const [loading, setLoading] = useState(null)
+  // const [timeoutId, setTimeoutId] = useState(null)
+
+  const onRouteChangeStart = useCallback(() => {
+    console.log('on route change start', router)
+    // setLoading(true);
+  }, [])
+
+  const onRouteChangeDone = useCallback(() => {
+    console.log('on route change done', router.pathname)
+    // setLoading(false);
+    // setTimeoutId(
+    //   setTimeout(() => {
+    //     setTimeoutId(null);
+    //     setLoading(null);
+    //   }, DONE_DURATION)
+    // );
+  }, [])
+
   useEffect(() => {
-    if (typeof router.query.id !== 'string') return
+    router.events.on('routeChangeStart', onRouteChangeStart)
+    router.events.on('routeChangeComplete', onRouteChangeDone)
+    router.events.on('routeChangeError', onRouteChangeDone)
 
-    const id = router.query.id
+    return () => {
+      router.events.off('routeChangeStart', onRouteChangeStart)
+      router.events.off('routeChangeComplete', onRouteChangeDone)
+      router.events.off('routeChangeError', onRouteChangeDone)
+    }
+  }, [onRouteChangeDone, onRouteChangeStart, router.events])
 
+  // useEffect(
+  //   () => () => {
+  //     if (timeoutId) clearTimeout(timeoutId)
+  //   },
+  //   [timeoutId]
+  // )
+
+  return <>{children}</>
+}
+
+function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    // console.log('_________________', pageProps)
     const canvasContainer = document.querySelector('body > .container')
 
     const hideCanvas = () => {
@@ -58,30 +98,26 @@ function MyApp({ Component, pageProps }: AppProps) {
       canvasContainer?.removeAttribute('style')
     }
 
-    if (router.pathname === '/post/[id]') {
-      console.clear()
-      console.log('id', id)
-      // if the post is not found
-      if (!postsData[id]) hideCanvas()
-      // if the post exists
-      if (postsData[id]) resetCanvas()
+    if (pageProps.id) {
+      resetCanvas()
     } else {
-      // hide canvas on all other urls
       hideCanvas()
     }
-  }, [router.query.id])
+  })
 
   return (
-    <GlobalContextProvider>
-      <LoadSpinnerProvider>
-        <MenuIsOpenProvider>
-          <ChakraProvider theme={theme}>
-            <Component {...pageProps} />
-          </ChakraProvider>
-        </MenuIsOpenProvider>
-      </LoadSpinnerProvider>
-      <ReactNotification />
-    </GlobalContextProvider>
+    <RouteIndicator>
+      <GlobalContextProvider>
+        <LoadSpinnerProvider>
+          <MenuIsOpenProvider>
+            <ChakraProvider theme={theme}>
+              <Component {...pageProps} />
+            </ChakraProvider>
+          </MenuIsOpenProvider>
+        </LoadSpinnerProvider>
+        <ReactNotification />
+      </GlobalContextProvider>
+    </RouteIndicator>
   )
 }
 
