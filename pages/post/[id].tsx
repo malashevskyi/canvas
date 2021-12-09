@@ -31,11 +31,6 @@ const Post: React.FC<PostProps> = ({ id }) => {
     }
   }, [setSpinner])
 
-  // remove react-virtualized errors, seems it isn't supported anymore...
-  useEffect(() => {
-    console.clear()
-  }, [])
-
   useEffect(() => {
     if (!window['timelines']) {
       window['timelines'] = []

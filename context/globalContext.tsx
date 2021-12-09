@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import gsap from 'gsap'
 
 type Manager = {
@@ -34,10 +34,6 @@ export const GlobalContext = createCtx(initialState)
 
 const GlobalContextProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [state, dispatch] = useState(initialState)
-
-  // useEffect(() => {
-
-  // }, [])
 
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
