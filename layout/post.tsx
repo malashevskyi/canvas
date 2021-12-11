@@ -1,13 +1,18 @@
 import Head from 'next/head'
-import { useCallback, useState } from 'react'
 import Additional from '../components/additional'
 import LoadSpinner from '../components/loadSpinner'
 import Menu from '../components/menu'
 import Navbar from '../components/navbar'
 import MenuIsOpenProvider from '../context/menuIsOpenContext'
-import postsData from '../data/canvas2dData'
 
-const PostLayout = ({ children, postTitle, postDescription, tags, url }) => {
+const PostLayout = ({
+  children,
+  postTitle,
+  postDescription,
+  tags,
+  url,
+  postsData,
+}) => {
   return (
     <>
       <Head>
@@ -55,7 +60,7 @@ const PostLayout = ({ children, postTitle, postDescription, tags, url }) => {
       </Head>
       <LoadSpinner />
       <MenuIsOpenProvider>
-        <Navbar canvasNames={Object.keys(postsData)} />
+        <Navbar canvasNames={Object.keys(postsData)} postsData={postsData} />
         {children}
         <Menu />
       </MenuIsOpenProvider>

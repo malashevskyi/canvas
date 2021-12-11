@@ -2,10 +2,10 @@ import { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import PostLayout from '../../layout/post'
 import * as canvases from '../../canvases/_index'
-import canvas2dData from '../../data/canvas2dData'
+import glslData from '../../data/glslData'
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
 import NotFound from '../404'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import { GlobalContext } from '../../context/globalContext'
 
 type PostProps = {
@@ -47,11 +47,11 @@ const Post: React.FC<PostProps> = ({ id }) => {
   }, [])
 
   const router = useRouter()
-  if (!canvas2dData[id]) {
+  if (!glslData[id]) {
     return <NotFound title="Post" />
   }
 
-  const post = canvas2dData[id]
+  const post = glslData[id]
 
   if (!post) {
     return <NotFound title="Post" />
@@ -68,7 +68,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       postDescription={postDescription}
       tags={tags}
       url={url}
-      postsData={canvas2dData}
+      postsData={glslData}
     >
       {router.query.id &&
         (() => {

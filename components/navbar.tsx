@@ -5,10 +5,9 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { AutoSizer, List } from 'react-virtualized'
 import { MenuIsOpenContext } from '../context/menuIsOpenContext'
-import postsData from '../data/canvas2dData'
 import Preview from './preview'
 
-const Navbar = ({ canvasNames }) => {
+const Navbar = ({ canvasNames, postsData }) => {
   const location = useRouter()
   const { isOpen } = useContext(MenuIsOpenContext)
 
