@@ -22,7 +22,7 @@
     "framer-motion": "^4.1.17",
     "glslify-loader": "^2.0.0",
     "gsap": "^3.8.0",
-    "next": "12.0.3",
+    "next": "^12.0.5",
     "next-images": "^1.8.2",
     "nice-color-palettes": "^3.0.0",
     "node-sass": "^6.0.1",
