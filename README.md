@@ -2,7 +2,7 @@
 
 Canvas animations.
 
-[**DEMO**](https://canvas-malashevskyi.vercel.app/home/) — checked in the latest chrome version.
+[**DEMO**](https://canvas-animations.vercel.app/) — checked in the latest chrome version.
 
 ![Screenshot](public/images/sc.png)
 
