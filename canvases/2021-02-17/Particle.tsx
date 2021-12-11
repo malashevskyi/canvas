@@ -2,7 +2,7 @@ import random from 'canvas-sketch-util/random'
 import gsap from 'gsap'
 
 class Particle {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   xTo: number

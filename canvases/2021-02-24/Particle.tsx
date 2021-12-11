@@ -8,7 +8,7 @@ type MouseType = {
 }
 
 class Particle {
-  context
+  context: CanvasRenderingContext2D
   index: number
   coordsCount: number
   angle: number

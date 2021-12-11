@@ -1,7 +1,7 @@
 import { lerp } from 'canvas-sketch-util/math'
 
 class Particle {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   radius: number

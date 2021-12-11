@@ -1,5 +1,5 @@
 class Square {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
 

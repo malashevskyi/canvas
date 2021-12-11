@@ -1,5 +1,5 @@
 class Triangle {
-  context
+  context: CanvasRenderingContext2D
   position: number[]
   x1: number
   y1: number

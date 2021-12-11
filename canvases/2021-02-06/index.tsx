@@ -25,7 +25,7 @@ const sketch = ({ context, height, width }) => {
   setTween()
 
   class Particle {
-    context
+    context: CanvasRenderingContext2D
     radius: number
     x: number
     y: number

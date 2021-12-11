@@ -6,7 +6,7 @@ type CartridgeType = {
 }
 
 class Circle {
-  context
+  context: CanvasRenderingContext2D
   cartridges: CartridgeType[]
   x: number
   y: number

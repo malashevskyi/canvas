@@ -2,7 +2,7 @@ function inRange(axis, start, end) {
   return axis > start && axis < end
 }
 class Ball {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   dx: number

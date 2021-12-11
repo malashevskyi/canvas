@@ -1,7 +1,7 @@
 import Cartridge from './Cartridge'
 
 class Gun {
-  context
+  context: CanvasRenderingContext2D
   anchorX: number
   anchorY: number
   x: number

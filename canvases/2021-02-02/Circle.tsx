@@ -7,7 +7,7 @@ const smooth = [
 ]
 
 class Circle {
-  context
+  context: CanvasRenderingContext2D
   radius: number
   offsetAngle: number
   index: number

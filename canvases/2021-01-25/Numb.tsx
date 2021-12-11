@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 
 class Numb {
-  context
+  context: CanvasRenderingContext2D
   color: string
   text: number
   x: number

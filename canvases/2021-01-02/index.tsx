@@ -42,7 +42,7 @@ const sketch = ({ context, height, width, canvas }: any) => {
     function addParticle(i: any) {
       particles.push(
         new Particle({
-          context,
+          context: CanvasRenderingContext2D,
           x: mouse.x,
           y: mouse.y,
           radius: 1,

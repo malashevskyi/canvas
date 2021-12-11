@@ -1,5 +1,5 @@
 class Smile {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   constructor(args) {

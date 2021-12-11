@@ -1,5 +1,5 @@
 class ParticleScale {
-  context
+  context: CanvasRenderingContext2D
   radius: number = 0
 
   constructor(args) {

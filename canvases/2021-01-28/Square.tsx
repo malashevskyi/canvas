@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 
 class Square {
-  context
+  context: CanvasRenderingContext2D
   angle: number = random.range(0, Math.PI * 2)
   fxCircle: number
   fyCircle: number

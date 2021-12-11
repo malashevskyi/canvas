@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 
 class Dot {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   originalX: number

@@ -13,7 +13,7 @@ type OptType = {
 }
 
 class Particle {
-  context
+  context: CanvasRenderingContext2D
   uX: number
   uY: number
   x: number

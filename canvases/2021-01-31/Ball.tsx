@@ -3,7 +3,7 @@ type OptType = {
 }
 
 class Ball {
-  context
+  context: CanvasRenderingContext2D
   angle: number
   color: string
   opt: OptType

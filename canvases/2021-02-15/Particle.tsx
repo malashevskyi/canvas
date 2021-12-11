@@ -1,5 +1,5 @@
 class Particle {
-  context
+  context: CanvasRenderingContext2D
   x: number
   y: number
   radius: 3

@@ -10,7 +10,7 @@ const ease = (time, start, dRest, duration) => {
 }
 
 class Point {
-  context
+  context: CanvasRenderingContext2D
   anchorX: number
   anchorY: number
   x: number
