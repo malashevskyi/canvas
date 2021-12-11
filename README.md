@@ -4,7 +4,7 @@ Canvas animations.
 
 [**DEMO**](https://canvas-animations.vercel.app/) — checked in the latest chrome version.
 
-![Screenshot](public/images/sc.png)
+<!-- ![Screenshot](public/images/sc.png) -->
 
 ### Dependencies:
 
