@@ -5,7 +5,7 @@ import LoadSpinner from '../components/loadSpinner'
 import Menu from '../components/menu'
 import Navbar from '../components/navbar'
 import MenuIsOpenProvider from '../context/menuIsOpenContext'
-import postsData from '../data/postsData'
+import postsData from '../data/canvas2dData'
 
 const PostLayout = ({ children, postTitle, postDescription, tags, url }) => {
   return (

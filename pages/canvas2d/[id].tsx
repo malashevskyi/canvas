@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import PostLayout from '../../layout/post'
 import * as canvases from '../../canvases/_index'
-import postsData from '../../data/postsData'
+import postsData from '../../data/canvas2dData'
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
 import NotFound from '../404'
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
@@ -60,7 +60,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
   const postTitle = 'Canvas animation №' + post.number
   const postDescription = 'Canvas animation - ' + post.tags.join(' / ')
   const tags = post.tags.join(', ')
-  const url = `post/${id}`
+  const url = `canvas2d/${id}`
 
   return (
     <PostLayout

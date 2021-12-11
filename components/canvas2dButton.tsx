@@ -1,12 +1,12 @@
 import { Button, Link } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
-const Logo = () => {
+const Canvas2dButton = () => {
   return (
     <NextLink href="/">
-      <Button as={Link}>Animations</Button>
+      <Button as={Link}>Canvas2d animations</Button>
     </NextLink>
   )
 }
 
-export default Logo
+export default Canvas2dButton

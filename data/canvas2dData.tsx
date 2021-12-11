@@ -101,7 +101,7 @@ interface PostsType {
   [key: string]: PostType
 }
 
-const postsData: PostsType = {
+const canvas2dData: PostsType = {
   '2021-12-06': {
     number: 62,
     tags: ['circle', 'rotate', 'clock'],
@@ -550,4 +550,4 @@ const postsData: PostsType = {
   },
 }
 
-export default postsData
+export default canvas2dData

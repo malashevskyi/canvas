@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useContext, useState } from 'react'
 import { AutoSizer, List } from 'react-virtualized'
 import { MenuIsOpenContext } from '../context/menuIsOpenContext'
-import postsData from '../data/postsData'
+import postsData from '../data/canvas2dData'
 import Preview from './preview'
 
 const Navbar = ({ canvasNames }) => {
@@ -66,7 +66,7 @@ const Navbar = ({ canvasNames }) => {
             Github
           </Button>
         )}
-        <NextLink href={`/post/${name}`}>
+        <NextLink href={`/canvas2d/${name}`}>
           <Link
             d="block"
             borderLeft="3px solid"

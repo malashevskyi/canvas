@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { List } from 'react-virtualized'
 
-import postsData from '../data/postsData'
+import postsData from '../data/canvas2dData'
 import useWindowSize from '../hooks/useWindowSize'
 import Card from '../components/card'
 import { LoadSpinnerContext } from '../context/loadSpinnerContext'
@@ -59,7 +59,7 @@ function rowRenderer(
         height={cardHeight - 10} // - margin
         date={date}
         margin={`0 ${gapSize / 2}px`}
-        link={`/post/${id}`}
+        link={`/canvas2d/${id}`}
         title={title}
         id={id}
         scrollDirection={scrollDirection}
