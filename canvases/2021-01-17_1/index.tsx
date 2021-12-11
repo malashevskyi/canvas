@@ -1,7 +1,7 @@
 import random from 'canvas-sketch-util/random'
 import palettes from 'nice-color-palettes'
 import useCanvas from '../../hooks/useCanvas'
-import useNotification from '../../__/hooks/useNotification'
+import useNotification from '../../hooks/useNotification'
 import Particle from './Particle'
 
 const sketch = ({ context, height, width }) => {

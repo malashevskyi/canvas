@@ -1,5 +1,5 @@
 import useCanvas from '../../hooks/useCanvas'
-import useNotification from '../../__/hooks/useNotification'
+import useNotification from '../../hooks/useNotification'
 import Circle from './Circle'
 
 const sketch = ({ context, canvas, height, width }) => {

@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import useCanvas from '../../hooks/useCanvas'
-import useNotification from '../../__/hooks/useNotification'
+import useNotification from '../../hooks/useNotification'
 import Smile from './Smile'
 
 const sketch = ({ context, canvas, height, width }) => {
