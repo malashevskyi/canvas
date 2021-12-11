@@ -10,7 +10,7 @@ class Particle {
   x: number
   y: number
   radius: number
-  color: null
+  color: string
   velocity: VelocityType
   alpha: number
 

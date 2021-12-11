@@ -13,7 +13,7 @@ const sketch = ({ context, canvas, height, width }) => {
   // set angle circle / 20;
   const rot = Array(20)
     .fill('')
-    .map((u, i) => (Math.PI / 10) * i)
+    .map((_, i) => (Math.PI / 10) * i)
 
   function drawShape(i) {
     context.save()
@@ -48,7 +48,7 @@ const sketch = ({ context, canvas, height, width }) => {
     context.rotate(opt.rotate)
     context.scale(opt.scale, opt.scale)
 
-    rot.forEach((e, i) => drawShape(i))
+    rot.forEach((_, i) => drawShape(i))
 
     const path = new Path2D()
     drawCircle(path)

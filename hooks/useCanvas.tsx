@@ -14,7 +14,7 @@ const useCanvas = ({ sketch, settings }: UseCanvasType) => {
   useEffect(() => {
     resetCanvas()
 
-    if (!state.canvas2D) return
+    if (!state.canvas2D) return null
 
     let manager
     ;(async () => {

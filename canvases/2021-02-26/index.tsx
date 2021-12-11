@@ -73,7 +73,7 @@ const sketch = ({ context, width, height }) => {
     context.beginPath()
     context.globalCompositeOperation = 'multiply'
 
-    xPositions.forEach((e, i) => drawLetter(i))
+    xPositions.forEach((_, i) => drawLetter(i))
 
     context.closePath()
   }

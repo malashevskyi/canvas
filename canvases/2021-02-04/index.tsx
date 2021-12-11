@@ -1,6 +1,6 @@
 import useCanvas from '../../hooks/useCanvas'
 
-const sketch = ({ context, width, height }) => {
+const sketch = ({ context }) => {
   let tick = 0.3999
   let tickC = 0.0000001
 

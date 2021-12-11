@@ -8,14 +8,6 @@ const sketch = ({ context, height, width }) => {
   let alpha = 1
   let speedUp = true
   let interval
-  const opt = {
-    palettes: [
-      ['#cfffdd', '#b4dec1', '#5c5863', '#a85163', '#ff1f4c'],
-      ['#382f32', '#ffeaf2', '#fcd9e5', '#fbc5d8', '#f1396d'],
-      ['#e8ddcb', '#cdb380', '#036564', '#033649', '#031634'],
-      ['#00a0b0', '#6a4a3c', '#cc333f', '#eb6841', '#edc951'],
-    ],
-  }
 
   random.setSeed(16)
   let palette = palettes[0]

@@ -18,7 +18,7 @@ const Navbar = ({ canvasNames }) => {
 
   function rowRenderer({ key, index, style }) {
     const name = canvasNames[index]
-    if (!name) return
+    if (!name) return null
 
     const postData = postsData[name]
 
@@ -93,7 +93,7 @@ const Navbar = ({ canvasNames }) => {
               willChange="transform"
               transition="transform .3s ease"
             >
-              {postData.tags.map((tag, index) => (
+              {postData.tags.map((tag) => (
                 <Box
                   color="blue.500"
                   fontSize="11px"

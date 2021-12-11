@@ -11,8 +11,8 @@ function Canvas() {
   const sketch = ({ context, width, height }) => {
     const particles = []
     let particles2 = []
-    const offset = [0]
     let alpha = 0.2
+    const offset = [0]
     let tick = 0
     let textOffsetAnimate = false
 

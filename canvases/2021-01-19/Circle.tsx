@@ -25,7 +25,7 @@ class Circle {
       true
     )
     this.context.fillStyle = color
-    this.context.strokeWidth = 1
+    this.context.lineWidth = 1
     this.context.fill()
     this.context.restore()
   }

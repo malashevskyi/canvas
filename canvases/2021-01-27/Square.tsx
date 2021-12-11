@@ -90,7 +90,7 @@ class Square {
     this.context.beginPath()
     this.context.fillStyle = this.color
     this.context.rect(this.x, this.y, 1.5, 1.5)
-    this.context.strokeWidth = 0
+    this.context.lineWidth = 0
     this.context.strokeStyle = this.color
     this.context.stroke()
     this.context.fill()

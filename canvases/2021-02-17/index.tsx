@@ -73,7 +73,7 @@ const sketch = ({ context, height, width }) => {
     context.clearRect(0, 0, width, height)
     context.translate(width / 2 - image.width, height / 2 - image.height)
 
-    particles.forEach((particle, i) => {
+    particles.forEach((particle) => {
       particle.draw()
     })
   }

@@ -34,7 +34,7 @@ const sketch = ({ context, height, width }) => {
 
       context.clearRect(0, 0, width, height)
 
-      circles.forEach((circle, i) => {
+      circles.forEach((circle) => {
         // circle.color = `hsl(${(i * 5 + time * 10) % 250 + 110}, 50%, 50%)`
         circle.draw(startAngle, width, height)
       })

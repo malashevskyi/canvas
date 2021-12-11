@@ -1,9 +1,5 @@
 import random from 'canvas-sketch-util/random'
 
-type ImageType = {
-  width: number
-  height: number
-}
 type OptType = {
   squaresCount: number
   squareWidth: number
@@ -20,7 +16,7 @@ class Particle {
   y: number
   random: number = random.gaussian()
   opt: OptType
-  image: ImageType
+  image: any
 
   constructor(args) {
     Object.assign(this, args)
