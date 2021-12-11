@@ -7,7 +7,6 @@ import ReactNotification from 'react-notifications-component'
 import GlobalContextProvider from '../context/globalContext'
 import LoadSpinnerProvider from '../context/loadSpinnerContext'
 import MenuIsOpenProvider from '../context/menuIsOpenContext'
-import postsData from '../data/postsData'
 import '../styles/globals.sass'
 
 const theme = extendTheme({

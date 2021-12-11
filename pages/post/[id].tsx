@@ -5,7 +5,7 @@ import * as canvases from '../../canvases/_index'
 import postsData from '../../data/postsData'
 import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
 import NotFound from '../404'
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import { GlobalContext } from '../../context/globalContext'
 
 type PostProps = {
@@ -84,12 +84,25 @@ const Post: React.FC<PostProps> = ({ id }) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   if (context.params) {
     return { props: { id: context.params.id } }
   }
 
   return { props: {} }
 }
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   if (context.params) {
+//     return { props: { id: context.params.id } }
+//   }
+
+//   return { props: {} }
+// }
 
 export default Post
