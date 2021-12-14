@@ -8,14 +8,18 @@ type Manager = {
 type StateType = {
   manager: Manager
   canvas2D: HTMLCanvasElement
+  canvasGL: HTMLCanvasElement
   context2D: CanvasRenderingContext2D
+  contextGL: WebGLRenderingContext
   timelines: typeof gsap[]
 }
 
 const initialState: StateType = {
   manager: { unload: () => {} },
   canvas2D: null,
+  canvasGL: null,
   context2D: null,
+  contextGL: null,
   timelines: [],
 }
 

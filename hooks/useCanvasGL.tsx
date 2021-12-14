@@ -13,17 +13,19 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
   const { state, dispatch } = useContext(GlobalContext)
 
   useEffect(() => {
-    resetCanvas()
+    resetCanvas('webgl')
 
-    if (!state.canvas2D) return null
+    if (!state.canvasGL) return null
 
     let manager
     ;(async () => {
       state.manager.unload()
 
       manager = await canvasSketch(sketch(), {
-        canvas: state.canvas2D,
+        dimensions: [1024, 540],
         animate: true,
+        context: 'webgl',
+        canvas: state.canvasGL,
       })
 
       dispatch({ ...state, manager })
@@ -31,8 +33,9 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
 
     return () => {
       destroyObjects(manager)
+      resetCanvas('all')
     }
-  }, [state.canvas2D])
+  }, [state.canvasGL])
 }
 
 export default useCanvas

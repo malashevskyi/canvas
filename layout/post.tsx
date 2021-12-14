@@ -11,6 +11,7 @@ const PostLayout = ({
   postDescription,
   tags,
   url,
+  group,
   postsData,
 }) => {
   return (
@@ -60,11 +61,15 @@ const PostLayout = ({
       </Head>
       <LoadSpinner />
       <MenuIsOpenProvider>
-        <Navbar canvasNames={Object.keys(postsData)} postsData={postsData} />
+        <Navbar
+          group={group}
+          canvasNames={Object.keys(postsData)}
+          postsData={postsData}
+        />
         {children}
         <Menu />
       </MenuIsOpenProvider>
-      <Additional />
+      <Additional postsData={postsData} />
     </>
   )
 }

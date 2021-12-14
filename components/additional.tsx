@@ -1,12 +1,11 @@
 import { useDisclosure } from '@chakra-ui/hooks'
 import { Box, Center, HStack, VStack, Badge } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import postsData from '../data/canvas2dData'
 import useWindowSize from '../hooks/useWindowSize'
 import ArrowInfo from './arrowInfo'
 import GithubButton from './githubButton'
 
-const Additional = () => {
+const Additional = ({ postsData }) => {
   const { isOpen, onToggle } = useDisclosure()
   const location = useRouter()
   const windowSize = useWindowSize()

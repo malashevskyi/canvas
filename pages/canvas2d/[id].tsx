@@ -68,6 +68,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       postDescription={postDescription}
       tags={tags}
       url={url}
+      group="canvas2d"
       postsData={canvas2dData}
     >
       {router.query.id &&

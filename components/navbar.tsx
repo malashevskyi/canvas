@@ -7,7 +7,7 @@ import { AutoSizer, List } from 'react-virtualized'
 import { MenuIsOpenContext } from '../context/menuIsOpenContext'
 import Preview from './preview'
 
-const Navbar = ({ canvasNames, postsData }) => {
+const Navbar = ({ canvasNames, postsData, group }) => {
   const location = useRouter()
   const { isOpen } = useContext(MenuIsOpenContext)
 
@@ -65,7 +65,8 @@ const Navbar = ({ canvasNames, postsData }) => {
             Github
           </Button>
         )}
-        <NextLink href={`/canvas2d/${name}`}>
+        {console.log(postsData)}
+        <NextLink href={`/${group}/${name}`}>
           <Link
             d="block"
             borderLeft="3px solid"

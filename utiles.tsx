@@ -2,7 +2,7 @@ export const resetCanvas = (type = '2d') => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement
   const canvasGL = document.getElementById('canvasGL') as HTMLCanvasElement
 
-  if (type === 'webgl') {
+  if (type === 'webgl' || type === 'all') {
     canvasGL.style.display = 'block'
     canvas.style.display = 'none'
   } else {
@@ -17,7 +17,7 @@ export const resetCanvas = (type = '2d') => {
 }
 
 export const destroyObjects = (manager) => {
-  manager.unload()
+  manager?.unload()
 
   window['timelines'].forEach((timeline) => {
     timeline.kill()
