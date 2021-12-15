@@ -1,11 +1,9 @@
-import { useContext } from 'react'
-
-import { LoadSpinnerContext } from '../context/loadSpinnerContext'
 import { Box, Center } from '@chakra-ui/layout'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 const LoadSpinner = () => {
-  const { state: spinner } = useContext(LoadSpinnerContext)
-
+  const state = useSelector((state: RootState) => state)
   return (
     <Box
       pos="fixed"
@@ -18,13 +16,13 @@ const LoadSpinner = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      opacity={spinner.active ? 1 : 0}
+      opacity={state.spinnerIsActive ? 1 : 0}
       transition="opacity .35s ease"
       pointerEvents="none"
     >
-      {spinner.text && (
+      {state.spinnerText && (
         <Center as="h4" pos="absolute" textAlign="center" pt="130px">
-          <pre>{spinner.text}</pre>
+          <pre>{state.spinnerText}</pre>
         </Center>
       )}
       <div className="loader">Loading...</div>

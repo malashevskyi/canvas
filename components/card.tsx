@@ -1,12 +1,10 @@
-import { useContext } from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
-
-import { LoadSpinnerContext } from '../context/loadSpinnerContext'
-
-import Preview from './preview'
 import { Badge } from '@chakra-ui/layout'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { mainActions } from '../store'
+import Preview from './preview'
 
 const Card = ({
   index,
@@ -21,11 +19,12 @@ const Card = ({
   scrollDirection,
   anmRenderFirstScreen,
 }) => {
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
   const yAnmUp = -30 * indexInItem - 50
   const router = useRouter()
   let yAnmDown = 30 * indexInItem + 50
   let delay = indexInItem / 100
+
+  const dispatch = useDispatch()
 
   if (anmRenderFirstScreen) {
     yAnmDown += index * 4
@@ -34,11 +33,8 @@ const Card = ({
 
   const onCardClickHandler = (e) => {
     e.preventDefault()
-    setSpinner({
-      active: true,
-      text: 'Loading data for all canvases. \n Please wait.',
-    })
-
+    const text = 'Loading data for all canvases. \n Please wait.'
+    dispatch(mainActions.setSpinner(text))
     router.push(link)
   }
 

@@ -1,15 +1,16 @@
 import { Button } from '@chakra-ui/button'
-import { Badge, Box, VStack, Link } from '@chakra-ui/layout'
+import { Badge, Box, Link, VStack } from '@chakra-ui/layout'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { AutoSizer, List } from 'react-virtualized'
-import { MenuIsOpenContext } from '../context/menuIsOpenContext'
+import { RootState } from '../store'
 import Preview from './preview'
 
 const Navbar = ({ canvasNames, postsData, group }) => {
   const location = useRouter()
-  const { isOpen } = useContext(MenuIsOpenContext)
+  const state = useSelector((state: RootState) => state)
 
   const [thisNavbarIndex] = useState(
     canvasNames.findIndex((el) => el === location.query.id)
@@ -144,7 +145,7 @@ const Navbar = ({ canvasNames, postsData, group }) => {
       maxW={['253px', '253px', '303px']}
       transition="transform .4s ease"
       willChange="transform"
-      transform={`translate(${isOpen ? 0 : '100%'}, 0)`}
+      transform={`translate(${state.menuIsOpen ? 0 : '100%'}, 0)`}
     >
       <Box h="100vh">
         <Box h="100%">

@@ -1,6 +1,7 @@
 import canvasSketch from 'canvas-sketch'
-import { useContext, useEffect, useState } from 'react'
-import { GlobalContext } from '../context/globalContext'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { mainActions, RootState } from '../store'
 import { destroyObjects, resetCanvas } from '../utiles'
 
 type UseCanvasType = {
@@ -10,7 +11,8 @@ type UseCanvasType = {
 }
 
 const useCanvas = ({ sketch }: UseCanvasType) => {
-  const { state, dispatch } = useContext(GlobalContext)
+  const state = useSelector((state: RootState) => state)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     resetCanvas()
@@ -19,14 +21,15 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
 
     let manager
     ;(async () => {
-      state.manager.unload()
+      // state.manager.unload()
+      dispatch(mainActions.unloadCanvasManager())
 
       manager = await canvasSketch(sketch(), {
         canvas: state.canvas2D,
         animate: true,
       })
 
-      dispatch({ ...state, manager })
+      dispatch(mainActions.newCanvasManager(manager))
     })()
 
     return () => {

@@ -1,32 +1,26 @@
 import { useRouter } from 'next/router'
-import { useEffect, useContext } from 'react'
-
-import { LoadSpinnerContext } from '../context/loadSpinnerContext'
-
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import NotFoundLayout from '../layout/notFound'
+import { mainActions } from '../store'
 
 type NotFoundProps = {
   title: string
 }
 
 const NotFound: React.FC<NotFoundProps> = ({ title }) => {
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
   const router = useRouter()
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setSpinner({
-      active: false,
-      text: '',
-    })
-  }, [setSpinner])
+    dispatch(mainActions.resetSpinner())
+  }, [])
 
   const onClickHandler = () => (event: MouseEvent) => {
     event.preventDefault()
+    const text = 'Loading main page assets. \n Please wait.'
 
-    setSpinner({
-      active: true,
-      text: 'Loading main page assets. \n Please wait.',
-    })
+    dispatch(mainActions.setSpinner(text))
 
     setTimeout(() => {
       router.replace('/')

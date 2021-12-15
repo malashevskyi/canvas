@@ -1,24 +1,22 @@
-import { useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
-
-import { LoadSpinnerContext } from '../context/loadSpinnerContext'
-
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import MainLayout from '../layout/main'
+import { mainActions } from '../store'
 
 const Home = () => {
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
   const router = useRouter()
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setSpinner({
-      active: true,
-      text: 'Loading main page assets. \n Please wait.',
-    })
+    const text = 'Loading main page assets. \n Please wait.'
+
+    dispatch(mainActions.setSpinner(text))
 
     setTimeout(() => {
       router.push('/')
     }, 500)
-  }, [setSpinner, router])
+  }, [router])
 
   return (
     <MainLayout title="Canvas animations">

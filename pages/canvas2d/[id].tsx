@@ -1,49 +1,39 @@
-import { useEffect, useContext } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import PostLayout from '../../layout/post'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import * as canvases from '../../canvases/_index'
 import canvas2dData from '../../data/canvas2dData'
-import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
+import PostLayout from '../../layout/post'
+import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { GlobalContext } from '../../context/globalContext'
 
 type PostProps = {
   id: string
 }
 
 const Post: React.FC<PostProps> = ({ id }) => {
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
-  const { state: globalState, dispatch: setGlobalContext } =
-    useContext(GlobalContext)
+  const state = useSelector((state: RootState) => state)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setSpinner({
-      active: false,
-      text: '',
-    })
+    dispatch(mainActions.resetSpinner())
 
     return () => {
-      setSpinner({
-        active: true,
-        text: '',
-      })
+      dispatch(mainActions.resetSpinner())
     }
-  }, [setSpinner])
+  }, [])
 
   useEffect(() => {
     if (!window['timelines']) {
       window['timelines'] = []
     }
 
-    if (!globalState.canvas2D) {
+    if (!state.canvas2D) {
       const canvas = document.getElementById('canvas') as HTMLCanvasElement
-      setGlobalContext({
-        ...globalState,
-        canvas2D: canvas,
-      })
+
+      dispatch(mainActions.setCanvas2D(canvas))
     }
-    console.log(globalState)
   }, [])
 
   const router = useRouter()

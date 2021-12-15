@@ -1,54 +1,41 @@
-import { useEffect, useContext } from 'react'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import PostLayout from '../../layout/post'
-import * as canvases from '../../glsl/_index'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import glslData from '../../data/glslData'
-import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
+import * as canvases from '../../glsl/_index'
+import PostLayout from '../../layout/post'
+import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
-import { GlobalContext } from '../../context/globalContext'
 
 type PostProps = {
   id: string
 }
 
 const Post: React.FC<PostProps> = ({ id }) => {
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
-  const { state: globalState, dispatch: setGlobalContext } =
-    useContext(GlobalContext)
+  const state = useSelector((state: RootState) => state)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setSpinner({
-      active: false,
-      text: '',
-    })
+    dispatch(mainActions.resetSpinner())
 
     return () => {
-      setSpinner({
-        active: true,
-        text: '',
-      })
+      dispatch(mainActions.resetSpinner())
     }
-  }, [setSpinner])
+  }, [])
 
   useEffect(() => {
     if (!window['timelines']) {
       window['timelines'] = []
     }
 
-    if (!globalState.canvas2D) {
-      const canvas2d = document.getElementById('canvas') as HTMLCanvasElement
+    if (!state.canvasGL) {
+      // const canvas2d = document.getElementById('canvas') as HTMLCanvasElement
       const canvasGL = document.getElementById('canvasGL') as HTMLCanvasElement
-      setGlobalContext({
-        ...globalState,
-        canvas2D: canvas2d,
-      })
-      setGlobalContext({
-        ...globalState,
-        canvasGL: canvasGL,
-      })
+
+      // dispatch(mainActions.setCanvas2D(canvas2d))
+      dispatch(mainActions.setCanvasGL(canvasGL))
     }
-    console.log(globalState)
   }, [])
 
   const router = useRouter()

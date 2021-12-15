@@ -1,12 +1,10 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { GetServerSideProps } from 'next'
 import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
-import { useCallback, useEffect, useState } from 'react'
+import { Router, useRouter } from 'next/router'
+import { useCallback, useEffect } from 'react'
 import ReactNotification from 'react-notifications-component'
-import GlobalContextProvider from '../context/globalContext'
-import LoadSpinnerProvider from '../context/loadSpinnerContext'
-import MenuIsOpenProvider from '../context/menuIsOpenContext'
+import { Provider, useDispatch } from 'react-redux'
+import store, { mainActions } from '../store'
 import '../styles/globals.sass'
 
 const theme = extendTheme({
@@ -82,7 +80,22 @@ const RouteIndicator = ({ children }: React.PropsWithChildren<{}>) => {
   return <>{children}</>
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ pageProps, Component }) {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', () => {
+      dispatch(mainActions.resetSpinner())
+    })
+  }, [])
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
+}
+
+function Index({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // console.log('_________________', pageProps)
     const canvasContainer = document.querySelector('body > .container')
@@ -106,18 +119,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <RouteIndicator>
-      <GlobalContextProvider>
-        <LoadSpinnerProvider>
-          <MenuIsOpenProvider>
-            <ChakraProvider theme={theme}>
-              <Component {...pageProps} />
-            </ChakraProvider>
-          </MenuIsOpenProvider>
-        </LoadSpinnerProvider>
+      <Provider store={store}>
+        <App pageProps={pageProps} Component={Component} />
         <ReactNotification />
-      </GlobalContextProvider>
+      </Provider>
     </RouteIndicator>
   )
 }
 
-export default MyApp
+export default Index

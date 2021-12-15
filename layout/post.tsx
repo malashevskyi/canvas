@@ -3,7 +3,6 @@ import Additional from '../components/additional'
 import LoadSpinner from '../components/loadSpinner'
 import Menu from '../components/menu'
 import Navbar from '../components/navbar'
-import MenuIsOpenProvider from '../context/menuIsOpenContext'
 
 const PostLayout = ({
   children,
@@ -60,15 +59,13 @@ const PostLayout = ({
         />
       </Head>
       <LoadSpinner />
-      <MenuIsOpenProvider>
-        <Navbar
-          group={group}
-          canvasNames={Object.keys(postsData)}
-          postsData={postsData}
-        />
-        {children}
-        <Menu />
-      </MenuIsOpenProvider>
+      <Navbar
+        group={group}
+        canvasNames={Object.keys(postsData)}
+        postsData={postsData}
+      />
+      {children}
+      <Menu />
       <Additional postsData={postsData} />
     </>
   )

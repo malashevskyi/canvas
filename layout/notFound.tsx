@@ -1,6 +1,5 @@
-import Head from 'next/head';
-import LoadSpinner from '../components/loadSpinner';
-import MenuIsOpenProvider from '../context/menuIsOpenContext';
+import Head from 'next/head'
+import LoadSpinner from '../components/loadSpinner'
 
 const NotFoundLayout = ({ title, children }) => (
   <>
@@ -8,8 +7,8 @@ const NotFoundLayout = ({ title, children }) => (
       <title>{title}</title>
     </Head>
     <LoadSpinner />
-    <MenuIsOpenProvider>{children}</MenuIsOpenProvider>
+    {children}
   </>
-);
+)
 
-export default NotFoundLayout;
+export default NotFoundLayout

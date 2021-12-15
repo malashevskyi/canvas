@@ -1,15 +1,14 @@
-import { useState, useEffect, useContext } from 'react'
-import { List } from 'react-virtualized'
-
-import glslData from '../../data/glslData'
-import useWindowSize from '../../hooks/useWindowSize'
-import Card from '../../components/card'
-import { LoadSpinnerContext } from '../../context/loadSpinnerContext'
-import MainLayout from '../../layout/main'
-
-import 'react-virtualized/styles.css'
 import { Flex } from '@chakra-ui/layout'
 import { GetStaticProps } from 'next'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { List } from 'react-virtualized'
+import 'react-virtualized/styles.css'
+import Card from '../../components/card'
+import glslData from '../../data/glslData'
+import useWindowSize from '../../hooks/useWindowSize'
+import MainLayout from '../../layout/main'
+import { mainActions } from '../../store'
 
 const gapSize = 10
 const cardHeight = 130
@@ -85,21 +84,16 @@ const Index: React.FC<IndexProps> = ({ glslDataServer }) => {
 
   // more powerful animation on the first render for first screen cards
   const [anmRenderFirstScreen, setAnmRenderFirstScreen] = useState(true)
-
-  const { dispatch: setSpinner } = useContext(LoadSpinnerContext)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    // remove loader
-    setSpinner({
-      active: false,
-      text: '',
-    })
+    dispatch(mainActions.resetSpinner())
 
     // more lighter animation for new cards to be displayed when scrolling
     setTimeout(() => {
       setAnmRenderFirstScreen(false)
     }, 1000)
-  }, [setSpinner])
+  }, [])
 
   // set initial dimensions to detect how many card render on server side;
   // render 42 cards -- 6 columns * 6 rows + 6 card auto adding, one to each column
