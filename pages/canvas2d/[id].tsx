@@ -29,7 +29,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       window['timelines'] = []
     }
 
-    if (!state.canvas2D) {
+    if (!state.root.canvas2D) {
       const canvas = document.getElementById('canvas') as HTMLCanvasElement
 
       dispatch(mainActions.setCanvas2D(canvas))

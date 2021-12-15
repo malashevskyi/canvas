@@ -15,14 +15,3 @@ export const resetCanvas = (type = '2d') => {
     context.clearRect(0, 0, window.innerWidth, window.innerHeight)
   }
 }
-
-export const destroyObjects = (manager) => {
-  manager?.unload()
-
-  window['timelines'].forEach((timeline) => {
-    timeline.kill()
-  })
-  setTimeout(() => {
-    window['timelines'].length = 0
-  })
-}

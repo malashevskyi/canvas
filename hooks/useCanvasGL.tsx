@@ -2,7 +2,7 @@ import canvasSketch from 'canvas-sketch'
 import { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { mainActions, RootState } from '../store'
-import { destroyObjects, resetCanvas } from '../utiles'
+import { resetCanvas } from '../utiles'
 
 type UseCanvasType = {
   sketch: () => void
@@ -17,7 +17,7 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
   useEffect(() => {
     resetCanvas('webgl')
 
-    if (!state.canvasGL) return null
+    if (!state.root.canvasGL) return null
 
     let manager
     ;(async () => {
@@ -27,17 +27,18 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
         dimensions: [1024, 540],
         animate: true,
         context: 'webgl',
-        canvas: state.canvasGL,
+        canvas: state.root.canvasGL,
       })
 
       dispatch(mainActions.newCanvasManager(manager))
     })()
 
     return () => {
-      destroyObjects(manager)
+      dispatch(mainActions.unloadCanvasManager())
+      dispatch(mainActions.destroyTimelines())
       resetCanvas('all')
     }
-  }, [state.canvasGL])
+  }, [state.root.canvasGL])
 }
 
 export default useCanvas

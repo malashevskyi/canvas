@@ -20,5 +20,12 @@
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "pages/_document.tsx", "glsl/2021-12-11/index.js", "glsl/2021-12-11/index.js" "next.config.js", "__"]
+  "exclude": [
+    "node_modules",
+    "pages/_document.tsx",
+    "glsl/2021-12-11/index.js",
+    "glsl/2021-12-11/index.js",
+    "next.config.js",
+    "__"
+  ]
 }

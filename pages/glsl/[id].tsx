@@ -29,7 +29,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       window['timelines'] = []
     }
 
-    if (!state.canvasGL) {
+    if (!state.root.canvasGL) {
       // const canvas2d = document.getElementById('canvas') as HTMLCanvasElement
       const canvasGL = document.getElementById('canvasGL') as HTMLCanvasElement
 

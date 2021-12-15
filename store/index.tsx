@@ -55,10 +55,26 @@ const mainSlice = createSlice({
     setMenuIsOpen(state, action) {
       state.menuIsOpen = action.payload
     },
+    destroyTimelines(state) {
+      if (typeof window['timelines']) {
+        window['timelines'].forEach((timeline) => {
+          timeline.kill()
+        })
+        setTimeout(() => {
+          window['timelines'].length = 0
+        })
+      }
+    },
   },
 })
 
 export const mainActions = mainSlice.actions
-const store = configureStore(mainSlice)
+const store = configureStore({
+  reducer: {
+    root: mainSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
+})
 export default store
 export type RootState = ReturnType<typeof store.getState>

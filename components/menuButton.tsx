@@ -7,11 +7,11 @@ const MenuButton = () => {
   const dispatch = useDispatch()
 
   const onToggleMenuHandler = () => {
-    dispatch(mainActions.setMenuIsOpen(!state.menuIsOpen))
+    dispatch(mainActions.setMenuIsOpen(!state.root.menuIsOpen))
   }
 
   return (
-    <Button isActive={state.menuIsOpen} onClick={onToggleMenuHandler}>
+    <Button isActive={state.root.menuIsOpen} onClick={onToggleMenuHandler}>
       Menu
     </Button>
   )

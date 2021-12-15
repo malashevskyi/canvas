@@ -16,13 +16,13 @@ const LoadSpinner = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      opacity={state.spinnerIsActive ? 1 : 0}
+      opacity={state.root.spinnerIsActive ? 1 : 0}
       transition="opacity .35s ease"
       pointerEvents="none"
     >
-      {state.spinnerText && (
+      {state.root.spinnerText && (
         <Center as="h4" pos="absolute" textAlign="center" pt="130px">
-          <pre>{state.spinnerText}</pre>
+          <pre>{state.root.spinnerText}</pre>
         </Center>
       )}
       <div className="loader">Loading...</div>

@@ -66,7 +66,6 @@ const Navbar = ({ canvasNames, postsData, group }) => {
             Github
           </Button>
         )}
-        {console.log(postsData)}
         <NextLink href={`/${group}/${name}`}>
           <Link
             d="block"
@@ -145,7 +144,7 @@ const Navbar = ({ canvasNames, postsData, group }) => {
       maxW={['253px', '253px', '303px']}
       transition="transform .4s ease"
       willChange="transform"
-      transform={`translate(${state.menuIsOpen ? 0 : '100%'}, 0)`}
+      transform={`translate(${state.root.menuIsOpen ? 0 : '100%'}, 0)`}
     >
       <Box h="100vh">
         <Box h="100%">
