@@ -36,6 +36,8 @@ const Navbar = ({ canvasNames, postsData, group }) => {
       src = `/images/previews/${name}.png`
     } else if (group === 'glsl') {
       src = `/images/glsl-previews/${name}.png`
+    } else if (group === 'three') {
+      src = `/images/three-previews/${name}.png`
     }
 
     return (
