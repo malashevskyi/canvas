@@ -5,14 +5,25 @@ import GLSLButton from './glslButton'
 import MenuButton from './menuButton'
 import ThreeButton from './threeButton'
 
-const Menu = () => (
-  <VStack spacing={1} p={1} justifyContent="flex-start" alignItems="flex-start">
-    <Canvas2dButton />
-    <ThreeButton />
-    <GLSLButton />
-    <MenuButton />
-    <GithubButton link="https://github.com/malashevskyi/canvas" />
-  </VStack>
-)
+type MenuProps = {
+  mainLayout?: Boolean
+}
+
+const Menu = ({ mainLayout }: MenuProps) => {
+  return (
+    <VStack
+      spacing={1}
+      p={1}
+      justifyContent="flex-start"
+      alignItems="flex-start"
+    >
+      <Canvas2dButton />
+      <ThreeButton />
+      <GLSLButton />
+      {!mainLayout && <MenuButton />}
+      <GithubButton link="https://github.com/malashevskyi/canvas" />
+    </VStack>
+  )
+}
 
 export default Menu
