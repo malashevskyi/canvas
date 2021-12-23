@@ -58,6 +58,12 @@ const sketch = ({ context }) => {
     render({ time }) {
       controls.update()
 
+      mesh.rotation.x = time * 0.1
+      mesh.rotation.y = time * 0.1
+
+      scene.rotation.x = Math.sin(time)
+      scene.rotation.y = Math.sin(time)
+
       meshes.forEach((mesh, i) => {
         mesh.rotation.y += Math.cos(time * 10) / 80
         mesh.rotation.x += Math.sin(time * 10) / 120
