@@ -55,7 +55,7 @@ const mainSlice = createSlice({
     setMenuIsOpen(state, action) {
       state.menuIsOpen = action.payload
     },
-    destroyTimelines(state) {
+    destroyTimelines() {
       if (typeof window['timelines']) {
         window['timelines'].forEach((timeline) => {
           timeline.kill()
