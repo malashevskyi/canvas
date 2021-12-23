@@ -61,6 +61,7 @@ function rowRenderer(
         link={`/canvas2d/${id}`}
         title={title}
         id={id}
+        src={`/images/previews/${id}.png`}
         scrollDirection={scrollDirection}
         anmRenderFirstScreen={anmRenderFirstScreen}
       />

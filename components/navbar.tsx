@@ -30,6 +30,14 @@ const Navbar = ({ canvasNames, postsData, group }) => {
 
     const githubLink = postData.github
 
+    let src = ''
+
+    if (group === 'canvas2d') {
+      src = `/images/previews/${name}.png`
+    } else if (group === 'glsl') {
+      src = `/images/glsl-previews/${name}.png`
+    }
+
     return (
       <Box
         style={style}
@@ -112,6 +120,7 @@ const Navbar = ({ canvasNames, postsData, group }) => {
               willChange="transform"
               transition="transform .3s ease"
               title={imgTitle}
+              src={src}
               name={name}
             />
             <Badge

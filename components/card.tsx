@@ -16,6 +16,7 @@ const Card = ({
   link,
   id,
   title,
+  src,
   scrollDirection,
   anmRenderFirstScreen,
 }) => {
@@ -66,7 +67,7 @@ const Card = ({
             >
               {date.slice(0, 10)}
             </Badge>
-            <Preview name={id} title={title} />
+            <Preview src={src} name={id} title={title} />
           </a>
         </Link>
       </div>

@@ -1,8 +1,6 @@
 import { Box, Image } from '@chakra-ui/react'
 
-const Preview = ({ title, name, ...props }) => {
-  const imageSrc = `/images/previews/${name}.png`
-
+const Preview = ({ title, name, src, ...props }) => {
   return (
     <Box
       w="300px"
@@ -24,14 +22,7 @@ const Preview = ({ title, name, ...props }) => {
         zIndex: 1,
       }}
     >
-      <Image
-        w="auto"
-        h="100%"
-        mr="auto"
-        src={imageSrc}
-        alt={title}
-        layout="fill"
-      />
+      <Image w="auto" h="100%" mr="auto" src={src} alt={title} layout="fill" />
     </Box>
   )
 }
