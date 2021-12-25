@@ -9,13 +9,13 @@ interface PostsType {
   [key: string]: PostType
 }
 
-const glslData: PostsType = {
+const threeData: PostsType = {
   '2021-12-23': {
     number: 63,
-    tags: ['three TEST'],
+    tags: ['sphere', 'torus'],
     credits: () => null,
-    github: 'TEST',
+    github: '',
   },
 }
 
-export default glslData
+export default threeData
