@@ -29,12 +29,13 @@ const sketch = ({ context }) => {
 
   const meshes = []
 
+  const geometry = new THREE.TorusGeometry(1, 0.05, 6, 140)
+  const material = new THREE.MeshPhysicalMaterial({
+    color: 'red',
+    side: THREE.DoubleSide,
+  })
+
   for (let i = 0; i < 10; i++) {
-    const geometry = new THREE.TorusGeometry(1, 0.05, 6, 140)
-    const material = new THREE.MeshPhysicalMaterial({
-      color: 'red',
-      side: THREE.DoubleSide,
-    })
     const torus = new THREE.Mesh(geometry, material)
 
     meshes.push(torus)
