@@ -56,7 +56,7 @@ function rowRenderer(
         indexInItem={i - startIndex}
         width={cardWidth}
         height={cardHeight - 10} // - margin
-        date={null}
+        date={date}
         margin={`0 ${gapSize / 2}px`}
         link={`/samples/${id}`}
         title={title}

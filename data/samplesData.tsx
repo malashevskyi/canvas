@@ -12,7 +12,7 @@ interface PostsType {
 const threeData: PostsType = {
   '2021-12-25': {
     number: null,
-    tags: ['particles'],
+    tags: ['particles', 'three.js'],
     credits: () => null,
     github: '',
   },

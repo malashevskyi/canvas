@@ -60,7 +60,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       postDescription={postDescription}
       tags={tags}
       url={url}
-      group="glsl"
+      group="samples"
       postsData={samplesData}
     >
       {router.query.id &&
