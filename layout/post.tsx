@@ -66,7 +66,7 @@ const PostLayout = ({
       />
       {children}
       <Menu />
-      <Additional postsData={postsData} />
+      {group !== 'samples' && <Additional postsData={postsData} />}
     </>
   )
 }

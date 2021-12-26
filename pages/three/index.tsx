@@ -22,6 +22,7 @@ type RowArgs = {
 type DataType = {
   id: string
   title: string
+  tags: string[]
 }
 
 function rowRenderer(
@@ -46,7 +47,7 @@ function rowRenderer(
 
     if (!data) continue
 
-    const { title, id } = data
+    const { title, id, tags } = data
 
     const date = id.slice(0, 10)
 
@@ -61,6 +62,7 @@ function rowRenderer(
         link={`/three/${id}`}
         title={title}
         id={id}
+        tags={tags}
         src={`/images/three-previews/${id}.png`}
         scrollDirection={scrollDirection}
         anmRenderFirstScreen={anmRenderFirstScreen}
@@ -148,6 +150,7 @@ export const getStaticProps: GetStaticProps = async () => {
       data.push({
         id: key,
         title: 'Canvas animation - ' + post.tags.join(', '),
+        tags: post.tags,
       })
     }
   })
