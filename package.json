@@ -35,7 +35,8 @@
     "react-notifications-component": "^3.1.0",
     "react-redux": "^7.2.6",
     "react-virtualized": "^9.22.3",
-    "three": "^0.134.0"
+    "three": "^0.134.0",
+    "ts-shader-loader": "^1.0.6"
   },
   "keywords": [
     "canvas",
