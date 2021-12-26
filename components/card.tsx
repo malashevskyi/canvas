@@ -54,19 +54,21 @@ const Card = ({
       <div key={index} className="card" style={{ width, height, margin }}>
         <Link href={link}>
           <a onClick={onCardClickHandler}>
-            <Badge
-              as="time"
-              dateTime={date}
-              pos="absolute"
-              right={1}
-              bottom={1}
-              letterSpacing="2px"
-              fontSize="9px"
-              color="gray.600"
-              zIndex={2}
-            >
-              {date.slice(0, 10)}
-            </Badge>
+            {date && (
+              <Badge
+                as="time"
+                dateTime={date}
+                pos="absolute"
+                right={1}
+                bottom={1}
+                letterSpacing="2px"
+                fontSize="9px"
+                color="gray.600"
+                zIndex={2}
+              >
+                {date.slice(0, 10)}
+              </Badge>
+            )}
             <Preview src={src} name={id} title={title} />
           </a>
         </Link>

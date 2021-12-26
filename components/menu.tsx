@@ -3,6 +3,7 @@ import Canvas2dButton from './canvas2dButton'
 import GithubButton from './githubButton'
 import GLSLButton from './glslButton'
 import MenuButton from './menuButton'
+import SampleButton from './samplesButton'
 import ThreeButton from './threeButton'
 
 type MenuProps = {
@@ -20,6 +21,7 @@ const Menu = ({ mainLayout }: MenuProps) => {
       <Canvas2dButton />
       <ThreeButton />
       <GLSLButton />
+      <SampleButton />
       {!mainLayout && <MenuButton />}
       <GithubButton link="https://github.com/malashevskyi/canvas" />
     </VStack>
