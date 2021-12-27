@@ -16,9 +16,15 @@ const threeData: PostsType = {
     credits: () => null,
     github: '',
   },
+  '2021-12-27_7': {
+    number: null,
+    tags: ['glsl', 'rotation', 'flower'],
+    credits: () => null,
+    github: '',
+  },
   '2021-12-27_6': {
     number: null,
-    tags: ['glsl', 'fract'],
+    tags: ['glsl', 'rotation'],
     credits: () => null,
     github: '',
   },
