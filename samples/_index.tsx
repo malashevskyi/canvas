@@ -1,5 +1,6 @@
 export { default as _2021_12_25 } from './2021-12-25/index'
 export { default as _2021_12_26_1 } from './2021-12-26_1/index'
+export { default as _1_test } from './1_test'
+export { default as _2021_12_26_3 } from './2021-12-27_1/index'
 export { default as _2021_12_27_1 } from './2021-12-27_1/index'
-export { default as test } from './test/index'
-export { default as _2021_12_26_3 } from './test/index'
+export { default as _2021_12_27_2 } from './2021-12-27_2/index'

@@ -10,15 +10,21 @@ interface PostsType {
 }
 
 const threeData: PostsType = {
-  test: {
+  '1_test': {
     number: null,
     tags: ['test'],
     credits: () => null,
     github: '',
   },
+  '2021-12-27_2': {
+    number: null,
+    tags: ['glsl', 'mix'],
+    credits: () => null,
+    github: '',
+  },
   '2021-12-27_1': {
     number: null,
-    tags: ['glsl'],
+    tags: ['glsl', 'mix'],
     credits: () => null,
     github: '',
   },
