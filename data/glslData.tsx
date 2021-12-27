@@ -10,6 +10,12 @@ interface PostsType {
 }
 
 const glslData: PostsType = {
+  '2021-12-27_2': {
+    number: 65,
+    tags: ['spot'],
+    credits: () => null,
+    github: '',
+  },
   '2021-12-27_1': {
     number: 64,
     tags: ['random'],
