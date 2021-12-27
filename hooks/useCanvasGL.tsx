@@ -24,7 +24,7 @@ const useCanvas = ({ sketch }: UseCanvasType) => {
       dispatch(mainActions.unloadCanvasManager())
 
       manager = await canvasSketch(sketch(), {
-        dimensions: [1024, 540],
+        dimensions: [1024, 512],
         animate: true,
         context: 'webgl',
         canvas: state.root.canvasGL,
