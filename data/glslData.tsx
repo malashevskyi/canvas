@@ -10,12 +10,11 @@ interface PostsType {
 }
 
 const glslData: PostsType = {
-  '2021-12-11': {
-    number: 63,
-    tags: ['glitch'],
+  '2021-12-27_1': {
+    number: 64,
+    tags: ['random'],
     credits: () => null,
-    github:
-      'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-11',
+    github: '',
   },
 }
 
