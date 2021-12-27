@@ -14,7 +14,8 @@ const threeData: PostsType = {
     number: 63,
     tags: ['sphere', 'torus'],
     credits: () => null,
-    github: '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/three/2021-12-23',
   },
 }
 

@@ -14,25 +14,29 @@ const glslData: PostsType = {
     number: 67,
     tags: ['loop', 'circles'],
     credits: () => null,
-    github: '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-28_1',
   },
   '2021-12-27_3': {
     number: 66,
     tags: ['fract', 'scale'],
     credits: () => null,
-    github: '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_3',
   },
   '2021-12-27_2': {
     number: 65,
     tags: ['spot'],
     credits: () => null,
-    github: '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_2',
   },
   '2021-12-27_1': {
     number: 64,
     tags: ['random'],
     credits: () => null,
-    github: '',
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_1',
   },
 }
 
