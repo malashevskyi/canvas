@@ -7,11 +7,6 @@ const sketch = ({ context, canvas }) => {
     context,
   })
 
-  // const dat = require('dat.gui')
-  // const gui = new dat.GUI()
-  // gui.domElement.id = 'gui'
-
-  // WebGL background color
   renderer.setClearColor('#000', 1)
 
   // Setup a camera

@@ -7,12 +7,6 @@ const sketch = ({ context }) => {
     context,
   })
 
-  // const dat = require('dat.gui')
-  // const gui = new dat.GUI()
-  // gui.domElement.id = 'gui'
-
-  renderer.setClearColor('#000', 1)
-
   const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 100)
   camera.position.set(0, 0, -4)
   camera.lookAt(new THREE.Vector3())
