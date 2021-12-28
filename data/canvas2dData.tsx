@@ -1,105 +1,11 @@
-import { Box, Link } from '@chakra-ui/react'
-
-function article(link: string) {
-  return (
-    <Box>
-      Inspired by the
-      <Link
-        href={link}
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        article
-      </Link>
-    </Box>
-  )
-}
-function photoUnsplash(name: string, link: string) {
-  return (
-    <Box>
-      Photo by
-      <Link
-        href={link}
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        {name}
-      </Link>
-      on
-      <Link
-        href="https://unsplash.com"
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        Unsplash
-      </Link>
-    </Box>
-  )
-}
-function video(link: string) {
-  return (
-    <Box>
-      Inspired by the&nbsp;
-      <Link
-        href={link}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        video
-      </Link>
-    </Box>
-  )
-}
-function codesandbox(link: string) {
-  return (
-    <Box>
-      Inspired by the
-      <Link
-        href={link}
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        codesandbox
-      </Link>
-    </Box>
-  )
-}
-function codepen(link: string) {
-  return (
-    <Box>
-      Inspired by the
-      <Link
-        href={link}
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        codepen
-      </Link>
-    </Box>
-  )
-}
-
-type PostType = {
-  number: number
-  tags: Array<string>
-  credits: () => null | JSX.Element
-  github: string
-}
-
-interface PostsType {
-  [key: string]: PostType
-}
+import {
+  article,
+  codepen,
+  codesandbox,
+  photoUnsplash,
+  video,
+} from './dataUtils'
+import { PostsType } from './types'
 
 const canvas2dData: PostsType = {
   '2021-12-06': {

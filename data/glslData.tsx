@@ -1,42 +1,5 @@
-import { Box, Link } from '@chakra-ui/react'
-
-type PostType = {
-  number: number
-  tags: Array<string>
-  credits: () => null | JSX.Element
-  github: string
-}
-
-interface PostsType {
-  [key: string]: PostType
-}
-
-function photoUnsplash(name: string, link: string) {
-  return (
-    <Box>
-      Photo by
-      <Link
-        href={link}
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        {name}
-      </Link>
-      on
-      <Link
-        href="https://unsplash.com"
-        px={1}
-        color="blue.400"
-        _hover={{ color: 'blue.600' }}
-        isExternal
-      >
-        Unsplash
-      </Link>
-    </Box>
-  )
-}
+import { photoUnsplash } from './dataUtils'
+import { PostsType } from './types'
 
 const glslData: PostsType = {
   '2021-12-28_2': {
