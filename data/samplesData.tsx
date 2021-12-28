@@ -16,6 +16,13 @@ const threeData: PostsType = {
     credits: () => null,
     github: '',
   },
+  '2021-12-28_5': {
+    number: null,
+    tags: ['glsl', 'loop', 'circles'],
+    credits: () => null,
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_4',
+  },
   '2021-12-28_4': {
     number: null,
     tags: ['THREE.js', 'texture data'],
