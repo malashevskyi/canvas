@@ -2,7 +2,7 @@
 
 Canvas animations.
 
-[**DEMO**](https://canvas-animations-cxtab0u4y-malashevskyi.vercel.app/) — checked in the latest chrome version.
+[**DEMO**](https://canvas-animations.vercel.app/) — checked in the latest chrome version.
 
 <!-- ![Screenshot](public/images/sc.png) -->
 
@@ -46,10 +46,13 @@ Canvas animations.
 - [`Solar textures`](https://www.solarsystemscope.com/textures/)<br>
 - [`Free PBR`](https://freepbr.com/)<br>
 - [`google equirectangular images`](https://www.google.com/search?q=equirectangular+images&tbm=isch&ved=2ahUKEwialqrCyIDuAhUI_hoKHRZvC2gQ2-cCegQIABAA&oq=equirectangular+images&gs_lcp=CgNpbWcQA1CsbFjsbWC9b2gAcAB4AIAB9QKIAfUCkgEDMy0xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=KSTyX9rdH4j8a5bercAG&bih=1276&biw=2560#imgrc=Nlw8VvEHmTpjNM)<br>
+- [`3d textures`](https://3dtextures.me/category/organic/animal/leather/)
+- [`hdris`](https://polyhaven.com/hdris)
 
 ### Tools
 
 - [`Gifmaker`](https://gifmaker.me/)<br>
+- [`HDRI-to-CubeMap`](https://matheowis.github.io/HDRI-to-CubeMap/)
 
 ### Extensions
 
