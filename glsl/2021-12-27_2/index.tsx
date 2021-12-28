@@ -17,11 +17,6 @@ const sketch = ({ context, width, height }) => {
 
   const scene = new THREE.Scene()
 
-  const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load('/images/glsl-images/1.jpg', (image) => {
-    console.log('image', image)
-  })
-
   const geometry = new THREE.PlaneBufferGeometry(7, 3.5, 32, 32)
   const material = new THREE.ShaderMaterial({
     vertexShader,
@@ -33,6 +28,8 @@ const sketch = ({ context, width, height }) => {
   })
   material.side = THREE.DoubleSide
   const mesh = new THREE.Mesh(geometry, material)
+
+  scene.add(mesh)
 
   return {
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
@@ -48,7 +45,6 @@ const sketch = ({ context, width, height }) => {
       controls.update()
       renderer.render(scene, camera)
     },
-    // Dispose of WebGL context (optional)
     unload() {
       renderer.dispose()
     },
