@@ -24,14 +24,7 @@ const sketch = ({ context, width, height }) => {
   const h = 200
   const size = w * h
   const data = new Float32Array(3 * size)
-  const color = new THREE.Color(0xffffff)
-  const r = Math.floor(color.r * 255)
-  const g = Math.floor(color.g * 255)
-  const b = Math.floor(color.b * 255)
-
   for (let i = 0; i < size; i++) {
-    // let r = Math.random()
-
     const stride = i * 3
     data[stride] = Math.random()
     data[stride + 1] = Math.random()
