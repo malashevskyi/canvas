@@ -10,6 +10,19 @@ interface PostsType {
 }
 
 const threeData: PostsType = {
+  '1_test': {
+    number: null,
+    tags: ['test'],
+    credits: () => null,
+    github: '',
+  },
+  '2021-12-28_4': {
+    number: null,
+    tags: ['THREE.js', 'texture data'],
+    credits: () => null,
+    github:
+      'https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_4',
+  },
   '2021-12-28_3': {
     number: null,
     tags: ['glsl', 'loop', 'rotation'],
