@@ -14,7 +14,7 @@ const sketch = ({ context, width, height }) => {
   camera.lookAt(new THREE.Vector3())
 
   const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load('/testImages/1.jpg')
+  const texture = textureLoader.load('/images/three-previews/1.jpg')
 
   const controls = new OrbitControls(camera, context.canvas)
 
