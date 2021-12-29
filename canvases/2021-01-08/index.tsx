@@ -128,14 +128,12 @@ const sketch = ({ context, canvas, height, width }) => {
     context.save()
     context.translate(width / 2, height / 2)
     context.scale(1.4, 1.4)
-    // eslint-disable-next-line
     context.fillStyle = palette[0]
     context.rotate(1)
     context.fill(pathBig)
     context.restore()
 
     context.save()
-    // eslint-disable-next-line
     context.fillStyle = palette[1]
     context.fill(pathSmall)
     context.restore()

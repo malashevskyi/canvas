@@ -56,7 +56,6 @@ const sketch = ({ context, height, width }) => {
     context.beginPath()
     context.rect(-40, -25, 80, 50)
     context.closePath()
-    // eslint-disable-next-line
     context.fillStyle = palette[4]
     context.fill()
     context.restore()
