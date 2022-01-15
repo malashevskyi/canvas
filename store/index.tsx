@@ -23,7 +23,7 @@ const initialState: InitialStateType = {
   context2D: null,
   contextGL: null,
   timelines: [],
-  spinnerIsActive: false,
+  spinnerIsActive: true,
   spinnerText: '',
   menuIsOpen: true,
 }

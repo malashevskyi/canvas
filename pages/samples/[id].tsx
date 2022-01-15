@@ -39,6 +39,10 @@ const Post: React.FC<PostProps> = ({ id }) => {
   }, [])
 
   const router = useRouter()
+  if (!id) {
+    dispatch(mainActions.setSpinner(true))
+    return null
+  }
   if (!samplesData[id]) {
     return <NotFound title="Post" />
   }
@@ -88,15 +92,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: true,
   }
 }
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   if (context.params) {
-//     return { props: { id: context.params.id } }
-//   }
-
-//   return { props: {} }
-// }
 
 export default Post

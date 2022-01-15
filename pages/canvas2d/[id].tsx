@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as canvases from '../../canvases/_index'
+import LoadSpinner from '../../components/loadSpinner'
 import canvas2dData from '../../data/canvas2dData'
 import PostLayout from '../../layout/post'
 import { mainActions, RootState } from '../../store'
@@ -15,6 +16,7 @@ type PostProps = {
 const Post: React.FC<PostProps> = ({ id }) => {
   const state = useSelector((state: RootState) => state)
   const dispatch = useDispatch()
+  console.log('_id', id)
 
   useEffect(() => {
     dispatch(mainActions.resetSpinner())
@@ -37,6 +39,10 @@ const Post: React.FC<PostProps> = ({ id }) => {
   }, [])
 
   const router = useRouter()
+  if (!id) {
+    dispatch(mainActions.setSpinner(true))
+    return null
+  }
   if (!canvas2dData[id]) {
     return <NotFound title="Post" />
   }
@@ -86,15 +92,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: true,
   }
 }
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   if (context.params) {
-//     return { props: { id: context.params.id } }
-//   }
-
-//   return { props: {} }
-// }
 
 export default Post
