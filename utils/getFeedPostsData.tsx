@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { FeedDataType } from '../data/types'
+import { FeedDataType } from '../types'
 
 function getFeedPostsData(fileName: string) {
   const filePath = path.join(process.cwd(), 'data', fileName)

@@ -16,8 +16,6 @@ const Additional = ({ postsData }) => {
   const githubLink = post.github
   const credits = post.credits
 
-  console.log('credits', credits)
-
   return (
     <>
       <Box

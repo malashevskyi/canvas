@@ -5,8 +5,6 @@ import { useRouter } from 'next/router'
 const Canvas2dButton = () => {
   const router = useRouter()
 
-  console.log('rotuer', router)
-
   return (
     <NextLink href="/">
       <Button

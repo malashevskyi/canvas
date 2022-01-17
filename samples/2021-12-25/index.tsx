@@ -35,7 +35,6 @@ const sketch = ({ context }) => {
   const boxGeometry = new THREE.TorusGeometry(0.1, 0.04, 32, 32, Math.PI * 2)
   const boxMaterial = new THREE.MeshNormalMaterial()
   for (let i = 0; i < positions.length; i += 3) {
-    console.log(positions[i])
     const mesh = new THREE.Mesh(boxGeometry, boxMaterial)
 
     boxes.push(mesh)

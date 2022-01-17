@@ -35,7 +35,6 @@ const sketch = ({ context, canvas }) => {
   canvas.addEventListener('mousemove', (event) => {
     mouse.x = (event.offsetX / canvas.clientWidth) * 2 - 1
     mouse.y = -(event.offsetY / canvas.clientHeight) * 2 + 1
-    console.log(mouse)
   })
 
   return {

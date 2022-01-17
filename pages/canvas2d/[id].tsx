@@ -6,8 +6,6 @@ import * as canvases from '../../canvases/_index'
 import PostLayout from '../../layout/post'
 import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
-import path from 'path'
-import fs from 'fs'
 import getPostsData from '../../utils/getPostsData'
 
 type PostProps = {
@@ -18,7 +16,6 @@ type PostProps = {
 const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {
   const state = useSelector((state: RootState) => state)
   const dispatch = useDispatch()
-  console.log('_id', id)
 
   useEffect(() => {
     dispatch(mainActions.resetSpinner())
