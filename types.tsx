@@ -14,3 +14,9 @@ export type PostType = {
 export interface PostsType {
   [key: string]: PostType
 }
+
+export type FeedDataType = {
+  id: string
+  title: string
+  tags: string[]
+}

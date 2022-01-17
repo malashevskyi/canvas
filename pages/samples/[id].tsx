@@ -2,17 +2,21 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import samplesData from '../../data/samplesData'
 import * as canvases from '../../samples/_index'
 import PostLayout from '../../layout/post'
 import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
+import path from 'path'
+import fs from 'fs'
+import { PostType } from '../../types'
+import getPostsData from '../../utils/getPostsData'
 
 type PostProps = {
   id: string
+  postsDataServer: PostType[]
 }
 
-const Post: React.FC<PostProps> = ({ id }) => {
+const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {
   const state = useSelector((state: RootState) => state)
   const dispatch = useDispatch()
 
@@ -43,11 +47,11 @@ const Post: React.FC<PostProps> = ({ id }) => {
     dispatch(mainActions.setSpinner(true))
     return null
   }
-  if (!samplesData[id]) {
+  if (!postsDataServer[id]) {
     return <NotFound title="Post" />
   }
 
-  const post = samplesData[id]
+  const post = postsDataServer[id]
 
   if (!post) {
     return <NotFound title="Post" />
@@ -65,7 +69,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       tags={tags}
       url={url}
       group="samples"
-      postsData={samplesData}
+      postsData={postsDataServer}
     >
       {router.query.id &&
         (() => {
@@ -83,8 +87,10 @@ const Post: React.FC<PostProps> = ({ id }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const data = getPostsData('samplesData.json')
+
   if (context.params) {
-    return { props: { id: context.params.id } }
+    return { props: { id: context.params.id, postsDataServer: data } }
   }
 
   return { props: {} }

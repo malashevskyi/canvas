@@ -5,10 +5,11 @@ import { useDispatch } from 'react-redux'
 import { List } from 'react-virtualized'
 import 'react-virtualized/styles.css'
 import Card from '../../components/card'
-import samplesData from '../../data/samplesData'
+import { FeedDataType } from '../../data/types'
 import useWindowSize from '../../hooks/useWindowSize'
 import MainLayout from '../../layout/main'
 import { mainActions } from '../../store'
+import getFeedPostsData from '../../utils/getFeedPostsData'
 
 const gapSize = 10
 const cardHeight = 130
@@ -19,15 +20,10 @@ type RowArgs = {
   index: number
   style: React.CSSProperties
 }
-type DataType = {
-  id: string
-  title: string
-  tags: string[]
-}
 
 function rowRenderer(
   scrollDirection: string,
-  dataArr: Array<DataType>,
+  dataArr: Array<FeedDataType>,
   columnCount: number,
   anmRenderFirstScreen: boolean,
   { key, index, style }: RowArgs
@@ -78,10 +74,10 @@ function rowRenderer(
 }
 
 type IndexProps = {
-  samplesDataServer: DataType[]
+  postsDataServer: FeedDataType[]
 }
 
-const Index: React.FC<IndexProps> = ({ samplesDataServer }) => {
+const Index: React.FC<IndexProps> = ({ postsDataServer }) => {
   const [scrollListTop, setScrollListTop] = useState(0)
   const [scrollDirection, setScrollDirection] = useState('down')
 
@@ -106,7 +102,7 @@ const Index: React.FC<IndexProps> = ({ samplesDataServer }) => {
   })
 
   const columnCount = Math.floor((size.width - gapSize) / (cardWidth + gapSize))
-  const rowCount = Math.ceil(samplesDataServer.length / columnCount)
+  const rowCount = Math.ceil(postsDataServer.length / columnCount)
 
   const onListScrollHandler = ({ scrollTop }: { scrollTop: number }) => {
     if (scrollTop < scrollListTop) {
@@ -129,7 +125,7 @@ const Index: React.FC<IndexProps> = ({ samplesDataServer }) => {
         rowRenderer={(rowArgs) =>
           rowRenderer(
             scrollDirection,
-            samplesDataServer,
+            postsDataServer,
             columnCount,
             anmRenderFirstScreen,
             rowArgs
@@ -141,22 +137,10 @@ const Index: React.FC<IndexProps> = ({ samplesDataServer }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: DataType[] = []
-
-  Object.keys(samplesData).forEach((key) => {
-    const post = samplesData[key]
-
-    if (post) {
-      data.push({
-        id: key,
-        title: 'Canvas animation - ' + post.tags.join(', '),
-        tags: post.tags,
-      })
-    }
-  })
+  const data = getFeedPostsData('samplesData.json')
 
   return {
-    props: { samplesDataServer: data },
+    props: { postsDataServer: data },
   }
 }
 

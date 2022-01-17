@@ -3,17 +3,19 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as canvases from '../../canvases/_index'
-import LoadSpinner from '../../components/loadSpinner'
-import canvas2dData from '../../data/canvas2dData'
 import PostLayout from '../../layout/post'
 import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
+import path from 'path'
+import fs from 'fs'
+import getPostsData from '../../utils/getPostsData'
 
 type PostProps = {
   id: string
+  postsDataServer: any
 }
 
-const Post: React.FC<PostProps> = ({ id }) => {
+const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {
   const state = useSelector((state: RootState) => state)
   const dispatch = useDispatch()
   console.log('_id', id)
@@ -43,11 +45,11 @@ const Post: React.FC<PostProps> = ({ id }) => {
     dispatch(mainActions.setSpinner(true))
     return null
   }
-  if (!canvas2dData[id]) {
+  if (!postsDataServer[id]) {
     return <NotFound title="Post" />
   }
 
-  const post = canvas2dData[id]
+  const post = postsDataServer[id]
 
   if (!post) {
     return <NotFound title="Post" />
@@ -65,7 +67,7 @@ const Post: React.FC<PostProps> = ({ id }) => {
       tags={tags}
       url={url}
       group="canvas2d"
-      postsData={canvas2dData}
+      postsData={postsDataServer}
     >
       {router.query.id &&
         (() => {
@@ -83,8 +85,10 @@ const Post: React.FC<PostProps> = ({ id }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const data = getPostsData('canvas2dData.json')
+
   if (context.params) {
-    return { props: { id: context.params.id } }
+    return { props: { id: context.params.id, postsDataServer: data } }
   }
 
   return { props: {} }

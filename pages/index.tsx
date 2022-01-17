@@ -5,10 +5,11 @@ import { useDispatch } from 'react-redux'
 import { List } from 'react-virtualized'
 import 'react-virtualized/styles.css'
 import Card from '../components/card'
-import postsData from '../data/canvas2dData'
+import { FeedDataType } from '../data/types'
 import useWindowSize from '../hooks/useWindowSize'
 import MainLayout from '../layout/main'
 import { mainActions } from '../store'
+import getFeedPostsData from '../utils/getFeedPostsData'
 
 const gapSize = 10
 const cardHeight = 130
@@ -19,15 +20,10 @@ type RowArgs = {
   index: number
   style: React.CSSProperties
 }
-type DataType = {
-  id: string
-  title: string
-  tags: string[]
-}
 
 function rowRenderer(
   scrollDirection: string,
-  dataArr: Array<DataType>,
+  dataArr: Array<FeedDataType>,
   columnCount: number,
   anmRenderFirstScreen: boolean,
   { key, index, style }: RowArgs
@@ -78,7 +74,7 @@ function rowRenderer(
 }
 
 type IndexProps = {
-  postsDataServer: DataType[]
+  postsDataServer: FeedDataType[]
 }
 
 const Index: React.FC<IndexProps> = ({ postsDataServer }) => {
@@ -143,19 +139,7 @@ const Index: React.FC<IndexProps> = ({ postsDataServer }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: DataType[] = []
-
-  Object.keys(postsData).forEach((key) => {
-    const post = postsData[key]
-
-    if (post) {
-      data.push({
-        id: key,
-        title: 'Canvas animation - ' + post.tags.join(', '),
-        tags: post.tags,
-      })
-    }
-  })
+  const data = getFeedPostsData('canvas2dData.json')
 
   return {
     props: { postsDataServer: data },

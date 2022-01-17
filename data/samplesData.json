@@ -1,0 +1,98 @@
+{
+  "2021-12-28_5": {
+    "number": null,
+    "tags": ["glsl", "loop", "circles"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_4"
+  },
+  "2021-12-28_4": {
+    "number": null,
+    "tags": ["THREE.js", "texture data"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_4"
+  },
+  "2021-12-28_3": {
+    "number": null,
+    "tags": ["glsl", "loop", "rotation"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_3"
+  },
+  "2021-12-28_2": {
+    "number": null,
+    "tags": ["glsl", "logo"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_2"
+  },
+  "2021-12-28_1": {
+    "number": null,
+    "tags": ["glsl", "normalize"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-28_1"
+  },
+  "2021-12-27_8": {
+    "number": null,
+    "tags": ["glsl", "mod", "offset"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_8"
+  },
+  "2021-12-27_7": {
+    "number": null,
+    "tags": ["glsl", "rotation", "flower"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_7"
+  },
+  "2021-12-27_6": {
+    "number": null,
+    "tags": ["glsl", "rotation"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_6"
+  },
+  "2021-12-27_5": {
+    "number": null,
+    "tags": ["glsl", "fract"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_5"
+  },
+  "2021-12-27_4": {
+    "number": null,
+    "tags": ["glsl", "distance"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_4"
+  },
+  "2021-12-27_3": {
+    "number": null,
+    "tags": ["glsl", "distance"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_3"
+  },
+  "2021-12-27_2": {
+    "number": null,
+    "tags": ["glsl", "mix"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_2"
+  },
+  "2021-12-27_1": {
+    "number": null,
+    "tags": ["glsl", "mix"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-27_1"
+  },
+  "2021-12-26_2": {
+    "number": null,
+    "tags": ["raycaster", "intersects", "hover"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-26_2"
+  },
+  "2021-12-26_1": {
+    "number": null,
+    "tags": ["raycaster", "intersects"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-26_1"
+  },
+  "2021-12-25": {
+    "number": null,
+    "tags": ["particles", "three.js"],
+    "credits": {},
+    "github": "https://github.com/malashevskyi/canvas/tree/master/samples/2021-12-25"
+  }
+}
