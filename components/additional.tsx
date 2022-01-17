@@ -3,6 +3,7 @@ import { Box, Center, HStack, VStack, Badge } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import useWindowSize from '../hooks/useWindowSize'
 import ArrowInfo from './arrowInfo'
+import Credits from './credits'
 import GithubButton from './githubButton'
 
 const Additional = ({ postsData }) => {
@@ -13,7 +14,9 @@ const Additional = ({ postsData }) => {
   const post = postsData[location.query.id.toString()]
 
   const githubLink = post.github
-  const credits = post.credits()
+  const credits = post.credits
+
+  console.log('credits', credits)
 
   return (
     <>
@@ -50,14 +53,11 @@ const Additional = ({ postsData }) => {
             <Box mb="201px">
               {githubLink && <GithubButton link={githubLink} />}
             </Box>
-            {credits && (
-              <Center borderTop="solid 1px" borderColor="gray.200" w="100%">
-                <Box as="h3" letterSpacing="1px" textAlign="center" pt={3}>
-                  Credits: <br />
-                  {credits}
-                </Box>
-              </Center>
-            )}
+            <Credits
+              type={credits.type}
+              link={credits.link}
+              name={credits.name}
+            />
           </VStack>
         </Center>
       </Box>

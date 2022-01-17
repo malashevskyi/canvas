@@ -1,43 +1,42 @@
-import { photoUnsplash } from './dataUtils'
 import { PostsType } from './types'
 
 const glslData: PostsType = {
   '2021-12-28_2': {
     number: 68,
     tags: ['distortion'],
-    credits: () =>
-      photoUnsplash(
-        'ThisisEngineering RAEng',
-        'https://unsplash.com/@thisisengineering'
-      ),
+    credits: {
+      type: 'unsplash',
+      name: 'ThisisEngineering RAEng',
+      link: 'https://unsplash.com/@thisisengineering',
+    },
     github:
       'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-28_2',
   },
   '2021-12-28_1': {
     number: 67,
     tags: ['loop', 'circles'],
-    credits: () => null,
+    credits: {},
     github:
       'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-28_1',
   },
   '2021-12-27_3': {
     number: 66,
     tags: ['fract', 'scale'],
-    credits: () => null,
+    credits: {},
     github:
       'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_3',
   },
   '2021-12-27_2': {
     number: 65,
     tags: ['spot'],
-    credits: () => null,
+    credits: {},
     github:
       'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_2',
   },
   '2021-12-27_1': {
     number: 64,
     tags: ['random'],
-    credits: () => null,
+    credits: {},
     github:
       'https://github.com/malashevskyi/canvas/tree/master/glsl/2021-12-27_1',
   },
