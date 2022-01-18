@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Canvas animations</title>
           <meta name="keywords" content="Canvas, animation" />
           <meta name="description" content="Canvas animations" />
           <meta property="og:title" content="Canvas animations" />
