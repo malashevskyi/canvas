@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { mainActions } from '../store'
 import Preview from './preview'
 
-const Card = ({ date, tags, link, id, title, src, githubLink }) => {
+const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
   const router = useRouter()
 
   const dispatch = useDispatch()
@@ -95,7 +95,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink }) => {
           >
             {date.slice(0, 10)}
           </Badge>
-          <Preview src={src} name={id} title={title} />
+          <Preview src={src} name={id} title={title} index={index} />
         </Link>
       </NextLink>
     </Box>

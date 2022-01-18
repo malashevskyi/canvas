@@ -10,7 +10,7 @@ type CardsProps = {
 const Cards: React.FC<CardsProps> = ({ posts, group }) => {
   return (
     <Flex align="center" justify="center" wrap="wrap">
-      {posts.map(({ id, title, tags }) => {
+      {posts.map(({ id, title, tags }, index) => {
         const date = id.slice(0, 10)
         let src = ''
 
@@ -33,6 +33,7 @@ const Cards: React.FC<CardsProps> = ({ posts, group }) => {
             date={date}
             src={src}
             githubLink={null}
+            index={index}
           />
         )
       })}
