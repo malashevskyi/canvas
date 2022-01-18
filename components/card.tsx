@@ -47,7 +47,9 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
           display="block"
           onClick={onCardClickHandler}
           borderLeft="3px solid"
-          borderColor={`${router.query.id === id ? 'yellow.400' : 'blue.200'}`}
+          borderColor={`${
+            router.query.id === id ? 'yellow.400' : 'purple.300'
+          }`}
           overflow="hidden"
           transform={`translate(${router.query.id === id ? '-10px' : 0}, 0)`}
         >
@@ -69,7 +71,8 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
             {tags.map((tag) => (
               <Box
                 key={tag}
-                color="#0e5293"
+                // color="#0e5293"
+                color="purple.600"
                 fontSize="11px"
                 textTransform="uppercase"
                 letterSpacing="1px"
@@ -90,7 +93,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
             bottom={1}
             letterSpacing="2px"
             fontSize="12px"
-            color="gray.600"
+            color="gray.700"
             transform="scale(0.8)"
             transformOrigin="100% 100%"
             zIndex={1}

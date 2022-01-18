@@ -40,9 +40,10 @@ const Additional = ({ postsData }) => {
               {post.tags.map((tag) => (
                 <Badge
                   key={tag}
-                  color="gray.500"
+                  color="purple.500"
+                  bg="white"
                   letterSpacing="1px"
-                  fontSize="11px"
+                  fontSize="12px"
                 >
                   {tag}
                 </Badge>

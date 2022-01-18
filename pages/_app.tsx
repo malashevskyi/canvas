@@ -12,18 +12,21 @@ const theme = extendTheme({
     Button: {
       variants: {
         solid: {
-          bg: 'blue.300',
+          bg: 'purple.500',
           color: 'white',
           borderRadius: '0',
           textTransform: 'uppercase',
           letterSpacing: '2px',
           _hover: {
-            bg: 'blue.600',
+            // bg: '#14a9d9',
+            bg: 'purple.600',
           },
           _active: {
-            bg: 'blue.500',
+            // bg: '#0aa2ff',
+            bg: 'purple.900',
             _hover: {
-              bg: 'blue.600',
+              // bg: '#14a9d9',
+              bg: 'purple.600',
             },
           },
         },
