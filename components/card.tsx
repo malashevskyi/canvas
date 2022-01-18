@@ -86,7 +86,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
             as="time"
             dateTime={date}
             pos="absolute"
-            right={1}
+            right={3}
             bottom={1}
             letterSpacing="2px"
             fontSize="9px"
