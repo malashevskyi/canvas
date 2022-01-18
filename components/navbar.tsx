@@ -45,7 +45,7 @@ const Navbar = ({ postsData, group }: NavbarProps) => {
             overflowX="hidden"
             pl="10px"
           >
-            {Object.keys(postsData).map((id) => {
+            {Object.keys(postsData).map((id, index) => {
               const { tags, github } = postsData[id]
               const date = id.slice(0, 10)
 
@@ -69,6 +69,7 @@ const Navbar = ({ postsData, group }: NavbarProps) => {
                 githubLink: github,
                 title: 'Canvas animation - ' + tags.join(', '),
                 link: `/${group}/${id}`,
+                index,
               }
 
               if (router.query.id === id) {
