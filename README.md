@@ -14,6 +14,7 @@ Canvas animations.
 - [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
 - [`gsap`](https://github.com/greensock/GSAP)<br>
+- [`three.js`](https://github.com/mrdoob/three.js/))<br>
 
 ### Useful YouTube channels:
 
