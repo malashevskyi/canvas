@@ -3,6 +3,7 @@ import Additional from '../components/additional'
 import LoadSpinner from '../components/loadSpinner'
 import Menu from '../components/menu'
 import Navbar from '../components/navbar'
+import useWindowSize from '../hooks/useWindowSize'
 
 const PostLayout = ({
   children,
@@ -13,6 +14,8 @@ const PostLayout = ({
   group,
   postsData,
 }) => {
+  const { width } = useWindowSize()
+
   return (
     <>
       <Head>
@@ -58,11 +61,13 @@ const PostLayout = ({
           href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
         />
       </Head>
-      <Navbar
-        group={group}
-        canvasNames={Object.keys(postsData)}
-        postsData={postsData}
-      />
+      {width >= 768 && (
+        <Navbar
+          group={group}
+          canvasNames={Object.keys(postsData)}
+          postsData={postsData}
+        />
+      )}
       {children}
       <Menu />
       {group !== 'samples' && <Additional postsData={postsData} />}

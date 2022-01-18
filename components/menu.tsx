@@ -1,4 +1,5 @@
 import { VStack } from '@chakra-ui/layout'
+import useWindowSize from '../hooks/useWindowSize'
 import Canvas2dButton from './canvas2dButton'
 import GithubButton from './githubButton'
 import GLSLButton from './glslButton'
@@ -11,6 +12,8 @@ type MenuProps = {
 }
 
 const Menu = ({ mainLayout }: MenuProps) => {
+  const { width } = useWindowSize()
+
   return (
     <VStack
       spacing={1}
@@ -24,7 +27,7 @@ const Menu = ({ mainLayout }: MenuProps) => {
       <ThreeButton />
       <GLSLButton />
       <SampleButton />
-      {!mainLayout && <MenuButton />}
+      {!mainLayout && width >= 768 && <MenuButton />}
       <GithubButton link="https://github.com/malashevskyi/canvas" />
     </VStack>
   )
