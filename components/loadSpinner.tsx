@@ -20,11 +20,11 @@ const LoadSpinner = () => {
       transition="opacity .35s ease"
       pointerEvents="none"
     >
-      {state.root.spinnerText && (
-        <Center as="h4" pos="absolute" textAlign="center" pt="130px">
-          <pre>{state.root.spinnerText}</pre>
-        </Center>
-      )}
+      {/* {state.root.spinnerText && ( */}
+      {/* <Center as="h4" pos="absolute" textAlign="center" pt="130px"> */}
+      {/* <pre>{state.root.spinnerText}</pre> */}
+      {/* </Center> */}
+      {/* )} */}
       <div className="loader">Loading...</div>
     </Box>
   )
