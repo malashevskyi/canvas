@@ -2,7 +2,6 @@ import { Box } from '@chakra-ui/react'
 import Image from 'next/image'
 
 const Preview = ({ title, name, src, ...props }) => {
-  console.log('src', src)
   return (
     <Box
       w="300px"
