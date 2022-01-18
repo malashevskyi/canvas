@@ -61,6 +61,9 @@ function MainLayout({ title, children }) {
           <Popover isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
             <PopoverTrigger>
               <Button p={2} h="40px">
+                <Box as="span" pos="absolute" zIndex={-1}>
+                  Menu
+                </Box>
                 <Box>
                   <Box
                     width="25px"

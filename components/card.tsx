@@ -69,12 +69,12 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
             {tags.map((tag) => (
               <Box
                 key={tag}
-                color="blue.500"
+                color="#0e5293"
                 fontSize="11px"
                 textTransform="uppercase"
                 letterSpacing="1px"
                 fontWeight="600"
-                bg="white"
+                bg="#efefef"
                 px={1}
                 borderRadius="2px"
               >
