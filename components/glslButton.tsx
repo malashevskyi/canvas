@@ -6,7 +6,7 @@ const GLSLButton = () => {
   const router = useRouter()
 
   return (
-    <NextLink href="/glsl">
+    <NextLink href="/glsl" passHref={true}>
       <Button isActive={router.pathname.includes('glsl')} as={Link}>
         GLSL animations
       </Button>

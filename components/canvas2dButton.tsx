@@ -6,7 +6,7 @@ const Canvas2dButton = () => {
   const router = useRouter()
 
   return (
-    <NextLink href="/">
+    <NextLink href="/" passHref={true}>
       <Button
         isActive={
           router.pathname.includes('canvas2d') || router.pathname === '/'

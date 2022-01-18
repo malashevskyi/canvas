@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 const ThreeButton = () => {
   const router = useRouter()
   return (
-    <NextLink href="/three">
+    <NextLink href="/three" passHref={true}>
       <Button isActive={router.pathname.includes('three')} as={Link}>
         THREE.js animations
       </Button>
