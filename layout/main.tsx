@@ -36,6 +36,7 @@ function MainLayout({ title, children }) {
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content="Canvas animations" />
+        <meta name="theme-color" content="#ffffff" />
 
         <link
           rel="apple-touch-icon"

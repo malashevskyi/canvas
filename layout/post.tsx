@@ -36,6 +36,7 @@ const PostLayout = ({
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content={postTitle} />
         <meta property="og:description" content={postDescription} />
+        <meta name="theme-color" content="#ffffff" />
 
         <link
           rel="apple-touch-icon"

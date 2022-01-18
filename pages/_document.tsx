@@ -22,6 +22,9 @@ export default class MyDocument extends Document {
           <meta property="og:site_name" content="Canvas animations" />
           <meta property="og:description" content="Canvas animations" />
 
+          <meta name="theme-color" content="#ffffff" />
+          <meta name="apple-mobile-web-app-status-bar" content="#ffffff" />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
