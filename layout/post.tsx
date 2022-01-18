@@ -58,7 +58,6 @@ const PostLayout = ({
           href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap"
         />
       </Head>
-      <LoadSpinner />
       <Navbar
         group={group}
         canvasNames={Object.keys(postsData)}

@@ -21,14 +21,6 @@ const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(mainActions.resetSpinner())
-
-    return () => {
-      dispatch(mainActions.resetSpinner())
-    }
-  }, [])
-
-  useEffect(() => {
     if (!window['timelines']) {
       window['timelines'] = []
     }
@@ -43,10 +35,6 @@ const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {
   }, [])
 
   const router = useRouter()
-  if (!id) {
-    dispatch(mainActions.setSpinner(true))
-    return null
-  }
   if (!postsDataServer[id]) {
     return <NotFound title="Post" />
   }
@@ -98,7 +86,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: 'blocking',
   }
 }
 
