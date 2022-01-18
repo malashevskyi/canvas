@@ -57,7 +57,7 @@ function MainLayout({ title, children }) {
         <link rel="manifest" href={`/favicons/site.webmanifest`} />
       </Head>
       <div className="main">
-        <Box pos="absolute" zIndex={2} left={2} top={2}>
+        <Box pos="fixed" zIndex={2} left={2} top={2}>
           <Popover isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
             <PopoverTrigger>
               <Button p={2} h="40px">

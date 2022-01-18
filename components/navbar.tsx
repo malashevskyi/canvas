@@ -1,157 +1,24 @@
-import { Button } from '@chakra-ui/button'
-import { Badge, Box, Link, VStack } from '@chakra-ui/layout'
-import NextLink from 'next/link'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { Box } from '@chakra-ui/layout'
 import { useSelector } from 'react-redux'
-import { AutoSizer, List } from 'react-virtualized'
 import { RootState } from '../store'
-import Preview from './preview'
+import { PostType } from '../types'
+import Card from './card'
 
-const Navbar = ({ canvasNames, postsData, group }) => {
-  const location = useRouter()
+type NavbarProps = {
+  postsData: PostType[]
+  group: string
+  canvasNames: string[]
+}
+
+const Navbar = ({ postsData, group }: NavbarProps) => {
   const state = useSelector((state: RootState) => state)
-
-  const [thisNavbarIndex] = useState(
-    canvasNames.findIndex((el) => el === location.query.id)
-  )
-
-  function rowRenderer({ key, index, style }) {
-    const name = canvasNames[index]
-    if (!name) return null
-
-    const postData = postsData[name]
-
-    const date = `${name?.slice(0, 4)}-${name?.slice(5, 7)}-${name?.slice(
-      8,
-      10
-    )}`
-    let imgTitle = ''
-
-    const githubLink = postData.github
-
-    let src = ''
-
-    if (group === 'canvas2d') {
-      src = `/images/previews/${name}.png`
-    } else if (group === 'glsl') {
-      src = `/images/glsl-previews/${name}.png`
-    } else if (group === 'three') {
-      src = `/images/three-previews/${name}.png`
-    } else if (group === 'samples') {
-      src = `/images/samples-previews/${name}.png`
-    }
-
-    return (
-      <Box
-        style={style}
-        key={key}
-        pos="relative"
-        pl="10px"
-        _before={{
-          content: '""',
-          pos: 'absolute',
-          zIndex: 0,
-          w: '100%',
-          h: '100%',
-          top: 0,
-          right: '-10px',
-        }}
-      >
-        {githubLink && (
-          <Button
-            as={Link}
-            href={githubLink}
-            isExternal
-            fontSize="11px"
-            p={1}
-            borderRadius="3px"
-            h="20px"
-            pos="absolute"
-            bottom="27px"
-            zIndex={2}
-            right={1}
-            transform={`translate(${
-              location.query.id === name ? '-25px' : 0
-            }, 0)`}
-          >
-            Github
-          </Button>
-        )}
-        <NextLink href={`/${group}/${name}`}>
-          <Link
-            d="block"
-            borderLeft="3px solid"
-            borderColor={`${
-              location.query.id === name ? 'yellow.400' : 'blue.200'
-            }`}
-            overflow="hidden"
-            transform={`translate(${
-              location.query.id === name ? '-10px' : 0
-            }, 0)`}
-          >
-            <VStack
-              as="h2"
-              alignItems="flex-start"
-              spacing={1}
-              p={1}
-              pos="absolute"
-              top={0}
-              left="0"
-              zIndex={2}
-              mt="2px"
-              ml="2px"
-              flexWrap="wrap"
-              willChange="transform"
-              transition="transform .3s ease"
-            >
-              {postData.tags.map((tag) => (
-                <Box
-                  color="blue.500"
-                  fontSize="11px"
-                  textTransform="uppercase"
-                  letterSpacing="1px"
-                  fontWeight="600"
-                  bg="white"
-                  px={1}
-                  borderRadius="2px"
-                >
-                  {tag}
-                </Box>
-              ))}
-            </VStack>
-            <Preview
-              willChange="transform"
-              transition="transform .3s ease"
-              title={imgTitle}
-              src={src}
-              name={name}
-            />
-            <Badge
-              as="time"
-              dateTime={date}
-              pos="absolute"
-              right={1}
-              bottom={2}
-              letterSpacing="2px"
-              fontSize="9px"
-              color="gray.600"
-              zIndex={2}
-            >
-              {date.slice(0, 10)}
-            </Badge>
-          </Link>
-        </NextLink>
-      </Box>
-    )
-  }
 
   return (
     <Box
       pos="fixed"
       top={0}
       right={0}
-      zIndex={10}
+      zIndex={9999}
       h="100vh"
       w="100%"
       maxW={['253px', '253px', '303px']}
@@ -161,21 +28,42 @@ const Navbar = ({ canvasNames, postsData, group }) => {
     >
       <Box h="100vh">
         <Box h="100%">
-          <Box overflowY="auto" h="100%" pos="relative" overflowX="hidden">
-            <AutoSizer>
-              {({ height }) => (
-                <List
-                  width={300}
-                  height={height}
-                  rowCount={canvasNames.length}
-                  rowHeight={125}
-                  rowRenderer={rowRenderer}
-                  overscanRowCount={3}
-                  scrollToIndex={thisNavbarIndex}
-                  scrollToAlignment="start"
+          <Box
+            overflowY="auto"
+            h="100%"
+            pos="relative"
+            overflowX="hidden"
+            pl="10px"
+          >
+            {Object.keys(postsData).map((id) => {
+              const { tags, github } = postsData[id]
+              const date = id.slice(0, 10)
+
+              let src = ''
+
+              if (group === 'canvas2d') {
+                src = `/images/previews/${id}.png`
+              } else if (group === 'glsl') {
+                src = `/images/glsl-previews/${id}.png`
+              } else if (group === 'three') {
+                src = `/images/three-previews/${id}.png`
+              } else if (group === 'samples') {
+                src = `/images/samples-previews/${id}.png`
+              }
+
+              return (
+                <Card
+                  key={id}
+                  id={id}
+                  title={'Canvas animation - ' + tags.join(', ')}
+                  tags={tags}
+                  link={`/${group}/${id}`}
+                  date={date}
+                  src={src}
+                  githubLink={github}
                 />
-              )}
-            </AutoSizer>
+              )
+            })}
           </Box>
         </Box>
       </Box>

@@ -12,7 +12,7 @@ const LoadSpinner = () => {
       width="100%"
       height="100%"
       bg="#ffffff"
-      zIndex={999999999}
+      zIndex={99}
       display="flex"
       alignItems="center"
       justifyContent="center"

@@ -7,10 +7,11 @@ import PostLayout from '../../layout/post'
 import { mainActions, RootState } from '../../store'
 import NotFound from '../404'
 import getPostsData from '../../utils/getPostsData'
+import { PostType } from '../../types'
 
 type PostProps = {
   id: string
-  postsDataServer: any
+  postsDataServer: PostType[]
 }
 
 const Post: React.FC<PostProps> = ({ id, postsDataServer }) => {

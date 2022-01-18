@@ -1,14 +1,16 @@
-import { Box, Image } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import Image from 'next/image'
 
 const Preview = ({ title, name, src, ...props }) => {
+  console.log('src', src)
   return (
     <Box
       w="300px"
       height="123px"
       pos="relative"
-      bg="white"
       overflow="hidden"
       objectFit="cover"
+      bg="white"
       {...props}
       _before={{
         content: '""',
@@ -22,7 +24,13 @@ const Preview = ({ title, name, src, ...props }) => {
         zIndex: 1,
       }}
     >
-      <Image w="auto" h="100%" mr="auto" src={src} alt={title} layout="fill" />
+      <Image
+        src={src}
+        alt={title}
+        layout="fill"
+        objectFit="cover"
+        priority={true}
+      />
     </Box>
   )
 }

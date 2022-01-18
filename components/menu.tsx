@@ -14,6 +14,8 @@ const Menu = ({ mainLayout }: MenuProps) => {
   return (
     <VStack
       spacing={1}
+      pos="relative"
+      zIndex={999}
       p={1}
       justifyContent="flex-start"
       alignItems="flex-start"

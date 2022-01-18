@@ -10,7 +10,6 @@ Canvas animations.
 
 - [`next.js`](https://github.com/vercel/next.js)<br>
 - [`canvas-sketch`](https://github.com/mattdesl/canvas-sketch)<br>
-- [`react-virtualized`](https://github.com/bvaughn/react-virtualized)<br>
 - [`canvas-sketch-util`](https://github.com/mattdesl/canvas-sketch-util)<br>
 - [`react-notifications-component`](https://github.com/teodosii/react-notifications-component)<br>
 - [`nice-color-palettes`](https://github.com/Jam3/nice-color-palettes)<br>
