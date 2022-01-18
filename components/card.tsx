@@ -73,7 +73,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
                 key={tag}
                 // color="#0e5293"
                 color="purple.600"
-                fontSize="11px"
+                fontSize="12px"
                 textTransform="uppercase"
                 letterSpacing="1px"
                 fontWeight="600"
