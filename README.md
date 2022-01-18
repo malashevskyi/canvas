@@ -39,6 +39,7 @@ Canvas animations.
 - [`WebGL, GLSL guide + examples`](https://webglsamples.org/google-io/2011/index.html)<br>
 - [`https://www.shadertoy.com/`](https://www.shadertoy.com/)<br>
 - [`Math geometry`](https://mathsisfun.com/geometry/unit-circle.html)<br>
+- [`Physically Based Rendering`](https://www.pbr-book.org/3ed-2018/contents)<br>
 
 ### Images, textures
 
