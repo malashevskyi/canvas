@@ -24,7 +24,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
           as={Link}
           href={githubLink}
           isExternal
-          fontSize="11px"
+          fontSize="12px"
           p={1}
           borderRadius="3px"
           h="20px"
@@ -39,7 +39,7 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
           Github
         </Button>
       )}
-      <NextLink href={link}>
+      <NextLink href={link} passHref={true}>
         <Link
           m={1}
           w="100%"
@@ -89,8 +89,10 @@ const Card = ({ date, tags, link, id, title, src, githubLink, index }) => {
             right={3}
             bottom={1}
             letterSpacing="2px"
-            fontSize="9px"
+            fontSize="12px"
             color="gray.600"
+            transform="scale(0.8)"
+            transformOrigin="100% 100%"
             zIndex={1}
           >
             {date.slice(0, 10)}
