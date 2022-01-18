@@ -1,4 +1,6 @@
 import { Box } from '@chakra-ui/layout'
+import { useRouter } from 'next/router'
+import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { PostType } from '../types'
@@ -12,6 +14,14 @@ type NavbarProps = {
 
 const Navbar = ({ postsData, group }: NavbarProps) => {
   const state = useSelector((state: RootState) => state)
+  const router = useRouter()
+  const cardOfCurrentCanvasRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (cardOfCurrentCanvasRef) {
+      cardOfCurrentCanvasRef.current.scrollIntoView()
+    }
+  }, [cardOfCurrentCanvasRef])
 
   return (
     <Box
@@ -51,18 +61,25 @@ const Navbar = ({ postsData, group }: NavbarProps) => {
                 src = `/images/samples-previews/${id}.png`
               }
 
-              return (
-                <Card
-                  key={id}
-                  id={id}
-                  title={'Canvas animation - ' + tags.join(', ')}
-                  tags={tags}
-                  link={`/${group}/${id}`}
-                  date={date}
-                  src={src}
-                  githubLink={github}
-                />
-              )
+              const cardProps = {
+                id,
+                src,
+                date,
+                tags,
+                githubLink: github,
+                title: 'Canvas animation - ' + tags.join(', '),
+                link: `/${group}/${id}`,
+              }
+
+              if (router.query.id === id) {
+                return (
+                  <Box ref={cardOfCurrentCanvasRef} key={id}>
+                    <Card {...cardProps} />
+                  </Box>
+                )
+              }
+
+              return <Card key={id} {...cardProps} />
             })}
           </Box>
         </Box>
