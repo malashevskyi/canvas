@@ -13,7 +13,7 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  const cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1']
+  const cacheAllowlist = ['canvas-animations-cache-v1']
 
   event.waitUntil(
     caches.keys().then((cacheNames) => {
